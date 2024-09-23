@@ -20,7 +20,7 @@
 
 ### 任务
 
-- [x] 对数据集进行预处理，抽取需要的信息并分块
+- [x] 对数据集进行并行化预处理，抽取需要的信息并分块
 - [ ] 对数据集的总体情况进行分析，并通过图表的形式进行展示
 - [ ] 寻找算法对论文进行分类，挖掘其论文类别社区，并进行可视化
   - [ ] 超大数据集的并行化处理
@@ -39,12 +39,21 @@
 
 - [Citation Network Dataset](https://www.aminer.cn/citation)
 - V14数据集: 5,259,858 papers and 36,630,661 citation relationships (2023-01-31)
+- 数据集预处理
+  - 将 V14 数据集下载在 `/data` 目录下
+  - 运行以下命令
+    ```cmd
+    cd utils
+    python extract_field.py
+    ```
 - 数据集结构
   - `id`: 论文的ID
   - `title`: 论文的标题
   - `authors`: 论文作者，包含ID(id)、姓名(name)和组织(org)字典
   - `venue`: 投稿期刊
   - `year`: 发表时间
+  - `keywords`: 关键字列表
+  - `fos`: 研究领域，包括研究名称和权重，部分论文没有该列数据
   - `references`: 引用列表
   - `n_citation`: 被引次数
   - `doc_type`: 论文类型

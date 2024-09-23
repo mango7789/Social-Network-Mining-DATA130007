@@ -1,6 +1,7 @@
-import ijson
 import json
 import math
+import multiprocessing
+import ijson
 from tqdm import tqdm
 
 # Specify input and output file paths
@@ -14,6 +15,8 @@ fields_to_extract = [
     "authors",
     "venue",
     "year",
+    "keywords",
+    "fos",
     "references",
     "n_citation",
     "doc_type",
@@ -22,41 +25,72 @@ fields_to_extract = [
 
 # Total number of papers
 total_records = 5_259_858
-# Calculate the number of papers per chunk
-records_per_chunk = math.ceil(total_records / 20)
+# The number of papers per chunk
+records_per_chunk = 99_999
 
 
-# Now, process the file and split the records into 20 chunks
-with open(input_file_path, "r", encoding="utf-8") as input_file:
-    chunk_count = 1
-    record_count = 0
-    chunk_records = []
+# Function to process and save each chunk in a separate process
+def process_chunk(chunk_count, chunk_records, print_lock):
+    output_file_path = output_file_path_template.format(chunk_count)
+    with open(output_file_path, "w", encoding="utf-8") as output_file:
+        json.dump(chunk_records, output_file, indent=2)
 
-    # Iterate through the JSON file and extract desired fields
-    for record in tqdm(ijson.items(input_file, "item")):
-        # Extract the fields we need
-        filtered_record = {
-            field: record[field] for field in fields_to_extract if field in record
-        }
-        chunk_records.append(filtered_record)
-        record_count += 1
+    with print_lock:
+        print(f"\nChunk {chunk_count} saved to {output_file_path}")
 
-        # If we reach the number of records per chunk, save the chunk and start a new one
-        if record_count >= records_per_chunk:
-            # Save the current chunk to a file
-            output_file_path = output_file_path_template.format(chunk_count)
-            with open(output_file_path, "w", encoding="utf-8") as output_file:
-                json.dump(chunk_records, output_file, indent=2)
 
-            print(f"\nChunk {chunk_count} saved to {output_file_path}")
-            # Reset for the next chunk
-            chunk_records = []
-            record_count = 0
-            chunk_count += 1
+def process_json_file():
+    """Process the file and split the records into chunks"""
+    with open(input_file_path, "r", encoding="utf-8") as input_file:
+        chunk_count = 1
+        record_count = 0
+        chunk_records = []
 
-    # Save any remaining records in the final chunk
-    if chunk_records:
-        output_file_path = output_file_path_template.format(chunk_count)
-        with open(output_file_path, "w", encoding="utf-8") as output_file:
-            json.dump(chunk_records, output_file, indent=2)
-        print(f"Chunk {chunk_count} saved to {output_file_path}")
+        # Create a pool of worker processes
+        with multiprocessing.Pool() as pool:
+            # Use multiprocessing Manager for thread-safe printing
+            manager = multiprocessing.Manager()
+            print_lock = manager.Lock()
+
+            # Iterate through the JSON file and extract desired fields
+            for record in tqdm(ijson.items(input_file, "item"), total=total_records):
+                # Extract the fields we need
+                filtered_record = {
+                    field: record[field]
+                    for field in fields_to_extract
+                    if field in record
+                }
+
+                # Skip the data with missing values
+                if len(filtered_record) != len(fields_to_extract):
+                    continue
+
+                # Convert the Decimal to float
+                if "fos" in record:
+                    for item in record["fos"]:
+                        item["w"] = float(item["w"])
+
+                chunk_records.append(filtered_record)
+                record_count += 1
+
+                # If we reach the number of records per chunk, save the chunk asynchronously
+                if record_count >= records_per_chunk:
+                    # Submit the current chunk for asynchronous processing
+                    pool.apply_async(process_chunk, args=(chunk_count, chunk_records, print_lock))
+
+                    # Reset for the next chunk
+                    chunk_records = []
+                    record_count = 0
+                    chunk_count += 1
+
+            # Save any remaining records in the final chunk
+            if chunk_records:
+                pool.apply_async(process_chunk, args=(chunk_count, chunk_records, print_lock))
+
+            # Close the pool and wait for all worker processes to complete
+            pool.close()
+            pool.join()
+
+
+if __name__ == "__main__":
+    process_json_file()
