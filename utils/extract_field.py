@@ -20,9 +20,9 @@ fields_to_extract = [
     "lang",
 ]
 
-# T5otal number of records by reading them all once
+# Total number of papers
 total_records = 5_259_858
-# Calculate the number of records per chunk
+# Calculate the number of papers per chunk
 records_per_chunk = math.ceil(total_records / 20)
 
 
