@@ -102,7 +102,13 @@ def process_json_file(reserve):
                 if record_count >= records_per_chunk:
                     # Submit the current chunk for asynchronous processing
                     pool.apply_async(
-                        process_chunk, args=(chunk_count, chunk_records, print_lock, output_file_path_template)
+                        process_chunk,
+                        args=(
+                            chunk_count,
+                            chunk_records,
+                            print_lock,
+                            output_file_path_template,
+                        ),
                     )
 
                     # Reset for the next chunk
@@ -113,7 +119,13 @@ def process_json_file(reserve):
             # Save any remaining records in the final chunk
             if chunk_records:
                 pool.apply_async(
-                    process_chunk, args=(chunk_count, chunk_records, print_lock, output_file_path_template)
+                    process_chunk,
+                    args=(
+                        chunk_count,
+                        chunk_records,
+                        print_lock,
+                        output_file_path_template,
+                    ),
                 )
 
             # Close the pool and wait for all worker processes to complete
