@@ -35,6 +35,11 @@ class Vertex:
         return vertex
 
 
+class Edge:
+    def __init__(self):
+        pass
+
+
 if __name__ == "__main__":
     vertex = Vertex(
         title="Understanding Serialization",

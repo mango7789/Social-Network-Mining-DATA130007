@@ -3,11 +3,7 @@ import pickle
 from tqdm import tqdm
 from typing import Final, List
 from concurrent.futures import ProcessPoolExecutor
-from vertex import Vertex
-
-DATA_PATH: Final = os.path.join("data", "dblp.v9", "dblp.txt")
-PKL_DIR: Final = os.path.join("data", "vertices")
-os.makedirs(PKL_DIR, exist_ok=True)
+from .vertex import Vertex
 
 
 def group_records(lines: List[str]) -> List[List[str]]:
@@ -128,4 +124,7 @@ def load_save_vertex_parallel(data_path: str, pkl_dir: str, num_workers: int = 4
 
 
 if __name__ == "__main__":
+    DATA_PATH: Final = os.path.join("data", "dblp.v9", "dblp.txt")
+    PKL_DIR: Final = os.path.join("data", "vertices")
+    os.makedirs(PKL_DIR, exist_ok=True)
     load_save_vertex_parallel(DATA_PATH, PKL_DIR, num_workers=4)
