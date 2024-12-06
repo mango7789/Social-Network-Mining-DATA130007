@@ -1,7 +1,7 @@
 <h2 align="center">社交网络挖掘期末项目</h2>
 
 > [!CAUTION]
-> - 每个小组对其实践项目成果在第 18 周之前（具体时间待定）向全班同学进行现场演示，做相关的介绍   
+> - 每个小组对其实践项目成果在第 18 周之前（2025.01.02）向全班同学进行现场演示，做相关的介绍   
 > - 分值：同学互评评分占 50%，教师和助教的评分占 30%，项目报告评分（教师和助教评判）占 20%   
 > - 以书面报告（word 或 pdf 格式）的形式详细阐述本小组完成项目课题的基本思路、数据处理方式、算法、实现工具/语言、实验效果、性能评价和小组成员的分工说明（必需）等内容。报告可用中文或英文书写，要求不超过 8 页 A4 的篇幅
 
@@ -26,10 +26,9 @@
   - [ ] 超大数据集的并行化处理
   - [ ] 在总体图中仅可视化大于某个阈值的论文，点击进入具体类别后可视化该领域的所有论文，并更新对应的统计图
 - [ ] 对于挖掘出的不同类别社区，可视化其随时间的变化过程，挖掘不同时期的热门研究方向，挖掘该领域具有代表性的论文，并与真实情况做对比
-  - CV领域：传统方法 -> CNN -> ResNet -> ...
 - [ ] 对于不同的社区，采用各种统计图可视化节点间平均距离、度分布、直径等等
   - 度分布：The fraction of scientific papers that receive $k$ citations in total is roughlyproportional to $\frac{1}{k^3}$
-  - 随即图的平均路径长度为 $l \approx \frac{\ln |V|}{\ln c}$
+  - 随机图的平均路径长度为 $l \approx \frac{\ln |V|}{\ln c}$
 - [ ] 对于输入的一篇论文，推荐与之方向相近的几篇论文；对于输入的两（多）篇论文，计算其两两的相似度
 - [ ] 在地理上可视化不同国家/地区研究热点随时间的变化情况；用热力图可视化各个研究方向在不同国家/地区的研究热度 
 - [ ] 利用算法挖掘出不同社区之间的合作关系（如现在的AI4S），并与社会研究热点结合进行分析
@@ -45,33 +44,17 @@
 ### 数据集
 
 - [Citation Network Dataset](https://www.aminer.cn/citation)
-- V14数据集: 5,259,858 papers and 36,630,661 citation relationships (2023-01-31)
-- 数据集预处理
-  - 将 V14 数据集下载在 `/data` 目录下
-  - 运行以下命令
-    ```cmd
-    cd utils
-    python extract_field.py
-    ```
-- 数据集结构
-  - `id`: 论文的ID
-  - `title`: 论文的标题
-  - `authors`: 论文作者，包含ID(id)、姓名(name)和组织(org)字典
-  - `venue`: 投稿期刊
-  - `year`: 发表时间
-  - `keywords`: 关键字列表
-  - `fos`: 研究领域，包括研究名称和权重，部分论文没有该列数据
-  - `references`: 引用列表
-  - `n_citation`: 被引次数
-  - `doc_type`: 论文类型
-  - `lang`: 论文使用的语言
+- [DBLP-Citation-network V9](https://lfs.aminer.cn/lab-datasets/citation/dblp.v9.zip): 3,680,007 papers and 1,876,067 citation relationships (2017-07-03)
+- 格式
+  - #*: paperTitle
+  - #@: Authors
+  - #t: Year
+  - #c: publication venue
+  - #index: index id of this paper
+  - #%: the id of references of this paper (there are multiple lines, with each indicating a reference)
+  - ~~#!: Abstract~~
 
 ### 算法
 
 - 挖掘论文类别社区和科研人际圈
 - 预测科研合作情况
-
-### 可视化
-
-- 应该会使用 [Echarts](https://echarts.apache.org/) 或 [D3](https://d3js.org/) 进行可视化，b站上有相应的视频教程，也可以用 [ChatGPT](https://chat.openai.com/) 辅助编写
-- 后续还需要讨论一下可视化的页面排版，最好有时间和空间维度的可视化
