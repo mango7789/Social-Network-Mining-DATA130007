@@ -43,8 +43,8 @@ total_records = 5_259_858
 records_per_chunk = 99_999
 
 
-# Function to process and save each chunk in a separate process
 def process_chunk(chunk_count, chunk_records, print_lock, output_file_path_template):
+    """Function to process and save each chunk in a separate process"""
     output_file_path = output_file_path_template.format(chunk_count)
     with open(output_file_path, "w", encoding="utf-8") as output_file:
         json.dump(chunk_records, output_file, indent=2)
