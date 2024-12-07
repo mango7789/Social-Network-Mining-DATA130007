@@ -1,0 +1,5 @@
+data:
+  dblp: ./data/dblp.v9/dblp.txt
+  vertex: 
+    csv: ./data/vertex 
+    cfg: ./config/chunk.json

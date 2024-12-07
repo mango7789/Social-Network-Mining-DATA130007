@@ -56,5 +56,6 @@
 
 ### 算法
 
+- [Papers with code](https://paperswithcode.com/dataset/dblp)
 - 挖掘论文类别社区和科研人际圈
 - 预测科研合作情况

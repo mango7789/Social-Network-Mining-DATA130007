@@ -1,23 +1,19 @@
-import os
-import pickle
+import math
+import json
+import pandas as pd
 from tqdm import tqdm
+from pathlib import Path
 from typing import Final, List
-from concurrent.futures import ProcessPoolExecutor
-from .vertex import Vertex
 
 
 def group_records(lines: List[str]) -> List[List[str]]:
     """
     Groups lines into records, ensuring each group corresponds to a complete Vertex object.
-    Args:
-        lines (List[str]): The lines of the dataset.
-    Returns:
-        List[List[str]]: A list of grouped lines, each group representing a complete Vertex record.
     """
     records = []
     current_record = []
 
-    for line in lines:
+    for line in tqdm(lines, desc="Grouping records...  "):
         if line.strip() == "":
             continue
         if line.startswith("#*") and current_record:
@@ -33,23 +29,12 @@ def group_records(lines: List[str]) -> List[List[str]]:
     return records
 
 
-def process_chunk_with_progress(
-    records: List[List[str]], pkl_dir: str, worker_id: int
-) -> int:
+def process_records_to_dataframe(records: List[List[str]]) -> pd.DataFrame:
     """
-    Process a chunk of records to extract and save Vertex objects, showing progress for this worker.
-    Args:
-        records (List[List[str]]): List of grouped lines in the chunk.
-        pkl_dir (str): Directory to save the serialized Vertex objects.
-        worker_id (int): Worker ID for identifying the progress bar.
-    Returns:
-        int: Number of Vertex objects processed in the chunk.
+    Process records to extract Vertex objects and convert them to a DataFrame.
     """
-    count = 0
-
-    with tqdm(
-        total=len(records), desc=f"Worker {worker_id}", position=worker_id
-    ) as pbar:
+    data = []
+    with tqdm(total=len(records), desc="Processing records...") as pbar:
         for record in records:
             vertex_dict = {}
             for line in record:
@@ -59,7 +44,7 @@ def process_chunk_with_progress(
                 elif line.startswith("#@"):
                     vertex_dict["authors"] = line[2:]
                 elif line.startswith("#t"):
-                    vertex_dict["year"] = int(line[2:])
+                    vertex_dict["year"] = int(line[2:]) if line[2:] else ""
                 elif line.startswith("#c"):
                     vertex_dict["venue"] = line[2:]
                 elif line.startswith("#index"):
@@ -70,31 +55,39 @@ def process_chunk_with_progress(
                     vertex_dict["references"].append(line[2:])
 
             # Handle missing fields
-            for str_name in ["title", "year", "venue"]:
+            for str_name in ["title", "year", "venue", "authors"]:
                 if str_name not in vertex_dict:
-                    vertex_dict[str_name] = None
-            for lst_name in ["authors", "references"]:
+                    vertex_dict[str_name] = ""
+            for lst_name in ["references"]:
                 if lst_name not in vertex_dict:
                     vertex_dict[lst_name] = []
 
-            # Serialize the Vertex object
-            curr_vertex = Vertex(**vertex_dict)
-            with open(os.path.join(pkl_dir, f"{curr_vertex.id}.pkl"), "wb") as pkl_file:
-                pickle.dump(curr_vertex, pkl_file)
+            # Append to data
+            data.append(
+                {
+                    "id": vertex_dict["index"],
+                    "title": vertex_dict["title"],
+                    "authors": vertex_dict["authors"].replace(", ", "#"),
+                    "year": vertex_dict["year"],
+                    "venue": vertex_dict["venue"],
+                    "references": "#".join(vertex_dict["references"]),
+                }
+            )
 
-            count += 1
-            pbar.update(1)  # Update progress bar
+            pbar.update(1)
 
-    return count
+    return pd.DataFrame(data)
 
 
-def load_save_vertex_parallel(data_path: str, pkl_dir: str, num_workers: int = 4):
+def load_save_vertex_to_csv(
+    data_path: str,
+    output_dir: str,
+    config_path: str,
+    chunk_size_limit: int = 500000,
+) -> int:
     """
-    Load and preprocess the dataset in parallel with grouped records.
-    Args:
-        data_path (str): Path to the dataset.
-        pkl_dir (str): Directory to save the serialized Vertex objects.
-        num_workers (int): Number of parallel workers.
+    Load and preprocess the dataset, and save as CSV in a single process.
+    Additionally, save the start and end IDs of each chunk in a JSON file.
     """
     # Read the entire dataset
     with open(data_path, "r", encoding="utf-8") as f:
@@ -103,28 +96,33 @@ def load_save_vertex_parallel(data_path: str, pkl_dir: str, num_workers: int = 4
     # Group lines into records
     records = group_records(lines)
 
-    # Split records into chunks for parallel processing
-    chunk_size = len(records) // num_workers
-    chunks = [records[i : i + chunk_size] for i in range(0, len(records), chunk_size)]
+    # Process all records into a single DataFrame
+    combined_data = process_records_to_dataframe(records)
 
-    total_vertices = 0
-    with ProcessPoolExecutor(max_workers=num_workers) as executor:
-        # Map chunks to workers with individual progress bars
-        results = list(
-            executor.map(
-                process_chunk_with_progress,
-                chunks,
-                [pkl_dir] * len(chunks),
-                range(len(chunks)),  # Worker IDs
-            )
-        )
+    # Save the DataFrame to CSV files in chunks
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    total_vertices = sum(results)
-    print(f"There are total {total_vertices} vertices in the dataset!")
+    chunk_info = {}
+    num_chunks = math.ceil(len(combined_data) / chunk_size_limit)
 
+    for i in range(num_chunks):
+        start = i * chunk_size_limit
+        end = (i + 1) * chunk_size_limit
+        chunk = combined_data.iloc[start:end]
+        chunk_file = output_dir / f"chunk_{i + 1}.csv"
+        chunk.to_csv(chunk_file, index=False, encoding="utf-8")
 
-if __name__ == "__main__":
-    DATA_PATH: Final = os.path.join("data", "dblp.v9", "dblp.txt")
-    PKL_DIR: Final = os.path.join("data", "vertices")
-    os.makedirs(PKL_DIR, exist_ok=True)
-    load_save_vertex_parallel(DATA_PATH, PKL_DIR, num_workers=4)
+        # Record first and last IDs in the chunk
+        chunk_info[str(chunk_file)] = {
+            "first_id": chunk.iloc[0]["id"] if not chunk.empty else None,
+            "last_id": chunk.iloc[-1]["id"] if not chunk.empty else None,
+        }
+
+        print(f"Saved {chunk_file} with {len(chunk)} vertices.")
+
+    # Save chunk info to JSON
+    with open(config_path, "w", encoding="utf-8") as f:
+        json.dump(chunk_info, f, indent=4)
+
+    return len(combined_data)
