@@ -4,8 +4,18 @@ from typing import Final
 from pathlib import Path
 from flask import Flask, jsonify, render_template
 
-from utils import save_records_to_csv, load_records_from_csv
+import warnings
+warnings.filterwarnings("ignore")
+
+from utils import (
+    save_records_to_csv,
+    load_paper_node,
+    load_paper_edge,
+    load_author_node,
+    load_author_edge,
+)
 from utils.logger import logger
+
 
 DEBUG: Final = True
 
@@ -46,8 +56,11 @@ if __name__ == "__main__":
         )
         logger.info("Successfully preprocess the dblp-v9 dataset!")
     else:
-        logger.info("Start loading the original dataset into dataframe...")
-        df = load_records_from_csv(PAPER_NODE)
-        logger.info("Successfully load the dblp-v9 dataset!")
+        logger.info("Start loading the dataframe...")
+        df_paper_node = load_paper_node(PAPER_NODE)
+        df_paper_edge = load_paper_edge(PAPER_EDGE)
+        df_author_node = load_author_node(AUTHOR_NODE)
+        df_author_edge = load_author_edge(AUTHOR_EDGE)
+        logger.info("Successfully load dataframes for dblp-v9 dataset!")
 
     # app.run(port=80, debug=True)

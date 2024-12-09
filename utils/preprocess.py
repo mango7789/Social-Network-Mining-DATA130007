@@ -238,8 +238,3 @@ def save_records_to_csv(
     gc.collect()
 
     return combined_data
-
-
-def load_records_from_csv(csv_path: str) -> pd.DataFrame:
-    df_combined = pd.read_csv(csv_path, low_memory=False)
-    return df_combined
