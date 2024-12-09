@@ -1,19 +1,21 @@
-import math
-import json
+import gc
 import pandas as pd
 from tqdm import tqdm
-from pathlib import Path
 from typing import Final, List
+from itertools import chain, combinations
+from collections import defaultdict
+from .logger import logger
+from .wrapper import timer
 
 
-def group_records(lines: List[str]) -> List[List[str]]:
+def _group_records(lines: List[str]) -> List[List[str]]:
     """
-    Groups lines into records, ensuring each group corresponds to a complete Vertex object.
+    Groups lines into records, ensuring each group corresponds to a complete paper object.
     """
     records = []
     current_record = []
 
-    for line in tqdm(lines, desc="Grouping records...  "):
+    for line in tqdm(lines, desc="Grouping records..."):
         if line.strip() == "":
             continue
         if line.startswith("#*") and current_record:
@@ -25,16 +27,19 @@ def group_records(lines: List[str]) -> List[List[str]]:
     # Add the last record
     if current_record:
         records.append(current_record)
+        
+    del current_record
+    gc.collect()
 
     return records
 
 
-def process_records_to_dataframe(records: List[List[str]]) -> pd.DataFrame:
+def _process_records_to_dataframe(records: List[List[str]]) -> pd.DataFrame:
     """
-    Process records to extract Vertex objects and convert them to a DataFrame.
+    Process records to extract paper objects and convert them to a DataFrame.
     """
     data = []
-    with tqdm(total=len(records), desc="Processing records...") as pbar:
+    with tqdm(total=len(records), desc="Creating dataframes...") as pbar:
         for record in records:
             vertex_dict = {}
             for line in record:
@@ -79,49 +84,123 @@ def process_records_to_dataframe(records: List[List[str]]) -> pd.DataFrame:
     return pd.DataFrame(data)
 
 
-def load_save_vertex_to_csv(
+def _get_dataframe(data_path: str) -> pd.DataFrame:
+    """
+    Get dataframe from the dataset in given `data_path`.
+    """
+    with open(data_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    # Group lines into records
+    records = _group_records(lines)
+
+    # Process all records into a single DataFrame
+    combined_data = _process_records_to_dataframe(records)
+    
+    del lines
+    del records
+    gc.collect()
+
+    return combined_data
+
+
+@timer
+def _save_paper_chunk(df: pd.DataFrame, paper_list: str):
+    logger.info("Start saving information of the papers...")
+
+    paper_list.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(paper_list, index=False)
+
+    logger.info(f"There are total {len(df)} papers.")
+    logger.info(f"Successfully save the information of papers to {paper_list}!")
+
+
+@timer
+def _save_author_chunk(df: pd.DataFrame, author_list: str, author_edge: str):
+
+    logger.info("Start saving information of the authors...")
+    author_list.parent.mkdir(parents=True, exist_ok=True)
+
+    # Assign unique IDs to authors
+    authors = set(chain.from_iterable(df["authors"].str.split("#")))
+    author_to_id = {author: idx for idx, author in enumerate(sorted(authors), start=1)}
+    id_to_author = {v: k for k, v in author_to_id.items()}
+    df["author_ids"] = (
+        df["authors"]
+        .str.split("#")
+        .apply(lambda x: [author_to_id[author] for author in x])
+    )
+
+    # Create a co-author mapping and paper list for each author
+    lists = {
+        author_id: {"co-authors": set(), "papers": set()}
+        for author_id in author_to_id.values()
+    }
+    # Edge dictionary to store weights
+    edges = defaultdict(int)
+
+    for author_ids, paper_id in tqdm(
+        zip(df["author_ids"], df["id"]), desc="Creating author infos", total=len(df)
+    ):
+        for author_id in author_ids:
+            lists[author_id]["papers"].add(paper_id)
+            lists[author_id]["co-authors"].update(set(author_ids) - {author_id})
+
+        for author1, author2 in combinations(author_ids, 2):
+            edge = tuple(sorted((author1, author2)))
+            edges[edge] += 1
+
+    # Convert author info to a DataFrame
+    authors_list = []
+    for author_id, data in lists.items():
+        authors_list.append(
+            {
+                "id": author_id,
+                "name": id_to_author[author_id],
+                "co-authors": "#".join(map(str, sorted(data["co-authors"]))),
+                "papers": "#".join(data["papers"]),
+            }
+        )
+
+    # Save the author lists
+    authors_df = pd.DataFrame(authors_list)
+    authors_df.to_csv(author_list, index=False)
+
+    # Save the author edges
+    edges_list = [
+        {"src": source, "dst": target, "w": weight}
+        for (source, target), weight in edges.items()
+    ]
+    edges_df = pd.DataFrame(edges_list)
+    edges_df.to_csv(author_edge, index=False)
+    
+    logger.info(f"There are total {len(authors_df)} authors in the dataset.")
+    logger.info(
+        f"Successfully save the information of authors to {author_list} and {author_edge}!"
+    )
+
+
+@timer
+def save_records_to_csv(
     data_path: str,
-    output_dir: str,
-    config_path: str,
-    chunk_size_limit: int = 500000,
-) -> int:
+    paper_list: str,
+    author_list: str,
+    author_edge: str,
+) -> pd.DataFrame:
     """
     Load and preprocess the dataset, and save as CSV in a single process.
     Additionally, save the start and end IDs of each chunk in a JSON file.
     """
-    # Read the entire dataset
-    with open(data_path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-
-    # Group lines into records
-    records = group_records(lines)
-
     # Process all records into a single DataFrame
-    combined_data = process_records_to_dataframe(records)
+    combined_data = _get_dataframe(data_path)
 
-    # Save the DataFrame to CSV files in chunks
-    output_dir.mkdir(parents=True, exist_ok=True)
+    _save_paper_chunk(combined_data, paper_list)
+    _save_author_chunk(combined_data, author_list, author_edge)
 
-    chunk_info = {}
-    num_chunks = math.ceil(len(combined_data) / chunk_size_limit)
+    gc.collect()
+    
+    return combined_data
 
-    for i in range(num_chunks):
-        start = i * chunk_size_limit
-        end = (i + 1) * chunk_size_limit
-        chunk = combined_data.iloc[start:end]
-        chunk_file = output_dir / f"chunk_{i + 1}.csv"
-        chunk.to_csv(chunk_file, index=False, encoding="utf-8")
 
-        # Record first and last IDs in the chunk
-        chunk_info[str(chunk_file)] = {
-            "first_id": chunk.iloc[0]["id"] if not chunk.empty else None,
-            "last_id": chunk.iloc[-1]["id"] if not chunk.empty else None,
-        }
-
-        print(f"Saved {chunk_file} with {len(chunk)} vertices.")
-
-    # Save chunk info to JSON
-    with open(config_path, "w", encoding="utf-8") as f:
-        json.dump(chunk_info, f, indent=4)
-
-    return len(combined_data)
+def load_records_from_csv(csv_path: str) -> pd.DataFrame:
+    df_combined = pd.read_csv(csv_path, low_memory=False)
+    return df_combined

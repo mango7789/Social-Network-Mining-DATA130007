@@ -4,7 +4,7 @@ import json
 from typing import Final
 from flask import Flask, jsonify, render_template
 
-from utils import load_save_vertex_to_csv
+from utils import save_records_to_csv, load_records_from_csv
 from utils.logger import logger
 
 DEBUG: Final = True
@@ -26,22 +26,25 @@ def community():
 
 
 if __name__ == "__main__":
-
     # Open and parse the configuration file
     with open("./config/config.yaml", "r") as file:
         config = yaml.safe_load(file)
     logger.info("Successfully load the configuration file!")
 
     DATA_PATH: Final = Path(config["data"]["dblp"])
-    CSV_DIR: Final = Path(config["data"]["vertex"]["csv"])
-    CHUNK_CFG: Final = Path(config["data"]["vertex"]["cfg"])
+    PAPER_LIST: Final = Path(config["data"]["paper"]["list"])
+    AUTHOR_LIST: Final = Path(config["data"]["author"]["list"])
+    AUTHOR_EDGE: Final = Path(config["data"]["author"]["edge"])
+
     logger.info("Successfully parse the configuration file!")
 
     if DEBUG:
-        # Preprocess the original dataset and save it to csv files
         logger.info("Start preprocessing the original dataset...")
-        num_vertices = load_save_vertex_to_csv(DATA_PATH, CSV_DIR, CHUNK_CFG)
-        logger.info(f"There are total {num_vertices} vertices in the dataset!")
+        df = save_records_to_csv(DATA_PATH, PAPER_LIST, AUTHOR_LIST, AUTHOR_EDGE)
         logger.info("Successfully preprocess the dblp-v9 dataset!")
     else:
-        app.run(port=80, debug=True)
+        logger.info("Start loading the original dataset into dataframe...")
+        df = load_records_from_csv(PAPER_LIST)
+        logger.info("Successfully load the dblp-v9 dataset!")
+
+    # app.run(port=80, debug=True)

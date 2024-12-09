@@ -1,3 +1,4 @@
+import os
 import logging
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
@@ -6,6 +7,21 @@ from datetime import datetime
 # Set up directory for logs
 LOG_DIR = Path("logs")
 LOG_DIR.mkdir(exist_ok=True)
+
+MAX_LOG_FILES = 20
+
+
+def _delete_old_logs():
+    """
+    Deletes the oldest half of the log files if the number of log files exceeds MAX_LOG_FILES.
+    """
+    log_files = sorted(LOG_DIR.glob("*.log"), key=os.path.getmtime)
+
+    # Check if the number of log files exceeds the limit
+    if len(log_files) > MAX_LOG_FILES:
+        files_to_delete = log_files[: len(log_files) // 2]
+        for file in files_to_delete:
+            file.unlink()
 
 
 def _setup_logger(name: str, level: int = logging.INFO):
@@ -21,6 +37,9 @@ def _setup_logger(name: str, level: int = logging.INFO):
 
     # Full path to log file
     log_file_path = LOG_DIR / log_filename
+
+    # Delete old logs if there are more than `MAX_LOG_FILES` log files
+    _delete_old_logs()
 
     # Formatter
     formatter = logging.Formatter(

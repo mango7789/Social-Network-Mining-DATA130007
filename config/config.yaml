@@ -1,9 +1,13 @@
 data:
   dblp: ./data/dblp.v9/dblp.txt
-  vertex: 
-    csv: ./data/vertex 
-    cfg: ./config/chunk.json
+  paper: 
+    list: ./data/paper/list.csv
+  author:
+    list: ./data/author/list.csv
+    edge: ./data/author/edge.csv
   community:
     louvain: 
     girvan_newman:
     label_propagation:
+html:
+  index: index.html

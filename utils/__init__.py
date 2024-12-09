@@ -1,5 +1,6 @@
-from .preprocess import load_save_vertex_to_csv
+from .preprocess import save_records_to_csv, load_records_from_csv
 
 __all__ = [
-    "load_save_vertex_to_csv",
+    "save_records_to_csv",
+    "load_records_from_csv",
 ]
