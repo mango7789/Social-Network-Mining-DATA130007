@@ -1,12 +1,13 @@
 data:
   dblp: ./data/dblp.v9/dblp.txt
   paper: 
-    list: ./data/paper/list.csv
+    node: ./data/paper/node.csv
+    edge: ./data/paper/edge.csv
   author:
-    list: ./data/author/list.csv
+    node: ./data/author/node.csv
     edge: ./data/author/edge.csv
   community:
-    louvain: 
+    louvain: ./data/community/louvain.csv
     girvan_newman:
     label_propagation:
 html:

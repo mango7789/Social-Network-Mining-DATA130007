@@ -27,7 +27,7 @@ def _group_records(lines: List[str]) -> List[List[str]]:
     # Add the last record
     if current_record:
         records.append(current_record)
-        
+
     del current_record
     gc.collect()
 
@@ -95,7 +95,7 @@ def _get_dataframe(data_path: str) -> pd.DataFrame:
 
     # Process all records into a single DataFrame
     combined_data = _process_records_to_dataframe(records)
-    
+
     del lines
     del records
     gc.collect()
@@ -104,21 +104,56 @@ def _get_dataframe(data_path: str) -> pd.DataFrame:
 
 
 @timer
-def _save_paper_chunk(df: pd.DataFrame, paper_list: str):
+def _save_paper_chunk(df: pd.DataFrame, paper_node: str, paper_edge: str):
     logger.info("Start saving information of the papers...")
+    paper_node.parent.mkdir(parents=True, exist_ok=True)
 
-    paper_list.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(paper_list, index=False)
+    # Split the references
+    df["ref_list"] = df["references"].str.split("#")
+    df["ref_list"] = df["ref_list"].apply(
+        lambda x: x if isinstance(x, list) and x != [""] else []
+    )
 
-    logger.info(f"There are total {len(df)} papers.")
-    logger.info(f"Successfully save the information of papers to {paper_list}!")
+    # Out degree, number of references
+    df["out_d"] = df["ref_list"].apply(len)
+
+    # In degree, number of being citated
+    in_degree = defaultdict(int)
+    edge_list = []
+
+    for ref_list, paper_id in tqdm(
+        zip(df["ref_list"], df["id"]), desc="Calculating paper infos", total=len(df)
+    ):
+        for reference in ref_list:
+            edge_list.append((paper_id, reference))
+            in_degree[reference] += 1
+
+    df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
+    df.drop(columns=["ref_list"], inplace=True)
+    df.to_csv(paper_node, index=False)
+
+    # Save the edges of references in papers
+    edge_list = [{"src": source, "dst": target} for (source, target) in edge_list]
+    edges_df = pd.DataFrame(edge_list)
+    edges_df.to_csv(paper_edge, index=False)
+
+    logger.info(
+        f"There are total {len(df)} nodes and {len(edges_df)} edges in \033[34mpaper\033[0m."
+    )
+    logger.info(
+        f"Successfully save the information of papers to {paper_node} and {paper_edge}!"
+    )
+
+    del in_degree
+    del edge_list
+    del edges_df
+    gc.collect()
 
 
 @timer
-def _save_author_chunk(df: pd.DataFrame, author_list: str, author_edge: str):
-
+def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
     logger.info("Start saving information of the authors...")
-    author_list.parent.mkdir(parents=True, exist_ok=True)
+    author_node.parent.mkdir(parents=True, exist_ok=True)
 
     # Assign unique IDs to authors
     authors = set(chain.from_iterable(df["authors"].str.split("#")))
@@ -163,7 +198,7 @@ def _save_author_chunk(df: pd.DataFrame, author_list: str, author_edge: str):
 
     # Save the author lists
     authors_df = pd.DataFrame(authors_list)
-    authors_df.to_csv(author_list, index=False)
+    authors_df.to_csv(author_node, index=False)
 
     # Save the author edges
     edges_list = [
@@ -172,18 +207,21 @@ def _save_author_chunk(df: pd.DataFrame, author_list: str, author_edge: str):
     ]
     edges_df = pd.DataFrame(edges_list)
     edges_df.to_csv(author_edge, index=False)
-    
-    logger.info(f"There are total {len(authors_df)} authors in the dataset.")
+
     logger.info(
-        f"Successfully save the information of authors to {author_list} and {author_edge}!"
+        f"There are total {len(authors_df)} nodes and {len(edges_df)} edges in \033[34mauthors\033[0m."
+    )
+    logger.info(
+        f"Successfully save the information of authors to {author_node} and {author_edge}!"
     )
 
 
 @timer
 def save_records_to_csv(
     data_path: str,
-    paper_list: str,
-    author_list: str,
+    paper_node: str,
+    paper_edge: str,
+    author_node: str,
     author_edge: str,
 ) -> pd.DataFrame:
     """
@@ -192,12 +230,13 @@ def save_records_to_csv(
     """
     # Process all records into a single DataFrame
     combined_data = _get_dataframe(data_path)
+    # combined_data = load_records_from_csv(paper_node)
 
-    _save_paper_chunk(combined_data, paper_list)
-    _save_author_chunk(combined_data, author_list, author_edge)
+    _save_paper_chunk(combined_data, paper_node, paper_edge)
+    _save_author_chunk(combined_data, author_node, author_edge)
 
     gc.collect()
-    
+
     return combined_data
 
 

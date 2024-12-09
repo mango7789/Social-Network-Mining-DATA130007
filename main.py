@@ -1,7 +1,7 @@
-from pathlib import Path
 import yaml
 import json
 from typing import Final
+from pathlib import Path
 from flask import Flask, jsonify, render_template
 
 from utils import save_records_to_csv, load_records_from_csv
@@ -32,19 +32,22 @@ if __name__ == "__main__":
     logger.info("Successfully load the configuration file!")
 
     DATA_PATH: Final = Path(config["data"]["dblp"])
-    PAPER_LIST: Final = Path(config["data"]["paper"]["list"])
-    AUTHOR_LIST: Final = Path(config["data"]["author"]["list"])
+    PAPER_NODE: Final = Path(config["data"]["paper"]["node"])
+    PAPER_EDGE: Final = Path(config["data"]["paper"]["edge"])
+    AUTHOR_NODE: Final = Path(config["data"]["author"]["node"])
     AUTHOR_EDGE: Final = Path(config["data"]["author"]["edge"])
 
     logger.info("Successfully parse the configuration file!")
 
     if DEBUG:
         logger.info("Start preprocessing the original dataset...")
-        df = save_records_to_csv(DATA_PATH, PAPER_LIST, AUTHOR_LIST, AUTHOR_EDGE)
+        df = save_records_to_csv(
+            DATA_PATH, PAPER_NODE, PAPER_EDGE, AUTHOR_NODE, AUTHOR_EDGE
+        )
         logger.info("Successfully preprocess the dblp-v9 dataset!")
     else:
         logger.info("Start loading the original dataset into dataframe...")
-        df = load_records_from_csv(PAPER_LIST)
+        df = load_records_from_csv(PAPER_NODE)
         logger.info("Successfully load the dblp-v9 dataset!")
 
     # app.run(port=80, debug=True)
