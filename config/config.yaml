@@ -3,3 +3,7 @@ data:
   vertex: 
     csv: ./data/vertex 
     cfg: ./config/chunk.json
+  community:
+    louvain: 
+    girvan_newman:
+    label_propagation:

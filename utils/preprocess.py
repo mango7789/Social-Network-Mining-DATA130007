@@ -100,7 +100,6 @@ def load_save_vertex_to_csv(
     combined_data = process_records_to_dataframe(records)
 
     # Save the DataFrame to CSV files in chunks
-    output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     chunk_info = {}
