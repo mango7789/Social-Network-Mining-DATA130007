@@ -49,18 +49,19 @@ if __name__ == "__main__":
 
     logger.info("Successfully parse the configuration file!")
 
+    # Save or load the dataset
     if DEBUG:
         logger.info("Start preprocessing the original dataset...")
-        df = save_records_to_csv(
+        save_records_to_csv(
             DATA_PATH, PAPER_NODE, PAPER_EDGE, AUTHOR_NODE, AUTHOR_EDGE
         )
         logger.info("Successfully preprocess the dblp-v9 dataset!")
-    else:
-        logger.info("Start loading the dataframe...")
-        df_paper_node = load_paper_node(PAPER_NODE)
-        df_paper_edge = load_paper_edge(PAPER_EDGE)
-        df_author_node = load_author_node(AUTHOR_NODE)
-        df_author_edge = load_author_edge(AUTHOR_EDGE)
-        logger.info("Successfully load dataframes for dblp-v9 dataset!")
+    
+    logger.info("Start loading the dataframe...")
+    df_paper_node = load_paper_node(PAPER_NODE)
+    df_paper_edge = load_paper_edge(PAPER_EDGE)
+    df_author_node = load_author_node(AUTHOR_NODE)
+    df_author_edge = load_author_edge(AUTHOR_EDGE)
+    logger.info("Successfully load dataframes for dblp-v9 dataset!")
 
     # app.run(port=80, debug=True)

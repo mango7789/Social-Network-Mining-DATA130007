@@ -223,10 +223,10 @@ def save_records_to_csv(
     paper_edge: str,
     author_node: str,
     author_edge: str,
-) -> pd.DataFrame:
+) -> None:
     """
-    Load and preprocess the dataset, and save as CSV in a single process.
-    Additionally, save the start and end IDs of each chunk in a JSON file.
+    Load and preprocess the dataset, then save as csv files in a single process.
+    The csv files include node and edge infos of paper and author, respectively.
     """
     # Process all records into a single DataFrame
     combined_data = _get_dataframe(data_path)
@@ -237,4 +237,4 @@ def save_records_to_csv(
 
     gc.collect()
 
-    return combined_data
+    return
