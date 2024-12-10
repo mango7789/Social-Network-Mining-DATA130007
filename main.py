@@ -17,7 +17,7 @@ from utils import (
 from utils.logger import logger
 
 
-DEBUG: Final = True
+DEBUG: Final = False
 
 app = Flask(__name__)
 

@@ -18,7 +18,6 @@ def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
             "authors": "string",
             "year": "int16",
             "venue": "string",
-            "references": "string",
             "out_d": "int16",
             "in_d": "int16",
         }
@@ -27,10 +26,8 @@ def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
     if fillna:
         df["authors"] = df["authors"].fillna("")
         df["venue"] = df["venue"].fillna("")
-        df["references"] = df["references"].fillna("")
 
     df["authors"] = df["authors"].str.split("#")
-    df["references"] = df["references"].str.split("#")
 
     _load_logger(df, path)
 

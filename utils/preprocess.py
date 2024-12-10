@@ -129,7 +129,7 @@ def _save_paper_chunk(df: pd.DataFrame, paper_node: str, paper_edge: str):
             in_degree[reference] += 1
 
     df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
-    df.drop(columns=["ref_list"], inplace=True)
+    df.drop(columns=["references", "ref_list"], inplace=True)
     df.to_csv(paper_node, index=False)
 
     # Save the edges of references in papers
@@ -156,13 +156,12 @@ def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
     author_node.parent.mkdir(parents=True, exist_ok=True)
 
     # Assign unique IDs to authors
-    authors = set(chain.from_iterable(df["authors"].str.split("#")))
+    df["authors"] = df["authors"].str.split("#")
+    authors = set(chain.from_iterable(df["authors"]))
     author_to_id = {author: idx for idx, author in enumerate(sorted(authors), start=1)}
     id_to_author = {v: k for k, v in author_to_id.items()}
-    df["author_ids"] = (
-        df["authors"]
-        .str.split("#")
-        .apply(lambda x: [author_to_id[author] for author in x])
+    df["authors"] = df["authors"].apply(
+        lambda x: [author_to_id[author] for author in x]
     )
 
     # Create a co-author mapping and paper list for each author
@@ -173,14 +172,14 @@ def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
     # Edge dictionary to store weights
     edges = defaultdict(int)
 
-    for author_ids, paper_id in tqdm(
-        zip(df["author_ids"], df["id"]), desc="Creating author infos", total=len(df)
+    for authors, paper_id in tqdm(
+        zip(df["authors"], df["id"]), desc="Creating author infos", total=len(df)
     ):
-        for author_id in author_ids:
+        for author_id in authors:
             lists[author_id]["papers"].add(paper_id)
-            lists[author_id]["co-authors"].update(set(author_ids) - {author_id})
+            lists[author_id]["co-authors"].update(set(authors) - {author_id})
 
-        for author1, author2 in combinations(author_ids, 2):
+        for author1, author2 in combinations(authors, 2):
             edge = tuple(sorted((author1, author2)))
             edges[edge] += 1
 
@@ -215,6 +214,12 @@ def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
         f"Successfully save the information of authors to {author_node} and {author_edge}!"
     )
 
+    df["authors"] = df["authors"].apply(lambda x: "#".join(map(str, x)))
+
+    del edges_df
+    del edges_list
+    gc.collect()
+
 
 @timer
 def save_records_to_csv(
@@ -232,8 +237,8 @@ def save_records_to_csv(
     combined_data = _get_dataframe(data_path)
     # combined_data = load_records_from_csv(paper_node)
 
-    _save_paper_chunk(combined_data, paper_node, paper_edge)
     _save_author_chunk(combined_data, author_node, author_edge)
+    _save_paper_chunk(combined_data, paper_node, paper_edge)
 
     gc.collect()
 
