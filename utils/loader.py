@@ -23,7 +23,7 @@ def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
             "id": "string",
             "title": "string",
             "authors": "string",
-            "year": "int16",
+            "year": "Int16",
             "venue": "string",
             "out_d": "int16",
             "in_d": "int16",
@@ -78,7 +78,9 @@ def load_author_node(path: str, fillna: bool = True) -> pd.DataFrame:
         df["papers"] = df["papers"].fillna("")
 
     df["co-authors"] = df["co-authors"].str.split("#")
+    df["co-authors"] = df["co-authors"].apply(lambda x: x if x != [""] else [])
     df["papers"] = df["papers"].str.split("#")
+    df["papers"] = df["papers"].apply(lambda x: x if x != [""] else [])
 
     _load_logger(df, path)
 
