@@ -10,5 +10,19 @@ data:
     louvain: ./data/community/louvain.csv
     girvan_newman:
     label_propagation:
+
+test:
+  dblp: ./test/dblp.v9/dblp.txt
+  paper: 
+    node: ./test/paper/node.csv
+    edge: ./test/paper/edge.csv
+  author:
+    node: ./test/author/node.csv
+    edge: ./test/author/edge.csv
+  community:
+    louvain: ./test/community/louvain.csv
+    girvan_newman:
+    label_propagation:
+
 html:
   index: index.html
