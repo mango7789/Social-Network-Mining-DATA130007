@@ -24,5 +24,10 @@ test:
     girvan_newman:
     label_propagation:
 
+lib:
+  max: d3.v7.js     # Used for development and debugging
+  min: d3.v7.min.js # Smaller, optimized for production
+
+# Visualization
 html:
   index: index.html
