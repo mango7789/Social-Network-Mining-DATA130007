@@ -11,6 +11,13 @@ def _load_logger(df: pd.DataFrame, path: str):
 
 @timer
 def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
+    """
+    For the `paper/node.csv` file:
+    - The columns include: `id`, `title`, `authors`, `year`, `venue`, `out_d`, `in_d`
+    - `year = 0` indicates that the year value is missing.
+    - An empty string in the `authors` or `venue` columns indicates a missing value in the original file.
+    - When loading the `authors` column as a list, the value `[]` is treated as `NaN` in the DataFrame.
+    """
     df = pd.read_csv(path, low_memory=True).astype(
         {
             "id": "string",
@@ -28,6 +35,7 @@ def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
         df["venue"] = df["venue"].fillna("")
 
     df["authors"] = df["authors"].str.split("#")
+    df["authors"] = df["authors"].apply(lambda x: x if x != [""] else [])
 
     _load_logger(df, path)
 
@@ -50,6 +58,11 @@ def load_paper_edge(path: str) -> pd.DataFrame:
 
 @timer
 def load_author_node(path: str, fillna: bool = True) -> pd.DataFrame:
+    """
+    For the `author/node.csv` file:
+    - The columns include: `id`, `name`, `co-authors`, and `paper`.
+    - `id = 1` indicates that the `name` of the author and the list of `co-authors` are missing.
+    """
     df = pd.read_csv(path, low_memory=True).astype(
         {
             "id": "int64",

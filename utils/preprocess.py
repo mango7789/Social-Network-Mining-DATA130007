@@ -214,7 +214,9 @@ def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
         f"Successfully save the information of authors to {author_node} and {author_edge}!"
     )
 
-    df["authors"] = df["authors"].apply(lambda x: "#".join(map(str, x)))
+    df["authors"] = df["authors"].apply(
+        lambda x: "" if x == [1] else "#".join(map(str, x))
+    )
 
     del edges_df
     del edges_list
