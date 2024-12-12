@@ -63,3 +63,21 @@
 
 - [Papers with code](https://paperswithcode.com/dataset/dblp)
 - [往届代码参考](https://github.com/Yikai-Wang/Social-Network-Mining-Based-on-Academic-Literatures)
+
+
+### 运行方式
+```bash
+# 下载数据集并解压
+mkdir -p data
+cd data
+wget -O dblp.v9.zip "https://lfs.aminer.cn/lab-datasets/citation/dblp.v9.zip"
+unzip dblp.v9.zip -d dblp.v9
+rm *.zip
+cd ..
+# 安装依赖库
+pip install -r requirements.txt
+# 在测试模式下运行代码
+python main.py --test
+# 处理全部数据集
+python main.py
+```
