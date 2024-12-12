@@ -1,3 +1,33 @@
+#*Approximate Distance Oracles with Improved Query Time.
+#@Christian Wulff-Nilsen
+#t2015
+#cEncyclopedia of Algorithms
+#index555036b37cea80f954149ffc
+
+#*Subset Sum Algorithm for Bin Packing.
+#@Julián Mestre
+#t2015
+#cEncyclopedia of Algorithms
+#index555036b37cea80f954149ffd
+
+#*Minimum Weighted Completion Time.
+#@V. S. Anil Kumar, Madhav V. Marathe, Srinivasan Parthasarathy, Aravind Srinivasan
+#t2015
+#cEncyclopedia of Algorithms
+#index555036b37cea80f954149ffe
+
+#*Multiple String Matching.
+#@Maxime Crochemore, Thierry Lecroq
+#t2015
+#cEncyclopedia of Algorithms
+#index555036b37cea80f954149fff
+
+#*Fault-Tolerant Connected Dominating Set.
+#@Donghyun Kim, Wei Wang, Weili Wu, Alade O. Tokuta
+#t2015
+#cEncyclopedia of Algorithms
+#index555036b37cea80f95414a000
+
 #*On the Multiple-Query Optimization Problem.
 #@Timos K. Sellis, Subrata Ghosh
 #t1990

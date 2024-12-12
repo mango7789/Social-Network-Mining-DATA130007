@@ -1,28 +1,19 @@
 data:
-  dblp: ./data/dblp.v9/dblp.txt
-  paper: 
-    node: ./data/paper/node.csv
-    edge: ./data/paper/edge.csv
+  dblp: ./dblp.v9/dblp.txt
+  paper:
+    map: ./paper/map.json
+    node: ./paper/node.csv
+    edge: ./paper/edge.csv
   author:
-    node: ./data/author/node.csv
-    edge: ./data/author/edge.csv
+    node: ./author/node.csv
+    edge: ./author/edge.csv
+  venue:
+    map: ./venue/map.json
   community:
-    louvain: ./data/community/louvain.csv
+    louvain: ./community/louvain.csv
     girvan_newman:
     label_propagation:
-
-test:
-  dblp: ./test/dblp.v9/dblp.txt
-  paper: 
-    node: ./test/paper/node.csv
-    edge: ./test/paper/edge.csv
-  author:
-    node: ./test/author/node.csv
-    edge: ./test/author/edge.csv
-  community:
-    louvain: ./test/community/louvain.csv
-    girvan_newman:
-    label_propagation:
+  centrality:
 
 lib:
   max: d3.v7.js     # Used for development and debugging

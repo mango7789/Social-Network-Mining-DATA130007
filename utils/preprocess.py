@@ -1,9 +1,11 @@
 import gc
+import json
 import pandas as pd
 from tqdm import tqdm
 from typing import Final, List
 from itertools import chain, combinations
 from collections import defaultdict
+from pathlib import Path
 from .logger import logger
 from .wrapper import timer
 
@@ -84,7 +86,7 @@ def _process_records_to_dataframe(records: List[List[str]]) -> pd.DataFrame:
     return pd.DataFrame(data)
 
 
-def _get_dataframe(data_path: str) -> pd.DataFrame:
+def _get_dataframe(data_path: Path) -> pd.DataFrame:
     """
     Get dataframe from the dataset in given `data_path`.
     """
@@ -104,61 +106,21 @@ def _get_dataframe(data_path: str) -> pd.DataFrame:
 
 
 @timer
-def _save_paper_chunk(df: pd.DataFrame, paper_node: str, paper_edge: str):
-    logger.info("Start saving information of the papers...")
-    paper_node.parent.mkdir(parents=True, exist_ok=True)
-
-    # Split the references
-    df["ref_list"] = df["references"].str.split("#")
-    df["ref_list"] = df["ref_list"].apply(
-        lambda x: x if isinstance(x, list) and x != [""] else []
-    )
-
-    # Out degree, number of references
-    df["out_d"] = df["ref_list"].apply(len)
-
-    # In degree, number of being citated
-    in_degree = defaultdict(int)
-    edge_list = []
-
-    for ref_list, paper_id in tqdm(
-        zip(df["ref_list"], df["id"]), desc="Calculating paper infos", total=len(df)
-    ):
-        for reference in ref_list:
-            edge_list.append((paper_id, reference))
-            in_degree[reference] += 1
-
-    df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
-    df.drop(columns=["references", "ref_list"], inplace=True)
-    df.to_csv(paper_node, index=False)
-
-    # Save the edges of references in papers
-    edge_list = [{"src": source, "dst": target} for (source, target) in edge_list]
-    edges_df = pd.DataFrame(edge_list)
-    edges_df.to_csv(paper_edge, index=False)
-
-    logger.info(
-        f"There are total {len(df)} nodes and {len(edges_df)} edges in \033[34mpaper\033[0m."
-    )
-    logger.info(
-        f"Successfully save the information of papers to {paper_node} and {paper_edge}!"
-    )
-
-    del in_degree
-    del edge_list
-    del edges_df
-    gc.collect()
-
-
-@timer
-def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
+def _save_author_chunk(df: pd.DataFrame, author_node: Path, author_edge: Path):
     logger.info("Start saving information of the authors...")
     author_node.parent.mkdir(parents=True, exist_ok=True)
 
     # Assign unique IDs to authors
     df["authors"] = df["authors"].str.split("#")
     authors = set(chain.from_iterable(df["authors"]))
-    author_to_id = {author: idx for idx, author in enumerate(sorted(authors), start=1)}
+    author_to_id = {
+        author: idx
+        for idx, author in tqdm(
+            enumerate(sorted(authors), start=1),
+            desc="Building author index...",
+            total=len(authors),
+        )
+    }
     id_to_author = {v: k for k, v in author_to_id.items()}
     df["authors"] = df["authors"].apply(
         lambda x: [author_to_id[author] for author in x]
@@ -224,23 +186,107 @@ def _save_author_chunk(df: pd.DataFrame, author_node: str, author_edge: str):
 
 
 @timer
+def _build_venue_index(df: pd.DataFrame, venue_map: Path):
+    logger.info("Start building the index of venue...")
+    venue_map.parent.mkdir(parents=True, exist_ok=True)
+
+    venues = set(df["venue"].unique())
+    venue_to_id = {venue: idx for idx, venue in enumerate(sorted(venues), start=1)}
+    id_to_venue = {v: k for k, v in venue_to_id.items()}
+    df["venue"] = df["venue"].map(venue_to_id)
+
+    with open(venue_map, "w") as f:
+        json.dump(id_to_venue, f, indent=4)
+
+    logger.info(f"Successfully save the mapping of 'id: venue' to {venue_map}!")
+
+
+@timer
+def _save_paper_chunk(
+    df: pd.DataFrame, paper_map: Path, paper_node: Path, paper_edge: Path
+):
+    logger.info("Start saving information of the papers...")
+    paper_node.parent.mkdir(parents=True, exist_ok=True)
+
+    # Split the references
+    df["ref_list"] = df["references"].str.split("#")
+    df["ref_list"] = df["ref_list"].apply(
+        lambda x: x if isinstance(x, list) and x != [""] else []
+    )
+
+    # Out degree, number of references
+    df["out_d"] = df["ref_list"].apply(len)
+
+    # Save the mapping of id: (title, start, end)
+    start = 1
+
+    def calculate_range(row):
+        nonlocal start
+        row_start = start
+        row_end = start + row["out_d"]
+        start = row_end
+        return {"title": row["title"], "start": row_start, "end": row_end}
+
+    tqdm.pandas(desc="Building paper mapping...", total=len(df))
+    map_df = df[["id", "title", "out_d"]]
+    map_dict = map_df.set_index("id").progress_apply(calculate_range, axis=1).to_dict()
+    with open(paper_map, "w") as f:
+        json.dump(map_dict, f, indent=4)
+
+    # In degree, number of being citated
+    in_degree = defaultdict(int)
+    edge_list = []
+
+    for ref_list, paper_id in tqdm(
+        zip(df["ref_list"], df["id"]), desc="Calculating paper infos", total=len(df)
+    ):
+        for reference in ref_list:
+            edge_list.append((paper_id, reference))
+            in_degree[reference] += 1
+
+    df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
+    df.drop(columns=["title", "references", "ref_list"], inplace=True)
+    df.to_csv(paper_node, index=False)
+
+    # Save the edges of references in papers
+    edge_list = [{"src": source, "dst": target} for (source, target) in edge_list]
+    edges_df = pd.DataFrame(edge_list)
+    edges_df.to_csv(paper_edge, index=False)
+
+    logger.info(
+        f"There are total {len(df)} nodes and {len(edges_df)} edges in \033[34mpaper\033[0m."
+    )
+    logger.info(
+        f"Successfully save the information of papers to {paper_map}, {paper_node} and {paper_edge}!"
+    )
+
+    del in_degree
+    del edge_list
+    del edges_df
+    gc.collect()
+
+
+@timer
 def save_records_to_csv(
-    data_path: str,
-    paper_node: str,
-    paper_edge: str,
-    author_node: str,
-    author_edge: str,
+    data_path: Path,
+    author_node: Path,
+    author_edge: Path,
+    venue_map: Path,
+    paper_map: Path,
+    paper_node: Path,
+    paper_edge: Path,
 ) -> None:
     """
     Load and preprocess the dataset, then save as csv files in a single process.
     The csv files include node and edge infos of paper and author, respectively.
     """
     # Process all records into a single DataFrame
-    combined_data = _get_dataframe(data_path)
-    # combined_data = load_records_from_csv(paper_node)
+    df = _get_dataframe(data_path)
+    # df = load_records_from_csv(paper_node)
 
-    _save_author_chunk(combined_data, author_node, author_edge)
-    _save_paper_chunk(combined_data, paper_node, paper_edge)
+    _save_author_chunk(df, author_node, author_edge)
+    _build_venue_index(df, venue_map)
+    _save_paper_chunk(df, paper_map, paper_node, paper_edge)
 
     gc.collect()
 

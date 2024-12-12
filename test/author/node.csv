@@ -1,6 +1,18 @@
 id,name,co-authors,papers
-1,Howard W. Beck,2#4,5736965d6e3b12023e56a854
-2,Shamkant B. Navathe,1#4,5736965d6e3b12023e56a854
-3,Subrata Ghosh,5,5736965d6e3b12023e56a853
-4,Tarek M. Anwar,1#2,5736965d6e3b12023e56a854
-5,Timos K. Sellis,3,5736965d6e3b12023e56a853
+1,Alade O. Tokuta,4#16#17,555036b37cea80f95414a000
+2,Aravind Srinivasan,7#10#15,555036b37cea80f954149ffe
+3,Christian Wulff-Nilsen,,555036b37cea80f954149ffc
+4,Donghyun Kim,1#16#17,555036b37cea80f95414a000
+5,Howard W. Beck,9#12,5736965d6e3b12023e56a854
+6,Julián Mestre,,555036b37cea80f954149ffd
+7,Madhav V. Marathe,2#10#15,555036b37cea80f954149ffe
+8,Maxime Crochemore,13,555036b37cea80f954149fff
+9,Shamkant B. Navathe,5#12,5736965d6e3b12023e56a854
+10,Srinivasan Parthasarathy,2#7#15,555036b37cea80f954149ffe
+11,Subrata Ghosh,14,5736965d6e3b12023e56a853
+12,Tarek M. Anwar,5#9,5736965d6e3b12023e56a854
+13,Thierry Lecroq,8,555036b37cea80f954149fff
+14,Timos K. Sellis,11,5736965d6e3b12023e56a853
+15,V. S. Anil Kumar,2#7#10,555036b37cea80f954149ffe
+16,Wei Wang,1#4#17,555036b37cea80f95414a000
+17,Weili Wu,1#4#16,555036b37cea80f95414a000

@@ -3,7 +3,8 @@ from .loader import (
     load_paper_node, 
     load_paper_edge, 
     load_author_node, 
-    load_author_edge
+    load_author_edge,
+    load_map_dict,
 )
 
 
@@ -13,4 +14,5 @@ __all__ = [
     "load_paper_edge",
     "load_author_node",
     "load_author_edge",
+    "load_map_dict",
 ]

@@ -1,30 +1,32 @@
+import json
 import pandas as pd
+from pathlib import Path
 from .logger import logger
 from .wrapper import timer
 
 
-def _load_logger(df: pd.DataFrame, path: str):
+def _load_logger(df: pd.DataFrame, path: Path):
     logger.info(
         f"Load {path} as dataframe, memory usage {df.memory_usage(deep=True).sum() / (1024 ** 2):.2f} MB"
     )
 
 
 @timer
-def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
+def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     For the `paper/node.csv` file:
-    - The columns include: `id`, `title`, `authors`, `year`, `venue`, `out_d`, `in_d`
+    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `in_d`
     - `year = 0` indicates that the year value is missing.
-    - An empty string in the `authors` or `venue` columns indicates a missing value in the original file.
+    - `venue = 1` indicates that the venue value is missing.
+    - An empty string in the `authors` column indicates a missing value in the original file.
     - When loading the `authors` column as a list, the value `[]` is treated as `NaN` in the DataFrame.
     """
     df = pd.read_csv(path, low_memory=True).astype(
         {
             "id": "string",
-            "title": "string",
             "authors": "string",
             "year": "Int16",
-            "venue": "string",
+            "venue": "Int16",
             "out_d": "int16",
             "in_d": "int16",
         }
@@ -32,7 +34,6 @@ def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
 
     if fillna:
         df["authors"] = df["authors"].fillna("")
-        df["venue"] = df["venue"].fillna("")
 
     df["authors"] = df["authors"].str.split("#")
     df["authors"] = df["authors"].apply(lambda x: x if x != [""] else [])
@@ -43,7 +44,7 @@ def load_paper_node(path: str, fillna: bool = True) -> pd.DataFrame:
 
 
 @timer
-def load_paper_edge(path: str) -> pd.DataFrame:
+def load_paper_edge(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path, low_memory=True).astype(
         {
             "src": "string",
@@ -57,7 +58,7 @@ def load_paper_edge(path: str) -> pd.DataFrame:
 
 
 @timer
-def load_author_node(path: str, fillna: bool = True) -> pd.DataFrame:
+def load_author_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     For the `author/node.csv` file:
     - The columns include: `id`, `name`, `co-authors`, and `paper`.
@@ -96,3 +97,18 @@ def load_author_edge(path: str) -> pd.DataFrame:
     _load_logger(df, path)
 
     return df
+
+
+@timer
+def load_map_dict(path: Path) -> dict:
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            map_dict = json.load(f)
+        logger.info(f"Successfully loaded JSON from: {path}")
+        return map_dict
+    except FileNotFoundError:
+        logger.error(f"File not found: {path}")
+        raise
+    except json.JSONDecodeError as e:
+        logger.error(f"JSON decode error: {e}")
+        raise

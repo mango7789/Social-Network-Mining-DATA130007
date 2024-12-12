@@ -1,3 +1,8 @@
-id,title,authors,year,venue,out_d,in_d
-5736965d6e3b12023e56a853,On the Multiple-Query Optimization Problem.,5#3,1990,IEEE Trans. Knowl. Data Eng.,6,0
-5736965d6e3b12023e56a854,A Conceptual Clustering Algorithm for Database Schema Design.,1#4#2,1994,IEEE Trans. Knowl. Data Eng.,3,0
+id,authors,year,venue,out_d,in_d
+555036b37cea80f954149ffc,3,2015,1,0,0
+555036b37cea80f954149ffd,6,2015,1,0,0
+555036b37cea80f954149ffe,15#7#10#2,2015,1,0,0
+555036b37cea80f954149fff,8#13,2015,1,0,0
+555036b37cea80f95414a000,4#16#17#1,2015,1,0,0
+5736965d6e3b12023e56a853,14#11,1990,2,6,0
+5736965d6e3b12023e56a854,5#12#9,1994,2,3,0
