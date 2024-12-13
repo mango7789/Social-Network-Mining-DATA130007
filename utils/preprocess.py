@@ -228,8 +228,17 @@ def _save_paper_chunk(
         return {"title": row["title"], "start": row_start, "end": row_end}
 
     tqdm.pandas(desc="Building paper mapping...", total=len(df))
-    map_df = df[["id", "title", "out_d"]]
-    map_dict = map_df.set_index("id").progress_apply(calculate_range, axis=1).to_dict()
+    df["paper_mapping"] = df.progress_apply(calculate_range, axis=1)
+
+    # Extract title and store start/end in original df
+    df["title"] = df["paper_mapping"].apply(lambda x: x["title"])
+    df["start"] = df["paper_mapping"].apply(lambda x: x["start"])
+    df["end"] = df["paper_mapping"].apply(lambda x: x["end"])
+
+    # Save the mapping of id: title
+    map_dict = df.set_index("id")["title"].to_dict()
+
+    # Save the mapping to JSON file
     with open(paper_map, "w") as f:
         json.dump(map_dict, f, indent=4)
 
@@ -245,7 +254,7 @@ def _save_paper_chunk(
             in_degree[reference] += 1
 
     df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
-    df.drop(columns=["title", "references", "ref_list"], inplace=True)
+    df.drop(columns=["title", "references", "ref_list", "paper_mapping"], inplace=True)
     df.to_csv(paper_node, index=False)
 
     # Save the edges of references in papers

@@ -15,7 +15,7 @@ def _load_logger(df: pd.DataFrame, path: Path):
 def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     For the `paper/node.csv` file:
-    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `in_d`
+    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `start`, `end`, `in_d`
     - `year = 0` indicates that the year value is missing.
     - `venue = 1` indicates that the venue value is missing.
     - An empty string in the `authors` column indicates a missing value in the original file.
@@ -28,6 +28,8 @@ def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
             "year": "Int16",
             "venue": "Int16",
             "out_d": "int16",
+            "start": "int64",
+            "end": "int64",
             "in_d": "int16",
         }
     )
