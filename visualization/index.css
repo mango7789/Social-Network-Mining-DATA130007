@@ -1,0 +1,89 @@
+/* Centering the content on the page */
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #1e272e; /* A deep, modern slate blue for the background */
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    z-index: 1; /* Content is above the background */
+    position: relative; /* Ensures z-index applies */
+    color: #ffffff; /* Pure white for high contrast on the dark background */
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    overflow: hidden; /* Ensure no overflow */
+}
+
+.word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    margin: 0 5px;
+}
+
+/* Using a general delay for each word via the data-delay attribute */
+.word {
+    animation-delay: var(--delay);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    background-color: #40739e; /* A cool, muted blue for buttons */
+    color: #ffffff; /* White text for contrast */
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 2;
+    position: relative;
+}
+
+.button:hover {
+    background-color: #4b6584; /* A darker, richer blue when hovered */
+}
+
+/* Background canvas to hold floating nodes */
+#background-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Keeps the canvas behind the content */
+    background-color: #2f3640; /* A slightly lighter tone for visual layering */
+}
+
+/* Colors for nodes and links */
+.node-color {
+    color: #44bd32; /* A vibrant green for nodes to stand out */
+}
+
+.link-color {
+    color: rgba(255, 255, 255, 0.2); /* Soft white links for subtlety */
+}

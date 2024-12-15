@@ -66,18 +66,32 @@
 
 
 ### 运行方式
-```bash
-# 下载数据集并解压
-mkdir -p data
-cd data
-wget -O dblp.v9.zip "https://lfs.aminer.cn/lab-datasets/citation/dblp.v9.zip"
-unzip dblp.v9.zip -d dblp.v9
-rm *.zip
-cd ..
-# 安装依赖库
-pip install -r requirements.txt
-# 在测试模式下运行代码
-python main.py --test
-# 处理全部数据集
-python main.py
-```
+- 数据集处理
+  - 下载数据集并解压
+    ```bash
+    mkdir -p data
+    cd data
+    wget -O dblp.v9.zip "https://lfs.aminer.cn/lab-datasets/citation/dblp.v9.zip"
+    unzip dblp.v9.zip -d dblp.v9
+    rm *.zip
+    cd ..
+    ```
+  - 安装依赖库
+    ```bash
+    pip install -r requirements.txt
+    ```
+  - 在测试模式下运行代码
+    ```bash
+    python main.py --test
+    ```
+  - 处理全部数据集
+    ```bash
+    python main.py
+    ```
+- 可视化
+  - 在 vscode 安装 live server 扩展
+    ```pwsh
+    code --install-extension ritwickdey.LiveServer
+    ``` 
+  - 使用 `Ctrl + Shift + P`，输入 live server，点击 Open with Live Server
+  - 使用浏览器打开 http://127.0.0.1:5500/visualization/ 进入主页
