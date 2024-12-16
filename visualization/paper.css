@@ -1,0 +1,70 @@
+/* General page styling */
+body {
+    /* Gap for the entire page */
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Gap between top and bottom sections */
+    gap: 20px;
+    height: 95vh;
+}
+
+/* Top section layout */
+.top {
+    display: flex;
+    /* Gap between top-left and top-right sections */
+    gap: 20px;
+    /* Occupies 60% of the height */
+    /* flex: 1 1 60%; */
+    height: 60%;
+}
+
+.top-left {
+    width: 70%;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.top-right {
+    width: 30%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    display: flex; /* Use flexbox to properly contain the table */
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: scroll;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #eee;
+}
+
+/* Bottom section layout */
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    /* Gap between the three parts */
+    gap: 20px;
+    flex: 1 1 45%;
+}
+
+.bottom-part {
+    flex: 1;
+    background-color: #dfe6e9;
+    border: 1px solid #ccc;
+}
