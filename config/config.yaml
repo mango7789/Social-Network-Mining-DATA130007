@@ -9,9 +9,11 @@ data:
     edge: ./author/edge.csv
   venue:
     map: ./venue/map.json
-  community:
-    louvain: ./community/louvain.csv
-    girvan_newman:
-    label_propagation:
-  centrality:
+
+community-mining:
+  louvain: ./results/louvain.csv
+  girvan_newman:
+  label_propagation:
+
+centrality:
     

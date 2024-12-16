@@ -1,6 +1,7 @@
 # Project Specific directories
 logs/
 data/
+results/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
