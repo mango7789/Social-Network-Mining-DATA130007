@@ -2,7 +2,6 @@ import pandas as pd
 from typing import Dict
 import networkx as nx
 from community import community_louvain
-import os
 from tqdm import tqdm
 from pathlib import Path
 
