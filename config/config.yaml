@@ -10,10 +10,10 @@ data:
   venue:
     map: ./venue/map.json
 
-community-mining:
+community:
   louvain: ./results/louvain.csv
   girvan_newman:
   label_propagation:
 
 centrality:
-    
+  

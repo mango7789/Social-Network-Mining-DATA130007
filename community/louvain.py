@@ -4,9 +4,10 @@ import networkx as nx
 from community import community_louvain
 import os
 from tqdm import tqdm
+from pathlib import Path
 
 
-def louvain(node: pd.DataFrame, edge: pd.DataFrame, **kwargs: Dict) -> None:
+def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) -> None:
     """
     Perform community detection on the given node and edge data. The nodes and edges are expected
     to be provided as DataFrames, which are generated after pre-processing. `kwargs` can include
@@ -31,14 +32,10 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, **kwargs: Dict) -> None:
         G.add_edge(row["src"], row["dst"])
 
     partition = community_louvain.best_partition(G.to_undirected())
-
     node["community"] = node["id"].map(partition)
 
-    result_path = os.path.join(os.getcwd(), "results", "node_with_community.csv")
-
-    os.makedirs(os.path.dirname(result_path), exist_ok=True)
-
-    node.to_csv(result_path, index=False)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    node.to_csv(path, index=False)
 
     print("Community detection completed and results saved.")
 

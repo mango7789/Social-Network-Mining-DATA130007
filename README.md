@@ -25,8 +25,8 @@
 - 具体任务
   - Preprocess
     - 同名的作者应该如何区分？
-  - Community Detection
-  - Centrailty and other statistics
+  - Community Mining
+  - Centrality and other statistics
   - Link Predection or Node Classification
 - 细分任务
   - [x] 对数据集进行并行化预处理，抽取需要的信息并分块
@@ -93,5 +93,5 @@
     ```pwsh
     code --install-extension ritwickdey.LiveServer
     ``` 
-  - 使用 `Ctrl + Shift + P`，输入 live server，点击 Open with Live Server
+  - 按住 `Ctrl + Shift + P`，输入 live server，点击 Open with Live Server
   - 使用浏览器打开 http://127.0.0.1:5500/visualization/ 进入主页

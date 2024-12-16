@@ -17,6 +17,7 @@ from utils import (
     load_map_dict,
 )
 from utils.logger import logger
+from community import louvain
 
 
 DEBUG: Final = True
@@ -64,6 +65,10 @@ if __name__ == "__main__":
     PAPER_NODE: Final = base_path / config["data"]["paper"]["node"]
     PAPER_EDGE: Final = base_path / config["data"]["paper"]["edge"]
 
+    COMM_LOUVAIN: Final = Path("community") / config["community"]["louvain"]
+    COMM_G_N: Final = Path("community") / config["community"]["girvan_newman"]
+    COMM_L_P: Final = Path("community") / config["community"]["label_propagation"]
+
     logger.info("Successfully parse the configuration file!")
     logger.info(SEPERATOR)
 
@@ -90,6 +95,11 @@ if __name__ == "__main__":
     df_paper_node = load_paper_node(PAPER_NODE)
     df_paper_edge = load_paper_edge(PAPER_EDGE)
     logger.info("Successfully load dataframes and mappings for dblp-v9 dataset!")
+    logger.info(SEPERATOR)
+
+    logger.info("Start mining the community of nodes...")
+    louvain(PAPER_NODE, PAPER_EDGE, COMM_LOUVAIN)
+    logger.info("Succesfully conduct community mining on the dataset!")
     logger.info(SEPERATOR)
 
     # app.run(port=80, debug=True)
