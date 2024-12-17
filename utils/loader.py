@@ -27,10 +27,10 @@ def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
             "authors": "string",
             "year": "Int16",
             "venue": "Int16",
-            "out_d": "int16",
-            "start": "int64",
-            "end": "int64",
-            "in_d": "int16",
+            "out_d": "Int16",
+            "start": "Int64",
+            "end": "Int64",
+            "in_d": "Int16",
         }
     )
 

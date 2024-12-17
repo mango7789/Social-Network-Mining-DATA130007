@@ -23,7 +23,7 @@ warnings.filterwarnings("ignore")
 
 
 if __name__ == "__main__":
-    # An argument parser to specify the mode of main.py
+    # Add an argument parser to specify the mode of main.py
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--test", action="store_true", help="Run the script in test mode"
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     logger.info("Successfully parse the configuration file!")
     logger.info(SEPERATOR)
 
-    # Save or load the dataset
+    # Preprocess and load the dataset
     if DEBUG:
         logger.info("Start preprocessing the original dataset...")
         save_records_to_csv(
