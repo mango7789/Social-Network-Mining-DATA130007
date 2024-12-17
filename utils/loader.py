@@ -15,7 +15,7 @@ def _load_logger(df: pd.DataFrame, path: Path):
 def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     For the `paper/node.csv` file:
-    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `start`, `end`, `in_d`
+    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `start`, `end`, `in_d`, `single`
     - `year = 0` indicates that the year value is missing.
     - `venue = 1` indicates that the venue value is missing.
     - An empty string in the `authors` column indicates a missing value in the original file.
@@ -31,6 +31,7 @@ def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
             "start": "Int64",
             "end": "Int64",
             "in_d": "Int16",
+            "single": "bool",
         }
     )
 
@@ -63,25 +64,27 @@ def load_paper_edge(path: Path) -> pd.DataFrame:
 def load_author_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     For the `author/node.csv` file:
-    - The columns include: `id`, `name`, `co-authors`, and `paper`.
-    - `id = 1` indicates that the `name` of the author and the list of `co-authors` are missing.
+    - The columns include: `id`, `name`, `co_authors`, and `paper`.
+    - `id = 1` indicates that the `name` of the author and the list of `co_authors` are missing.
     """
     df = pd.read_csv(path, low_memory=True).astype(
         {
             "id": "int64",
             "name": "string",
-            "co-authors": "string",
+            "co_authors": "string",
             "papers": "string",
+            "num_co_authors": "Int32",
+            "num_papers": "Int32",
         }
     )
 
     if fillna:
         df["name"] = df["name"].fillna("")
-        df["co-authors"] = df["co-authors"].fillna("")
+        df["co_authors"] = df["co_authors"].fillna("")
         df["papers"] = df["papers"].fillna("")
 
-    df["co-authors"] = df["co-authors"].str.split("#")
-    df["co-authors"] = df["co-authors"].apply(lambda x: x if x != [""] else [])
+    df["co_authors"] = df["co_authors"].str.split("#")
+    df["co_authors"] = df["co_authors"].apply(lambda x: x if x != [""] else [])
     df["papers"] = df["papers"].str.split("#")
     df["papers"] = df["papers"].apply(lambda x: x if x != [""] else [])
 

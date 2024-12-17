@@ -135,7 +135,7 @@ def _save_author_chunk(df: pd.DataFrame, author_node: Path, author_edge: Path):
     edges = defaultdict(int)
 
     for authors, paper_id in tqdm(
-        zip(df["authors"], df["id"]), desc="Creating author infos", total=len(df)
+        zip(df["authors"], df["id"]), desc="Creating author infos...", total=len(df)
     ):
         for author_id in authors:
             lists[author_id]["papers"].add(paper_id)
@@ -147,13 +147,18 @@ def _save_author_chunk(df: pd.DataFrame, author_node: Path, author_edge: Path):
 
     # Convert author info to a DataFrame
     authors_list = []
-    for author_id, data in lists.items():
+    for author_id, data in tqdm(
+        lists.items(), desc="Converting infos to dataframe...", total=len(lists.items())
+    ):
+        co_authors_list = list(map(str, sorted(data["co-authors"])))
         authors_list.append(
             {
                 "id": author_id,
                 "name": id_to_author[author_id],
-                "co-authors": "#".join(map(str, sorted(data["co-authors"]))),
+                "co_authors": "#".join(co_authors_list),
                 "papers": "#".join(data["papers"]),
+                "num_co_authors": len(co_authors_list),
+                "num_papers": len(data["papers"]),
             }
         )
 
@@ -247,7 +252,9 @@ def _save_paper_chunk(
     edge_list = []
 
     for ref_list, paper_id in tqdm(
-        zip(df["ref_list"], df["id"]), desc="Calculating paper infos", total=len(df)
+        zip(df["ref_list"], df["id"]),
+        desc="Computing paper citations...",
+        total=len(df),
     ):
         for reference in ref_list:
             edge_list.append((paper_id, reference))
@@ -255,6 +262,7 @@ def _save_paper_chunk(
 
     df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
     df.drop(columns=["title", "references", "ref_list", "paper_mapping"], inplace=True)
+    df["single"] = (df["in_d"] == 0) & (df["out_d"] == 0)
     df.to_csv(paper_node, index=False)
 
     # Save the edges of references in papers

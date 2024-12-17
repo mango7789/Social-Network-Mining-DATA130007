@@ -17,7 +17,7 @@ from utils.logger import logger
 from CommunityMining import louvain
 
 
-DEBUG: Final = True
+DEBUG: Final = False
 SEPERATOR: Final = "=" * 85
 warnings.filterwarnings("ignore")
 
