@@ -1,9 +1,7 @@
 import yaml
-import json
-from typing import Final
-from pathlib import Path
-from flask import Flask, jsonify, render_template
 import argparse
+from pathlib import Path
+from typing import Final
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -22,21 +20,6 @@ from CommunityMining import louvain
 
 DEBUG: Final = True
 SEPERATOR: Final = "=" * 85
-
-app = Flask(__name__)
-
-
-@app.route("/")
-def home():
-    return render_template("./visualization/index.html")
-
-
-@app.route("/community")
-def community():
-    # Load the community data from the JSON file
-    with open("community.json", "r") as f:
-        data = json.load(f)
-    return jsonify(data)
 
 
 if __name__ == "__main__":
@@ -97,9 +80,8 @@ if __name__ == "__main__":
     logger.info("Successfully load dataframes and mappings for dblp-v9 dataset!")
     logger.info(SEPERATOR)
 
+    # Community Mining
     logger.info("Start mining the community of nodes...")
     louvain(df_paper_node, df_paper_edge, COMM_LOUVAIN)
     logger.info("Succesfully conduct community mining on the dataset!")
     logger.info(SEPERATOR)
-
-    # app.run(port=80, debug=True)
