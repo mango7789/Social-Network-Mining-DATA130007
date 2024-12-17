@@ -1,10 +1,9 @@
 import yaml
 import argparse
+import warnings
 from pathlib import Path
 from typing import Final
 
-import warnings
-warnings.filterwarnings("ignore")
 
 from utils import (
     save_records_to_csv,
@@ -20,6 +19,7 @@ from CommunityMining import louvain
 
 DEBUG: Final = True
 SEPERATOR: Final = "=" * 85
+warnings.filterwarnings("ignore")
 
 
 if __name__ == "__main__":

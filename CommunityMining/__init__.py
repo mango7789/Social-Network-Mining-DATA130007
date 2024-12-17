@@ -1,5 +1,3 @@
 from .louvain import louvain
 
-__all__ = [
-    "louvain"
-]
+__all__ = ["louvain"]
