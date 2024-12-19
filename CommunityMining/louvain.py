@@ -20,6 +20,8 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     >>> # Example usage
     >>> louvain(paper_node, paper_edge)
     """
+    node = node[node["single"] != True]
+
     G = nx.DiGraph()
 
     for index in tqdm(node.index, total=len(node), desc="Adding nodes to graph"):
@@ -31,12 +33,15 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
         G.add_edge(row["src"], row["dst"])
 
     partition = community_louvain.best_partition(G.to_undirected())
+
     node["community"] = node["id"].map(partition)
 
-    path.parent.mkdir(parents=True, exist_ok=True)
-    node.to_csv(path, index=False)
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    print("Community detection completed and results saved.")
+    result_df = node[["id", "community"]]
+    result_df.to_csv(output_path, index=False)
+
+    print(f"Community detection completed and results saved to {output_path}")
 
 
 if __name__ == "__main__":
