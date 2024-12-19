@@ -22,7 +22,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     """
     node = node[node["single"] != True]
 
-    G = nx.DiGraph()
+    G = nx.DiGraph() 
 
     for index in tqdm(node.index, total=len(node), desc="Adding nodes to graph"):
         row = node.loc[index]
