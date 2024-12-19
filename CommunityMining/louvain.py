@@ -2,8 +2,8 @@ import pandas as pd
 import networkx as nx
 from community import community_louvain
 from typing import Dict
-import os
 from tqdm import tqdm
+from pathlib import Path
 
 
 def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) -> None:
@@ -22,7 +22,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     """
     node = node[node["single"] != True]
 
-    G = nx.DiGraph() 
+    G = nx.DiGraph()
 
     for index in tqdm(node.index, total=len(node), desc="Adding nodes to graph"):
         row = node.loc[index]
@@ -36,16 +36,17 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
 
     node["community"] = node["id"].map(partition)
 
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    node.to_csv(path, index=False)
 
     result_df = node[["id", "community"]]
-    result_df.to_csv(output_path, index=False)
+    result_df.to_csv(path, index=False)
 
-    print(f"Community detection completed and results saved to {output_path}")
+    print(f"Community detection completed and results saved to {path}")
 
 
 if __name__ == "__main__":
     node_data = pd.read_csv("../test/paper/node.csv", sep=",", low_memory=False)
     edge_data = pd.read_csv("../test/paper/edge.csv", sep=",", low_memory=False)
-    output_path = "../test/paper/community_output.csv"
+    output_path = "result/community_output.csv"
     louvain(node_data, edge_data, output_path)
