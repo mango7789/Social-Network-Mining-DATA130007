@@ -44,7 +44,6 @@ if __name__ == "__main__":
         config = yaml.safe_load(file)
     logger.info("Successfully load the configuration file!")
 
-
     DATA_PATH: Final = base_path / config["data"]["dblp"]
     AUTHOR_NODE: Final = base_path / config["data"]["author"]["node"]
     AUTHOR_EDGE: Final = base_path / config["data"]["author"]["edge"]

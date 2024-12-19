@@ -1,4 +1,4 @@
-name: Black Autoformat
+name: Black Format Check
 
 on:
   push:
@@ -11,10 +11,10 @@ on:
       - "**" # Run on all pull requests
 
 permissions:
-  contents: write # Required to push changes
+  contents: read
 
 jobs:
-  autoformat:
+  format-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,17 +29,6 @@ jobs:
       - name: Install black
         run: pip install black
 
-      - name: Format code with black
-        id: autoformat
-        run: black .
-
-      - name: Commit and push changes
+      - name: Check code format with black
         run: |
-          set -x
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if ! git diff --exit-code; then
-            git commit -m "Apply black formatting [auto]"
-            git push
-          fi
+          black --check .
