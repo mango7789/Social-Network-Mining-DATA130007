@@ -12,7 +12,9 @@ def _load_logger(df: pd.DataFrame, path: Path):
 
 
 @timer
-def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
+def load_paper_node(
+    path: Path, fillna: bool = True, skip_single: bool = False
+) -> pd.DataFrame:
     """
     For the `paper/node.csv` file:
     - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `start`, `end`, `in_d`, `single`
@@ -41,6 +43,9 @@ def load_paper_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     df["authors"] = df["authors"].str.split("#")
     df["authors"] = df["authors"].apply(lambda x: x if x != [""] else [])
 
+    if skip_single:
+        df = df[df["single"]].drop(columns=["single"])
+
     _load_logger(df, path)
 
     return df
@@ -64,7 +69,7 @@ def load_paper_edge(path: Path) -> pd.DataFrame:
 def load_author_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     For the `author/node.csv` file:
-    - The columns include: `id`, `name`, `co_authors`, and `paper`.
+    - The columns include: `id`, `name`, `co_authors`, `papers`, `num_co_authors` and `num_papers`.
     - `id = 1` indicates that the `name` of the author and the list of `co_authors` are missing.
     """
     df = pd.read_csv(path, low_memory=True).astype(

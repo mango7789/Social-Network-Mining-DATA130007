@@ -17,13 +17,15 @@ from utils.logger import logger
 from CommunityMining import louvain
 
 
-DEBUG: Final = False
+PREPROCESS: Final = True
 SEPERATOR: Final = "=" * 85
 warnings.filterwarnings("ignore")
 
 
 if __name__ == "__main__":
-    # Add an argument parser to specify the mode of main.py
+    ############################################################
+    #   Add an argument parser to specify the mode of main.py  #
+    ############################################################
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--test", action="store_true", help="Run the script in test mode"
@@ -35,10 +37,13 @@ if __name__ == "__main__":
         "=" * 20 + f"       Run script main.py in {root_dir} mode       " + "=" * 20
     )
 
-    # Open and parse the configuration file
+    ############################################################
+    #           Open and parse the configuration file          #
+    ############################################################
     with open("./config/config.yaml", "r") as file:
         config = yaml.safe_load(file)
     logger.info("Successfully load the configuration file!")
+
 
     DATA_PATH: Final = base_path / config["data"]["dblp"]
     AUTHOR_NODE: Final = base_path / config["data"]["author"]["node"]
@@ -48,15 +53,20 @@ if __name__ == "__main__":
     PAPER_NODE: Final = base_path / config["data"]["paper"]["node"]
     PAPER_EDGE: Final = base_path / config["data"]["paper"]["edge"]
 
-    COMM_LOUVAIN: Final = Path("CommunityMining") / config["community"]["louvain"]
-    # COMM_G_N: Final = Path("CommunityMining") / config["community"]["girvan_newman"]
-    # COMM_L_P: Final = Path("CommunityMining") / config["community"]["label_propagation"]
+    community_path = Path("CommunityMining")
+    COMM_LOUVAIN: Final = community_path / config["community"]["louvain"]
+    # COMM_G_N: Final = community_path / config["community"]["girvan_newman"]
+    # COMM_L_P: Final = community_path / config["community"]["label_propagation"]
+
+    centrality_path = Path("CentralityMeasure")
 
     logger.info("Successfully parse the configuration file!")
     logger.info(SEPERATOR)
 
-    # Preprocess and load the dataset
-    if DEBUG:
+    ############################################################
+    #            Preprocess and load the dataset               #
+    ############################################################
+    if PREPROCESS:
         logger.info("Start preprocessing the original dataset...")
         save_records_to_csv(
             DATA_PATH,
@@ -80,8 +90,17 @@ if __name__ == "__main__":
     logger.info("Successfully load dataframes and mappings for dblp-v9 dataset!")
     logger.info(SEPERATOR)
 
-    # Community Mining
+    ############################################################
+    #                    Community Mining                      #
+    ############################################################
     logger.info("Start mining the community of nodes...")
     louvain(df_paper_node, df_paper_edge, COMM_LOUVAIN)
     logger.info("Succesfully conduct community mining on the dataset!")
+    logger.info(SEPERATOR)
+
+    ############################################################
+    #                 Centrality Measurement                   #
+    ############################################################
+    logger.info("Start commputing the centrality measurement of nodes...")
+    logger.info("Successfully commpute the centrality on the dataset!")
     logger.info(SEPERATOR)
