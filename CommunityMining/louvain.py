@@ -47,4 +47,5 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
 if __name__ == "__main__":
     node_data = pd.read_csv("../test/paper/node.csv", sep=",", low_memory=False)
     edge_data = pd.read_csv("../test/paper/edge.csv", sep=",", low_memory=False)
-    louvain(node_data, edge_data)
+    output_path = "../test/paper/community_output.csv"
+    louvain(node_data, edge_data, output_path)
