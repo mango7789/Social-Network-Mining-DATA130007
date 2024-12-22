@@ -13,11 +13,11 @@ def _load_logger(df: pd.DataFrame, path: Path):
 
 @timer
 def load_paper_node(
-    path: Path, fillna: bool = True, skip_single: bool = False
+    path: Path, fillna: bool = True, skip_isolate: bool = False
 ) -> pd.DataFrame:
     """
     For the `paper/node.csv` file:
-    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `start`, `end`, `in_d`, `single`
+    - The columns include: `id`, `authors`, `year`, `venue`, `out_d`, `start`, `end`, `in_d`, `isolate`
     - `year = 0` indicates that the year value is missing.
     - `venue = 1` indicates that the venue value is missing.
     - An empty string in the `authors` column indicates a missing value in the original file.
@@ -33,7 +33,7 @@ def load_paper_node(
             "start": "Int64",
             "end": "Int64",
             "in_d": "Int16",
-            "single": "bool",
+            "isolate": "bool",
         }
     )
 
@@ -43,8 +43,8 @@ def load_paper_node(
     df["authors"] = df["authors"].str.split("#")
     df["authors"] = df["authors"].apply(lambda x: x if x != [""] else [])
 
-    if skip_single:
-        df = df[df["single"]].drop(columns=["single"])
+    if skip_isolate:
+        df = df[df["isolate"]].drop(columns=["isolate"])
 
     _load_logger(df, path)
 

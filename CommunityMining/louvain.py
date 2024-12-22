@@ -20,8 +20,6 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     >>> # Example usage
     >>> louvain(paper_node, paper_edge)
     """
-    node = node[node["single"] != True]
-
     G = nx.DiGraph()
 
     for index in tqdm(node.index, total=len(node), desc="Adding nodes to graph"):
@@ -46,7 +44,9 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
 
 
 if __name__ == "__main__":
-    node_data = pd.read_csv("../test/paper/node.csv", sep=",", low_memory=False)
-    edge_data = pd.read_csv("../test/paper/edge.csv", sep=",", low_memory=False)
+    from utils import load_paper_node, load_paper_edge
+
+    node_data = load_paper_node("../test/paper/node.csv")
+    edge_data = load_paper_edge("../test/paper/edge.csv")
     output_path = "result/community_output.csv"
     louvain(node_data, edge_data, output_path)

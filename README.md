@@ -24,9 +24,14 @@
 
 - 具体任务
   - Preprocess
-    - 同名的作者应该如何区分？
+    - 存在同名作者，数据会累加
+    - 存在大量单独（isolated）的点，在具体任务中应排除
   - Community Mining
+    - 社区划分方法 参考PPT第六章：社区挖掘
+    - 社区划分效果评价 参考PPT第八章：影响力和同质性 模块度内容
   - Centrality and other statistics
+    - 中心性度量 参考PPT第三章：网络度量
+    - 其他统计数据（度分布、聚类系数、平均路径长度等） 参考PPT第四章：网络模型
   - Link Prediction or Node Classification
 - 细分任务
   - [x] 对数据集进行并行化预处理，抽取需要的信息并分块

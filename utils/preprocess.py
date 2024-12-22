@@ -262,7 +262,7 @@ def _save_paper_chunk(
 
     df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
     df.drop(columns=["title", "references", "ref_list", "paper_mapping"], inplace=True)
-    df["single"] = (df["in_d"] == 0) & (df["out_d"] == 0)
+    df["isolate"] = (df["in_d"] == 0) & (df["out_d"] == 0)
     df.to_csv(paper_node, index=False)
 
     # Save the edges of references in papers
