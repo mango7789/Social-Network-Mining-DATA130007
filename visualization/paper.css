@@ -1,44 +1,40 @@
 /* General page styling */
 body {
-    /* Gap for the entire page */
     margin: 20px;
     display: flex;
     flex-direction: column;
-    /* Gap between top and bottom sections */
-    gap: 20px;
-    height: 95vh;
+    gap: 20px; /* Gap between top and bottom sections */
+    height: 95vh; /* Fixed height for the viewport */
 }
 
 /* Top section layout */
 .top {
     display: flex;
-    /* Gap between top-left and top-right sections */
-    gap: 20px;
-    /* Occupies 60% of the height */
-    /* flex: 1 1 60%; */
-    height: 60%;
+    gap: 20px; /* Gap between top-left and top-right sections */
+    height: 60%; /* Fixed height for the top section */
 }
 
 .top-left {
-    width: 70%;
+    width: 70%; /* Fixed width for top-left */
+    height: 100%; /* Full height of the .top container */
     background-color: #f0f0f0;
     border: 1px solid #ccc;
 }
 
 .top-right {
-    width: 30%;
+    width: 30%; /* Fixed width for top-right */
+    height: 100%; /* Full height of the .top container */
     background-color: #ffffff;
     border: 1px solid #ccc;
-    display: flex; /* Use flexbox to properly contain the table */
+    display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: scroll; /* Scrollable content if it overflows */
 }
 
 /* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    overflow-y: scroll;
 }
 
 th,
@@ -57,14 +53,42 @@ thead {
 /* Bottom section layout */
 .bottom {
     display: flex;
-    justify-content: space-between;
-    /* Gap between the three parts */
-    gap: 20px;
-    flex: 1 1 45%;
+    gap: 20px; /* Gap between the three parts */
+    height: 35%; /* Fixed height for the bottom section */
 }
 
 .bottom-part {
-    flex: 1;
+    flex: 1; /* Equal width for all parts */
+    height: 100%; /* Full height of the .bottom container */
     background-color: #dfe6e9;
     border: 1px solid #ccc;
+}
+
+/* tooltip */
+.tooltip {
+    position: absolute;
+    padding: 7px;
+    font-size: 0.9em;
+    pointer-events: none;
+    background: #FFF5E4;
+    /* background: #fff; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    /* add shade */
+    -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.tooltip p {
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
 }

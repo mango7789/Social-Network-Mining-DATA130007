@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paper</title>
   <link rel="stylesheet" href="paper.css">
-  <script src="lib/d3.v7.min.js"></script>
+  <script src="lib/d3.v7.js"></script>
   <script src="paper.js" type="module"></script>
 </head>
 
@@ -40,12 +40,12 @@
     </div>
   </div>
   <div class="bottom">
-    <!-- The first div is used for barploting distance, number of nodes in community, average number of citations (One can choose from it) -->
+    <!-- The first div is used for barploting distance, diameter, average number of citations (One can choose from it) -->
     <div class="bottom-part" id="distance"></div>
-    <!-- Switch between global degree distribution and local distribution -->
+    <!-- Switch between global and local degree distribution -->
     <div class="bottom-part" id="degree"></div>
-    <!-- Global is diameter of each community -->
-    <div class="bottom-part" id="diameter"></div>
+    <!-- Global is number of nodes in each community -->
+    <div class="bottom-part" id="nodes"></div>
   </div>
 </body>
 
