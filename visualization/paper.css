@@ -3,84 +3,138 @@ body {
     margin: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Gap between top and bottom sections */
-    height: 95vh; /* Fixed height for the viewport */
+    gap: 20px;
+    height: 95vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Prevents scrollbars due to unexpected overflows */
 }
 
 /* Top section layout */
 .top {
     display: flex;
-    gap: 20px; /* Gap between top-left and top-right sections */
-    height: 60%; /* Fixed height for the top section */
+    gap: 20px;
+    height: 60%;
+    flex-shrink: 0;
+    /* Prevent shrinking */
 }
 
 .top-left {
-    width: 70%; /* Fixed width for top-left */
-    height: 100%; /* Full height of the .top container */
+    width: 70%;
+    height: 100%;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
 }
 
 .top-right {
-    width: 30%; /* Fixed width for top-right */
-    height: 100%; /* Full height of the .top container */
-    background-color: #ffffff;
+    width: 30%;
+    height: 100%;
+    background-color: #fff;
     border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll; /* Scrollable content if it overflows */
+    position: relative;
+    box-sizing: border-box;
+    overflow-y: hidden;
 }
 
-/* Table styling */
-table {
+#data-table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 10px;
 }
 
-th,
-td {
-    border: 1px solid #ccc;
-    padding: 8px;
+#data-table th,
+#data-table td {
+    font-size: 15px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
     text-align: left;
 }
 
-thead {
-    position: sticky;
-    top: 0;
-    background-color: #eee;
+#pagination-controls {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    margin-top: -5px;
+    border-top: 1px solid #ddd;
+    /* Optional: add a border for better separation */
 }
+
+#pagination-controls button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+#pagination-controls button.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+#pagination-controls button:hover {
+    background-color: #e9ecef;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
 
 /* Bottom section layout */
 .bottom {
     display: flex;
-    gap: 20px; /* Gap between the three parts */
-    height: 35%; /* Fixed height for the bottom section */
+    gap: 20px;
+    height: 35%;
+    flex-shrink: 0;
 }
 
 .bottom-part {
-    flex: 1; /* Equal width for all parts */
-    height: 100%; /* Full height of the .bottom container */
+    flex: 1;
+    height: 100%;
     background-color: #dfe6e9;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
 }
 
-/* tooltip */
+/* Tooltip */
 .tooltip {
     position: absolute;
     padding: 7px;
     font-size: 0.9em;
     pointer-events: none;
     background: #FFF5E4;
-    /* background: #fff; */
     border: 1px solid #ccc;
     border-radius: 4px;
+    z-index: 1000;
+    /* Ensures it appears above other elements */
 
-    /* add shade */
-    -moz-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
-    -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+    /* Add shadow */
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
 }
-
 
 .tooltip p {
     margin: 0;

@@ -1,144 +1,349 @@
 document.addEventListener("DOMContentLoaded", () => {
   const topLeftDiv = document.querySelector(".top-left");
+  const topRightDiv = document.querySelector(".top-right");
   const distanceDiv = document.querySelector("#distance");
   const degreeDiv = document.querySelector("#degree");
   const nodesDiv = document.querySelector("#nodes");
+
+  async function loadData() {
+    const communityData = await d3.json("community.json");
+    const linkData = await d3.csv("links.csv");
+    return { communityData, linkData };
+  }
 
   ////////////////////////////////////////////////////////////////////////
   //                            Top Left                                //
   ////////////////////////////////////////////////////////////////////////
   if (topLeftDiv) {
-    const jsonData = {
-      "1": "Community A",
-      "2": "Community B",
-      "3": "Community A",
-      "4": "Community C",
-      "5": "Community B"
-    };
-  
-    const edges = [
-      { src: 1, dst: 2 },
-      { src: 2, dst: 3 },
-      { src: 3, dst: 4 },
-      { src: 4, dst: 5 },
-      { src: 1, dst: 5 }
+    // Example CSV Data as an array of objects (mimicking CSV data)
+    const nodes = [
+      { id: "b84f", community: "Community A", authors: "Author1", year: 2020, venue: "Venue1", out_d: 3, in_d: 5 },
+      { id: 2, community: "Community B", authors: "Author2", year: 2021, venue: "Venue2", out_d: 2, in_d: 4 },
+      { id: 3, community: "Community A", authors: "Author3", year: 2022, venue: "Venue3", out_d: 1, in_d: 3 },
+      { id: 4, community: "Community C", authors: "Author4", year: 2023, venue: "Venue4", out_d: 4, in_d: 2 },
+      { id: 5, community: "Community B", authors: "Author5", year: 2021, venue: "Venue5", out_d: 5, in_d: 20 }
     ];
-  
-    const nodes = Object.entries(jsonData).map(([id, community]) => ({
-      id: +id,
-      community
-    }));
-  
-    const width = 800;
-    const height = 600;
-  
+
+    // Edges (the relationships between nodes)
+    const edges = [
+      { src: "b84f", dst: 2 },
+      { src: "b84f", dst: 3 },
+      { src: "b84f", dst: 4 },
+      { src: 2, dst: 3 },
+      { src: 4, dst: 5 }
+    ];
+
+    const titleData = {
+      "1": "Title A",
+      "2": "Title B",
+      "3": "Title C",
+      "4": "Title D",
+      "5": "Title E"
+    };
+
+    const width = topLeftDiv.clientWidth;
+    const height = topLeftDiv.clientHeight;
+
     const svg = d3.select('.top-left').append('svg')
       .attr('width', width)
       .attr('height', height);
-  
-    const tooltip = d3.select('body').append('div')
+
+    // Create a zoom behavior
+    const zoom = d3.zoom()
+      .scaleExtent([0.5, 5])  // Limits the zoom scale (from 50% to 500%)
+      .on('zoom', (event) => {
+        // Apply zoom transformation only to the graph group
+        graphGroup.attr('transform', event.transform);
+      });
+
+    svg.call(zoom);  // Bind the zoom behavior to the SVG
+
+    const tooltip = d3.select('body')
+      .append('div')
       .attr('class', 'tooltip')
       .style('position', 'absolute')
-      .style('background', 'rgba(0, 0, 0, 0.7)')
-      .style('color', 'white')
       .style('padding', '5px')
       .style('border-radius', '4px')
       .style('visibility', 'hidden');
-  
+
     const color = d3.scaleOrdinal(d3.schemeCategory10);
-  
+
+    // Create a mapping from community to a unique position
+    const communityCenters = {};
+    nodes.forEach(node => {
+      if (!communityCenters[node.community]) {
+        communityCenters[node.community] = { x: 0, y: 0, count: 0 };
+      }
+      communityCenters[node.community].x += Math.random() * width;
+      communityCenters[node.community].y += Math.random() * height;
+      communityCenters[node.community].count += 1;
+    });
+
+    // Average the center positions for each community
+    for (const community in communityCenters) {
+      communityCenters[community].x /= communityCenters[community].count;
+      communityCenters[community].y /= communityCenters[community].count;
+    }
+
     const simulation = d3.forceSimulation(nodes)
       .force('link', d3.forceLink(edges)
         .id(d => d.src)
         .distance(100))
       .force('charge', d3.forceManyBody().strength(-150))
       .force('center', d3.forceCenter(width / 2, height / 2));
-    
+
+    // Add a group for the graph content (nodes and links)
+    const graphGroup = svg.append('g');
+
     // Plot links (edges)
-    const link = svg.append('g')
-      .selectAll('.link')
+    graphGroup.selectAll('.link')
       .data(edges)
       .enter().append('line')
       .attr('class', 'link')
       .attr('stroke', '#aaa')
-      .attr('stroke-width', 1.5);
-  
+      .attr('stroke-width', 0.5);
+
+    function logisticGrowth(x, r_max = 30, k = 0.1, x_0 = 30) {
+      return r_max / (1 + Math.exp(-k * (x - x_0)));
+    }
+
     // Plot nodes
-    const node = svg.append('g')
-      .selectAll('.node')
+    const nodeCircles = graphGroup.selectAll('.node')
       .data(nodes)
       .enter().append('circle')
       .attr('class', 'node')
-      .attr('r', 10)
+      .attr('r', d => logisticGrowth(d.in_d))
       .attr('fill', d => color(d.community))
       .call(d3.drag()
         .on('start', dragStart)
         .on('drag', dragged)
         .on('end', dragEnd));
-  
+
+    // Add labels for nodes (showing the ID)
+    const nodeLabels = graphGroup.selectAll('.node-label')
+      .data(nodes)
+      .enter().append('text')
+      .attr('class', 'node-label')
+      .attr('text-anchor', 'middle')
+      .attr('dy', 4) // Adjust vertical alignment
+      .style('font-size', '10px')
+      .style('pointer-events', 'none') // Prevent interference with drag events
+      .text(d => d.id);
+
     // Tooltip on hover
-    node.on('mouseover', function (event, d) {
-      tooltip.style('visibility', 'visible')
-        .html(`<b>Node ID</b>: ${d.id}<br><b>Community</b>: ${d.community}`);
-    })
+    nodeCircles
+      .on('mouseover', function (event, d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr('r', d => 1.2 * logisticGrowth(d.in_d));
+
+        tooltip.style('visibility', 'visible')
+          .html(`
+            <b>ID</b>: ${d.id}<br>
+            <b>Title</b>: ${titleData[d.id]}<br>
+            <b>Authors</b>: ${d.authors}<br>
+            <b>Year</b>: ${d.year}<br>
+            <b>Venue</b>: ${d.venue}<br>
+            <b>Out-degree</b>: ${d.out_d}<br>
+            <b>In-degree</b>: ${d.in_d}`
+          );
+      })
       .on('mousemove', function (event) {
         tooltip.style('top', event.pageY + 10 + 'px')
           .style('left', event.pageX + 10 + 'px');
       })
       .on('mouseout', function () {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr('r', d => logisticGrowth(d.in_d));
         tooltip.style('visibility', 'hidden');
       });
-  
+
     // Update positions based on the simulation
     simulation.on('tick', () => {
-      link
+      graphGroup.selectAll('.link')
         .attr('x1', d => nodes.find(n => n.id === d.src).x)
         .attr('y1', d => nodes.find(n => n.id === d.src).y)
         .attr('x2', d => nodes.find(n => n.id === d.dst).x)
         .attr('y2', d => nodes.find(n => n.id === d.dst).y);
-  
-      node
+
+      nodeCircles
         .attr('cx', d => d.x)
         .attr('cy', d => d.y);
+
+      nodeLabels
+        .attr('x', d => d.x)
+        .attr('y', d => d.y);
     });
-  
+
+    // Add legend on the right side (outside the zoomed group)
+    const legendWidth = 150;
+    const legendMargin = 20;
+
+    const legend = svg.append('g')
+      .attr('transform', `translate(${width - legendWidth - legendMargin}, ${legendMargin})`);
+
+    const communities = [...new Set(nodes.map(d => d.community))];
+
+    const legendItems = legend.selectAll('.legend-item')
+      .data(communities)
+      .enter().append('g')
+      .attr('class', 'legend-item')
+      .attr('transform', (d, i) => `translate(0, ${i * 20})`);
+
+    legendItems.append('rect')
+      .attr('width', 15)
+      .attr('height', 15)
+      .attr('fill', d => color(d));
+
+    legendItems.append('text')
+      .attr('x', 20)
+      .attr('y', 10)
+      .text(d => d)
+      .style('font-size', '12px')
+      .style('alignment-baseline', 'middle');
+
+    // Functions for dragging
     function dragStart(event, d) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
     }
-  
+
     function dragged(event, d) {
       d.fx = event.x;
       d.fy = event.y;
     }
-  
+
     function dragEnd(event, d) {
       if (!event.active) simulation.alphaTarget(0);
       d.fx = null;
       d.fy = null;
     }
   }
+  ////////////////////////////////////////////////////////////////////////
+  //                            Top Right                               //
+  ////////////////////////////////////////////////////////////////////////
+  if (topRightDiv) {
+    function renderPaginatedTable(data, community = "") {
+      let currentPage = 1;
+      const rowsPerPage = 12; // Number of rows per page
+      const maxVisiblePages = 8; // Maximum number of page numbers displayed
 
+      // Filter data based on community
+      const filteredData = community
+        ? data.filter((item) => item.venue.toLowerCase() === community.toLowerCase())
+        : data;
 
+      // Sort data in reverse order of citation
+      const sortedData = filteredData.sort((a, b) => b.citation - a.citation);
 
+      // Function to render the table
+      function renderTable() {
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        const pageData = sortedData.slice(start, end);
+
+        // Clear existing rows
+        const tbody = document.querySelector("#data-table tbody");
+        tbody.innerHTML = "";
+
+        // Populate rows for the current page
+        pageData.forEach((item, index) => {
+          setTimeout(() => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${item.id}</td>
+              <td>${item.title}</td>
+              <td>${item.year}</td>
+              <td>${item.venue}</td>
+              <td>${item.references}</td>
+              <td>${item.citation}</td>
+            `;
+
+            // Add fade-in animation
+            row.classList.add("fade-in");
+            tbody.appendChild(row);
+          }, index * 100);
+        });
+
+        updatePagination();
+      }
+
+      // Function to update pagination controls
+      function updatePagination() {
+        const totalPages = Math.ceil(sortedData.length / rowsPerPage);
+        const paginationContainer = document.getElementById("pagination-controls");
+        paginationContainer.innerHTML = "";
+
+        // Add Prev button
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "Prev";
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener("click", () => {
+          currentPage--;
+          renderTable();
+        });
+        paginationContainer.appendChild(prevButton);
+
+        // Calculate page range to display
+        const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+        const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+        for (let i = startPage; i <= endPage; i++) {
+          const button = document.createElement("button");
+          button.textContent = i;
+          if (i === currentPage) {
+            button.className = "active";
+          }
+          button.addEventListener("click", () => {
+            currentPage = i;
+            renderTable();
+          });
+          paginationContainer.appendChild(button);
+        }
+
+        // Add Next button
+        const nextButton = document.createElement("button");
+        nextButton.textContent = "Next";
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener("click", () => {
+          currentPage++;
+          renderTable();
+        });
+        paginationContainer.appendChild(nextButton);
+      }
+
+      // Initial render
+      renderTable();
+    }
+
+    const data = [
+      { id: "bf66", title: "cc", year: 2015, venue: "Sigmod", references: 5, citation: 126 },
+      { id: "bf67", title: "dd", year: 2016, venue: "ICDE", references: 3, citation: 110 },
+      { id: "bf68", title: "ee", year: 2017, venue: "VLDB", references: 6, citation: 95 },
+      { id: "bf69", title: "ff", year: 2018, venue: "WWW", references: 10, citation: 230 },
+      { id: "bf70", title: "gg", year: 2019, venue: "KDD", references: 8, citation: 150 },
+      { id: "bf71", title: "hh", year: 2020, venue: "SIGMOD", references: 4, citation: 99 },
+      { id: "bf72", title: "ii", year: 2021, venue: "ICML", references: 7, citation: 140 },
+      { id: "bf73", title: "jj", year: 2022, venue: "NeurIPS", references: 2, citation: 50 },
+      { id: "bf74", title: "kk", year: 2023, venue: "CVPR", references: 9, citation: 175 },
+      { id: "bf75", title: "ll", year: 2024, venue: "ICLR", references: 6, citation: 115 },
+      { id: "bf76", title: "mm", year: 2024, venue: "ICLR", references: 6, citation: 115 },
+      { id: "bf77", title: "nn", year: 2024, venue: "ICLR", references: 6, citation: 115 },
+      { id: "bf78", title: "oo", year: 2024, venue: "ICLR", references: 6, citation: 115 },
+    ];
+
+    // Test example
+    renderPaginatedTable(data, ""); // Show all data
+    // renderPaginatedTable(data, "ICLR"); // Show data only for the community "ICLR"
+  }
   ////////////////////////////////////////////////////////////////////////
   //                           Bottom left                              //
   ////////////////////////////////////////////////////////////////////////  
   if (distanceDiv) {
-    const toggleContainer = document.createElement("div");
-    toggleContainer.style.position = "absolute";
-    toggleContainer.style.top = "10px";
-    toggleContainer.style.right = "10px";
-    toggleContainer.style.backgroundColor = "white";
-    toggleContainer.style.padding = "10px";
-    toggleContainer.style.boxShadow = "0px 2px 5px rgba(0, 0, 0, 0.2)";
-    toggleContainer.style.borderRadius = "5px";
-
-    const label = document.createElement("label");
-    label.innerText = "Select Plot: ";
-    label.style.marginRight = "10px";
-
     const select = document.createElement("select");
     select.id = "plot-selector";
 
@@ -149,9 +354,12 @@ document.addEventListener("DOMContentLoaded", () => {
       select.appendChild(option);
     });
 
-    toggleContainer.appendChild(label);
-    toggleContainer.appendChild(select);
-    distanceDiv.appendChild(toggleContainer);
+    select.style.position = "absolute";
+    select.style.top = "10px";
+    select.style.right = "10px";
+
+    distanceDiv.style.position = "relative";
+    distanceDiv.appendChild(select);
 
     // Function to plot bar chart
     function plotBarChartFromJson(jsonData, title) {
@@ -180,7 +388,8 @@ document.addEventListener("DOMContentLoaded", () => {
           .attr("x", width / 2)
           .attr("y", margin.top / 2)
           .attr("text-anchor", "middle")
-          .style("font-size", "14px");
+          .style("font-size", "16px")
+          .style("font-weight", "bold");
       }
 
       // Scales
@@ -189,6 +398,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       x.domain(data.map(d => d.label));
       y.domain([0, d3.max(data, d => d.value)]);
+
+      // Tooltip setup
+      const tooltip = d3.select('body')
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("position", "absolute")
+        .style("background", "white")
+        .style("border", "1px solid #ccc")
+        .style("border-radius", "4px")
+        .style("padding", "5px")
+        .style("pointer-events", "none");
+
+      console.log(tooltip);
 
       // Update bars with smooth transition
       const bars = svg.select(".bars").selectAll(".bar").data(data, d => d.label);
@@ -202,9 +425,26 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("width", x.bandwidth())
         .attr("height", 0) // Start with height 0
         .attr("fill", "steelblue")
+        .on("mouseover", function (event, d) {
+          d3.select(this).attr("fill", "darkblue"); // Highlight bar
+          tooltip
+            .style("opacity", 1)
+            .html(`X: ${d.label}<br>Y: ${d.value}`)
+            .style("left", `${event.pageX + 10}px`)
+            .style("top", `${event.pageY - 20}px`);
+        })
+        .on("mousemove", function (event) {
+          tooltip
+            .style("left", `${event.pageX + 10}px`)
+            .style("top", `${event.pageY - 20}px`);
+        })
+        .on("mouseout", function () {
+          d3.select(this).attr("fill", "steelblue"); // Reset bar color
+          tooltip.style("opacity", 0);
+        })
         .merge(bars)
         .transition()
-        .duration(750)
+        .duration(2000)
         .attr("x", d => x(d.label))
         .attr("y", d => y(d.value))
         .attr("width", x.bandwidth())
@@ -213,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bars
         .exit()
         .transition()
-        .duration(750)
+        .duration(2000)
         .attr("y", chartHeight)
         .attr("height", 0)
         .remove();
@@ -222,14 +462,14 @@ document.addEventListener("DOMContentLoaded", () => {
       svg
         .select(".x-axis")
         .transition()
-        .duration(750)
+        .duration(2000)
         .call(d3.axisBottom(x));
 
       // Update Y-axis
       svg
         .select(".y-axis")
         .transition()
-        .duration(750)
+        .duration(2000)
         .call(d3.axisLeft(y));
 
       // Update Title
@@ -315,14 +555,24 @@ document.addEventListener("DOMContentLoaded", () => {
         .y((d) => y(d.count))
         .curve(d3.curveCardinal); // Spline curve technique
 
-      // Draw the curve line
+      // Draw the curve line with animation
       g.append("path")
         .data([data])
         .attr("class", "line")
-        .attr("d", line)
+        .attr("d", line) // This defines the final path, which will be animated
         .attr("fill", "none")
         .attr("stroke", "steelblue")
-        .attr("stroke-width", 2);
+        .attr("stroke-width", 2)
+        .attr("stroke-dasharray", function () {
+          return this.getTotalLength();  // Get the length of the path
+        })
+        .attr("stroke-dashoffset", function () {
+          return this.getTotalLength();  // Initially set the offset to the path length (invisible line)
+        })
+        .transition() // Apply transition to the line drawing
+        .duration(2000) // Duration of the animation (2 seconds)
+        .attr("stroke-dashoffset", 0); // Set the dashoffset to 0 to reveal the line
+
 
       // Draw the dots at each data point
       const dots = g
@@ -340,31 +590,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Tooltip (hidden by default)
       const tooltip = d3
-        .select(degreeDiv)
+        .select('body')
         .append("div")
         .attr("class", "tooltip")
         .style("position", "absolute")
-        .style("background", "rgba(0, 0, 0, 0.7)")
-        .style("color", "white")
         .style("padding", "5px")
         .style("border-radius", "4px")
         .style("visibility", "hidden");
 
-      // Mouse events for dots
+      // Mouse events for dots with radius increase on hover
       dots
         .on("mouseover", (event, d) => {
           tooltip
             .style("visibility", "visible")
             .text(`Degree: ${d.degree}, Count: ${d.count}`);
+
+          // Increase radius on hover
+          d3.select(event.target)
+            .transition()
+            .attr("r", 4 * 1.5); // Increase radius by 1.1x
         })
         .on("mousemove", (event) => {
           tooltip
             .style("top", event.pageY + 10 + "px")
             .style("left", event.pageX + 10 + "px");
         })
-        .on("mouseout", () => {
+        .on("mouseout", (event) => {
           tooltip.style("visibility", "hidden");
+
+          // Reset radius when mouse leaves
+          d3.select(event.target)
+            .transition()
+            .attr("r", 4); // Reset radius to original size
         });
+
 
       // X-axis
       g.append("g")
@@ -394,7 +653,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("x", width / 2)
         .attr("y", margin.top / 2)
         .attr("text-anchor", "middle")
-        .style("font-size", "14px")
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
         .text(title);
     }
 
@@ -404,28 +664,41 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial plot
     plotDegreeDistribution(globalDegreeData, "Degree Distribution");
   }
-
   ////////////////////////////////////////////////////////////////////////
   //                          Bottom right                              //
   //////////////////////////////////////////////////////////////////////// 
   if (nodesDiv) {
     /**
-     * Function to plot a pie chart for the number of nodes in each community
-     * @param {Object} jsonData - JSON data in the format {community: number of nodes}
-     * @param {string} title - Title for the chart
-     */
+   * Function to plot a donut chart with text labels, percentages, and tooltips
+   * @param {Object} jsonData - JSON data in the format {community: number of nodes}
+   * @param {string} title - Title for the chart
+   */
     function plotPieChart(jsonData, title) {
       const data = Object.entries(jsonData).map(([community, nodes]) => ({
-        community: community,
-        nodes: +nodes,
+        label: community,
+        value: +nodes,
       }));
 
       const width = nodesDiv.clientWidth;
       const height = nodesDiv.clientHeight;
-      const radius = Math.min(width, height) / 2;
+      const radius = Math.min(width, height) / 2 - 40;
 
       // Clear previous content
       d3.select(nodesDiv).selectAll("svg").remove();
+      d3.select(nodesDiv).selectAll(".chart-title").remove();
+
+      // Add the title to the top center of the div
+      d3.select(nodesDiv)
+        .append("div")
+        .attr("class", "chart-title")
+        .style("position", "absolute")
+        .style("top", "2px")
+        .style("left", "50%")
+        .style("transform", "translateX(-50%)")
+        .style("text-align", "center")
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .text(title);
 
       const svg = d3
         .select(nodesDiv)
@@ -433,65 +706,148 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("width", width)
         .attr("height", height)
         .append("g")
-        .attr("transform", `translate(${width / 2},${height / 2})`); // Center the pie chart
+        .attr("transform", `translate(${width / 2},${height / 2})`);
 
-      // Color scale for the pie slices
       const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-      // Create the pie chart
-      const pie = d3.pie().value(d => d.nodes);
+      const pie = d3
+        .pie()
+        .sort(null)
+        .value((d) => d.value);
 
-      const arc = d3.arc().outerRadius(radius - 10).innerRadius(0);
+      const arc = d3
+        .arc()
+        .outerRadius(radius * 0.8)
+        .innerRadius(radius * 0.4);
+      const hoverArc = d3
+        .arc()
+        .outerRadius(radius * 0.85) 
+        .innerRadius(radius * 0.35);
+      const outerArc = d3
+        .arc()
+        .innerRadius(radius * 0.9)
+        .outerRadius(radius * 0.9);
 
-      // Draw the slices (arc paths)
-      const slices = svg
-        .selectAll(".slice")
-        .data(pie(data))
-        .enter()
-        .append("g")
-        .attr("class", "slice");
-
-      slices
-        .append("path")
-        .attr("d", arc)
-        .attr("fill", d => color(d.data.community));
-
-      // Add a tooltip
+      // Tooltip setup
       const tooltip = d3
-        .select(nodesDiv)
+        .select("body")
         .append("div")
         .attr("class", "tooltip")
         .style("position", "absolute")
-        .style("background", "rgba(0, 0, 0, 0.7)")
-        .style("color", "white")
         .style("padding", "5px")
         .style("border-radius", "4px")
         .style("visibility", "hidden");
 
-      // Tooltip behavior for hover events
-      slices
-        .on("mouseover", (event, d) => {
+      // Draw slices with animation
+      const slices = svg
+        .append("g")
+        .attr("class", "slices")
+        .selectAll("path.slice")
+        .data(pie(data))
+        .enter()
+        .append("path")
+        .attr("class", "slice")
+        .style("fill", (d) => color(d.data.label))
+        .each(function (d) {
+          this._current = { startAngle: 0, endAngle: 0 };
+        })
+        .on("mouseover", function (event, d) {
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("d", hoverArc); // Grow slice on hover
+
           tooltip
             .style("visibility", "visible")
-            .html(`<b>Community</b>: ${d.data.community}<br><b>Nodes</b>: ${d.data.nodes}`);
+            .html(`<b>Community:</b> ${d.data.label}<br><b>Nodes:</b> ${d.data.value}`);
         })
-        .on("mousemove", (event) => {
-          tooltip
-            .style("top", event.pageY + 10 + "px")
-            .style("left", event.pageX + 10 + "px");
+        .on("mousemove", function (event) {
+          tooltip.style("top", event.pageY + 10 + "px").style("left", event.pageX + 10 + "px");
         })
-        .on("mouseout", () => {
+        .on("mouseout", function () {
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("d", arc); // Reset slice size on mouse out
+
           tooltip.style("visibility", "hidden");
+        })
+        .transition()
+        .duration(2000)
+        .attrTween("d", function (d) {
+          const interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(1);
+          return function (t) {
+            return arc(interpolate(t));
+          };
         });
 
-      // Title
+      // Add percentages to slices
       svg
+        .append("g")
+        .attr("class", "percentages")
+        .selectAll("text")
+        .data(pie(data))
+        .enter()
         .append("text")
-        .attr("x", 0)
-        .attr("y", -radius - 20)
-        .attr("text-anchor", "middle")
-        .style("font-size", "14px")
-        .text(title);
+        .attr("dy", ".35em")
+        .text((d) => `${((d.data.value / d3.sum(data, (d) => d.value)) * 100).toFixed(1)}%`)
+        .attr("transform", (d) => `translate(${arc.centroid(d)})`)
+        .style("text-anchor", "middle")
+        .style("font-size", "10px")
+        .style("fill", "white")
+        .each(function (d) {
+          this._current = { startAngle: 0, endAngle: 0 }; // Store the initial state for animation
+        })
+        .transition()
+        .duration(2000)
+        .attrTween("transform", function (d) {
+          const interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(1);
+          return function (t) {
+            const d2 = interpolate(t);
+            return `translate(${arc.centroid(d2)})`;
+          };
+        });
+
+      // Add text labels outside with connecting polylines
+      const text = svg
+        .append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(pie(data))
+        .enter()
+        .append("text")
+        .attr("dy", ".35em")
+        .text((d) => d.data.label)
+        .attr("transform", (d) => {
+          const pos = outerArc.centroid(d);
+          pos[0] = radius * 0.95 * (midAngle(d) < Math.PI ? 1 : -1);
+          return `translate(${pos})`;
+        })
+        .style("text-anchor", (d) => (midAngle(d) < Math.PI ? "start" : "end"))
+        .style("font-size", "14px");
+
+      svg
+        .append("g")
+        .attr("class", "lines")
+        .selectAll("polyline")
+        .data(pie(data))
+        .enter()
+        .append("polyline")
+        .attr("points", (d) => {
+          const pos = outerArc.centroid(d);
+          pos[0] = radius * 0.95 * (midAngle(d) < Math.PI ? 1 : -1);
+          return [arc.centroid(d), outerArc.centroid(d), pos];
+        })
+        .style("opacity", 0.3)
+        .style("stroke", "black")
+        .style("stroke-width", "2px")
+        .style("fill", "none");
+
+      function midAngle(d) {
+        return d.startAngle + (d.endAngle - d.startAngle) / 2;
+      }
     }
 
     // Example data for the number of nodes in each community
@@ -505,6 +861,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initial plot
     plotPieChart(nodesData, "Number of Nodes in Each Community");
-  }
 
+  }
 });

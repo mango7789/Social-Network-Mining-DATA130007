@@ -15,32 +15,25 @@
     <!-- Nodes of paper, can click, hover to show tooltip, scroll over time -->
     <div class="top-left"></div>
     <div class="top-right">
-      <table>
+      <table id="data-table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>title</th>
-            <th>year</th>
-            <th>venue</th>
-            <th>references</th>
-            <th>citation</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Venue</th>
+            <th>References</th>
+            <th>Citation</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>bf66</td>
-            <td>cc</td>
-            <td>2015</td>
-            <td>Sigmod</td>
-            <td>5</td>
-            <td>126</td>
-          </tr>
         </tbody>
       </table>
+      <div id="pagination-controls" class="pagination"></div>
     </div>
   </div>
   <div class="bottom">
-    <!-- The first div is used for barploting distance, diameter, average number of citations (One can choose from it) -->
+    <!-- The first div is used for barploting distance, diameter, average number of citations (One can choose from it), when in local mode, show all three together -->
     <div class="bottom-part" id="distance"></div>
     <!-- Switch between global and local degree distribution -->
     <div class="bottom-part" id="degree"></div>
