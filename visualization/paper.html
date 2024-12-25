@@ -13,7 +13,11 @@
 <body>
   <div class="top">
     <!-- Nodes of paper, can click, hover to show tooltip, scroll over time -->
-    <div class="top-left"></div>
+    <div class="top-left">
+      <span id="slider-value">2016</span>
+      <label for="year-slider"></label>
+      <input type="range" id="year-slider" min="2008" max="2016" value="2016" step="1">
+    </div>
     <div class="top-right">
       <table id="data-table">
         <thead>

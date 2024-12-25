@@ -17,11 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (topLeftDiv) {
     // Example CSV Data as an array of objects (mimicking CSV data)
     const nodes = [
-      { id: "b84f", community: "Community A", authors: "Author1", year: 2020, venue: "Venue1", out_d: 3, in_d: 5 },
-      { id: 2, community: "Community B", authors: "Author2", year: 2021, venue: "Venue2", out_d: 2, in_d: 4 },
-      { id: 3, community: "Community A", authors: "Author3", year: 2022, venue: "Venue3", out_d: 1, in_d: 3 },
-      { id: 4, community: "Community C", authors: "Author4", year: 2023, venue: "Venue4", out_d: 4, in_d: 2 },
-      { id: 5, community: "Community B", authors: "Author5", year: 2021, venue: "Venue5", out_d: 5, in_d: 20 }
+      { id: "b84f", community: "Community A", authors: "Author1", year: 2009, venue: "Venue1", out_d: 3, in_d: 5 },
+      { id: 2, community: "Community B", authors: "Author2", year: 2010, venue: "Venue2", out_d: 2, in_d: 4 },
+      { id: 3, community: "Community A", authors: "Author3", year: 2011, venue: "Venue3", out_d: 1, in_d: 3 },
+      { id: 4, community: "Community C", authors: "Author4", year: 2015, venue: "Venue4", out_d: 4, in_d: 2 },
+      { id: 5, community: "Community B", authors: "Author5", year: 2015, venue: "Venue5", out_d: 5, in_d: 20 }
     ];
 
     // Edges (the relationships between nodes)
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const titleData = {
-      "1": "Title A",
+      "b84f": "Title A",
       "2": "Title B",
       "3": "Title C",
       "4": "Title D",
@@ -96,87 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const graphGroup = svg.append('g');
 
     // Plot links (edges)
-    graphGroup.selectAll('.link')
-      .data(edges)
-      .enter().append('line')
-      .attr('class', 'link')
-      .attr('stroke', '#aaa')
-      .attr('stroke-width', 0.5);
+    // graphGroup.selectAll('.link')
+    //   .data(edges)
+    //   .enter().append('line')
+    //   .attr('class', 'link')
+    //   .attr('stroke', '#aaa')
+    //   .attr('stroke-width', 0.5);
 
-    function logisticGrowth(x, r_max = 30, k = 0.1, x_0 = 30) {
+    function logisticGrowth(x, r_max = 30, k = 0.1, x_0 = 20) {
       return r_max / (1 + Math.exp(-k * (x - x_0)));
     }
-
-    // Plot nodes
-    const nodeCircles = graphGroup.selectAll('.node')
-      .data(nodes)
-      .enter().append('circle')
-      .attr('class', 'node')
-      .attr('r', d => logisticGrowth(d.in_d))
-      .attr('fill', d => color(d.community))
-      .call(d3.drag()
-        .on('start', dragStart)
-        .on('drag', dragged)
-        .on('end', dragEnd));
-
-    // Add labels for nodes (showing the ID)
-    const nodeLabels = graphGroup.selectAll('.node-label')
-      .data(nodes)
-      .enter().append('text')
-      .attr('class', 'node-label')
-      .attr('text-anchor', 'middle')
-      .attr('dy', 4) // Adjust vertical alignment
-      .style('font-size', '10px')
-      .style('pointer-events', 'none') // Prevent interference with drag events
-      .text(d => d.id);
-
-    // Tooltip on hover
-    nodeCircles
-      .on('mouseover', function (event, d) {
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .attr('r', d => 1.2 * logisticGrowth(d.in_d));
-
-        tooltip.style('visibility', 'visible')
-          .html(`
-            <b>ID</b>: ${d.id}<br>
-            <b>Title</b>: ${titleData[d.id]}<br>
-            <b>Authors</b>: ${d.authors}<br>
-            <b>Year</b>: ${d.year}<br>
-            <b>Venue</b>: ${d.venue}<br>
-            <b>Out-degree</b>: ${d.out_d}<br>
-            <b>In-degree</b>: ${d.in_d}`
-          );
-      })
-      .on('mousemove', function (event) {
-        tooltip.style('top', event.pageY + 10 + 'px')
-          .style('left', event.pageX + 10 + 'px');
-      })
-      .on('mouseout', function () {
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .attr('r', d => logisticGrowth(d.in_d));
-        tooltip.style('visibility', 'hidden');
-      });
-
-    // Update positions based on the simulation
-    simulation.on('tick', () => {
-      graphGroup.selectAll('.link')
-        .attr('x1', d => nodes.find(n => n.id === d.src).x)
-        .attr('y1', d => nodes.find(n => n.id === d.src).y)
-        .attr('x2', d => nodes.find(n => n.id === d.dst).x)
-        .attr('y2', d => nodes.find(n => n.id === d.dst).y);
-
-      nodeCircles
-        .attr('cx', d => d.x)
-        .attr('cy', d => d.y);
-
-      nodeLabels
-        .attr('x', d => d.x)
-        .attr('y', d => d.y);
-    });
 
     // Add legend on the right side (outside the zoomed group)
     const legendWidth = 150;
@@ -222,6 +151,140 @@ document.addEventListener("DOMContentLoaded", () => {
       d.fx = null;
       d.fy = null;
     }
+
+    const yearSlider = document.getElementById('year-slider');
+    const yearLabel = document.getElementById('slider-value');
+
+    yearSlider.addEventListener('input', function () {
+      const selectedYear = +this.value;
+      yearLabel.textContent = selectedYear;
+
+
+      // Filter nodes and edges based on the selected year
+      const filteredNodes = nodes.filter(node => node.year <= selectedYear);
+      const filteredEdges = edges.filter(edge =>
+        filteredNodes.some(node => node.id === edge.src) && filteredNodes.some(node => node.id === edge.dst)
+      );
+
+
+      // Redraw the graph with filtered data
+      graphGroup.selectAll('.node').remove();
+      graphGroup.selectAll('.link').remove();
+      graphGroup.selectAll('.node-label').remove();
+
+      // Re-plot links and nodes based on filtered data
+      plotGraph(filteredNodes, filteredEdges);
+    });
+
+    // Function to plot nodes and links based on the filtered data
+    function plotGraph(filteredNodes, filteredEdges) {
+      // Re-create links (edges)
+      graphGroup.selectAll('.link')
+        .data(filteredEdges)
+        .enter().append('line')
+        .attr('class', 'link')
+        .attr('stroke', '#aaa')
+        .attr('stroke-width', 0.5);
+
+      // Re-create nodes
+      const nodeCircles = graphGroup.selectAll('.node')
+        .data(filteredNodes)
+        .enter().append('circle')
+        .attr('class', 'node')
+        .attr('r', d => logisticGrowth(d.in_d))
+        .attr('fill', d => color(d.community))
+        .call(d3.drag()
+          .on('start', dragStart)
+          .on('drag', dragged)
+          .on('end', dragEnd));
+
+      const nodeLabels = graphGroup.selectAll('.node-label')
+        .data(filteredNodes)
+        .enter().append('text')
+        .attr('class', 'node-label')
+        .attr('text-anchor', 'middle')
+        .attr('dy', 4) // Adjust vertical alignment
+        .style('font-size', '10px')
+        .style('pointer-events', 'none') // Prevent interference with drag events
+        .text(d => d.id);
+
+      // Tooltip on hover
+      nodeCircles
+        .on('mouseover', function (event, d) {
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr('r', d => 1.2 * logisticGrowth(d.in_d));
+
+          tooltip.style('visibility', 'visible')
+            .html(`
+        <b>ID</b>: ${d.id}<br>
+        <b>Title</b>: ${titleData[d.id]}<br>
+        <b>Authors</b>: ${d.authors}<br>
+        <b>Year</b>: ${d.year}<br>
+        <b>Venue</b>: ${d.venue}<br>
+        <b>Reference(s)</b>: ${d.out_d}<br>
+        <b>Citation(s)</b>: ${d.in_d}`
+            );
+        })
+        .on('mousemove', function (event) {
+          tooltip.style('top', event.pageY + 10 + 'px')
+            .style('left', event.pageX + 10 + 'px');
+        })
+        .on('mouseout', function () {
+          d3.select(this)
+            .transition()
+            .duration(200)
+            .attr('r', d => logisticGrowth(d.in_d));
+          tooltip.style('visibility', 'hidden');
+        });
+
+      simulation.nodes(filteredNodes).on('tick', ticked);
+      simulation.force('link').links(edges);
+
+      // Restart the simulation to apply new data and layout
+      simulation.alpha(1).restart();
+
+      function ticked() {
+        graphGroup.selectAll('.link')
+          .attr('x1', d => filteredNodes.find(n => n.id === d.src).x)
+          .attr('y1', d => filteredNodes.find(n => n.id === d.src).y)
+          .attr('x2', d => filteredNodes.find(n => n.id === d.dst).x)
+          .attr('y2', d => filteredNodes.find(n => n.id === d.dst).y);
+
+        nodeCircles
+          .attr('cx', d => d.x)
+          .attr('cy', d => d.y);
+
+        nodeLabels
+          .attr('x', d => d.x)
+          .attr('y', d => d.y);
+      }
+    }
+
+    // Initialize with the full data
+    yearSlider.value = 2016;
+    yearLabel.textContent = '2016';
+
+    plotGraph(nodes, edges);
+
+    // // Reset the simulation when the year is changed
+    // // TODO: When need efficiency, uncomment this code to transfer the task of filtering data to backend server
+    // fetch(`/getFilteredData?year=${selectedYear}`)
+    //   .then(response => response.json())  // Assuming the server returns JSON
+    //   .then(data => {
+    //     // Filter nodes and edges for the selected year
+    //     const filteredNodes = data.nodes.filter(node => node.year <= selectedYear);
+    //     const filteredEdges = data.edges.filter(edge =>
+    //       filteredNodes.some(node => node.id === edge.src) && filteredNodes.some(node => node.id === edge.dst)
+    //     );
+
+    //     // Now update the graph with the filtered data
+    //     updateGraph(filteredNodes, filteredEdges);
+    //   })
+    //   .catch(error => {
+    //     console.error('Error fetching data:', error);
+    //   });
   }
   ////////////////////////////////////////////////////////////////////////
   //                            Top Right                               //
@@ -721,7 +784,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .innerRadius(radius * 0.4);
       const hoverArc = d3
         .arc()
-        .outerRadius(radius * 0.85) 
+        .outerRadius(radius * 0.85)
         .innerRadius(radius * 0.35);
       const outerArc = d3
         .arc()

@@ -19,6 +19,7 @@ body {
     /* Prevent shrinking */
 }
 
+/* Styling for the container of the year slider */
 .top-left {
     width: 70%;
     height: 100%;
@@ -26,6 +27,72 @@ body {
     border: 1px solid #ccc;
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 10px; */
+}
+
+/* Styling for the year label (on top of the slider) */
+.slider-label {
+    font-size: 18px;
+    font-weight: bold;
+    /* Make the font bold */
+    color: #333;
+    margin-bottom: 10px;
+    /* Adds space between the label and the slider */
+}
+
+/* Styling for the slider input */
+#year-slider {
+    width: 80%;
+    /* Adjust the width as needed */
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+/* Styling for the slider thumb */
+#year-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: silver;
+    /* Green color for the thumb */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover and active states for the thumb */
+#year-slider:hover::-webkit-slider-thumb,
+#year-slider:active::-webkit-slider-thumb {
+    background: skyblue;
+    /* Darker green when hovered or active */
+}
+
+#year-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, skyblue 0%, skyblue var(--slider-value), #ddd var(--slider-value), #ddd 100%);
+}
+
+#year-slider::-moz-range-track {
+    background: linear-gradient(to right, skyblue 0%, skyblue var(--slider-value), #ddd var(--slider-value), #ddd 100%);
+}
+
+#year-slider::-ms-track {
+    background: linear-gradient(to right, skyblue 0%, skyblue var(--slider-value), #ddd var(--slider-value), #ddd 100%);
+    border-color: transparent;
+}
+
+/* Styling the slider value display (below the slider) */
+#slider-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
 }
 
 .top-right {
