@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#graph {
+    border: 1px solid #ccc;
+    margin: 20px;
+    width: 60%;
+    float: left;
+}
+
+#details {
+    margin: 20px;
+    width: 35%;
+    float: left;
+}
+
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.detail-section h3 {
+    margin: 0 0 10px;
+}

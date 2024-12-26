@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from .model import RandomForest
 from .feature import extract_author_features
 
-# from utils.logger import logger
+from utils.logger import logger
 
 
 def prepare_data_for_training(nodes_df, edges_df):
@@ -88,8 +88,8 @@ def train_link_prediction_model(X, y):
     y_pred = clf.predict(X_test)
 
     # Log evaluation metrics
-    print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
-    print(f"Classification Report:\n{classification_report(y_test, y_pred)}")
+    logger.info(f"Accuracy: {accuracy_score(y_test, y_pred)}")
+    logger.info(f"Classification Report:\n{classification_report(y_test, y_pred)}")
 
     return clf
 
@@ -125,9 +125,11 @@ def predict_link(clf, author1, author2, nodes_df, edges_df):
     prediction = clf.predict(new_data)
 
     if prediction == 1:
-        print(f"Prediction: Authors {author1} and {author2} are likely to collaborate.")
+        logger.info(
+            f"Prediction: Authors {author1} and {author2} are likely to collaborate."
+        )
     else:
-        print(
+        logger.info(
             f"Prediction: Authors {author1} and {author2} are unlikely to collaborate."
         )
 
