@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Author Network</title>
+    <title>Author Community Visualization</title>
     <link rel="stylesheet" href="author.css">
+    <script src="./lib/d3.v7.js"></script>
 </head>
+
+<!-- Left is the visualization of community, right top is the paper list, right bottom is the yearly citation barplot/co-authors rank bar -->
+
 <body>
-    <h1>Author Community Network</h1>
-    <div id="graph"></div>
-    <div id="details">
-        <div id="author-info" class="detail-section">
-            <h3>Author Info</h3>
-            <p id="info"></p>
+    <div class="top">
+        <div id="graph-container" class="top-left">
+            <h3>Author Community</h3>
+            <div id="graph"></div>
         </div>
-        <div id="paper-info" class="detail-section">
-            <h3>Paper Info</h3>
-            <ul id="papers"></ul>
-        </div>
-        <div id="coauthors-info" class="detail-section">
-            <h3>Co-authors</h3>
-            <ul id="coauthors"></ul>
+        <div id="paper-list" class="top-right">
+            <h3>Papers</h3>
+            <ul id="papers">
+                <li>Select a node to view papers</li>
+            </ul>
         </div>
     </div>
-    <script src="./lib/d3.v7.min.js"></script>
+    <div class="bottom">
+        <div id="citation-plot" class="bottom-part">
+            <h3>Yearly Citation Plot</h3>
+            <svg id="citation-svg"></svg>
+        </div>
+        <div id="coauthors-rank" class="bottom-part">
+            <h3>Co-Authors Rank</h3>
+            <svg id="coauthors-svg"></svg>
+        </div>
+    </div>
     <script src="author.js"></script>
 </body>
 </html>

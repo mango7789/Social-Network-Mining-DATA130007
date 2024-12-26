@@ -35,13 +35,15 @@ def prepare_data_for_training(nodes_df, edges_df):
         labels.append(1)  # Positive sample (existing link)
 
     # Negative sampling: Create random pairs of authors who have not collaborated
-    all_authors = nodes_df["authors"].unique()  # Get unique authors
-    for _ in range(
-        len(labels)
-    ):  # Add the same number of negative samples as positive samples
+    all_authors = list(
+        set(author for authors_list in nodes_df["authors"] for author in authors_list)
+    )
+
+    # Add the same number of negative samples as positive samples
+    for _ in range(len(labels)):
         random_pair = random.sample(all_authors, 2)  # Pick two random authors
         feature_vector = extract_author_features(
-            random_pair[0], random_pair[1], nodes_df, edges_df
+            int(random_pair[0]), int(random_pair[1]), nodes_df, edges_df
         )
         features.append(feature_vector)
         labels.append(0)  # Negative sample (no existing link)
@@ -137,15 +139,24 @@ def predict_link(clf, author1, author2, nodes_df, edges_df):
 
 
 if __name__ == "__main__":
+    """
+    The process of the link prediction is:
+    - Extract existing edges from `author/edge.csv`
+    - Use the info in `author/node.csv` to extract the papers `src` and `dst` co-authored, get the feature of year, venue. (We should cope with the problem of co-authors are already in the same year and venue)
+    - Calculate the Jaccard/Dice/Cosine index, number of common co-authors.
+    - Generate negative examples, label it as 0.
+    - Train a classification model using these features.
+    - Predict link using this model. Evaluate on time series.
+    """
     from utils import load_paper_node, load_paper_edge
 
     nodes_df = load_paper_node("test/paper/node.csv")
-    edges_df = load_paper_edge("test/paper/edge.csv")
+    edges_df = load_paper_edge("test/author/edge.csv")
 
     X, y = prepare_data_for_training(nodes_df, edges_df)
 
     clf = train_link_prediction_model(X, y)
 
-    author1 = "Author_1"
-    author2 = "Author_2"
+    author1 = 1
+    author2 = 2
     predict_link(clf, author1, author2, nodes_df, edges_df)

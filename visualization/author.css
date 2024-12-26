@@ -1,24 +1,102 @@
+/* General page styling */
 body {
-    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 95vh;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-#graph {
+/* Top section layout */
+.top {
+    display: flex;
+    gap: 20px;
+    height: 60%;
+    flex-shrink: 0;
+}
+
+.top-left {
+    width: 70%;
+    height: 100%;
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
-    margin: 20px;
-    width: 60%;
-    float: left;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#details {
-    margin: 20px;
-    width: 35%;
-    float: left;
+.top-right {
+    width: 30%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
-.detail-section {
-    margin-bottom: 20px;
+.top-right h3 {
+    text-align: center;
+    margin: 10px 0;
 }
 
-.detail-section h3 {
-    margin: 0 0 10px;
+ul#papers {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Bottom section layout */
+.bottom {
+    display: flex;
+    gap: 20px;
+    height: 35%;
+    flex-shrink: 0;
+}
+
+.bottom-part {
+    flex: 1;
+    height: 100%;
+    background-color: #dfe6e9;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom-part h3 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    padding: 7px;
+    font-size: 0.9em;
+    pointer-events: none;
+    background: #FFF5E4;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.tooltip p {
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
 }
