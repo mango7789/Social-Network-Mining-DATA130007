@@ -44,7 +44,7 @@ def load_paper_node(
     df["authors"] = df["authors"].apply(lambda x: x if x != [""] else [])
 
     if skip_isolate:
-        df = df[df["isolate"]].drop(columns=["isolate"])
+        df = df[~df["isolate"]].drop(columns=["isolate"])
 
     _load_logger(df, path)
 
