@@ -33,18 +33,12 @@
 #t1990
 #cIEEE Trans. Knowl. Data Eng.
 #index5736965d6e3b12023e56a853
-#%573695496e3b12023e4762c5
-#%5736965e6e3b12023e56abdf
-#%5736972c6e3b12023e61dee0
-#%5736977b6e3b12023e6627ae
-#%5736982a6e3b12023e6fb773
-#%5736985a6e3b12023e7201d8
+#%555036b37cea80f954149ffc
+#%555036b37cea80f954149fff
 
 #*A Conceptual Clustering Algorithm for Database Schema Design.
 #@Howard W. Beck, Tarek M. Anwar, Shamkant B. Navathe
 #t1994
 #cIEEE Trans. Knowl. Data Eng.
 #index5736965d6e3b12023e56a854
-#%5736955d6e3b12023e484bfd
-#%5736965e6e3b12023e56aeb4
-#%5736985a6e3b12023e720580
+#%5736965d6e3b12023e56a853

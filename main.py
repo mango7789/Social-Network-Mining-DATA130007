@@ -52,7 +52,9 @@ if __name__ == "__main__":
     PAPER_NODE: Final = base_path / config["data"]["paper"]["node"]
     PAPER_EDGE: Final = base_path / config["data"]["paper"]["edge"]
 
-    community_path = Path("CommunityMining")
+    community_path = (
+        Path("CommunityMining") if not args.test else Path("test/CommunityMining")
+    )
     COMM_LOUVAIN: Final = community_path / config["community"]["louvain"]
     # COMM_G_N: Final = community_path / config["community"]["girvan_newman"]
     # COMM_L_P: Final = community_path / config["community"]["label_propagation"]
@@ -84,7 +86,6 @@ if __name__ == "__main__":
     df_author_edge = load_author_edge(AUTHOR_EDGE)
     dict_venue_map = load_map_dict(VENUE_MAP)
     dict_paper_map = load_map_dict(PAPER_MAP)
-    # df_paper_node = load_paper_node(PAPER_NODE)
     df_paper_node = load_paper_node(PAPER_NODE, fillna=True, skip_isolate=True)
     df_paper_edge = load_paper_edge(PAPER_EDGE)
     logger.info("Successfully load dataframes and mappings for dblp-v9 dataset!")
@@ -104,3 +105,8 @@ if __name__ == "__main__":
     logger.info("Start commputing the centrality measurement of nodes...")
     logger.info("Successfully commpute the centrality on the dataset!")
     logger.info(SEPERATOR)
+
+    ############################################################
+    #                     Link Prediction                      #
+    ############################################################
+    logger.info("Start training model for link prediction...")

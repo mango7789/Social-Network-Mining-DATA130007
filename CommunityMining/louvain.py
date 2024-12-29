@@ -1,50 +1,59 @@
 import pandas as pd
-import networkx as nx
-from community import community_louvain
+import igraph as ig
+import leidenalg as la
 from typing import Dict
 from tqdm import tqdm
 from pathlib import Path
 
 from utils.logger import logger
+from utils.wrapper import timer
 
 
+@timer
 def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) -> None:
     """
-    Perform community detection on the given node and edge data. The nodes and edges are expected
-    to be provided as DataFrames, which are generated after pre-processing. `kwargs` can include
-    additional hyperparameters to fine-tune the algorithm.
+    Perform community detection on the given node and edge data using the Leiden algorithm for improved performance.
+    The nodes and edges are expected to be provided as DataFrames, which are generated after pre-processing.
+    `kwargs` can include additional hyperparameters to fine-tune the algorithm.
 
-    This function should also assign a community label to each node and save these labels in a static
-    file for future use. Make sure to update the `config.yaml` file once the function is complete.
+    This function assigns a community label to each node and saves these labels in a static file for future use.
 
-    NOTE: For large graphs, it is recommended to use `igraph` over `networkx` for improved performance.
+    Parameters:
+        - node (pd.DataFrame): DataFrame containing node information, including an "id" column.
+        - edge (pd.DataFrame): DataFrame containing edge information, including "src" and "dst" columns.
+        - path (Path): Output path to save the results.
+        - kwargs (Dict): Additional parameters for fine-tuning.
 
-    >>> # Example usage
-    >>> louvain(paper_node, paper_edge)
+    NOTE: The Leiden algorithm is used here for its efficiency on large graphs.
+
+    Example usage:
+    >>> louvain(paper_node, paper_edge, output_path)
     """
-    G = nx.DiGraph()
+    # Convert edge data to igraph-compatible format
+    edges = list(zip(edge["src"], edge["dst"]))
 
-    for index in tqdm(node.index, total=len(node), desc="Adding nodes to graph"):
-        row = node.loc[index]
-        G.add_node(row["id"])
+    # Create igraph Graph
+    G = ig.Graph()
+    G.add_vertices(node["id"].unique())
+    G.add_edges(edges)
 
-    for index in tqdm(edge.index, total=len(edge), desc="Adding edges to graph"):
-        row = edge.loc[index]
-        G.add_edge(row["src"], row["dst"])
+    G.vs["name"] = node["id"].tolist()
 
-    partition = community_louvain.best_partition(G.to_undirected())
-    modularity = community_louvain.modularity(partition, G.to_undirected())
+    # Perform community detection using Leiden algorithm
+    partition = la.find_partition(G, la.ModularityVertexPartition)
 
-    node["community"] = node["id"].map(partition)
+    # Map the community membership to the node DataFrame
+    membership = partition.membership
+    vertex_to_community = dict(zip(G.vs["name"], membership))
+    node["community"] = node["id"].map(vertex_to_community)
 
+    # Save results
     path.parent.mkdir(parents=True, exist_ok=True)
-    node.to_csv(path, index=False)
-
     result_df = node[["id", "community"]]
     result_df.to_csv(path, index=False)
 
     logger.info(f"Community detection completed and results saved to {path}")
-    logger.info(f"Modularity: {modularity}")
+    logger.info(f"Modularity: {partition.modularity}")
 
 
 if __name__ == "__main__":
