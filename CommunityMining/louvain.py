@@ -31,6 +31,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
         G.add_edge(row["src"], row["dst"])
 
     partition = community_louvain.best_partition(G.to_undirected())
+    modularity = community_louvain.modularity(partition, G.to_undirected())
 
     node["community"] = node["id"].map(partition)
 
@@ -41,6 +42,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     result_df.to_csv(path, index=False)
 
     print(f"Community detection completed and results saved to {path}")
+    print(f"Modularity: {modularity}")
 
 
 if __name__ == "__main__":
