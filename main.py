@@ -17,7 +17,7 @@ from utils.logger import logger
 from CommunityMining import louvain
 
 
-PREPROCESS: Final = True
+PREPROCESS: Final = False
 SEPERATOR: Final = "=" * 85
 warnings.filterwarnings("ignore")
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     dict_venue_map = load_map_dict(VENUE_MAP)
     dict_paper_map = load_map_dict(PAPER_MAP)
     # df_paper_node = load_paper_node(PAPER_NODE)
-    df_paper_node = load_paper_node(PAPER_NODE, fillna = True, skip_isolate = True)
+    df_paper_node = load_paper_node(PAPER_NODE, fillna=True, skip_isolate=True)
     df_paper_edge = load_paper_edge(PAPER_EDGE)
     logger.info("Successfully load dataframes and mappings for dblp-v9 dataset!")
     logger.info(SEPERATOR)

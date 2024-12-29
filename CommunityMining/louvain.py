@@ -5,6 +5,8 @@ from typing import Dict
 from tqdm import tqdm
 from pathlib import Path
 
+from utils.logger import logger
+
 
 def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) -> None:
     """
@@ -41,8 +43,8 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     result_df = node[["id", "community"]]
     result_df.to_csv(path, index=False)
 
-    print(f"Community detection completed and results saved to {path}")
-    print(f"Modularity: {modularity}")
+    logger.info(f"Community detection completed and results saved to {path}")
+    logger.info(f"Modularity: {modularity}")
 
 
 if __name__ == "__main__":
