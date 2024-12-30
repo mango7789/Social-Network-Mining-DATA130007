@@ -37,7 +37,7 @@ function resizeCanvas() {
 function drawLinks() {
   context.clearRect(0, 0, width, height);
 
-  nodes.forEach((node) => {
+  nodes.forEach(node => {
     node.x += node.vx;
     node.y += node.vy;
 
@@ -69,7 +69,7 @@ function drawLinks() {
     getComputedStyle(document.documentElement).getPropertyValue(
       "--node-color"
     ) || "#1abc9c";
-  nodes.forEach((node) => {
+  nodes.forEach(node => {
     context.beginPath();
     context.arc(node.x, node.y, 3, 0, 2 * Math.PI);
     context.fill();
