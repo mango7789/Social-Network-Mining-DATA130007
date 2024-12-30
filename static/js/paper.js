@@ -95,14 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add a group for the graph content (nodes and links)
     const graphGroup = svg.append('g');
 
-    // Plot links (edges)
-    // graphGroup.selectAll('.link')
-    //   .data(edges)
-    //   .enter().append('line')
-    //   .attr('class', 'link')
-    //   .attr('stroke', '#aaa')
-    //   .attr('stroke-width', 0.5);
-
     function logisticGrowth(x, r_max = 30, k = 0.1, x_0 = 20) {
       return r_max / (1 + Math.exp(-k * (x - x_0)));
     }
@@ -468,7 +460,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("class", "tooltip")
         .style("opacity", 0)
         .style("position", "absolute")
-        .style("background", "white")
         .style("border", "1px solid #ccc")
         .style("border-radius", "4px")
         .style("padding", "5px")
