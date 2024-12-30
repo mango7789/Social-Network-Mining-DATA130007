@@ -9,6 +9,7 @@ data:
     edge: ./author/edge.csv
   venue:
     map: ./venue/map.json
+  citation: ./author/citation.json
 
 community:
   louvain: ./results/louvain.csv

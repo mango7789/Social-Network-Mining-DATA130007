@@ -49,6 +49,7 @@ if __name__ == "__main__":
     AUTHOR_EDGE: Final = base_path / config["data"]["author"]["edge"]
     VENUE_MAP: Final = base_path / config["data"]["venue"]["map"]
     PAPER_MAP: Final = base_path / config["data"]["paper"]["map"]
+    CITATION: Final = base_path / config["data"]["citation"]
     PAPER_NODE: Final = base_path / config["data"]["paper"]["node"]
     PAPER_EDGE: Final = base_path / config["data"]["paper"]["edge"]
 
@@ -75,6 +76,7 @@ if __name__ == "__main__":
             AUTHOR_EDGE,
             VENUE_MAP,
             PAPER_MAP,
+            CITATION,
             PAPER_NODE,
             PAPER_EDGE,
         )
@@ -86,6 +88,7 @@ if __name__ == "__main__":
     df_author_edge = load_author_edge(AUTHOR_EDGE)
     dict_venue_map = load_map_dict(VENUE_MAP)
     dict_paper_map = load_map_dict(PAPER_MAP)
+    dict_citation = load_map_dict(CITATION)
     df_paper_node = load_paper_node(PAPER_NODE, fillna=True, skip_isolate=True)
     df_paper_edge = load_paper_edge(PAPER_EDGE)
     logger.info("Successfully load dataframes and mappings for dblp-v9 dataset!")

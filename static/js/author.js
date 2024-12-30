@@ -1,27 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const topLeftDiv = document.querySelector(".top-left")
+    const topLeftDiv = document.querySelector(".top-left");
+    const bottomLeftDiv = document.getElementById("citation-plot");
     ////////////////////////////////////////////////////////////////////////
     //                            Top Left                                //
     ////////////////////////////////////////////////////////////////////////
     if (topLeftDiv) {
         const nodes = [
-            { id: 1, name: "Alade O. Tokuta", co_authors: [4, 16, 17], papers: ["555036b37cea80f95414a000"] },
-            { id: 2, name: "Aravind Srinivasan", co_authors: [7, 10, 15], papers: ["555036b37cea80f954149ffe"] },
-            { id: 3, name: "Christian Wulff-Nilsen", co_authors: [], papers: ["555036b37cea80f954149ffc"] },
-            { id: 4, name: "Donghyun Kim", co_authors: [1, 16, 17], papers: ["555036b37cea80f95414a000"] },
-            { id: 5, name: "Howard W. Beck", co_authors: [9, 12], papers: ["5736965d6e3b12023e56a854"] },
-            { id: 6, name: "Julián Mestre", co_authors: [], papers: ["555036b37cea80f954149ffd"] },
-            { id: 7, name: "Madhav V. Marathe", co_authors: [2, 10, 15], papers: ["555036b37cea80f954149ffe"] },
-            { id: 8, name: "Maxime Crochemore", co_authors: [13], papers: ["555036b37cea80f954149fff"] },
-            { id: 9, name: "Shamkant B. Navathe", co_authors: [5, 12], papers: ["5736965d6e3b12023e56a854"] },
-            { id: 10, name: "Srinivasan Parthasarathy", co_authors: [2, 7, 15], papers: ["555036b37cea80f954149ffe"] },
-            { id: 11, name: "Subrata Ghosh", co_authors: [14], papers: ["5736965d6e3b12023e56a853"] },
-            { id: 12, name: "Tarek M. Anwar", co_authors: [5, 9], papers: ["5736965d6e3b12023e56a854"] },
-            { id: 13, name: "Thierry Lecroq", co_authors: [8], papers: ["555036b37cea80f954149fff"] },
-            { id: 14, name: "Timos K. Sellis", co_authors: [11], papers: ["5736965d6e3b12023e56a853"] },
-            { id: 15, name: "V. S. Anil Kumar", co_authors: [2, 7, 10], papers: ["555036b37cea80f954149ffe"] },
-            { id: 16, name: "Wei Wang", co_authors: [1, 4, 17], papers: ["555036b37cea80f95414a000"] },
-            { id: 17, name: "Weili Wu", co_authors: [1, 4, 16], papers: ["555036b37cea80f95414a000"] }
+            { id: 1, name: "Alade O. Tokuta", co_authors: [4, 16, 17], papers: ["555036b37cea80f95414a000"], community: 1 },
+            { id: 2, name: "Aravind Srinivasan", co_authors: [7, 10, 15], papers: ["555036b37cea80f954149ffe"], community: 2 },
+            { id: 3, name: "Christian Wulff-Nilsen", co_authors: [], papers: ["555036b37cea80f954149ffc"], community: 3 },
+            { id: 4, name: "Donghyun Kim", co_authors: [1, 16, 17], papers: ["555036b37cea80f95414a000"], community: 1 },
+            { id: 5, name: "Howard W. Beck", co_authors: [9, 12], papers: ["5736965d6e3b12023e56a854"], community: 4 },
+            { id: 6, name: "Julián Mestre", co_authors: [], papers: ["555036b37cea80f954149ffd"], community: 3 },
+            { id: 7, name: "Madhav V. Marathe", co_authors: [2, 10, 15], papers: ["555036b37cea80f954149ffe"], community: 2 },
+            { id: 8, name: "Maxime Crochemore", co_authors: [13], papers: ["555036b37cea80f954149fff"], community: 5 },
+            { id: 9, name: "Shamkant B. Navathe", co_authors: [5, 12], papers: ["5736965d6e3b12023e56a854"], community: 4 },
+            { id: 10, name: "Srinivasan Parthasarathy", co_authors: [2, 7, 15], papers: ["555036b37cea80f954149ffe"], community: 2 },
+            { id: 11, name: "Subrata Ghosh", co_authors: [14], papers: ["5736965d6e3b12023e56a853"], community: 6 },
+            { id: 12, name: "Tarek M. Anwar", co_authors: [5, 9], papers: ["5736965d6e3b12023e56a854"], community: 4 },
+            { id: 13, name: "Thierry Lecroq", co_authors: [8], papers: ["555036b37cea80f954149fff"], community: 5 },
+            { id: 14, name: "Timos K. Sellis", co_authors: [11], papers: ["5736965d6e3b12023e56a853"], community: 6 },
+            { id: 15, name: "V. S. Anil Kumar", co_authors: [2, 7, 10], papers: ["555036b37cea80f954149ffe"], community: 2 },
+            { id: 16, name: "Wei Wang", co_authors: [1, 4, 17], papers: ["555036b37cea80f95414a000"], community: 1 },
+            { id: 17, name: "Weili Wu", co_authors: [1, 4, 16], papers: ["555036b37cea80f95414a000"], community: 1 }
         ];
 
         const edges = [
@@ -53,9 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Create a zoom behavior
         const zoom = d3.zoom()
-            .scaleExtent([0.5, 5])  // Limits the zoom scale (from 50% to 500%)
+            .scaleExtent([0.5, 5])
             .on('zoom', (event) => {
-                // Apply zoom transformation only to the graph group
                 graphGroup.attr('transform', event.transform);
             });
 
@@ -235,6 +235,138 @@ document.addEventListener("DOMContentLoaded", () => {
     ////////////////////////////////////////////////////////////////////////
     //                           Bottom Left                              //
     ////////////////////////////////////////////////////////////////////////
+    if (bottomLeftDiv) {
+        function plotBarChartFromJson(jsonData, title) {
+            const data = jsonData.map(d => ({
+                label: d.year, 
+                value: d.count
+            }));
+            console.log(data)
+            const width = bottomLeftDiv.clientWidth;
+            const height = bottomLeftDiv.clientHeight;
+
+            const margin = { top: 30, right: 20, bottom: 40, left: 40 };
+            const chartWidth = width - margin.left - margin.right;
+            const chartHeight = height - margin.top - margin.bottom;
+
+            // Select or create SVG container (ensure only one svg exists)
+            let svg = d3.select(bottomLeftDiv).select("svg");
+            if (svg.empty()) {
+                svg = d3
+                    .select(bottomLeftDiv)
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+
+                svg.append("g").attr("class", "bars").attr("transform", `translate(${margin.left},${margin.top})`);
+                svg.append("g").attr("class", "x-axis").attr("transform", `translate(${margin.left},${margin.top + chartHeight})`);
+                svg.append("g").attr("class", "y-axis").attr("transform", `translate(${margin.left},${margin.top})`);
+                svg.append("text").attr("class", "title")
+                    .attr("x", width / 2)
+                    .attr("y", margin.top / 2)
+                    .attr("text-anchor", "middle")
+                    .style("font-size", "16px")
+                    .style("font-weight", "bold");
+            }
+
+            // Scales
+            const x = d3.scaleBand().range([0, chartWidth]).padding(0.1);
+            const y = d3.scaleLinear().range([chartHeight, 0]);
+
+            x.domain(data.map(d => d.label));
+            y.domain([0, d3.max(data, d => d.value)]);
+
+            // Tooltip setup
+            const tooltip = d3.select('body')
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0)
+                .style("position", "absolute")
+                .style("border", "1px solid #ccc")
+                .style("border-radius", "4px")
+                .style("padding", "5px")
+                .style("pointer-events", "none");
+
+            // Update bars with smooth transition
+            const bars = svg.select(".bars").selectAll(".bar").data(data, d => d.label);
+
+            bars
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", d => {x(d.label)})
+                .attr("y", chartHeight) // Start at the bottom
+                .attr("width", x.bandwidth())
+                .attr("height", 0) // Start with height 0
+                .attr("fill", "steelblue")
+                .on("mouseover", function (event, d) {
+                    d3.select(this).attr("fill", "darkblue"); // Highlight bar
+                    tooltip
+                        .style("opacity", 1)
+                        .html(`Year: ${d.label}<br>Citations: ${d.value}`)
+                        .style("left", `${event.pageX + 10}px`)
+                        .style("top", `${event.pageY - 20}px`);
+                })
+                .on("mousemove", function (event) {
+                    tooltip
+                        .style("left", `${event.pageX + 10}px`)
+                        .style("top", `${event.pageY - 20}px`);
+                })
+                .on("mouseout", function () {
+                    d3.select(this).attr("fill", "steelblue"); // Reset bar color
+                    tooltip.style("opacity", 0);
+                })
+                .merge(bars)    
+                .transition()
+                .duration(2000)
+                .attr("x", d => x(d.label))
+                .attr("y", d => y(d.value))
+                .attr("width", x.bandwidth())
+                .attr("height", d => chartHeight - y(d.value));
+
+            bars
+                .exit()
+                .transition()
+                .duration(2000)
+                .attr("y", chartHeight)
+                .attr("height", 0)
+                .remove();
+
+            // Update X-axis
+            svg
+                .select(".x-axis")
+                .transition()
+                .duration(2000)
+                .call(d3.axisBottom(x));
+
+            // Update Y-axis
+            svg
+                .select(".y-axis")
+                .transition()
+                .duration(2000)
+                .call(d3.axisLeft(y));
+
+            // Update Title
+            svg
+                .select(".title")
+                .text(title);
+        }
+        
+        const data = {
+            id: 1,
+            name: "Author Name",
+            citations: { 2018: 5, 2019: 15, 2020: 10, 2021: 25, 2022: 20 }
+        };
+
+        // Format data for D3
+        const formattedData = Object.entries(data.citations).map(([year, count]) => ({
+            year: +year,
+            count: count
+        }));
+
+        // Use formatted data to plot
+        plotBarChartFromJson(formattedData, "Citations per Year");
+    }
     ////////////////////////////////////////////////////////////////////////
     //                           Bottom Right                             //
     ////////////////////////////////////////////////////////////////////////

@@ -181,10 +181,6 @@ def _save_author_chunk(df: pd.DataFrame, author_node: Path, author_edge: Path):
         f"Successfully save the information of authors to {author_node} and {author_edge}!"
     )
 
-    df["authors"] = df["authors"].apply(
-        lambda x: "" if x == [1] else "#".join(map(str, x))
-    )
-
     del edges_df
     del edges_list
     gc.collect()
@@ -208,7 +204,11 @@ def _build_venue_index(df: pd.DataFrame, venue_map: Path):
 
 @timer
 def _save_paper_chunk(
-    df: pd.DataFrame, paper_map: Path, paper_node: Path, paper_edge: Path
+    df: pd.DataFrame,
+    paper_map: Path,
+    citation: Path,
+    paper_node: Path,
+    paper_edge: Path,
 ):
     logger.info("Start saving information of the papers...")
     paper_node.parent.mkdir(parents=True, exist_ok=True)
@@ -261,7 +261,35 @@ def _save_paper_chunk(
             in_degree[reference] += 1
 
     df["in_d"] = df["id"].map(in_degree).fillna(0).astype(int)
+
+    # Save the yearly citation for each author
+    author_year_citation = (
+        df[df["in_d"] != 0][["authors", "year", "in_d"]]
+        .explode("authors")
+        .groupby(["authors", "year"], sort=False)
+        .agg(total_citations=("in_d", "sum"))
+        .reset_index()
+    )
+    author_citation_dict = {}
+    for author, group in tqdm(
+        author_year_citation.groupby("authors"),
+        total=len(author_year_citation.groupby("authors")),
+        desc="Processing author citations...",
+    ):
+        yearly_citations = group.set_index("year")["total_citations"].to_dict()
+        author_citation_dict[author] = {
+            year: int(yearly_citations.get(year, 0))
+            for year in range(group["year"].min(), group["year"].max() + 1)
+        }
+
+    with open(citation, "w") as f:
+        json.dump(author_citation_dict, f, indent=4)
+
+    # Save the paper node
     df.drop(columns=["title", "references", "ref_list", "paper_mapping"], inplace=True)
+    df["authors"] = df["authors"].apply(
+        lambda x: "" if x == [1] else "#".join(map(str, x))
+    )
     df["isolate"] = (df["in_d"] == 0) & (df["out_d"] == 0)
     df.to_csv(paper_node, index=False)
 
@@ -290,6 +318,7 @@ def save_records_to_csv(
     author_edge: Path,
     venue_map: Path,
     paper_map: Path,
+    citation: Path,
     paper_node: Path,
     paper_edge: Path,
 ) -> None:
@@ -299,11 +328,10 @@ def save_records_to_csv(
     """
     # Process all records into a single DataFrame
     df = _get_dataframe(data_path)
-    # df = load_records_from_csv(paper_node)
 
     _save_author_chunk(df, author_node, author_edge)
     _build_venue_index(df, venue_map)
-    _save_paper_chunk(df, paper_map, paper_node, paper_edge)
+    _save_paper_chunk(df, paper_map, citation, paper_node, paper_edge)
 
     gc.collect()
 
