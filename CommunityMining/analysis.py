@@ -15,7 +15,7 @@ def analyze_community_result(node_df, community_file, edge_df, output_path):
     """
     # Step 1: Load the community division results (id, community)
     community_df = pd.read_csv(community_file)
-    community_df.set_index('id', inplace=True)
+    community_df.set_index("id", inplace=True)
 
     # Map community labels back to the node_df based on 'id'
     node_df["community"] = node_df["id"].map(community_df["community"])
@@ -35,17 +35,21 @@ def analyze_community_result(node_df, community_file, edge_df, output_path):
     community_proportions = community_sizes / total_nodes
 
     # Save community proportions
-    community_proportions_df = pd.DataFrame({
-        "community_id": community_proportions.index,
-        "node_count": community_sizes.values,
-        "proportion": community_proportions.values
-    })
+    community_proportions_df = pd.DataFrame(
+        {
+            "community_id": community_proportions.index,
+            "node_count": community_sizes.values,
+            "proportion": community_proportions.values,
+        }
+    )
     # Ensure the output path exists
     output_path.mkdir(parents=True, exist_ok=True)
     community_proportions_df.to_csv(
-        output_path / "community_proportions.csv", index=False)
+        output_path / "community_proportions.csv", index=False
+    )
     print(
-        f"Community proportions saved to: {output_path / 'community_proportions.csv'}")
+        f"Community proportions saved to: {output_path / 'community_proportions.csv'}"
+    )
 
     # Step 4: Build igraph from the edge data
     edges = list(zip(edge_df["src"], edge_df["dst"]))
