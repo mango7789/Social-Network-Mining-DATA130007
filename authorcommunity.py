@@ -109,6 +109,7 @@ def community_detection(
     membership = partition.membership
     vertex_to_community = dict(zip(G.vs["name"], membership))
     node["community"] = node["id"].map(vertex_to_community)
+    print(partition.modularity)
 
     # Save results
     try:
@@ -131,14 +132,17 @@ if __name__ == "__main__":
     node_data = load_author_node("./data/author/node.csv")
     edge_data = load_author_edge("./data/author/edge.csv")
 
+    algorithm = "community_label_propagation"
+
     # Set output path for the results
-    output_path = Path("./CommunityMining/results/author_leiden.csv")
+    output_path = Path(f"./CommunityMining/results/author_{algorithm}.csv")
 
     # Run community detection with the 'community_walktrap' algorithm
     community_detection(
         node_data,
         edge_data,
         output_path,
-        "community_leiden",
+        # "community_leiden",
+        algorithm,
         weights=edge_data["w"].tolist(),
     )
