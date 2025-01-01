@@ -58,8 +58,11 @@ def calculate_centrality_and_statistics(
 
 if __name__ == "__main__":
     # Define file paths
-    node_data = pd.read_csv("./data/paper/node.csv")
-    edge_data = pd.read_csv("./data/paper/edge.csv")
+    from utils import load_paper_node, load_paper_edge
+
+    node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
+    edge_data = load_paper_edge("./data/paper/edge.csv")
+
     community_file_path = Path("./CommunityMining/results/louvain.csv")
     output_path = Path("./CentralityMeasure/results")
     # Calculate centrality measures and statistics

@@ -59,7 +59,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
 if __name__ == "__main__":
     from utils import load_paper_node, load_paper_edge
 
-    node_data = load_paper_node("./test/paper/node.csv")
+    node_data = load_paper_node("./test/paper/node.csv", skip_isolate=True)
     edge_data = load_paper_edge("./test/paper/edge.csv")
     output_path = Path("./CommunityMining/result/community_output.csv")
     louvain(node_data, edge_data, output_path)
