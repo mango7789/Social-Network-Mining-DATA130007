@@ -24,6 +24,10 @@ paper_node_df = paper_node_df.merge(
 top_communities = paper_node_df["community"].value_counts().head(10).index.tolist()
 paper_node_df = paper_node_df[paper_node_df["community"].isin(top_communities)]
 
+centrality_df = pd.read_csv("./CentralityMeasure/results/centrality_measures.csv")
+paper_node_df = paper_node_df.merge(
+    centrality_df[["id", "pagerank_centrality"]], on="id", how="left"
+)
 
 # Calculate the average 'in_d' for each community
 average_in_d = paper_node_df.groupby("community")["in_d"].mean().reset_index()
@@ -31,6 +35,17 @@ sorted_average_in_d = average_in_d.sort_values(by="in_d", ascending=False)
 average_in_d_dict = sorted_average_in_d.to_dict(orient="records")
 with open("./vis/citation.json", "w") as f:
     json.dump(average_in_d_dict, f, indent=4)
+
+# Calculate the average `centrality` for each community
+average_centrality = (
+    paper_node_df.groupby("community")["pagerank_centrality"].mean().reset_index()
+)
+sorted_average_centrality = average_centrality.sort_values(
+    by="pagerank_centrality", ascending=False
+)
+average_centrality_dict = sorted_average_centrality.to_dict(orient="records")
+with open("./vis/centrality.json", "w") as f:
+    json.dump(average_centrality_dict, f, indent=4)
 
 
 # Degree
@@ -61,7 +76,6 @@ proport_path = "./vis/counts.json"
 with open(proport_path, "w") as f:
     json.dump(community_proportions_dict, f, indent=4)
 
-centrality_df = pd.read_csv("./CentralityMeasure/results/centrality_measures.csv")
 
 filtered_ids = pd.read_json(
     "./CommunityMining/results/id.json", orient="records", lines=True
@@ -83,9 +97,9 @@ paper_node_df_filtered.loc[:, "venue"] = paper_node_df_filtered["venue"].map(ven
 #     community_df[["id", "community"]], on="id", how="left"
 # )
 
-paper_node_df_filtered = paper_node_df_filtered.merge(
-    centrality_df[["id", "pagerank_centrality"]], on="id", how="left"
-)
+# paper_node_df_filtered = paper_node_df_filtered.merge(
+#     centrality_df[["id", "pagerank_centrality"]], on="id", how="left"
+# )
 
 # Drop other columns
 columns_to_save = [
