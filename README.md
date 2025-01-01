@@ -93,6 +93,16 @@
     ```bash
     python main.py
     ```
+  - 获取展示数据集
+    ```bash
+    python -m CommunityMining.louvain
+    python -m CentralityMeasure.centrality
+    cd CommunityMining
+    python filter.py
+    cd ..
+    python combine.py
+    ```
+
 - 可视化
   - 在 vscode 安装 live server 扩展
     ```pwsh

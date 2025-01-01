@@ -28,7 +28,7 @@ def load_paper_node(
             "id": "string",
             "authors": "string",
             "year": "Int16",
-            "venue": "Int16",
+            "venue": "str",
             "out_d": "Int16",
             "start": "Int64",
             "end": "Int64",
