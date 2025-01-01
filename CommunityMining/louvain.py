@@ -30,7 +30,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     >>> louvain(paper_node, paper_edge, output_path)
     """
     # Convert edge data to igraph-compatible format
-    edges = list(zip(edge["src"], edge["dst"]))
+    edges = [(src, dst) for src, dst in zip(edge["src"], edge["dst"]) if src != dst]
 
     # Create igraph Graph
     G = ig.Graph()
@@ -38,6 +38,8 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     G.add_edges(edges)
 
     G.vs["name"] = node["id"].tolist()
+    G = G.simplify(loops=True, combine_edges=None)
+    logger.info("The graph is successfully simplified!")
 
     # Perform community detection using Leiden algorithm
     partition = la.find_partition(G, la.ModularityVertexPartition)
@@ -59,7 +61,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
 if __name__ == "__main__":
     from utils import load_paper_node, load_paper_edge
 
-    node_data = load_paper_node("./test/paper/node.csv", skip_isolate=True)
-    edge_data = load_paper_edge("./test/paper/edge.csv")
-    output_path = Path("./CommunityMining/result/community_output.csv")
+    node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
+    edge_data = load_paper_edge("./data/paper/edge.csv")
+    output_path = Path("./CommunityMining/results/louvain.csv")
     louvain(node_data, edge_data, output_path)

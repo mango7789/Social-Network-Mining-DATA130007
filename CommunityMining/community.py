@@ -106,8 +106,9 @@ if __name__ == "__main__":
     from pathlib import Path
     from utils import load_paper_node, load_paper_edge
 
-    algorithm = Algorithm.LABEL_PROPAGATION
+    # algorithm = Algorithm.LABEL_PROPAGATION
     # algorithm = Algorithm.MULTILEVEL
+    algorithm = Algorithm.LEIDEN
 
     node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
     edge_data = load_paper_edge("./data/paper/edge.csv")
