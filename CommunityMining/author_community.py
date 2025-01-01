@@ -41,11 +41,11 @@ def community_detection(
         if col not in edge.columns:
             raise ValueError(f"Edge DataFrame must contain '{col}' column.")
 
-    # Filter out isolated nodes (assuming authors with no co-authors) and authors with more than 1000 co-authors
+    # Filter out isolated nodes (assuming authors with no co-authors) and authors with more than 50 co-authors
     node = node[
         (node["num_papers"] > 1)
         & (node["num_co_authors"] > 0)
-        & (node["num_co_authors"] <= 1000)
+        & (node["num_co_authors"] <= 50)
     ]
 
     # Ensure that all edges refer to nodes that exist in the node_data

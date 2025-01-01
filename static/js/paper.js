@@ -48,11 +48,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const countData = await d3.json("../../vis/counts.json");
 
-    return { nodeData, linkData, citationData, centralityData, diameterData, degreeData, countData };
+    return {
+      nodeData,
+      linkData,
+      citationData,
+      centralityData,
+      diameterData,
+      degreeData,
+      countData
+    };
   }
 
   loadData().then(
-    ({ nodeData, linkData, citationData, centralityData, diameterData, degreeData, countData }) => {
+    ({
+      nodeData,
+      linkData,
+      citationData,
+      centralityData,
+      diameterData,
+      degreeData,
+      countData
+    }) => {
       ////////////////////////////////////////////////////////////////////////
       //                            Top Left                                //
       ////////////////////////////////////////////////////////////////////////
@@ -142,18 +158,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const legendItems = legend
           .selectAll(".legend-item")
-          .data(sortedCommunities)  // Use the sorted array for binding
+          .data(sortedCommunities) // Use the sorted array for binding
           .enter()
           .append("g")
           .attr("class", "legend-item")
           .attr("transform", (d, i) => `translate(0, ${i * 25})`);
-        
+
         legendItems
           .append("rect")
           .attr("width", 15)
           .attr("height", 15)
           .attr("fill", d => color(d));
-        
+
         legendItems
           .append("text")
           .attr("x", 20)
@@ -204,6 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Re-plot links and nodes based on filtered data
           plotGraph(filteredNodes, filteredEdges);
+          renderPaginatedTable(filteredNodes, "");
         });
 
         function setupEventListeners(nodeCircles) {
@@ -503,7 +520,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const select = document.createElement("select");
         select.id = "plot-selector";
 
-        ["Average Citations", "Average Centrality", "Diameter"].forEach(optionText => {
+        [
+          "Average Citations",
+          "Average Centrality",
+          "Diameter"
+        ].forEach(optionText => {
           const option = document.createElement("option");
           option.value = optionText.toLowerCase().replace(/ /g, "-");
           option.text = optionText;
@@ -527,43 +548,54 @@ document.addEventListener("DOMContentLoaded", () => {
           const width = distanceDiv.clientWidth;
           const height = distanceDiv.clientHeight;
 
-          const margin = { top: 30, right: 20, bottom: 40, left: 40 };
+          const margin = { top: 30, right: 40, bottom: 40, left: 40 };
           const chartWidth = width - margin.left - margin.right;
           const chartHeight = height - margin.top - margin.bottom;
 
           // Select or create SVG container
           let svg = d3.select(distanceDiv).select("svg");
-          if (svg.empty()) {
-            svg = d3
-              .select(distanceDiv)
-              .append("svg")
-              .attr("width", width)
-              .attr("height", height);
-
-            svg
-              .append("g")
-              .attr("class", "bars")
-              .attr("transform", `translate(${margin.left},${margin.top})`);
-            svg
-              .append("g")
-              .attr("class", "x-axis")
-              .attr(
-                "transform",
-                `translate(${margin.left},${margin.top + chartHeight})`
-              );
-            svg
-              .append("g")
-              .attr("class", "y-axis")
-              .attr("transform", `translate(${margin.left},${margin.top})`);
-            svg
-              .append("text")
-              .attr("class", "title")
-              .attr("x", width / 2)
-              .attr("y", margin.top / 2)
-              .attr("text-anchor", "middle")
-              .style("font-size", "16px")
-              .style("font-weight", "bold");
+          if (!svg.empty()) {
+            svg.remove(); // Remove the existing SVG
           }
+
+          svg = d3
+            .select(distanceDiv)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+          svg
+            .append("g")
+            .attr("class", "bars")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+          svg
+            .append("g")
+            .attr("class", "x-axis")
+            .attr(
+              "transform",
+              `translate(${margin.left},${margin.top + chartHeight})`
+            );
+          svg
+            .append("g")
+            .attr("class", "y-axis")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+          svg
+            .append("text")
+            .attr("class", "title")
+            .attr("x", width / 2)
+            .attr("y", margin.top / 2)
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("font-weight", "bold");
+
+          svg
+            .append("text")
+            .attr("class", "x-title")
+            .attr("x", width / 2)
+            .attr("y", height - 10) // Positioned below X-axis
+            .attr("text-anchor", "middle")
+            .style("font-size", "12px")
+            .text("Community");
 
           // Scales
           const x = d3.scaleBand().range([0, chartWidth]).padding(0.1);
@@ -571,6 +603,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           x.domain(data.map(d => d.label));
           y.domain([0, d3.max(data, d => d.value)]);
+
+          const colors = {
+            "average-citations": "steelblue",
+            "average-centrality": "orange",
+            diameter: "green"
+          };
 
           // Tooltip setup
           const tooltip = d3
@@ -592,6 +630,13 @@ document.addEventListener("DOMContentLoaded", () => {
             .selectAll(".bar")
             .data(data, d => d.label);
 
+          console.log(
+            "Plotting:",
+            title,
+            "with color:",
+            colors[title.toLowerCase().replace(/ /g, "-")]
+          );
+
           bars
             .enter()
             .append("rect")
@@ -600,7 +645,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .attr("y", chartHeight) // Start at the bottom
             .attr("width", x.bandwidth())
             .attr("height", 0) // Start with height 0
-            .attr("fill", "steelblue")
+            .attr("fill", colors[title.toLowerCase().replace(/ /g, "-")])
             .on("mouseover", function(event, d) {
               d3.select(this).attr("fill", "darkblue"); // Highlight bar
               tooltip
@@ -615,7 +660,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 .style("top", `${event.pageY - 20}px`);
             })
             .on("mouseout", function() {
-              d3.select(this).attr("fill", "steelblue"); // Reset bar color
+              d3
+                .select(this)
+                .attr("fill", colors[title.toLowerCase().replace(/ /g, "-")]); // Reset bar color
               tooltip.style("opacity", 0);
             })
             .merge(bars)
@@ -701,7 +748,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .attr("width", width)
           .attr("height", height);
 
-        const margin = { top: 30, right: 20, bottom: 40, left: 50 };
+        const margin = { top: 30, right: 50, bottom: 40, left: 50 };
         const chartWidth = width - margin.left - margin.right;
         const chartHeight = height - margin.top - margin.bottom;
 
@@ -735,7 +782,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .attr("class", "line")
           .attr("d", line) // This defines the final path, which will be animated
           .attr("fill", "none")
-          .attr("stroke", "steelblue")
+          .attr("stroke", "purple")
           .attr("stroke-width", 2)
           .attr("stroke-dasharray", function() {
             return this.getTotalLength(); // Get the length of the path
@@ -756,8 +803,8 @@ document.addEventListener("DOMContentLoaded", () => {
           .attr("class", "dot")
           .attr("cx", d => x(d.degree) + x.bandwidth() / 2) // Center of each band
           .attr("cy", d => y(d.count))
-          .attr("r", 4) // Size of the dot
-          .attr("fill", "red")
+          .attr("r", 3) // Size of the dot
+          .attr("fill", "grey")
           .attr("stroke", "black")
           .attr("stroke-width", 1);
 
@@ -779,7 +826,7 @@ document.addEventListener("DOMContentLoaded", () => {
               .text(`Degree: ${d.degree}, Count: ${d.count}`);
 
             // Increase radius on hover
-            d3.select(event.target).transition().attr("r", 4 * 1.5); // Increase radius by 1.1x
+            d3.select(event.target).transition().attr("r", 3 * 1.5); // Increase radius by 1.1x
           })
           .on("mousemove", event => {
             tooltip
@@ -790,7 +837,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tooltip.style("visibility", "hidden");
 
             // Reset radius when mouse leaves
-            d3.select(event.target).transition().attr("r", 4); // Reset radius to original size
+            d3.select(event.target).transition().attr("r", 3); // Reset radius to original size
           });
 
         // X-axis
@@ -839,8 +886,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const degreeNum = parseInt(degree, 10);
 
           // If the degree is greater than 100, sum it into a special category
-          if (degreeNum > 50) {
-            globalDegreeData[">50"] = (globalDegreeData[">50"] || 0) + count;
+          if (degreeNum > 30) {
+            globalDegreeData["30"] = (globalDegreeData["30"] || 0) + count;
           } else {
             globalDegreeData[degreeNum] =
               (globalDegreeData[degreeNum] || 0) + count;
@@ -855,10 +902,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ////////////////////////////////////////////////////////////////////////
       if (nodesDiv) {
         /**
-   * Function to plot a donut chart with text labels, percentages, and tooltips
-   * @param {Object} jsonData - JSON data in the format {community: number of nodes}
-   * @param {string} title - Title for the chart
-   */
+         * Function to plot a donut chart with text labels, percentages, and tooltips
+         * @param {Object} jsonData - JSON data in the format {community: number of nodes}
+         * @param {string} title - Title for the chart
+         */
         function plotPieChart(jsonData, title) {
           const data = Object.entries(jsonData).map(([community, nodes]) => ({
             label: community,
@@ -867,7 +914,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const width = nodesDiv.clientWidth;
           const height = nodesDiv.clientHeight;
-          const radius = Math.min(width, height) / 2 - 40;
+          const radius = Math.min(width, height) / 2 - 10;
 
           // Clear previous content
           d3.select(nodesDiv).selectAll("svg").remove();
