@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Add legend on the right side (outside the zoomed group)
-        const legendWidth = 150;
+        const legendWidth = 100;
         const legendMargin = 20;
 
         const legend = svg
@@ -138,25 +138,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const communities = [...new Set(nodeData.map(d => d.community))];
 
+        const sortedCommunities = communities.sort((a, b) => a - b); // Sort communities in ascending order
+
         const legendItems = legend
           .selectAll(".legend-item")
-          .data(communities)
+          .data(sortedCommunities)  // Use the sorted array for binding
           .enter()
           .append("g")
           .attr("class", "legend-item")
-          .attr("transform", (d, i) => `translate(0, ${i * 20})`);
-
+          .attr("transform", (d, i) => `translate(0, ${i * 25})`);
+        
         legendItems
           .append("rect")
           .attr("width", 15)
           .attr("height", 15)
           .attr("fill", d => color(d));
-
+        
         legendItems
           .append("text")
           .attr("x", 20)
           .attr("y", 10)
-          .text(d => d)
+          .text(d => "Community " + d)
           .style("font-size", "12px")
           .style("alignment-baseline", "middle");
 
