@@ -10,22 +10,26 @@ class DataUtils:
     def __init__(self, graph_file, is_all=False):
         with np.load(graph_file, allow_pickle=True) as loader:
             loader = dict(loader)
-            self.A = sp.csr_matrix((loader['adj_data'], loader['adj_indices'],
-                               loader['adj_indptr']), shape=loader['adj_shape'])
+            self.A = sp.csr_matrix(
+                (loader["adj_data"], loader["adj_indices"], loader["adj_indptr"]),
+                shape=loader["adj_shape"],
+            )
 
-            self.X = sp.csr_matrix((loader['attr_data'], loader['attr_indices'],
-                               loader['attr_indptr']), shape=loader['attr_shape'])
+            self.X = sp.csr_matrix(
+                (loader["attr_data"], loader["attr_indices"], loader["attr_indptr"]),
+                shape=loader["attr_shape"],
+            )
 
-            if 'labels' in loader.keys():
-                self.labels = loader['labels']
+            if "labels" in loader.keys():
+                self.labels = loader["labels"]
             else:
                 self.labels = None
 
-            if not is_all and 'val_edges' in loader.keys():
-                self.val_edges = loader['val_edges']
-                self.val_ground_truth = loader['val_ground_truth']
-                self.test_edges = loader['test_edges']
-                self.test_ground_truth = loader['test_ground_truth']
+            if not is_all and "val_edges" in loader.keys():
+                self.val_edges = loader["val_edges"]
+                self.val_ground_truth = loader["val_ground_truth"]
+                self.test_edges = loader["test_edges"]
+                self.test_ground_truth = loader["test_ground_truth"]
 
             self.g = nx.from_scipy_sparse_array(self.A)
 
@@ -34,11 +38,21 @@ class DataUtils:
             self.edges_raw = self.g.edges(data=True)
             self.nodes_raw = self.g.nodes(data=True)
 
-            self.edge_distribution = np.array([attr['weight'] for _, _, attr in self.edges_raw], dtype=np.float32)
+            self.edge_distribution = np.array(
+                [attr["weight"] for _, _, attr in self.edges_raw], dtype=np.float32
+            )
             self.edge_distribution /= np.sum(self.edge_distribution)
             self.edge_sampling = AliasSampling(prob=self.edge_distribution)
             self.node_negative_distribution = np.power(
-                np.array([self.g.degree(node, weight='weight') for node, _ in self.nodes_raw], dtype=np.float32), 0.75)
+                np.array(
+                    [
+                        self.g.degree(node, weight="weight")
+                        for node, _ in self.nodes_raw
+                    ],
+                    dtype=np.float32,
+                ),
+                0.75,
+            )
             self.node_negative_distribution /= np.sum(self.node_negative_distribution)
             self.node_sampling = AliasSampling(prob=self.node_negative_distribution)
 
@@ -47,7 +61,9 @@ class DataUtils:
             for index, (node, _) in enumerate(self.nodes_raw):
                 self.node_index[node] = index
                 self.node_index_reversed[index] = node
-            self.edges = [(self.node_index[u], self.node_index[v]) for u, v, _ in self.edges_raw]
+            self.edges = [
+                (self.node_index[u], self.node_index[v]) for u, v, _ in self.edges_raw
+            ]
 
     def fetch_next_batch(self, batch_size=16, K=10):
         edge_batch_index = self.edge_sampling.sampling(batch_size)
@@ -65,7 +81,10 @@ class DataUtils:
             for i in range(K):
                 while True:
                     negative_node = self.node_sampling.sampling()
-                    if not self.g.has_edge(self.node_index_reversed[negative_node], self.node_index_reversed[edge[0]]):
+                    if not self.g.has_edge(
+                        self.node_index_reversed[negative_node],
+                        self.node_index_reversed[edge[0]],
+                    ):
                         break
                 u_i.append(edge[0])
                 u_j.append(negative_node)
@@ -113,18 +132,36 @@ class AliasSampling:
 def train_val_test_split(graph_file, p_test=0.10, p_val=0.05):
     with np.load(graph_file, allow_pickle=True) as loader:
         loader = dict(loader)
-        A = sp.csr_matrix((loader['adj_data'], loader['adj_indices'],
-                           loader['adj_indptr']), shape=loader['adj_shape'])
+        A = sp.csr_matrix(
+            (loader["adj_data"], loader["adj_indices"], loader["adj_indptr"]),
+            shape=loader["adj_shape"],
+        )
 
-        X = sp.csr_matrix((loader['attr_data'], loader['attr_indices'],
-                           loader['attr_indptr']), shape=loader['attr_shape'])
+        X = sp.csr_matrix(
+            (loader["attr_data"], loader["attr_indices"], loader["attr_indptr"]),
+            shape=loader["attr_shape"],
+        )
 
-        if 'labels' in loader.keys():
-            labels = loader['labels']
+        if "labels" in loader.keys():
+            labels = loader["labels"]
         else:
             labels = None
 
-        train_ones, val_ones, val_zeros, test_ones, test_zeros = _train_val_test_split_adjacency(A=A, p_test=p_test, p_val=p_val, neg_mul=1, every_node=True, connected=False, undirected=(A != A.T).nnz == 0)
+        (
+            train_ones,
+            val_ones,
+            val_zeros,
+            test_ones,
+            test_zeros,
+        ) = _train_val_test_split_adjacency(
+            A=A,
+            p_test=p_test,
+            p_val=p_val,
+            neg_mul=1,
+            every_node=True,
+            connected=False,
+            undirected=(A != A.T).nnz == 0,
+        )
         if p_val > 0:
             val_edges = np.row_stack((val_ones, val_zeros))
             val_ground_truth = A[val_edges[:, 0], val_edges[:, 1]].A1
@@ -140,9 +177,19 @@ def train_val_test_split(graph_file, p_test=0.10, p_val=0.05):
     return A, X, labels, val_edges, val_ground_truth, test_edges, test_ground_truth
 
 
-def _train_val_test_split_adjacency(A, p_val=0.10, p_test=0.05, seed=0, neg_mul=1,
-                                    every_node=True, connected=False, undirected=False,
-                                    use_edge_cover=True, set_ops=True, asserts=False):
+def _train_val_test_split_adjacency(
+    A,
+    p_val=0.10,
+    p_test=0.05,
+    seed=0,
+    neg_mul=1,
+    every_node=True,
+    connected=False,
+    undirected=False,
+    use_edge_cover=True,
+    set_ops=True,
+    asserts=False,
+):
     # Reference: G2G source code from https://github.com/abojchevski/graph2gauss
     assert p_val + p_test > 0
     assert A.min() == 0  # no negative edges
@@ -156,7 +203,9 @@ def _train_val_test_split_adjacency(A, p_val=0.10, p_test=0.05, seed=0, neg_mul=
         A.eliminate_zeros()
     else:
         if is_undirected:
-            warnings.warn('Graph appears to be undirected. Did you forgot to set undirected=True?')
+            warnings.warn(
+                "Graph appears to be undirected. Did you forgot to set undirected=True?"
+            )
 
     np.random.seed(seed)
 
@@ -169,7 +218,9 @@ def _train_val_test_split_adjacency(A, p_val=0.10, p_test=0.05, seed=0, neg_mul=
     # hold some edges so each node appears at least once
     if every_node:
         if connected:
-            assert sp.csgraph.connected_components(A)[0] == 1  # make sure original graph is connected
+            assert (
+                sp.csgraph.connected_components(A)[0] == 1
+            )  # make sure original graph is connected
             A_hold = sp.csgraph.minimum_spanning_tree(A)
         else:
             A.eliminate_zeros()  # makes sure A.tolil().rows contains only indices of non-zero elements
@@ -181,20 +232,36 @@ def _train_val_test_split_adjacency(A, p_val=0.10, p_test=0.05, seed=0, neg_mul=
                 # make sure the training percentage is not smaller than len(edge_cover)/E when every_node is set to True
                 min_size = hold_edges.shape[0]
                 if min_size > s_train:
-                    raise ValueError('Training percentage too low to guarantee every node. Min train size needed {:.2f}'
-                                     .format(min_size / E))
+                    raise ValueError(
+                        "Training percentage too low to guarantee every node. Min train size needed {:.2f}".format(
+                            min_size / E
+                        )
+                    )
             else:
                 # make sure the training percentage is not smaller than N/E when every_node is set to True
                 if N > s_train:
-                    raise ValueError('Training percentage too low to guarantee every node. Min train size needed {:.2f}'
-                                     .format(N / E))
+                    raise ValueError(
+                        "Training percentage too low to guarantee every node. Min train size needed {:.2f}".format(
+                            N / E
+                        )
+                    )
 
                 hold_edges_d1 = np.column_stack(
-                    (idx[d > 0], np.row_stack(map(np.random.choice, A[d > 0].tolil().rows))))
+                    (
+                        idx[d > 0],
+                        np.row_stack(map(np.random.choice, A[d > 0].tolil().rows)),
+                    )
+                )
 
                 if np.any(d == 0):
-                    hold_edges_d0 = np.column_stack((np.row_stack(map(np.random.choice, A[:, d == 0].T.tolil().rows)),
-                                                     idx[d == 0]))
+                    hold_edges_d0 = np.column_stack(
+                        (
+                            np.row_stack(
+                                map(np.random.choice, A[:, d == 0].T.tolil().rows)
+                            ),
+                            idx[d == 0],
+                        )
+                    )
                     hold_edges = np.row_stack((hold_edges_d0, hold_edges_d1))
                 else:
                     hold_edges = hold_edges_d1
@@ -235,9 +302,15 @@ def _train_val_test_split_adjacency(A, p_val=0.10, p_test=0.05, seed=0, neg_mul=
             random_sample = random_sample[random_sample[:, 0] != random_sample[:, 1]]
 
         # discard ones
-        random_sample = random_sample[A[random_sample[:, 0], random_sample[:, 1]].A1 == 0]
+        random_sample = random_sample[
+            A[random_sample[:, 0], random_sample[:, 1]].A1 == 0
+        ]
         # discard duplicates
-        random_sample = random_sample[np.unique(random_sample[:, 0] * N + random_sample[:, 1], return_index=True)[1]]
+        random_sample = random_sample[
+            np.unique(random_sample[:, 0] * N + random_sample[:, 1], return_index=True)[
+                1
+            ]
+        ]
         # only take as much as needed
         test_zeros = np.row_stack(random_sample)[:n_test]
         assert test_zeros.shape[0] == n_test
@@ -272,7 +345,9 @@ def _train_val_test_split_adjacency(A, p_val=0.10, p_test=0.05, seed=0, neg_mul=
     if asserts:
         set_of_train_ones = set(map(tuple, train_ones))
         assert train_ones.shape[0] + test_ones.shape[0] + val_ones.shape[0] == A.nnz
-        assert (edges_to_sparse(np.row_stack((train_ones, test_ones, val_ones)), N) != A).nnz == 0
+        assert (
+            edges_to_sparse(np.row_stack((train_ones, test_ones, val_ones)), N) != A
+        ).nnz == 0
         assert set_of_train_ones.intersection(set(map(tuple, test_ones))) == set()
         assert set_of_train_ones.intersection(set(map(tuple, val_ones))) == set()
         assert set_of_train_ones.intersection(set(map(tuple, test_zeros))) == set()
@@ -319,11 +394,15 @@ def edge_cover(A):
     not_covered_out = not_covered[d_out[not_covered] > 0]
 
     if len(not_covered_out) > 0:
-        edges.append(np.column_stack((not_covered_out, A[not_covered_out].argmax(1).A1)))
+        edges.append(
+            np.column_stack((not_covered_out, A[not_covered_out].argmax(1).A1))
+        )
 
     not_covered_in = not_covered[d_out[not_covered] == 0]
     if len(not_covered_in) > 0:
-        edges.append(np.column_stack((A[:, not_covered_in].argmax(0).A1, not_covered_in)))
+        edges.append(
+            np.column_stack((A[:, not_covered_in].argmax(0).A1, not_covered_in))
+        )
 
     edges = np.row_stack(edges)
 
@@ -345,6 +424,7 @@ def edges_to_sparse(edges, N, values=None):
 def score_link_prediction(labels, scores):
     return roc_auc_score(labels, scores), average_precision_score(labels, scores)
 
+
 def move_args_to_device(args, device):
     # 遍历 args 的所有属性
     for key, value in vars(args).items():
@@ -357,8 +437,10 @@ def move_args_to_device(args, device):
             if isinstance(value, sp.csr_matrix):
                 # 提取行、列索引和数据
                 row_indices = torch.repeat_interleave(
-                    torch.arange(value.shape[0]), 
-                    torch.tensor(value.indptr[1:] - value.indptr[:-1], dtype=torch.int64)
+                    torch.arange(value.shape[0]),
+                    torch.tensor(
+                        value.indptr[1:] - value.indptr[:-1], dtype=torch.int64
+                    ),
                 )
                 col_indices = torch.tensor(value.indices, dtype=torch.int64)
                 values = torch.tensor(value.data, dtype=torch.float32)

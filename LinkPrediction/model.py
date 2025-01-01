@@ -12,6 +12,7 @@ np.random.seed(seed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed(seed)
 
+
 def sparse_feeder(M):
     """
     将稀疏矩阵转换为 PyTorch 稀疏张量所需的格式。
@@ -21,6 +22,7 @@ def sparse_feeder(M):
     values = torch.FloatTensor(M.data)
     shape = M.shape
     return indices, values, shape
+
 
 class LACE(nn.Module):
     def __init__(self, args):
@@ -42,8 +44,8 @@ class LACE(nn.Module):
     def build_model(self, args):
         # 处理稀疏输入
         indices, values, shape = sparse_feeder(args.X)
-        self.register_buffer('X_indices', indices)
-        self.register_buffer('X_values', values)
+        self.register_buffer("X_indices", indices)
+        self.register_buffer("X_values", values)
         self.X_shape = torch.Size(shape)  # 将 X_shape 作为普通属性存储
 
         # 定义隐藏层
@@ -71,14 +73,16 @@ class LACE(nn.Module):
         # 优化器
         self.optimizer = optim.Adam(self.parameters(), lr=args.learning_rate)
 
-    def forward(self, u_i, u_j, proximity='first-order'):
+    def forward(self, u_i, u_j, proximity="first-order"):
         # 稀疏矩阵乘法
-        X_sparse = torch.sparse.FloatTensor(self.X_indices, self.X_values, self.X_shape).to(u_i.device)
+        X_sparse = torch.sparse.FloatTensor(
+            self.X_indices, self.X_values, self.X_shape
+        ).to(u_i.device)
         X_dense = X_sparse.to_dense()
         encoded = self.encoder(X_dense)
         embedding = self.embedding_layer(encoded)
 
-        if proximity == 'first-order':
+        if proximity == "first-order":
             u_j_embedding = embedding[u_j]
         else:
             context_encoded = self.context_encoder(X_dense)
@@ -91,7 +95,11 @@ class LACE(nn.Module):
         # 计算相似度
         similarity = torch.sum(u_i_embedding * u_j_embedding, dim=1)
 
-        return similarity, embedding, context_embedding if proximity != 'first-order' else None
+        return (
+            similarity,
+            embedding,
+            context_embedding if proximity != "first-order" else None,
+        )
 
     def compute_loss(self, similarity, label):
         """
@@ -110,6 +118,7 @@ class LACE(nn.Module):
             return neg_val_energy
         else:
             return None
+
 
 class GLACE(nn.Module):
     def __init__(self, args):
@@ -131,8 +140,8 @@ class GLACE(nn.Module):
     def build_model(self, args):
         # 处理稀疏输入
         indices, values, shape = sparse_feeder(args.X)
-        self.register_buffer('X_indices', indices)
-        self.register_buffer('X_values', values)
+        self.register_buffer("X_indices", indices)
+        self.register_buffer("X_values", values)
         self.X_shape = torch.Size(shape)  # 将 X_shape 作为普通属性存储
 
         # 定义隐藏层
@@ -149,7 +158,7 @@ class GLACE(nn.Module):
         self.sigma_layer = nn.Linear(input_dim, self.L)
 
         # 上下文嵌入层（仅在 second-order proximity 时使用）
-        if args.proximity == 'second-order':
+        if args.proximity == "second-order":
             context_layers = []
             input_dim = self.D
             for hidden_dim in self.n_hidden:
@@ -163,16 +172,18 @@ class GLACE(nn.Module):
         # 优化器
         self.optimizer = optim.Adam(self.parameters(), lr=args.learning_rate)
 
-    def forward(self, u_i, u_j, proximity='first-order'):
+    def forward(self, u_i, u_j, proximity="first-order"):
         # 稀疏矩阵乘法
-        X_sparse = torch.sparse.FloatTensor(self.X_indices, self.X_values, self.X_shape).to(u_i.device)
+        X_sparse = torch.sparse.FloatTensor(
+            self.X_indices, self.X_values, self.X_shape
+        ).to(u_i.device)
         X_dense = X_sparse.to_dense()
         encoded = self.encoder(X_dense)
         mu = self.mu_layer(encoded)
         log_sigma = self.sigma_layer(encoded)
         sigma = F.elu(log_sigma) + 1 + 1e-14
 
-        if proximity == 'second-order':
+        if proximity == "second-order":
             ctx_encoded = self.context_encoder(X_dense)
             ctx_mu = self.ctx_mu_layer(ctx_encoded)
             ctx_log_sigma = self.ctx_sigma_layer(ctx_encoded)
@@ -182,17 +193,17 @@ class GLACE(nn.Module):
         mu_i = mu[u_i]
         sigma_i = sigma[u_i]
 
-        if proximity == 'first-order':
+        if proximity == "first-order":
             mu_j = mu[u_j]
             sigma_j = sigma[u_j]
-        elif proximity == 'second-order':
+        elif proximity == "second-order":
             mu_j = ctx_mu[u_j]
             sigma_j = ctx_sigma[u_j]
 
         # 计算 KL 散度
         kl_distance = self.compute_kl(mu_i, sigma_i, mu_j, sigma_j)
 
-        return kl_distance, mu, sigma, ctx_mu if proximity == 'second-order' else None
+        return kl_distance, mu, sigma, ctx_mu if proximity == "second-order" else None
 
     def compute_kl(self, mu_i, sigma_i, mu_j, sigma_j):
         """
@@ -222,17 +233,20 @@ class GLACE(nn.Module):
         loss = -torch.mean(F.logsigmoid(label * energy))
         return loss
 
-    def energy_kl(self, u_i, u_j, proximity='first-order'):
+    def energy_kl(self, u_i, u_j, proximity="first-order"):
         kl_distance, _, _, _ = self.forward(u_i, u_j, proximity)
         return -kl_distance  # 负的 KL 散度作为能量
 
-    def get_validation_energy(self, proximity='first-order'):
+    def get_validation_energy(self, proximity="first-order"):
         if self.val_set:
-            kl_distance = self.energy_kl(self.val_edges[:, 0], self.val_edges[:, 1], proximity)
+            kl_distance = self.energy_kl(
+                self.val_edges[:, 0], self.val_edges[:, 1], proximity
+            )
             neg_val_energy = -kl_distance
             return neg_val_energy
         else:
             return None
+
 
 # 示例用法
 if __name__ == "__main__":
@@ -246,7 +260,7 @@ if __name__ == "__main__":
             self.is_all = False
             self.val_edges = np.random.randint(0, 1000, size=(100, 2))
             self.val_ground_truth = np.random.rand(100)
-            self.proximity = 'first-order'  # 或 'second-order'
+            self.proximity = "first-order"  # 或 'second-order'
             self.learning_rate = 0.001
 
     args = Args()
@@ -256,12 +270,18 @@ if __name__ == "__main__":
     glace_model = GLACE(args)
 
     # 示例输入
-    u_i = torch.LongTensor(np.random.randint(0, args.X.shape[0], size=(args.batch_size * (args.K + 1),)))
-    u_j = torch.LongTensor(np.random.randint(0, args.X.shape[0], size=(args.batch_size * (args.K + 1),)))
-    label = torch.FloatTensor(np.random.choice([-1, 1], size=(args.batch_size * (args.K + 1),)))
+    u_i = torch.LongTensor(
+        np.random.randint(0, args.X.shape[0], size=(args.batch_size * (args.K + 1),))
+    )
+    u_j = torch.LongTensor(
+        np.random.randint(0, args.X.shape[0], size=(args.batch_size * (args.K + 1),))
+    )
+    label = torch.FloatTensor(
+        np.random.choice([-1, 1], size=(args.batch_size * (args.K + 1),))
+    )
 
     # 将模型移动到 GPU（如果可用）
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     lace_model.to(device)
     glace_model.to(device)
     u_i = u_i.to(device)
@@ -269,7 +289,9 @@ if __name__ == "__main__":
     label = label.to(device)
 
     # 前向传播和损失计算（以 LACE 为例）
-    similarity, embedding, context_embedding = lace_model(u_i, u_j, proximity=args.proximity)
+    similarity, embedding, context_embedding = lace_model(
+        u_i, u_j, proximity=args.proximity
+    )
     loss = lace_model.compute_loss(similarity, label)
 
     # 反向传播和优化
