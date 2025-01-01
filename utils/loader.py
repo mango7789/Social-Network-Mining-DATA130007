@@ -74,7 +74,7 @@ def load_author_node(path: Path, fillna: bool = True) -> pd.DataFrame:
     """
     df = pd.read_csv(path, low_memory=True).astype(
         {
-            "id": "int64",
+            "id": "str",
             "name": "string",
             "co_authors": "string",
             "papers": "string",
@@ -101,7 +101,7 @@ def load_author_node(path: Path, fillna: bool = True) -> pd.DataFrame:
 @timer
 def load_author_edge(path: str) -> pd.DataFrame:
     df = pd.read_csv(path, low_memory=True).astype(
-        {"src": "string", "dst": "string", "w": "int16"}
+        {"src": "str", "dst": "str", "w": "int16"}
     )
 
     _load_logger(df, path)
