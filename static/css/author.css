@@ -1,83 +1,19 @@
-/* General page styling */
-body {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    height: 95vh;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-/* Top section layout */
+/* Centering the top-left container */
 .top {
     display: flex;
-    gap: 20px;
-    height: 60%;
-    flex-shrink: 0;
+    justify-content: center; /* Centers the graph-container horizontally */
+    align-items: center; /* Centers the graph-container vertically */
+    height: 100vh; /* Ensures the top section takes up the entire viewport height */
 }
 
-.top-left {
-    width: 70%;
-    height: 100%;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#graph-container {
+    width: 80%; /* Adjust the width as needed */
+    height: 80%; /* Adjust the height as needed */
+    background-color: #f0f0f0; /* Optional background color */
+    border: 1px solid #ccc; /* Optional border */
 }
 
-.top-right {
-    width: 30%;
-    height: 100%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.top-right h3 {
-    text-align: center;
-    margin: 10px 0;
-}
-
-ul#papers {
-    list-style-type: none;
-    padding: 10px;
-    margin: 0;
-}
-
-/* Bottom section layout */
-.bottom {
-    display: flex;
-    gap: 20px;
-    height: 35%;
-    flex-shrink: 0;
-}
-
-.bottom-part {
-    flex: 1;
-    height: 100%;
-    background-color: #dfe6e9;
-    border: 1px solid #ccc;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.bottom-part h3 {
-    text-align: center;
-    margin: 10px 0;
-}
-
-/* Tooltip styling */
+/* Tooltip */
 .tooltip {
     position: absolute;
     padding: 7px;
@@ -87,6 +23,9 @@ ul#papers {
     border: 1px solid #ccc;
     border-radius: 4px;
     z-index: 1000;
+    /* Ensures it appears above other elements */
+
+    /* Add shadow */
     box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -99,4 +38,4 @@ ul#papers {
     margin: 0;
     padding: 0;
     border-collapse: collapse;
-}
+}   
