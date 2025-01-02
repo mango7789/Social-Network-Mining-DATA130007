@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from model import LACE, GLACE
-from utils import DataUtils, score_link_prediction
+from pipeline import DataUtils, score_link_prediction
 import pickle
 import time
 import scipy.sparse as sp

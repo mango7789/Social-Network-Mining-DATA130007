@@ -2,8 +2,7 @@
 logs/
 data/
 results/
-test/*
-!test/dblp.v9/
+*.gz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

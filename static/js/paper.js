@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nodesDiv = document.querySelector("#nodes");
 
   async function loadData() {
-    const nodeData = await d3.csv("../../vis/paper_node.csv");
+    const nodeData = await d3.csv("../../visualize/paper_node.csv");
     nodeData.forEach(d => {
       d.id = d.id;
       d.authors = d.authors.split("#");
@@ -18,21 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
       d.pagerank_centrality = +d.pagerank_centrality;
     });
     nodeData.sort((a, b) => b.in_d - a.in_d);
-    const linkData = await d3.csv("../../vis/paper_edge.csv");
+    const linkData = await d3.csv("../../visualize/paper_edge.csv");
 
-    let citationData = await d3.json("../../vis/citation.json");
+    let citationData = await d3.json("../../visualize/citation.json");
     citationData = citationData.reduce((acc, entry) => {
       acc[entry.community] = entry.in_d; // Create a key-value pair where the key is 'community' and value is 'in_d'
       return acc;
     }, {});
-    let centralityData = await d3.json("../../vis/centrality.json");
+    let centralityData = await d3.json("../../visualize/centrality.json");
     centralityData = centralityData.reduce((acc, entry) => {
       acc[entry.community] = entry.pagerank_centrality; // Create a key-value pair where the key is 'community' and value is 'in_d'
       return acc;
     }, {});
-    const diameterData = await d3.json("../../vis/diameter.json");
+    const diameterData = await d3.json("../../visualize/diameter.json");
 
-    const degreeData = await d3.json("../../vis/degree.json");
+    const degreeData = await d3.json("../../visualize/degree.json");
     const convertedDegreeData = {};
     for (const community in degreeData) {
       if (degreeData.hasOwnProperty(community)) {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const countData = await d3.json("../../vis/counts.json");
+    const countData = await d3.json("../../visualize/counts.json");
 
     return {
       nodeData,
@@ -324,10 +324,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   const count = communityDegrees[degree];
                   const degreeNum = parseInt(degree, 10);
 
-                  // If the degree is greater than 100, sum it into a special category
-                  if (degreeNum > 50) {
-                    globalDegreeData[">50"] =
-                      (globalDegreeData[">50"] || 0) + count;
+                  // If the degree is greater than 20, sum it into a special category
+                  if (degreeNum > 20) {
+                    globalDegreeData["20"] =
+                      (globalDegreeData["20"] || 0) + count;
                   } else {
                     globalDegreeData[degreeNum] =
                       (globalDegreeData[degreeNum] || 0) + count;
@@ -351,10 +351,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   const count = communityDegrees[degree];
                   const degreeNum = parseInt(degree, 10);
 
-                  // If the degree is greater than 100, sum it into a special category
-                  if (degreeNum > 50) {
-                    globalDegreeData[">50"] =
-                      (globalDegreeData[">50"] || 0) + count;
+                  // If the degree is greater than, sum it into a special category
+                  if (degreeNum > 20) {
+                    globalDegreeData["20"] =
+                      (globalDegreeData["20"] || 0) + count;
                   } else {
                     globalDegreeData[degreeNum] =
                       (globalDegreeData[degreeNum] || 0) + count;
@@ -886,8 +886,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const degreeNum = parseInt(degree, 10);
 
           // If the degree is greater than 100, sum it into a special category
-          if (degreeNum > 30) {
-            globalDegreeData["30"] = (globalDegreeData["30"] || 0) + count;
+          if (degreeNum > 20) {
+            globalDegreeData["20"] = (globalDegreeData["20"] || 0) + count;
           } else {
             globalDegreeData[degreeNum] =
               (globalDegreeData[degreeNum] || 0) + count;

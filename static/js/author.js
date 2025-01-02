@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bottomRightDiv = document.getElementById("coauthors-rank");
 
   async function loadData() {
-    const paperData = await d3.csv("../../vis/author_paper.csv");
+    const paperData = await d3.csv("../../visualize/author_paper.csv");
     paperData.forEach(d => {
       d.id = d.id;
       d.year = +d.year;
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     paperData.sort((a, b) => b.year - a.year);
 
-    let authorNode = await d3.csv("../../vis/author_node.csv");
+    let authorNode = await d3.csv("../../visualize/author_node.csv");
     const nodeData = authorNode.map(author => {
       return {
         id: author.id,
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
 
-    const linkData = await d3.csv("../../vis/author_edge.csv");
+    const linkData = await d3.csv("../../visualize/author_edge.csv");
 
     return {
       paperData,

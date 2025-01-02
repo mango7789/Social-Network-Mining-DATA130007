@@ -1,0 +1,18 @@
+\begin{thebibliography}{2}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Cooley and Tukey(1965)}]{ct1965}
+James~W. Cooley and John~W. Tukey. 1965.
+\newblock \href
+  {https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf}
+  {An algorithm for the machine calculation of complex {F}ourier series}.
+\newblock \emph{Mathematics of Computation}, 19(90):297--301.
+
+\bibitem[{Gusfield(1997)}]{Gusfield:97}
+Dan Gusfield. 1997.
+\newblock \href
+  {https://www.cambridge.org/core/books/algorithms-on-strings-trees-and-sequences/F0B095049C7E6EF5356F0A26686C20D3}
+  {\emph{Algorithms on Strings, Trees and Sequences}}.
+\newblock Cambridge University Press, Cambridge, UK.
+
+\end{thebibliography}
