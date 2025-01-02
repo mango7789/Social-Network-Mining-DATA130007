@@ -31,6 +31,26 @@
 % the typewriter font.
 \usepackage{inconsolata}
 
+% Used for including images
+\usepackage{graphicx}
+
+% Better visual effect of hyper-links
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{color}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear existing header and footer
+\fancyfoot[C]{\thepage} % Place the page number in the center of the footer
+
 
 % If the title and author information does not fit in the area allocated, uncomment the following
 %
@@ -84,73 +104,114 @@ By integrating these analytical components, this study aims to elucidate the str
 
 \section{Preprocessing}
 
-The preprocessing phase plays a crucial role in transforming the raw DBLP v9 dataset into a structured format suitable for comprehensive analysis. This stage encompasses data cleaning, network construction, and feature engineering. The DBLP v9 dataset was selected due to its balance between computational efficiency and the level of detail required to explore academic collaboration dynamics. Moreover, its extensive coverage of computer science literature ensures the robustness of the analysis.
+The preprocessing phase is essential for transforming the raw DBLP V9 dataset into a structured format suitable for in-depth analysis. This stage includes data cleaning, network construction, and feature engineering. The DBLP V9 dataset was selected due to its balanced computational efficiency and the required level of detail to explore academic collaboration dynamics. Furthermore, its extensive coverage of computer science literature ensures the robustness of subsequent analyses.
 
 \subsection{Dataset Selection}
 
-The DBLP-Citation-network V9 dataset was selected based on several factors, as shown in Table \ref{tab:dblp_citation_networks}. While earlier versions provide valuable data, V9 was preferred due to its balance between data richness and computational manageability, making it well-suited for the available resources.
+The DBLP-Citation-network V9 dataset was chosen for its optimal balance between data richness and computational feasibility, as outlined in Table \ref{tab:dblp_citation_networks}. While earlier versions of the DBLP dataset offer valuable data, V9 strikes a favorable balance between dataset size and manageability, making it well-suited to the available computational resources.
 
-\begin{table*}[h!] 
+\begin{table*}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{Data Set}         & \textbf{\# Papers} & \textbf{\# Citation Relationships} & \textbf{Comment}           \\
+		\textbf{Dataset}         & \textbf{\# Papers} & \textbf{\# Citation Relationships} & \textbf{Comment}           \\
 		\hline
-		Citation-network V1       & 629,814            & >632,752                           &                            \\
-		Citation-network V2       & 1,397,240          & >3,021,489                         &                            \\
-		DBLP-Citation-network V3  & 1,632,442          & >2,327,450                         &                            \\
-		DBLP-Citation-network V4  & 1,511,035          & 2,084,019                          & Arnetminer [2011-01-08]    \\
-		DBLP-Citation-network V5  & 1,572,277          & 2,084,019                          & Arnetminer [2011-02-21]    \\
-		DBLP-Citation-network V6  & 2,084,055          & 2,244,018                          & Arnetminer [2013-09-29]    \\
-		DBLP-Citation-network V7  & 2,244,021          & 4,354,534                          & Arnetminer [2014-05-25]    \\
-		DBLP-Citation-network V8  & 3,272,991          & 8,466,859                          & Arnetminer [2016-07-14]    \\
-		ACM-Citation-network V8   & 2,381,688          & 10,476,564                         & Arnetminer [2016-04-02]    \\
-		ACM-Citation-network V9   & 2,385,022          & 9,671,893                          & Arnetminer [2017-01-20]    \\
-		DBLP-Citation-network V9  & 3,680,007          & 1,876,067                          & Arnetminer [2017-07-03]    \\
-		DBLP-Citation-network V10 & 3,079,007          & 25,166,994                         &                            \\
-		DBLP-Citation-network V11 & 4,107,340          & 36,624,464                         & OAG [2019-05-05]           \\
-		DBLP-Citation-network V12 & 4,894,081          & 45,564,149                         & DBLP+Citation [2020-04-09] \\
-		DBLP-Citation-network V13 & 5,354,309          & 48,227,950                         & DBLP+Citation [2021-05-14] \\
+		Citation-network V1       & 629,814            & >632,752                           &                            \\ \hline
+		Citation-network V2       & 1,397,240          & >3,021,489                         &                            \\ \hline
+		DBLP-Citation-network V3  & 1,632,442          & >2,327,450                         &                            \\ \hline
+		DBLP-Citation-network V4  & 1,511,035          & 2,084,019                          & Arnetminer [2011-01-08]    \\ \hline
+		DBLP-Citation-network V5  & 1,572,277          & 2,084,019                          & Arnetminer [2011-02-21]    \\ \hline
+		DBLP-Citation-network V6  & 2,084,055          & 2,244,018                          & Arnetminer [2013-09-29]    \\ \hline
+		DBLP-Citation-network V7  & 2,244,021          & 4,354,534                          & Arnetminer [2014-05-25]    \\ \hline
+		DBLP-Citation-network V8  & 3,272,991          & 8,466,859                          & Arnetminer [2016-07-14]    \\ \hline
+		ACM-Citation-network V8   & 2,381,688          & 10,476,564                         & Arnetminer [2016-04-02]    \\ \hline
+		ACM-Citation-network V9   & 2,385,022          & 9,671,893                          & Arnetminer [2017-01-20]    \\ \hline
+		DBLP-Citation-network V9  & 3,680,007          & 1,876,067                          & Arnetminer [2017-07-03]    \\ \hline
+		DBLP-Citation-network V10 & 3,079,007          & 25,166,994                         &                            \\ \hline
+		DBLP-Citation-network V11 & 4,107,340          & 36,624,464                         & OAG [2019-05-05]           \\ \hline
+		DBLP-Citation-network V12 & 4,894,081          & 45,564,149                         & DBLP+Citation [2020-04-09] \\ \hline
+		DBLP-Citation-network V13 & 5,354,309          & 48,227,950                         & DBLP+Citation [2021-05-14] \\ \hline
 		DBLP-Citation-network V14 & 5,259,858          & 36,630,661                         & DBLP+Citation [2023-01-31] \\
 		\hline
 	\end{tabular}
-	\caption{Summary of DBLP Citation Networks Versions}
+	\caption{Summary of DBLP Citation Network Versions}
 	\label{tab:dblp_citation_networks}
 \end{table*}
 
-DBLP-Citation-network V9 was chosen for the following reasons:
+DBLP-Citation-network V9 was selected for the following reasons:
 
 \begin{itemize}
-	\item \textbf{Data Completeness:} V9 includes 3,680,007 papers and 1,876,067 citation relationships, offering a comprehensive yet manageable dataset.
-	\item \textbf{Timeliness:} Released on July 3, 2017, V9 reflects current citation trends up to that point.
-	\item \textbf{Balanced Size:} Compared to later versions, V9 offers a good balance between data volume and computational feasibility.
-	\item \textbf{Sufficient Coverage:} V9’s size enables a wide-ranging analysis of academic collaborations and citation patterns.
+	\item \textbf{Data Completeness:} V9 includes 3,680,007 papers and 1,876,067 citation relationships, providing a comprehensive yet manageable dataset.
+	\item \textbf{Timeliness:} Released on July 3, 2017, V9 captures citation trends up to that point.
+	\item \textbf{Balanced Size:} Compared to later versions, V9 offers a good compromise between data volume and computational feasibility.
+	\item \textbf{Sufficient Coverage:} V9’s size facilitates wide-ranging analysis of academic collaborations and citation patterns.
 \end{itemize}
 
-Thus, DBLP-Citation-network V9 was selected for its balance of data richness and computational efficiency, making it ideal for this study.
-
+Thus, DBLP-Citation-network V9 was selected for its data richness and computational efficiency, making it an ideal candidate for this study.
 
 \subsection{Data Cleaning and Integration}
 
-The raw dataset contains metadata, including titles, authors, venues, and citations. The initial cleaning process involved grouping records by paper, addressing missing or inconsistent data, and resolving redundancies. Missing fields, such as titles, authors, and venues, were assigned default values to ensure consistency, preparing the dataset for subsequent analysis.
+The raw dataset contains metadata such as titles, authors, venues, and citations. The data cleaning process involved grouping records by paper, resolving missing or inconsistent data, and addressing redundancies. Missing fields, including titles, authors, and venues, were assigned default values to ensure consistency, preparing the dataset for further analysis.
 
 \subsection{Network Construction}
 
-The dataset was structured as a bipartite graph, where authors are represented as nodes and co-authorships as edges. Attributes such as publication count and co-authorship frequency were assigned to the nodes and edges, respectively. Additionally, citation relationships were extracted to construct a directed citation network. This dual representation of collaboration and citation dynamics allows for a comprehensive analysis of academic interactions.
+The dataset was structured as a bipartite graph, where authors are represented as nodes and co-authorships as edges. Attributes such as publication count and co-authorship frequency were assigned to the nodes and edges, respectively. Additionally, citation relationships were extracted to construct a directed citation network. This dual representation of collaboration and citation dynamics enables comprehensive analysis of academic interactions.
 
 \subsection{Feature Engineering}
 
-To enhance the analytical power of the dataset, several key features were engineered:
+Several key features were engineered to enhance the dataset's analytical power:
 
 \begin{itemize}
-	\item \textbf{Co-authorship Mapping:} Authors were assigned unique identifiers, and co-authorship relationships were mapped, with edge weights representing the frequency of collaboration.
-	\item \textbf{Citation Analysis:} Citation relationships were used to calculate in-degree (citations received) and out-degree (citations made) for each paper, providing insights into the influence and impact of academic works.
-	\item \textbf{Venue Indexing:} Publication venues were indexed to ensure uniform representation across the dataset, enabling venue-specific analyses.
+	\item \textbf{Co-authorship Mapping:} Authors were assigned unique identifiers, and co-authorship relationships were mapped, with edge weights representing collaboration frequency.
+	\item \textbf{Citation Analysis:} Citation relationships were used to calculate in-degree (citations received) and out-degree (citations made) for each paper, offering insights into academic influence and impact.
+	\item \textbf{Venue Indexing:} Publication venues were indexed to ensure uniform representation, enabling venue-specific analyses.
 \end{itemize}
 
 \subsection{Dataset Filtering}
 
-To improve computational efficiency, papers with no citations and references were flagged as isolates and excluded from the analysis. Furthermore, thresholds were applied to prioritize significant relationships, ensuring that only meaningful data were retained for the analysis.
+To improve computational efficiency, papers with no citations or references were flagged as isolates and excluded from analysis. Additionally, thresholds were applied to prioritize significant relationships, ensuring that only meaningful data were retained for subsequent analysis.
+
+\subsection{Overview of the Dataset}
+
+Following preprocessing, a series of exploratory analyses were conducted using Jupyter Notebooks, pandas, and matplotlib to understand the fundamental characteristics and structure of the dataset. The visualizations presented in Figure \ref{fig:num_authors_per_paper}, \ref{fig:citation_distribution}, \ref{fig:reference_distribution}, and \ref{fig:num_coauthors_per_author} summarize key aspects of academic collaboration and citation dynamics, providing insights into author networks, citation patterns, reference behaviors, and co-authorship structures.
+
+\begin{figure*}[h!]
+	\centering
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/preprocess/num_authors.png}
+		\caption{Number of Authors per Paper}
+		\label{fig:num_authors_per_paper}
+	\end{minipage} \hfill
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/preprocess/num_citations.png}
+		\caption{Citation Distribution of Papers}
+		\label{fig:citation_distribution}
+	\end{minipage} \hfill
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/preprocess/num_references.png}
+		\caption{Reference Distribution of Papers}
+		\label{fig:reference_distribution}
+	\end{minipage} \hfill
+	\begin{minipage}{0.24\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img/preprocess/num_coauthors.png}
+		\caption{Number of Co-authors per Author}
+		\label{fig:num_coauthors_per_author}
+	\end{minipage} 
+\end{figure*}
+
+\begin{itemize}
+	\item \textbf{Distribution of the Number of Authors per Paper:} This figure presents the distribution of authorship in the DBLP V9 dataset. The majority of academic papers have few authors, with a smaller proportion featuring larger author teams. This reflects the diverse nature of academic collaborations, from single-author studies to multi-author research projects.
+	\item \textbf{Citation Distribution of Papers:} This visualization reveals the typical skew in citation patterns, where a small subset of papers receives the majority of citations, while the majority of papers receive fewer or no citations. This highlights the concentration of academic influence in a limited number of highly cited works.
+	\item \textbf{Reference Distribution of Papers:} This figure illustrates the reference distribution, showing that papers with higher citation counts tend to reference more works. This suggests a correlation between the volume of citations and the number of references cited.
+	\item \textbf{Distribution of the Number of Co-authors per Author:} This visualization shows the distribution of co-authors per author. A small subset of authors collaborates with many individuals, while most authors collaborate with fewer co-authors. This reflects the presence of central, highly collaborative figures within the academic community, alongside more isolated researchers with fewer collaborative connections.
+\end{itemize}
+
+These visualizations provide valuable insights into the collaborative and citation dynamics within the DBLP V9 dataset. They highlight the structure of academic work, the distribution of citations, and the nature of author collaboration networks, forming a foundation for further exploration of academic collaboration and citation behaviors.
+
 
 
 
