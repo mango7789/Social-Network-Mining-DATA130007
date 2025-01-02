@@ -95,12 +95,19 @@
     ```
   - 获取展示数据集
     ```bash
+    # Louvain and centrality
     python -m CommunityMining.louvain
     python -m CentralityMeasure.centrality
+    # Filter ids for visualization
     cd CommunityMining
-    python filter.py
+    python filter_paper.py
+    python filter_author.py
+    # Generate data for visualization
     cd ..
-    python combine.py
+    python combine_paper.py
+    python combine_author.py
+    # Calculate diameters for community
+    python -m CentralityMeasure.diameter
     ```
 
 - 可视化
