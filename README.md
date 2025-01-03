@@ -1,14 +1,13 @@
 <h2 align="center">基于 DBLP-v9 数据集的学术网络分析</h2>
 
+<img width="1280" alt="visualization" src="https://github.com/user-attachments/assets/3b7e2ed0-889a-4f0e-99e6-c70284943b03" />
+
 - [选题及任务](#选题及任务)
 - [数据集](#数据集)
 - [项目结构](#项目结构)
 - [数据集处理](#数据集处理)
 - [可视化系统](#可视化系统)
 - [链接预测](#链接预测)
-
-> [!NOTE]
-> 运行环境：Windows 11, Python 3.11, D3.js v7
 
 ### 选题及任务
 - 选题：社交网络节点分析与社区挖掘
