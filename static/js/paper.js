@@ -630,13 +630,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .selectAll(".bar")
             .data(data, d => d.label);
 
-          console.log(
-            "Plotting:",
-            title,
-            "with color:",
-            colors[title.toLowerCase().replace(/ /g, "-")]
-          );
-
           bars
             .enter()
             .append("rect")
@@ -726,10 +719,10 @@ document.addEventListener("DOMContentLoaded", () => {
       //                          Bottom middle                             //
       ////////////////////////////////////////////////////////////////////////
       /**
-     * Function to plot degree distribution with smooth curves
-     * @param {Object} jsonData - JSON data in the format {degree: num}
-     * @param {string} title - Title for the chart
-     */
+       * Function to plot degree distribution with smooth curves
+       * @param {Object} jsonData - JSON data in the format {degree: num}
+       * @param {string} title - Title for the chart
+      */
       function plotDegreeDistribution(jsonData, title) {
         const data = Object.entries(jsonData).map(([degree, count]) => ({
           degree: +degree,

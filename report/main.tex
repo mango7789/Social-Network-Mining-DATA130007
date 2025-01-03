@@ -96,7 +96,7 @@ Network analysis is a critical methodology for studying complex systems across v
 	\centering
 	\includegraphics[width=0.48\textwidth]{img/introduction/visualization.png}
 	\caption{Snapshot of the visualization system}
-	\label{fig:visua}
+	\label{fig:visualize}
 \end{figure}
 
 The subsequent sections of this report follow the analytical framework outlined below:
@@ -381,6 +381,35 @@ The diameter of a community refers to the longest shortest path between any two 
 \section{Link Prediction}
 
 \section{Visualization System}
+
+This study introduces a comprehensive visualization system designed to represent a paper citation network, where nodes correspond to academic papers and edges represent citations. The system is organized into five main sections: community network, bibliometric data, degree distribution, node distribution, and additional metrics. An overview of the system is shown in Figure \ref{fig:visualize}.
+
+Given the modularity of author communities (0.66) and paper communities (0.99), the focus is placed on paper-level data, which offers a clearer and more structured representation of the citation network. The higher modularity of paper communities facilitates more detailed analysis. For optimal visualization, data is derived from the top 10 paper communities and the 50 highest centrality papers, ensuring the most influential communities and papers are prominently displayed. This approach enhances both clarity and effectiveness.
+
+\subsection{Top Left: Community Network Visualization with Interactive Features}
+
+The top-left section visualizes the paper communities using an interactive network graph. Nodes represent individual papers, and edges indicate citations. Users can zoom, pan, and select nodes, which dynamically updates the corresponding sections (top-right and bottom-middle) with community-specific data. A year slider allows users to track the temporal evolution of the citation network, highlighting changes in structure over time.
+
+\subsection{Top Right: Bibliometric Data Table}
+
+The top-right section presents a dynamic bibliometric table containing key attributes such as paper ID, publication year, venue, references, and citation count. This table updates in response to node selections from the network graph, ensuring that users view relevant bibliometric data for the selected community. Pagination and dynamic updates allow efficient browsing of large datasets.
+
+\subsection{Bottom Left: Dynamic Bar Chart Visualization}
+
+The bottom-left section features a dynamic bar chart for metrics such as "Average Citations," "Average Centrality," and "Diameter." Users can select a metric from a dropdown menu, and the bar chart visually compares these metrics across communities. The chart includes smooth transitions, tooltips, and highlighted bars on hover, enhancing interactivity.
+
+\subsection{Bottom Middle: Degree Distribution Visualization}
+
+The bottom-middle section visualizes the degree distribution of communities within the network using a smooth line chart with spline curves. This chart depicts the frequency of nodes with each degree. Upon selecting a node in the network graph, the degree distribution for the corresponding community is displayed dynamically. Tooltips and adjustable dot sizes further improve visibility, and degree values exceeding a specified threshold are grouped for clarity.
+
+\subsection{Bottom Right: Node Distribution with Donut Chart}
+
+The bottom-right section uses a donut chart to show the distribution of nodes across communities. Each slice represents a community, with its size proportional to the number of nodes. Interactive features such as hover effects and percentage labels allow users to explore the relative sizes of the communities and gain insights into the network's composition.
+
+\subsection{System Overview and Interactivity}
+
+The visualization system integrates these components into a cohesive interface that enables detailed exploration of the citation network. Key interactive features include zooming, panning, node selection, and year slider adjustments. Selecting a node updates the bibliometric data and degree distribution sections with community-specific information. The year slider adds a temporal dimension, revealing the evolution of the network over time. Powered by the \texttt{D3.js} library, the system ensures responsive, high-quality visualizations and an engaging user experience.
+
 
 \section{Conclusion}
 
