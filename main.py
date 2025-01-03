@@ -53,7 +53,7 @@ if __name__ == "__main__":
     ############################################################
     #           Open and parse the configuration file          #
     ############################################################
-    with open("./config/config.yaml", "r") as file:
+    with open("config.yaml", "r") as file:
         config = yaml.safe_load(file)
     logger.info("Successfully load the configuration file!")
 
@@ -76,10 +76,10 @@ if __name__ == "__main__":
     logger.info("Successfully parse the configuration file!")
     logger.info(SEPERATOR)
 
+    ############################################################
+    #                   Preprocess the dataset                 #
+    ############################################################
     if PREPROCESS:
-        ############################################################
-        #                   Preprocess the dataset                 #
-        ############################################################
         logger.info("Start preprocessing the original dataset...")
         save_records_to_csv(
             DATA_PATH,

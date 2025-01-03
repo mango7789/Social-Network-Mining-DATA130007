@@ -64,5 +64,12 @@
 ### 链接预测
   - 训练GLACE model
     ```bash
-      python ./LinkPrediction/train.py cora_ml glace --proximity first-order --embedding_dim 128 --batch_size 32 --K 5 --learning_rate 0.001 --num_batches 100000
+    cd LinkPrediction
+    unzip data.zip -d data
+    rm data.zip
+    cd ..
+    python ./LinkPrediction/train.py cora_ml glace \
+    --proximity first-order --embedding_dim 128 \
+    --batch_size 32 --K 5 \
+    --learning_rate 0.001 --num_batches 100000
     ```

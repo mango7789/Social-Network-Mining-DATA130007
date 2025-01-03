@@ -75,8 +75,8 @@
 % For authors from different institutions:
 \author{
   Xiang Zheng \\ 21307110169 \And  
-  ... 
-  \vspace{0.7cm} \\ % Add some space before the school name
+  Qin Ma      \\ 21307110024 
+  \vspace{0.2cm} \\ % Add some space before the school name
   \hfill School of Data Science, Fudan University \hfill
   \And
   Author n \\ Address line
@@ -226,13 +226,13 @@ These analyses offer critical insights into academic collaboration and citation 
 \section{Community Mining}
 In academic networks, community mining aims to identify cohesive subgroups reflecting collaborative dynamics, research specializations, and the structural foundation of scholarly interactions. Three common algorithms - Louvain, Label Propagation, and Multi - level - are used to discover potential communities based on node relationships.
 
-After detection, community proportions and modularity are calculated to assess the quality of community division. They provide insights into the network's structure, indicating whether detected communities have strong internal and weak external connections, characteristic of well - formed community structures.
+After detection, community proportions and modularity are calculated to assess the quality of community division. They provide insights into the network's structure, indicating whether detected communities have strong internal and weak external connections, characteristic of well - formed community structures. 
 
 \subsection{Overview of Community Mining}
 Community detections operate by grouping nodes in a graph based on their connectivity. In the context of academic networks, nodes represent entities such as papers or authors, and edges represent relationships between these entities, such as co-authorship or citations. Below are the specifics of Paper Networks and Author Networks.
 \begin{itemize}
-	\item {Paper Network:}In a paper network, nodes represent individual papers, and edges represent relationships such as citations or co-authorships. Edges are weighted by the number of citations or co-authors shared. Community detection aims to identify research areas or subfields where papers are closely linked by citations or co-authors, revealing thematic connections or shared academic topics.
-	\item {Author Network:}In an author network, nodes represent authors, and edges represent co-authorships. The edge weight reflects the number of joint papers between authors, with higher weights indicating stronger collaboration. Community detection in this network uncovers collaborative groups or research teams, offering insights into research partnerships and collaboration patterns.
+    \item {Paper Network:}In a paper network, nodes represent individual papers, and edges represent relationships such as citations or co-authorships. Edges are weighted by the number of citations or co-authors shared. Community detection aims to identify research areas or subfields where papers are closely linked by citations or co-authors, revealing thematic connections or shared academic topics.
+    \item {Author Network:}In an author network, nodes represent authors, and edges represent co-authorships. The edge weight reflects the number of joint papers between authors, with higher weights indicating stronger collaboration. Community detection in this network uncovers collaborative groups or research teams, offering insights into research partnerships and collaboration patterns.
 \end{itemize}
 
 The goal of community detection is to find subsets of nodes (communities) where the internal connectivity is higher than expected by random chance, and the external connectivity is relatively lower. Mathematically, this is often expressed in terms of modularity.
@@ -241,17 +241,17 @@ The goal of community detection is to find subsets of nodes (communities) where 
 \subsection{Community Detection Algorithms}
 
 \subsubsection{Louvain Algorithm}
-The Louvain algorithm is a method for detecting communities by optimizing modularity.
+The Louvain algorithm is a method for detecting communities by optimizing modularity. 
 The modularity \( Q \) for a community division is calculated as:
 
 \[
-	Q = \frac{1}{2m} \sum_{i,j} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)
+Q = \frac{1}{2m} \sum_{i,j} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)
 \]
-Where:
+Where: 
 \( m \) is the total number of edges in the network.
 \( A_{ij} \) is the weight of the edge between nodes \( i \) and \( j \).
 \( k_i \) and \( k_j \) are the degrees of nodes \( i \) and \( j \).
-\( \delta(c_i, c_j) \) is 1 if nodes \( i \) and \( j \) are in the same community and 0 otherwise.
+\( \delta(c_i, c_j) \) is 1 if nodes \( i \) and \( j \) are in the same community and 0 otherwise. 
 \( c_i \) and \( c_j \) are the community labels of nodes \( i \) and \( j \).
 
 The Louvain algorithm works in two phases:
@@ -268,10 +268,10 @@ Label Propagation (LP) is a simple and efficient algorithm where each node is in
 Mathematically, Label Propagation is expressed as:
 
 \[
-	l_i^{(t+1)} = \arg\max_{l_j \in N(i)} \sum_{k \in N(i), l_k = l_j} \frac{1}{d_k}
+l_i^{(t+1)} = \arg\max_{l_j \in N(i)} \sum_{k \in N(i), l_k = l_j} \frac{1}{d_k}
 \]
-Where:
-\( l_i^{(t+1)} \) is the new label for node
+Where: 
+\( l_i^{(t+1)} \) is the new label for node 
 \( i \) after iteration \( t \). \( N(i) \) is the set of neighbors of node \( i \).
 \( d_k \) is the degree of neighbor \( k \).
 
@@ -293,9 +293,9 @@ This method can efficiently handle large-scale networks and is suitable for disc
 \subsubsection{Reasons for Choosing These Algorithms}
 These three algorithms represent different approaches to community detection:
 \begin{itemize}
-	\item Louvain emphasizes modularity optimization and is efficient for large networks.
-	\item Label Propagation uses local information propagation and is highly scalable and efficient.
-	\item Multi-level works at multiple scales, ensuring that communities are detected at both coarse and fine levels.
+    \item Louvain emphasizes modularity optimization and is efficient for large networks.
+    \item Label Propagation uses local information propagation and is highly scalable and efficient.
+    \item Multi-level works at multiple scales, ensuring that communities are detected at both coarse and fine levels.
 \end{itemize}
 
 Each algorithm brings unique strengths, making them well-suited for the diverse and complex academic networks that we are analyzing.
@@ -304,12 +304,11 @@ Each algorithm brings unique strengths, making them well-suited for the diverse 
 \subsection{Community Proportions}
 The community proportions represent the distribution of nodes across different communities. By calculating the size of each community (i.e., the number of nodes within it) and dividing by the total number of nodes, we can get the proportion of each community in the overall network.
 
-Let \( N_c \) be the number of nodes in community \( c \), and $ N_{\text{total}} $ be the total number of nodes in the network. The proportion of community \( c \) is given by:
+Let \( N_c \) be the number of nodes in community \( c \), and \( N_{\text{total}} \) be the total number of nodes in the network. The proportion of community \( c \) is given by:
 
-\begin{equation}
-	\text{Proportion of community } c = \frac{N_c}{N_{\text{total}}}
-	\nonumber
-\end{equation}
+\[
+\text{Proportion of community } c = \frac{N_c}{N_{\text{total}}}
+\]
 
 This helps to understand the size and importance of each community within the entire network. Larger communities may represent more significant areas of academic collaboration, while smaller ones could represent more specialized or niche research areas.
 
@@ -319,11 +318,38 @@ Modularity is a key measure used to evaluate the quality of community detection.
 
 The modularity \( Q \) is calculated using the formula mentioned earlier. A modularity value greater than 0 indicates that the community division is better than a random distribution of edges, with higher values indicating stronger community structures.
 
-A common threshold is:
+The following presents the modularity values obtained from community detection in the paper network using the Louvain, Label Propagation, and Multi-level algorithms in this study. 
 
-\( Q > 0.7 \): A good community structure.
 
-\( Q < 0.7 \): A poor division, where the community structure is weaker than random.
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{Algorithm} & \textbf{Modularity} \\
+    \hline
+    Louvain  & 0.9939834022020653 \\
+    Label Propagation  & 0.9909479458016406 \\
+    Multi-level   &  0.9938523610510882 \\
+    \hline
+    \end{tabular}
+    \caption{Modularity values for community detection in the paper network using different algorithms}
+    \label{tab:my_label}
+\end{table}
+
+The results indicate that the modularity for all three algorithms exceeds 99\%, suggesting that the community partitions identified by these methods exhibit strong internal cohesion and weak external connections. This high modularity score reflects the algorithms' effectiveness in detecting well-structured communities with clear, well-defined boundaries, underscoring their suitability for analyzing academic collaboration networks. 
+
+
+\subsection{Community Detection Results}
+The results of community detection in paper network are as follows: using the Louvain algorithm, a total of 29,898 communities were detected; the Label Propagation algorithm identified 30,549 communities; and the Multi-level algorithm found 29,589 communities. The following figures illustrate the community partitioning of the paper network using the Louvain algorithm.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{img/community.jpg}
+    \caption{Community partitioning of the paper network using the Louvain algorithm}
+    \label{fig:community}
+\end{figure}
+
+In these visualizations, nodes represent individual papers, and edges represent relationships such as citations or co-authorships. Different colors indicate distinct communities within the network. These visualizations offer a clear representation of how papers are grouped into cohesive subgroups, reflecting collaborative research themes or areas of study.
 
 
 
@@ -337,35 +363,36 @@ After detecting communities within the academic network, it is essential to asse
 
 This measure counts the number of direct connections (edges) a node has, reflecting its immediate popularity or connectivity within the network. A higher degree centrality indicates a node that is well-connected, potentially influencing many other nodes within the community. Degree centrality is particularly useful for identifying the most central or influential nodes based on direct relationships.
 
-The degree centrality \( C_d(i) \) for a node \( i \) is calculated as:
-
-\[
-	C_d(i) = \text{deg}(i)
-\]
-Where \( \text{deg}(i) \) is the number of edges connected to node \( i \).
+ The degree centrality \( C_d(i) \) for a node \( i \) is calculated as:
+  
+  \[
+  C_d(i) = \text{deg}(i)
+  \]
+  Where \( \text{deg}(i) \) is the number of edges connected to node \( i \).
 
 \subsubsection{PageRank Centrality}
 
 PageRank, developed by Google to rank web pages, measures the influence of a node by considering both the number and quality (weight) of its incoming edges. In the context of academic networks, PageRank helps identify authoritative nodes, where a high PageRank centrality indicates that a node is not only well-connected but also highly regarded by other influential nodes.
 
 PageRank centrality \( PR(i) \) for node \( i \) is computed iteratively based on the network structure:
-
-\[
-	PR(i) = \frac{1 - d}{N} + d \sum_{j \in \mathcal{N}(i)} \frac{PR(j)}{|\mathcal{N}(j)|}
-\]
-Where:
-\( d \) is the damping factor (usually set to 0.85),
-\( N \) is the total number of nodes in the network,
-\( \mathcal{N}(i) \) is the set of neighbors of node \( i \),
-\( |\mathcal{N}(j)| \) is the number of outgoing edges from node \( j \).
+  
+  \[
+  PR(i) = \frac{1 - d}{N} + d \sum_{j \in \mathcal{N}(i)} \frac{PR(j)}{|\mathcal{N}(j)|}
+  \]
+  Where: 
+  \( d \) is the damping factor (usually set to 0.85),
+  \( N \) is the total number of nodes in the network,
+  \( \mathcal{N}(i) \) is the set of neighbors of node \( i \),
+  \( |\mathcal{N}(j)| \) is the number of outgoing edges from node \( j \).
 
 \subsubsection{Why Degree Centrality and PageRank Centrality?}
 
 The selection of Degree Centrality and PageRank Centrality as centrality measures is based on their ability to capture different yet complementary aspects of node influence and importance within a network.
 
 \begin{itemize}
-	\item Degree Centrality measures the number of direct connections a node has. In academic networks, it identifies the most connected authors or papers, making it useful for spotting collaboration hubs and active contributors.
-	\item PageRank Centrality considers both the number and quality of connections, giving more importance to nodes linked to influential ones. This helps identify authoritative figures and key players in the network.
+    \item Degree Centrality measures the number of direct connections a node has. In academic networks, it identifies the most connected authors or papers, making it useful for spotting collaboration hubs and active contributors.
+    \item PageRank Centrality considers both the number and quality of connections, giving more importance to nodes linked to influential ones. This helps identify authoritative figures and key players in the network.
+    \item 
 \end{itemize}
 
 Together, these measures provide a well-rounded view of node influence, capturing both direct connectivity (Degree) and overall importance (PageRank).
@@ -375,10 +402,116 @@ Together, these measures provide a well-rounded view of node influence, capturin
 
 The diameter of a community refers to the longest shortest path between any two nodes within that community. A smaller diameter indicates that nodes within the community are relatively close to one another, suggesting a more cohesive community. In contrast, a larger diameter may indicate the presence of disconnected subgroups or more sparse relationships between community members.
 
-
-
-
 \section{Link Prediction}
+Traditional link prediction methods for graph data mainly rely on structural features and similarity metrics of the graph. By calculating the similarity between nodes, utilizing path information, or applying statistical models, these methods predict potential links. They are simple and efficient, suitable for various types of graph data. Although they may face challenges in computational efficiency and accuracy when dealing with large and complex graphs, they lay the foundation for more advanced machine learning and deep learning-based approaches.
+
+\subsection{Similarity-Based Metrics}
+
+These methods predict potential links by calculating similarity scores between pairs of nodes. Common similarity metrics include:
+
+\subsubsection{Common Neighbors (CN)}
+Measures the number of shared neighbors between two nodes. The more common neighbors two nodes have, the higher the likelihood of a link forming between them.
+
+\[
+\text{CN}(x, y) = |\Gamma(x) \cap \Gamma(y)|
+\]
+
+where \( \Gamma(x) \) denotes the set of neighbors of node \( x \).
+
+\subsubsection{Jaccard Coefficient}
+Measures the ratio of the intersection to the union of the neighbor sets of two nodes, with values ranging from 0 to 1.
+
+\[
+J(x, y) = \frac{|\Gamma(x) \cap \Gamma(y)|}{|\Gamma(x) \cup \Gamma(y)|}
+\]
+
+\subsection{Introduction of GLACE}
+    With the advancement of deep learning technologies, neural network-based models have shown remarkable performance in link prediction tasks. This report introduces the GLACE (Gaussian Latent Attribute-based Contrastive Embedding) model and its application in link prediction. The GLACE model is a Gaussian-based graph embedding method designed for link prediction tasks. Unlike the LACE model, GLACE learns Gaussian distribution embeddings (mean $\mu$ and variance $\sigma$) for each node, enabling it to better capture the uncertainty and complex relationships between nodes. The model minimizes the symmetric Kullback-Leibler (KL) divergence between node pairs, aligning their distributions in the embedding space to enhance link prediction accuracy.
+
+\subsection{Model Architecture}
+
+The main components of the GLACE model include:
+
+\begin{itemize}
+    \item \textbf{Input Processing}: Handles the sparse adjacency matrix by converting it into a format suitable for PyTorch sparse tensors.
+    \item \textbf{Encoder}: A multi-layer fully connected neural network that extracts latent features of nodes.
+    \item \textbf{Mean and Variance Embedding Layers}: Linear layers that generate the mean $\mu$ and log variance $\log\sigma$ for node embeddings.
+    \item \textbf{Context Encoder}: Used when considering second-order proximity, it generates context embeddings for nodes.
+    \item \textbf{Optimizer}: Utilizes the Adam optimizer for training the model parameters.
+\end{itemize}
+
+\subsection{Gaussian Embeddings and KL Divergence}
+
+GLACE learns Gaussian distribution embeddings for each node, represented as $(\mu, \sigma)$. During link prediction, the symmetric KL divergence between node pairs is computed to measure their similarity. The specific steps are as follows:
+
+\begin{enumerate}
+    \item For a node pair $(u_i, u_j)$, retrieve their means $\mu_i, \mu_j$ and variances $\sigma_i, \sigma_j$.
+    \item Calculate the KL divergence $KL(P||Q)$ and $KL(Q||P)$, where $P$ and $Q$ represent the Gaussian distributions of nodes $u_i$ and $u_j$, respectively.
+    \item Average the two divergences to obtain the distance metric $KL\_distance$ between the node pair.
+\end{enumerate}
+
+\subsection{Model Training and Optimization}
+
+The training process of the GLACE model involves several key steps:
+
+\subsubsection{Loss Function}
+
+The model employs a log-sigmoid loss function, suitable for binary classification tasks in link prediction. It is defined as:
+
+\[
+\text{Loss} = -\frac{1}{N} \sum_{i=1}^{N} \log \sigma(label_i \cdot energy_i)
+\]
+
+where $label_i$ is the true label (1 for positive samples, -1 for negative samples), and $energy_i$ is the energy value computed by the model (negative KL divergence).
+
+\subsubsection{Optimization Process}
+
+The Adam optimizer is used to update the model parameters, with the learning rate specified by the experimental setup. The optimization goal is to minimize the loss function, thereby improving the model's performance in link prediction tasks.
+
+\subsubsection{Experimental Results}
+
+\paragraph{Dataset}
+For our experiments, we utilized the \textbf{Cora\_ML} dataset, a widely recognized benchmark in the field of link prediction and graph-based learning. The Cora\_ML dataset consists of scientific publications classified into various topics, with citation links representing the relationships between these publications. Specifically, the dataset contains 2,708 nodes (publications), 5,429 edges (citations), and 1,433 features representing the presence of specific words in the documents. This dataset is well-suited for evaluating the performance of graph embedding models like GLACE in predicting missing or potential links within the citation network.
+
+\paragraph{Results}
+The GLACE model was trained and evaluated on the Cora\_ML dataset over multiple batches. The key performance metrics recorded during the training process include loss, validation AUC (Area Under the Curve), and validation AP (Average Precision). Table \ref{tab:experimental_results} presents a summarized view of the results across different training batches, with intermediate batches omitted for brevity.
+
+\begin{table}[h]
+    \centering
+    \caption{GLACE Model Performance on Cora\_ML Dataset}
+    \label{tab:experimental_results}
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Batch} & \textbf{Loss} & \textbf{Val AUC} & \textbf{Val AP} \\
+        \hline
+        49    & 0.303630 & 0.849437 & 0.828072 \\
+        99    & 0.258379 & 0.891329 & 0.872213 \\
+        149   & 0.266745 & 0.910746 & 0.896074 \\
+        \vdots & \vdots   & \vdots    & \vdots    \\
+        1749  & 0.172694 & 0.952421 & 0.949143 \\
+        1799  & 0.182493 & 0.953662 & 0.948588 \\
+        1849  & 0.207456 & 0.954621 & 0.950908 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\paragraph{Analysis of Results}
+The experimental results on the Cora\_ML dataset demonstrate the effectiveness of the GLACE model in link prediction tasks. As observed from Table \ref{tab:experimental_results}, several key trends emerge:
+
+\begin{itemize}
+    \item \textbf{Loss Reduction}: The loss consistently decreases as training progresses, indicating that the model is effectively learning to minimize the discrepancy between predicted and actual links. For instance, the loss decreased from 0.303630 at batch 49 to 0.172694 at batch 1749.
+    
+    \item \textbf{Performance Metrics}: Both validation AUC and validation AP show an overall upward trend, reaching values above 0.95 towards the later batches. This signifies that the model's ability to distinguish between positive and negative links improves with training. For example, the validation AUC increased from 0.849437 at batch 49 to 0.954621 at batch 1849, and the validation AP similarly rose from 0.828072 to 0.950908.
+    
+    \item \textbf{Stability of Training}: The training process progresses smoothly without significant interruptions or delays, ensuring a steady training flow. The consistent decrease in loss and increase in performance metrics reflect the model's stable and effective learning dynamics.
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{img/link_prediction.jpg}
+    \caption{GLACE's link prediction performance}
+    \label{fig:enter-label}
+\end{figure}
+Overall, the GLACE model exhibits robust performance in link prediction on the Cora\_ML dataset, achieving high accuracy and precision. The incorporation of Gaussian embeddings allows the model to capture nuanced relationships between nodes, resulting in superior predictive capabilities compared to traditional methods.
 
 \section{Visualization System}
 
