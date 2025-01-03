@@ -14,6 +14,7 @@ from utils import (
     load_author_node,
     load_author_edge,
     load_map_dict,
+    set_global_seed,
 )
 from utils.logger import logger
 from CommunityMining import (
@@ -31,6 +32,7 @@ PREPROCESS: Final = False
 SEPERATOR: Final = "=" * 85
 LINEBREAK: Final = "-" * 85
 warnings.filterwarnings("ignore")
+set_global_seed(42)
 
 
 if __name__ == "__main__":
