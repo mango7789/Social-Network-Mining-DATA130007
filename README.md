@@ -74,7 +74,7 @@
 │  ├─preprocess.py        # 预处理函数
 │  ├─seeder.py            # 随机数种子
 │  └─wrapper.py           # 装饰器，定义 `@timer` 记录函数运行时间
-├─visualize/*         # 可视化数据集位置，运行 `mian.py` 自动生成
+├─visualize/*         # 可视化数据集位置，运行 `main.py` 自动生成
 ├─config.yaml         # 项目配置文件，记录数据位置
 ├─main.py             # 主函数，包装预处理、社区挖掘、中心性度量、生成可视化数据所有逻辑
 ├─README.md           
