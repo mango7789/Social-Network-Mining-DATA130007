@@ -21,12 +21,11 @@ class Algorithm(Enum):
 
 
 @timer
-def community_detection(
+def community_detection_no_filter(
     node: pd.DataFrame,
     edge: pd.DataFrame,
     path: Path,
     algorithm: Algorithm,
-    type: str = "paper",
 ) -> None:
     """
     Perform community detection on the given node and edge data using the specified algorithm.
@@ -40,7 +39,6 @@ def community_detection(
         - edge (pd.DataFrame): DataFrame containing edge information, including "src" and "dst" columns.
         - path (Path): Output path to save the results.
         - algorithm (str): Name of the community detection algorithm to use.
-        - type (str): The type of the provided node and edge, should be in ["author", "paper"]
     """
     # Convert edge data to igraph-compatible format, remove self-loop
     edges = [(src, dst) for src, dst in zip(edge["src"], edge["dst"]) if src != dst]
@@ -82,7 +80,7 @@ def community_detection(
         else:
             raise ValueError(f"Unsupported algorithm: {algorithm}")
     except Exception as e:
-        logger.info(f"Error during community detection: {e}")
+        logger.error(f"Error during community detection: {e}")
         return
 
     # Map the community membership to the node DataFrame
@@ -91,14 +89,17 @@ def community_detection(
     node["community"] = node["id"].map(vertex_to_community)
 
     # Save results
-    path = path / type
+    path = path / f"{algorithm.value}.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
     result_df = node[["id", "community"]]
     result_df.to_csv(path, index=False)
     logger.info(f"Community detection results saved to: {path}")
 
     logger.info(f"Community detection completed and results saved to {path}")
-    logger.info(f"Modularity of algorithm {algorithm.value}: {partition.modularity}")
+    logger.info(
+        f"Type: author, algorithm: {algorithm.value}, modularity: {partition.modularity}"
+    )
+    logger.info("-" * 85)
 
 
 if __name__ == "__main__":
@@ -112,11 +113,11 @@ if __name__ == "__main__":
 
     node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
     edge_data = load_paper_edge("./data/paper/edge.csv")
-    output_path = Path(f"./CommunityMining/results/{algorithm.value}.csv")
+    output_dir = Path(f"./CommunityMining/results/author")
 
     community_detection(
         node_data,
         edge_data,
-        output_path,
+        output_dir,
         algorithm,
     )

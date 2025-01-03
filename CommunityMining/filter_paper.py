@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 # Load the data
-community_data = pd.read_csv("./results/louvain.csv")
+community_data = pd.read_csv("./results/paper/louvain.csv")
 pagerank_data = pd.read_csv("../CentralityMeasure/results/centrality_measures.csv")
 
 merged_data = pd.merge(community_data, pagerank_data, on="id")

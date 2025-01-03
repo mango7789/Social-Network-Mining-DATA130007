@@ -10,4 +10,10 @@ data:
   venue:
     map: ./venue/map.json
   citation: ./author/citation.json
-  
+
+community:
+  author: results/author
+  paper: results/paper
+
+centrality:
+  results: results
