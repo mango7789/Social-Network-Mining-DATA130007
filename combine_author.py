@@ -12,7 +12,7 @@ author_edge_df = load_author_edge("./data/author/edge.csv")
 
 # Get the top-10 community
 community_df = pd.read_csv(
-    "./CommunityMining/results/author_community_label_propagation.csv"
+    "./CommunityMining/results/author/community_label_propagation.csv"
 )
 community_df["id"] = community_df["id"].astype(str)
 

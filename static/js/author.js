@@ -5,15 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const bottomRightDiv = document.getElementById("coauthors-rank");
 
   async function loadData() {
-    const paperData = await d3.csv("../../visualize/author_paper.csv");
-    paperData.forEach(d => {
-      d.id = d.id;
-      d.year = +d.year;
-      d.out_d = +d.out_d;
-      d.in_d = +d.in_d;
-      d.title = d.title;
-    });
-    paperData.sort((a, b) => b.year - a.year);
+    // const paperData = await d3.csv("../../visualize/author_paper.csv");
+    // paperData.forEach(d => {
+    //   d.id = d.id;
+    //   d.year = +d.year;
+    //   d.out_d = +d.out_d;
+    //   d.in_d = +d.in_d;
+    //   d.title = d.title;
+    // });
+    // paperData.sort((a, b) => b.year - a.year);
 
     let authorNode = await d3.csv("../../visualize/author_node.csv");
     const nodeData = authorNode.map(author => {
@@ -33,12 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const linkData = await d3.csv("../../visualize/author_edge.csv");
 
     return {
-      paperData,
       nodeData,
       linkData
     };
   }
-  loadData().then(({ paperData, nodeData, linkData }) => {
+  loadData().then(({ nodeData, linkData }) => {
     ////////////////////////////////////////////////////////////////////////
     //                            Top Left                                //
     ////////////////////////////////////////////////////////////////////////
@@ -112,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Add legend on the right side (outside the zoomed group)
       const legendWidth = 100;
-      const legendMargin = 20;
+      const legendMargin = 40;
 
       const legend = svg
         .append("g")
@@ -165,13 +164,12 @@ document.addEventListener("DOMContentLoaded", () => {
         d.fy = null;
       }
 
-
       // Function to plot nodes and links based on the filtered data
       function plotGraph(filteredNodes, filteredEdges) {
         const linkWidthScale = d3
-        .scaleLinear()
-        .domain([0, d3.max(filteredEdges, d => d.w)]) // Domain: minimum and maximum weight
-        .range([1, 4]);
+          .scaleLinear()
+          .domain([0, d3.max(filteredEdges, d => d.w)]) // Domain: minimum and maximum weight
+          .range([1, 4]);
 
         // Re-create links (edges)
         graphGroup
@@ -251,18 +249,20 @@ document.addEventListener("DOMContentLoaded", () => {
           .on("click", function(event, d) {
             // Get the clicked node's ID
             const clickedPapers = d.papers;
-            
+
             // Filter paperData based on the clicked node's papers
             const filteredPapers = paperData.filter(paper => {
-              return clickedPapers.includes(paper.id)
+              return clickedPapers.includes(paper.id);
             });
-        
+
             // Now you can use filteredPapers for further processing, e.g. display the papers
-            console.log("Filtered Papers for Node " + clickedPapers + ":", filteredPapers);
+            console.log(
+              "Filtered Papers for Node " + clickedPapers + ":",
+              filteredPapers
+            );
 
             renderPaginatedTable(filteredPapers, "");
-          })
-          ;
+          });
 
         simulation.nodes(filteredNodes).on("tick", ticked);
         simulation.force("link").links(filteredEdges);

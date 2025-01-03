@@ -52,12 +52,16 @@ def louvain_ig(
     node["community"] = node["id"].map(vertex_to_community)
 
     # Save results
+    path = path / "louvain.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
     result_df = node[["id", "community"]]
     result_df.to_csv(path, index=False)
 
     logger.info(f"Community detection completed and results saved to {path}")
-    logger.info(f"Modularity: {partition.modularity}")
+    logger.info(
+        f"Type: paper, algorithm: louvain(leiden), modularity: {partition.modularity}"
+    )
+    logger.info("-" * 85)
 
 
 if __name__ == "__main__":
@@ -65,5 +69,5 @@ if __name__ == "__main__":
 
     node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
     edge_data = load_paper_edge("./data/paper/edge.csv")
-    output_path = Path("./CommunityMining/results/louvain.csv")
-    louvain_ig(node_data, edge_data, output_path)
+    output_dir = Path("./CommunityMining/results/paper")
+    louvain_ig(node_data, edge_data, output_dir)

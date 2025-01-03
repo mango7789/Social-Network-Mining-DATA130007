@@ -6,6 +6,7 @@ from .loader import (
     load_author_edge,
     load_map_dict,
 )
+from .seeder import set_global_seed
 
 __author__ = "mango7789"
 __all__ = [
@@ -15,4 +16,5 @@ __all__ = [
     "load_author_node",
     "load_author_edge",
     "load_map_dict",
+    "set_global_seed",
 ]
