@@ -38,7 +38,11 @@ def calculate_community_diameters(node, edge, community_file, output_file):
 
     # Calculate the diameters for the top-10 communities
     community_diameters = {}
-    for community in tqdm(top_10_communities):
+    for community in tqdm(
+        top_10_communities,
+        total=len(top_10_communities),
+        desc="Calculating diameters...",
+    ):
         community_nodes = node[node["community"] == community]["id"].tolist()
         diameter = calculate_diameter(community_nodes)
         community_diameters[community] = diameter

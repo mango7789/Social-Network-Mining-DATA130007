@@ -4,125 +4,141 @@ import pandas as pd
 from pathlib import Path
 import warnings
 
-from utils.loader import (
-    load_paper_node,
-    load_paper_edge,
-    load_map_dict,
-)
-
 warnings.filterwarnings("ignore")
 
 
-paper_node_df = load_paper_node("./data/paper/node.csv", skip_isolate=True)
-paper_edge_df = load_paper_edge("./data/paper/edge.csv")
-venue_map = load_map_dict("./data/venue/map.json")
-title_map = load_map_dict("./data/paper/map.json")
+def process_paper_data(
+    paper_node_df,
+    paper_edge_df,
+    title_map,
+    venue_map,
+    filtered_ids,
+    community_path="./CommunityMining/results/paper/louvain.csv",
+    centrality_path="./CentralityMeasure/results/centrality_measures.csv",
+    diameter_path="./CentralityMeasure/results/diameter.json",
+    output_dir="visualize",
+):
+    """
+    Processes paper data to generate various metrics and filter nodes and edges.
 
-# Create the folder
-vis_dir = Path("visualize")
-vis_dir.mkdir(parents=True, exist_ok=True)
+    Args:
+        paper_node_df
+        paper_edge_df
+        community_path (str): Path to the community data CSV file.
+        centrality_path (str): Path to the centrality measures CSV file.
+        diameter_path (str): Path to the diameter JSON file.
+        venue_map_path (str): Path to the venue mapping JSON file.
+        title_map_path (str): Path to the title mapping JSON file.
+        output_dir (str): Directory to save the processed data.
 
-# Get the top-10 community and filter the paper nodes
-community_df = pd.read_csv("./CommunityMining/results/louvain.csv")
-paper_node_df = paper_node_df.merge(
-    community_df[["id", "community"]], on="id", how="left"
-)
-top_communities = paper_node_df["community"].value_counts().head(10).index.tolist()
-paper_node_df = paper_node_df[paper_node_df["community"].isin(top_communities)]
+    Returns:
+        dict: Paths to the output files.
+    """
+    # Create output directory
+    vis_dir = Path(output_dir)
+    vis_dir.mkdir(parents=True, exist_ok=True)
 
-# Diameter
-shutil.move("./CentralityMeasure/results/diameter.json", "./visualize/diameter.json")
+    # Load and process community data
+    community_df = pd.read_csv(community_path)
+    paper_node_df = paper_node_df.merge(
+        community_df[["id", "community"]], on="id", how="left"
+    )
+    top_communities = paper_node_df["community"].value_counts().head(10).index.tolist()
+    paper_node_df = paper_node_df[paper_node_df["community"].isin(top_communities)]
 
-# Add centrality column in paper_node
-centrality_df = pd.read_csv("./CentralityMeasure/results/centrality_measures.csv")
-paper_node_df = paper_node_df.merge(
-    centrality_df[["id", "pagerank_centrality"]], on="id", how="left"
-)
+    # Move diameter file
+    shutil.move(diameter_path, vis_dir / "diameter.json")
 
-# Calculate the average 'in_d' for each community
-average_in_d = paper_node_df.groupby("community")["in_d"].mean().reset_index()
-sorted_average_in_d = average_in_d.sort_values(by="in_d", ascending=False)
-average_in_d_dict = sorted_average_in_d.to_dict(orient="records")
-with open("./visualize/citation.json", "w") as f:
-    json.dump(average_in_d_dict, f, indent=4)
+    # Add centrality column
+    centrality_df = pd.read_csv(centrality_path)
+    paper_node_df = paper_node_df.merge(
+        centrality_df[["id", "pagerank_centrality"]], on="id", how="left"
+    )
 
-# Calculate the average `centrality` for each community
-average_centrality = (
-    paper_node_df.groupby("community")["pagerank_centrality"].mean().reset_index()
-)
-sorted_average_centrality = average_centrality.sort_values(
-    by="pagerank_centrality", ascending=False
-)
-average_centrality_dict = sorted_average_centrality.to_dict(orient="records")
-with open("./visualize/centrality.json", "w") as f:
-    json.dump(average_centrality_dict, f, indent=4)
+    # Calculate average in-degree
+    average_in_d = paper_node_df.groupby("community")["in_d"].mean().reset_index()
+    sorted_average_in_d = average_in_d.sort_values(by="in_d", ascending=False)
+    average_in_d_dict = sorted_average_in_d.to_dict(orient="records")
+    with open(vis_dir / "citation.json", "w") as f:
+        json.dump(average_in_d_dict, f, indent=4)
+
+    # Calculate average centrality
+    average_centrality = (
+        paper_node_df.groupby("community")["pagerank_centrality"].mean().reset_index()
+    )
+    sorted_average_centrality = average_centrality.sort_values(
+        by="pagerank_centrality", ascending=False
+    )
+    average_centrality_dict = sorted_average_centrality.to_dict(orient="records")
+    with open(vis_dir / "centrality.json", "w") as f:
+        json.dump(average_centrality_dict, f, indent=4)
+
+    # Calculate degree distribution
+    degree_counts_by_community = (
+        paper_node_df.groupby("community")["out_d"].value_counts().unstack(fill_value=0)
+    )
+    degree_counts = {}
+    for community, row in degree_counts_by_community.iterrows():
+        non_zero_degrees = row[row > 0]
+        if not non_zero_degrees.empty:
+            min_degree = non_zero_degrees.index.min()
+            max_degree = non_zero_degrees.index.max()
+            degree_counts[community] = {
+                degree: row[degree] if degree in non_zero_degrees.index else 0
+                for degree in range(min_degree, max_degree + 1)
+            }
+    with open(vis_dir / "degree.json", "w") as f:
+        json.dump(degree_counts, f, indent=4)
+
+    # Save community proportions
+    community_counts = paper_node_df["community"].value_counts()
+    community_proportions_dict = community_counts.to_dict()
+    with open(vis_dir / "counts.json", "w") as f:
+        json.dump(community_proportions_dict, f, indent=4)
+
+    # Filter nodes and edges
+    filtered_ids_set = set(filtered_ids)
+
+    paper_node_df_filtered = paper_node_df[paper_node_df["id"].isin(filtered_ids_set)]
+    paper_edge_df_filtered = paper_edge_df[
+        paper_edge_df["src"].isin(filtered_ids_set)
+        & paper_edge_df["dst"].isin(filtered_ids_set)
+    ]
+
+    # Map title and venue
+    paper_node_df_filtered["title"] = paper_node_df_filtered["id"].map(title_map)
+    paper_node_df_filtered["venue"] = paper_node_df_filtered["venue"].map(venue_map)
+
+    # Select and save columns
+    columns_to_save = [
+        "id",
+        "authors",
+        "year",
+        "venue",
+        "out_d",
+        "in_d",
+        "title",
+        "community",
+        "pagerank_centrality",
+    ]
+    paper_node_df_filtered = paper_node_df_filtered[columns_to_save]
+
+    paper_node_path = vis_dir / "paper_node.csv"
+    paper_edge_path = vis_dir / "paper_edge.csv"
+
+    paper_node_df_filtered.to_csv(paper_node_path, index=False)
+    paper_edge_df_filtered.to_csv(paper_edge_path, index=False)
+
+    # return {
+    #     "paper_node": paper_node_path,
+    #     "paper_edge": paper_edge_path,
+    #     "citation": vis_dir / "citation.json",
+    #     "centrality": vis_dir / "centrality.json",
+    #     "degree": vis_dir / "degree.json",
+    #     "counts": vis_dir / "counts.json",
+    # }
 
 
-# Calculate degree distribution for each community
-degree_counts_by_community = (
-    paper_node_df.groupby("community")["out_d"].value_counts().unstack(fill_value=0)
-)
-
-degree_counts = {}
-for community, row in degree_counts_by_community.iterrows():
-    non_zero_degrees = row[row > 0]
-    if not non_zero_degrees.empty:
-        min_degree = non_zero_degrees.index.min()
-        max_degree = non_zero_degrees.index.max()
-        degree_counts[community] = {
-            degree: row[degree] if degree in non_zero_degrees.index else 0
-            for degree in range(min_degree, max_degree + 1)
-        }
-
-degree_path = "./visualize/degree.json"
-with open(degree_path, "w") as f:
-    json.dump(degree_counts, f, indent=4)
-
-
-# Community proportions
-total_nodes = paper_node_df.shape[0]
-community_counts = paper_node_df["community"].value_counts()
-community_proportions_dict = community_counts.to_dict()
-proport_path = "./visualize/counts.json"
-with open(proport_path, "w") as f:
-    json.dump(community_proportions_dict, f, indent=4)
-
-
-# Filter paper node and paper edge
-filtered_ids = pd.read_json(
-    "./CommunityMining/results/paper_id.json", orient="records", lines=True
-)
-filtered_ids_set = set(filtered_ids.values.flatten())
-
-paper_node_df_filtered = paper_node_df[paper_node_df["id"].isin(filtered_ids_set)]
-paper_edge_df_filtered = paper_edge_df[
-    paper_edge_df["src"].isin(filtered_ids_set)
-    & paper_edge_df["dst"].isin(filtered_ids_set)
-]
-
-# Map title and venue to original string value
-paper_node_df_filtered.loc[:, "title"] = paper_node_df_filtered["id"].map(title_map)
-paper_node_df_filtered.loc[:, "venue"] = paper_node_df_filtered["venue"].map(venue_map)
-
-
-# Drop other columns
-columns_to_save = [
-    "id",
-    "authors",
-    "year",
-    "venue",
-    "out_d",
-    "in_d",
-    "title",
-    "community",
-    "pagerank_centrality",
-]
-paper_node_df_filtered = paper_node_df_filtered[columns_to_save]
-
-
-# Save to visualize folder
-paper_node_path = vis_dir / "paper_node.csv"
-paper_edge_path = vis_dir / "paper_edge.csv"
-
-paper_node_df_filtered.to_csv(paper_node_path, index=False)
-paper_edge_df_filtered.to_csv(paper_edge_path, index=False)
+if __name__ == "__main__":
+    output_files = process_paper_data()
+    print(f"Files saved: {output_files}")

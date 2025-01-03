@@ -61,7 +61,6 @@ def louvain_ig(
     logger.info(
         f"Type: paper, algorithm: louvain(leiden), modularity: {partition.modularity}"
     )
-    logger.info("-" * 85)
 
 
 if __name__ == "__main__":

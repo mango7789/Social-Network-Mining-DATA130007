@@ -97,9 +97,8 @@ def community_detection_no_filter(
 
     logger.info(f"Community detection completed and results saved to {path}")
     logger.info(
-        f"Type: author, algorithm: {algorithm.value}, modularity: {partition.modularity}"
+        f"Type: paper, algorithm: {algorithm.value}, modularity: {partition.modularity}"
     )
-    logger.info("-" * 85)
 
 
 if __name__ == "__main__":
@@ -115,7 +114,7 @@ if __name__ == "__main__":
     edge_data = load_paper_edge("./data/paper/edge.csv")
     output_dir = Path(f"./CommunityMining/results/author")
 
-    community_detection(
+    community_detection_no_filter(
         node_data,
         edge_data,
         output_dir,

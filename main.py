@@ -1,8 +1,6 @@
-import os
 import yaml
 import argparse
 import warnings
-import subprocess
 from pathlib import Path
 from typing import Final
 import concurrent.futures
@@ -27,10 +25,16 @@ from CentralityMeasure import (
     calculate_centrality_and_statistics,
     calculate_community_diameters,
 )
+from PostProcess import (
+    extract_top_authors_by_community,
+    extract_top_nodes_by_pagerank,
+    process_author_data,
+    process_paper_data,
+)
 
-PREPROCESS: Final = False
+
+PREPROCESS: Final = True
 SEPERATOR: Final = "=" * 85
-LINEBREAK: Final = "-" * 85
 warnings.filterwarnings("ignore")
 set_global_seed(42)
 
@@ -43,6 +47,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--test", action="store_true", help="Run the script in test mode"
     )
+    parser.add_argument("--all", action="store_true", help="Run the script in all mode")
     args = parser.parse_args()
     root_dir = "data" if not args.test else "test"
     base_path = Path(f"./{root_dir}")
@@ -111,7 +116,7 @@ if __name__ == "__main__":
     ############################################################
     #           Conducting tasks on the dataset                #
     ############################################################
-    if not args.test:
+    if not args.test or args.all:
         # Community Mining
         def community_mining():
             logger.info("Start conducting community mining...")
@@ -162,7 +167,6 @@ if __name__ == "__main__":
         calculate_centrality_and_statistics(
             df_paper_node, df_paper_edge, CENTRALITY_DIR
         )
-        logger.info(LINEBREAK)
 
         calculate_community_diameters(
             df_paper_node,
@@ -175,17 +179,17 @@ if __name__ == "__main__":
 
         # Filter ids for visualization
         logger.info("Start filtering ids for visualization...")
-        os.chdir("CommunityMining")
-        subprocess.run(["python", "filter_author.py"], check=True)
-        subprocess.run(["python", "filter_paper.py"], check=True)
-        os.chdir("..")
+        author_id = extract_top_authors_by_community(df_author_node)
+        paper_id = extract_top_nodes_by_pagerank()
         logger.info("Successfully filter out ids for visualization!")
         logger.info(SEPERATOR)
 
         # Generate data for visualization
         logger.info("Start generating data for visualization...")
-        subprocess.run(["python", "combine_author.py"])
-        subprocess.run(["python", "combine_paper.py"])
+        process_author_data(df_author_node, df_author_edge, author_id)
+        process_paper_data(
+            df_paper_node, df_paper_edge, dict_paper_map, dict_venue_map, paper_id
+        )
         logger.info("Successfully generate data for visualization!")
         logger.info(SEPERATOR)
         logger.info("Now you can use `liveserver` to open the visualization page!!!")

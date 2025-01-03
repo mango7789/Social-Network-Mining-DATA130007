@@ -47,6 +47,7 @@ def timer(func):
             logger.info(
                 f"Function '{func.__name__}' executed in {seconds:.2f} second(s)"
             )
+        logger.info("-" * 85)
         return result
 
     return wrapper

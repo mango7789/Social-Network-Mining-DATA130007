@@ -2,6 +2,7 @@ import pandas as pd
 from pathlib import Path
 import igraph as ig
 from tqdm import tqdm
+from utils.logger import logger
 
 
 def calculate_centrality_and_statistics(
@@ -29,7 +30,7 @@ def calculate_centrality_and_statistics(
 
     # Calculate degree centrality with progress bar
     degree_centrality = []
-    for node in tqdm(node_data["id"], desc="Calculating Degree Centrality"):
+    for node in tqdm(node_data["id"], desc="Calculating Degree Centrality..."):
         degree_centrality.append(G.degree(node))
     centrality_dict["degree_centrality"] = degree_centrality
 
@@ -50,7 +51,7 @@ def calculate_centrality_and_statistics(
     )
     centrality_df.to_csv(output_path / "centrality_measures.csv", index=False)
 
-    print(f"Results saved to: {output_path}")
+    logger.info(f"Results saved to: {output_path}")
 
 
 if __name__ == "__main__":

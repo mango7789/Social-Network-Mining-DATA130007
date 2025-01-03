@@ -26,6 +26,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run main.py with --test flag
+      - name: Run main.py in test all mode
         run: |
-          python main.py --test
+          python main.py --test --all
