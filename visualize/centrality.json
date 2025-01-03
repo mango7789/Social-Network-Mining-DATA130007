@@ -1,42 +1,42 @@
 [
     {
         "community": 0,
-        "pagerank_centrality": 5.828019531275052e-07
-    },
-    {
-        "community": 7,
-        "pagerank_centrality": 5.541259725106392e-07
-    },
-    {
-        "community": 5,
-        "pagerank_centrality": 5.540654273702559e-07
-    },
-    {
-        "community": 3,
-        "pagerank_centrality": 5.540654273701299e-07
-    },
-    {
-        "community": 4,
-        "pagerank_centrality": 5.54065427369961e-07
-    },
-    {
-        "community": 9,
-        "pagerank_centrality": 5.540654273698998e-07
-    },
-    {
-        "community": 6,
-        "pagerank_centrality": 5.540654273696205e-07
-    },
-    {
-        "community": 2,
-        "pagerank_centrality": 5.530672273760257e-07
+        "pagerank_centrality": 5.814902544685635e-07
     },
     {
         "community": 8,
-        "pagerank_centrality": 5.488135735203821e-07
+        "pagerank_centrality": 5.54125972511061e-07
+    },
+    {
+        "community": 4,
+        "pagerank_centrality": 5.54065427370129e-07
+    },
+    {
+        "community": 7,
+        "pagerank_centrality": 5.540654273699598e-07
+    },
+    {
+        "community": 5,
+        "pagerank_centrality": 5.540654273697595e-07
+    },
+    {
+        "community": 6,
+        "pagerank_centrality": 5.540654273697566e-07
+    },
+    {
+        "community": 2,
+        "pagerank_centrality": 5.530672273761704e-07
+    },
+    {
+        "community": 9,
+        "pagerank_centrality": 5.495102292346914e-07
     },
     {
         "community": 1,
-        "pagerank_centrality": 5.315761847024051e-07
+        "pagerank_centrality": 5.337872007323813e-07
+    },
+    {
+        "community": 3,
+        "pagerank_centrality": 5.277261416425524e-07
     }
 ]

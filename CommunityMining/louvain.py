@@ -10,7 +10,9 @@ from utils.wrapper import timer
 
 
 @timer
-def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) -> None:
+def louvain_ig(
+    node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict
+) -> None:
     """
     Perform community detection on the given node and edge data using the Leiden algorithm for improved performance.
     The nodes and edges are expected to be provided as DataFrames, which are generated after pre-processing.
@@ -27,7 +29,7 @@ def louvain(node: pd.DataFrame, edge: pd.DataFrame, path: Path, **kwargs: Dict) 
     NOTE: The Leiden algorithm is used here for its efficiency on large graphs.
 
     Example usage:
-    >>> louvain(paper_node, paper_edge, output_path)
+    >>> louvain_ig(paper_node, paper_edge, output_path)
     """
     # Convert edge data to igraph-compatible format
     edges = [(src, dst) for src, dst in zip(edge["src"], edge["dst"]) if src != dst]
@@ -64,4 +66,4 @@ if __name__ == "__main__":
     node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
     edge_data = load_paper_edge("./data/paper/edge.csv")
     output_path = Path("./CommunityMining/results/louvain.csv")
-    louvain(node_data, edge_data, output_path)
+    louvain_ig(node_data, edge_data, output_path)

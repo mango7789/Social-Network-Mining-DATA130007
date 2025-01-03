@@ -1,501 +1,501 @@
 id,authors,year,venue,out_d,in_d,title,community,pagerank_centrality
-5550372b7cea80f9541783e5,[],1993,ICPP (2),0,50,"Proceedings of the 1993 International Conference on Parallel Processing, Syracuse University, NY, USA, August 16-20, 1993. Volume II: Software.",1,1.2799212131858783e-05
-5550372b7cea80f9541783fe,[],1989,ICPP (2),0,40,"Proceedings of the International Conference on Parallel Processing, ICPP '89, The Pennsylvania State University, University Park, PA, USA, August 1989. Volume 2: Software.",1,1.0253060545129042e-05
-5550373b7cea80f95417ae9b,[],1991,DEXA,0,96," Proceedings of the International Conference on Database and Expert Systems Applications, Berlin, Germany, 1991.",0,1.9239671059674425e-05
-5550373b7cea80f95417aeb4,[],1990,DEXA,0,89,"Proceedings of the International Conference on Database and Expert Systems Applications, Vienna, Austria, August 29-31, 1990.",0,1.7638850928816107e-05
-5550373b7cea80f95417aeb6,[],1992,DEXA,0,98,"Proceedings of the International Conference on Database and Expert Systems Applications, Valencia, Spain, 1992.",0,2.0309327855086865e-05
-555037787cea80f954189493,[],1994,ICMCS,0,63,"Proceedings of the International Conference on Multimedia Computing and Systems, ICMCS 1994, Boston, Massachusetts, USA, May 14-19, 1994",0,1.2990906581496308e-05
-573695406e3b12023e46f1ff,['1391686'],2009,Encyclopedia of Database Systems,1,0,Web Page Quality Metrics.,2,2.981074618516582e-07
-573695406e3b12023e46f200,"['1596987', '453764', '1270561']",2009,Encyclopedia of Database Systems,1,0,MAP.,2,2.981074618516582e-07
-573695406e3b12023e46f201,[],2009,Encyclopedia of Database Systems,1,0,Web 2.0 Applications.,2,2.981074618516582e-07
-573695406e3b12023e46f202,['89940'],2009,Encyclopedia of Database Systems,1,0,Top-K Selection Queries on Multimedia Datasets.,2,2.981074618516582e-07
-573695406e3b12023e46f203,['1163843'],2009,Encyclopedia of Database Systems,1,0,Visual Clustering.,2,2.981074618516582e-07
-573695406e3b12023e46f204,['80477'],2009,Encyclopedia of Database Systems,1,0,XML Information Integration.,2,2.981074618516582e-07
-573695406e3b12023e46f205,['1236197'],2009,Encyclopedia of Database Systems,1,0,Success at n.,2,2.981074618516582e-07
-573695406e3b12023e46f206,[],2009,Encyclopedia of Database Systems,1,0,Image Compression.,2,2.981074618516582e-07
-573695406e3b12023e46f207,['1151798'],2009,Encyclopedia of Database Systems,1,0,Copyright Issues in Databases.,2,2.981074618516582e-07
-573695406e3b12023e46f208,['1384797'],2009,Encyclopedia of Database Systems,1,0,Multimedia Data.,2,2.981074618516582e-07
-573695406e3b12023e46f209,[],2009,Encyclopedia of Database Systems,1,0,Relational Database.,2,2.981074618516582e-07
-573695406e3b12023e46f20a,[],2009,Encyclopedia of Database Systems,1,0,Bi-clustering.,2,2.981074618516582e-07
-573695406e3b12023e46f20b,[],2009,Encyclopedia of Database Systems,1,0,Java Annotations.,2,2.981074618516582e-07
-573695406e3b12023e46f20c,['553401'],2009,Encyclopedia of Database Systems,1,0,Divergence from Randomness Models.,2,2.981074618516582e-07
-573695406e3b12023e46f20d,[],2009,Encyclopedia of Database Systems,1,0,Meta Data Registry.,2,2.981074618516582e-07
-573695406e3b12023e46f20e,[],2009,Encyclopedia of Database Systems,1,0,Query Reformulation.,2,2.981074618516582e-07
-573695406e3b12023e46f20f,[],2009,Encyclopedia of Database Systems,1,0,Page Representations.,2,2.981074618516582e-07
-573695406e3b12023e46f210,[],2009,Encyclopedia of Database Systems,1,0,Motion Graphics.,2,2.981074618516582e-07
-573695406e3b12023e46f211,[],2009,Encyclopedia of Database Systems,1,0,Relational Query Processor.,2,2.981074618516582e-07
-573695406e3b12023e46f212,[],2009,Encyclopedia of Database Systems,1,0,Time Series Database Querying.,2,2.981074618516582e-07
-573695406e3b12023e46f218,[],2009,Encyclopedia of Database Systems,1,1,Ad hoc Retrieval models.,2,5.184477597419659e-07
-573695406e3b12023e46f252,[],2009,Encyclopedia of Database Systems,1,1,Active Databases.,2,5.184477597419659e-07
-573695406e3b12023e46f253,[],2009,Encyclopedia of Database Systems,1,1,Accountability.,2,5.184477597419659e-07
-573695406e3b12023e46f2cf,[],2009,Encyclopedia of Database Systems,1,1,Data Anomalies.,2,5.184477597419659e-07
-573695406e3b12023e46f45e,[],2009,Encyclopedia of Database Systems,1,1,Data Acquisition.,2,5.184477597419659e-07
-573695406e3b12023e46f510,"['1514596', '1268645', '1695158']",2009,Encyclopedia of Database Systems,2,0,Active XML.,2,5.184477597419659e-07
-573695406e3b12023e46f575,['901893'],2009,Encyclopedia of Database Systems,2,0,Direct Attached Storage.,2,5.184477597419659e-07
-573695406e3b12023e46f5be,[],2009,Encyclopedia of Database Systems,1,1,Active Document.,2,5.184477597419006e-07
-573695406e3b12023e46f72a,[],2009,Encyclopedia of Database Systems,1,1,Data Analysis.,2,5.184477597419659e-07
-573695406e3b12023e46f744,[],2009,Encyclopedia of Database Systems,1,1,ACID Transaction.,2,5.184477597419659e-07
-573695406e3b12023e46f749,['901893'],2009,Encyclopedia of Database Systems,2,0,Active Storage.,2,5.184477597419659e-07
-573695406e3b12023e46f7be,['1317395'],2009,Encyclopedia of Database Systems,2,0,Processor Cache.,2,5.184477597419659e-07
-573695406e3b12023e46f7d6,['553401'],2009,Encyclopedia of Database Systems,2,0,Information Retrieval Models.,2,5.184477597419006e-07
-573695416e3b12023e46f7f8,['191644'],2009,Encyclopedia of Database Systems,1,3,Abstraction.,2,7.411803458262717e-07
-573695416e3b12023e46f82a,[],2009,Encyclopedia of Database Systems,1,1,Data Cache.,2,5.184477597419006e-07
-573695416e3b12023e46f873,[],2009,Encyclopedia of Database Systems,1,1,DAS.,2,5.184477597419006e-07
-573695416e3b12023e46f88b,[],2009,Encyclopedia of Database Systems,1,1,Access Methods.,2,5.184477597418868e-07
-573695416e3b12023e46f8bf,[],2009,Encyclopedia of Database Systems,0,3067,Encyclopedia of Database Systems,2,0.0007757621007487
-573695416e3b12023e46f8d6,"['1701999', '151291']",2009,Encyclopedia of Database Systems,2,0,Data Acquisition and Dissemination in Sensor Networks.,2,5.184477597419006e-07
-573695416e3b12023e46f91a,['532550'],2009,Encyclopedia of Database Systems,2,0,Discretionary Access Control.,2,5.184477597419659e-07
-573695416e3b12023e46f9bf,['1485748'],2009,Encyclopedia of Database Systems,2,0,Database Languages for Sensor Networks.,2,5.184477597419659e-07
-573695416e3b12023e46f9f1,[],2009,Encyclopedia of Database Systems,1,1,Acquisitional Query Languages.,2,5.184477597419006e-07
-573695416e3b12023e46fa15,['644736'],2009,Encyclopedia of Database Systems,2,0,Data Conflicts.,2,5.184477597419006e-07
-573695416e3b12023e46faf9,['468284'],2009,Encyclopedia of Database Systems,2,0,Access Path.,2,5.184477597419601e-07
-573695416e3b12023e46fb21,[],2009,Encyclopedia of Database Systems,1,1,DAC.,2,5.184477597419006e-07
-573695416e3b12023e46fb45,['566364'],2009,Encyclopedia of Database Systems,2,0,Transaction.,2,5.184477597419006e-07
-573695416e3b12023e46fbc0,"['214192', '550939']",2009,Encyclopedia of Database Systems,2,0,Auditing and Forensic Analysis.,2,5.184477597419006e-07
-573695416e3b12023e46fbdb,['873753'],2009,Encyclopedia of Database Systems,2,0,Event Driven Architecture.,2,5.184477597419006e-07
-573695416e3b12023e46fd11,[],2009,Encyclopedia of Database Systems,1,1,Active Disks.,2,5.184477597419006e-07
-573695416e3b12023e46fdb3,['780472'],2009,Encyclopedia of Database Systems,2,0,Data Mining.,2,5.184477597419006e-07
-573695426e3b12023e470c0b,[],2011,,0,1171,"Encyclopedia of Cryptography and Security, 2nd Ed.",8,0.0002971233841948
-573695426e3b12023e470c15,['1506809'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,2,Zeroization.,8,7.812260107407124e-07
-573695426e3b12023e470db3,['600605'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,4,Access Control from an OS Security Perspective.,7,1.1770546744410332e-06
-573695426e3b12023e470f35,['124737'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,7,A5/1.,8,1.8293035123098413e-06
-573695436e3b12023e470f70,['191891'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,8,Zero-Knowledge.,8,2.055530862898023e-06
-5736955d6e3b12023e484bf2,"['812076', '388948']",1977,ACM Trans. Database Syst.,317,2,Database Abstractions: Aggregation and Generalization.,0,1.2773060259652358e-05
-5736955d6e3b12023e484bf4,['1323417'],1976,ACM Trans. Database Syst.,609,16,The Entity-Relationship Model - Toward a Unified View of Data.,0,2.7596181840236107e-05
-573696856e3b12023e59187a,['563799'],1993,ACM Comput. Surv.,97,314,Query Evaluation Techniques for Large Databases.,0,1.6081693161615926e-05
-573696866e3b12023e5918f8,"['1118827', '869057']",1984,ACM Comput. Surv.,115,201,Query Optimization in Database Systems.,0,1.283408037941e-05
-573696926e3b12023e59c426,['418654'],1970,Commun. ACM,584,0,A Relational Model of Data for Large Shared Data Banks.,0,2.288226489788804e-05
-573696936e3b12023e59caca,"['885231', '783896', '1393078', '690447']",1976,Commun. ACM,330,0,The Notions of Consistency and Predicate Locks in a Database System.,0,1.2826538966237484e-05
-573696b86e3b12023e5ba327,"['1057116', '933331', '1125083', '271813', '1311281']",2012,IGARSS,1,0,Helicopter UAV systems for in situ measurements and sensor placement.,5,2.996315445112951e-07
-573696b86e3b12023e5ba32c,"['1352057', '776138', '792369', '1533846']",2012,IGARSS,1,0,Soil moisture retrieval by remote sensing and multi-year trend analysis of the soil moisture in Tibetan Plateau.,5,2.996315445108949e-07
-573696b86e3b12023e5ba32e,"['1493981', '205664', '1572093']",2012,IGARSS,1,0,Radiative impact of biomass burning events: the October 2010 smoke episode in South-East Asia.,5,2.996315445108949e-07
-573696b86e3b12023e5ba336,"['597107', '1774900', '1756375', '1643725', '1797976', '195477']",2012,IGARSS,1,0,Thermal front retreivals from SAR imagery.,5,2.996315445108949e-07
-573696b86e3b12023e5ba349,"['781365', '1352121', '1797530']",2012,IGARSS,1,0,Observation of the Penglai 19-3 oil leak and its impact on the sea area ecosystem.,5,2.996315445108949e-07
-573696b86e3b12023e5ba34b,"['143918', '688468']",2012,IGARSS,1,0,Icebergs detection with TerraSAR-X data using a polarimetric notch filter.,5,2.996315445108949e-07
-573696b86e3b12023e5ba34c,"['343526', '1728010', '1848026', '234873']",2012,IGARSS,1,0,Residual information to estimate uncertainty and improve the spectral linear mixing model solution.,5,2.996315445108949e-07
-573696b86e3b12023e5ba354,"['684221', '1335969']",2012,IGARSS,1,0,The vegetation phenology detection in Amazon tropical evergreen forests using SPOT-VEGETATION 11-y time series.,5,2.996315445108949e-07
-573696b86e3b12023e5ba355,"['1498984', '201129', '1558978', '798848']",2012,IGARSS,1,0,Unsupervised river detection in RapidEye data.,5,2.996315445108949e-07
-573696b86e3b12023e5ba368,"['1132348', '990448', '540445', '74077', '304180', '181533', '375043']",2012,IGARSS,1,0,Building an on-demand web service system for Global Agricultural Drought Monitoring and Forecasting.,5,2.996315445108949e-07
-573696b86e3b12023e5ba36a,"['903180', '1756448', '645049', '1440313', '575016', '488997', '790410']",2012,IGARSS,1,0,Error model and calibration of synthetic aperture interferometric radiometer based on visibility function.,5,2.996315445108949e-07
-573696b86e3b12023e5ba377,"['1761400', '1356923', '1886857', '1813057']",2012,IGARSS,1,0,A semi-analytic method to speed up the convergence of successive order of scattering model.,5,2.996315445108949e-07
-573696b86e3b12023e5ba37a,"['1344973', '520011']",2012,IGARSS,1,0,Use of high-resolution SAR intensity images for damage detection from the 2010 Haiti earthquake.,5,2.996315445108949e-07
-573696b86e3b12023e5ba381,"['1061564', '558990', '1372586']",2012,IGARSS,1,0,Characterization of the spatial and temporal stability of the Eastan-Tarctic plateau in the low-microwave bands.,5,2.996315445108949e-07
-573696b86e3b12023e5ba383,"['97840', '309203', '217951', '1584627', '1004333']",2012,IGARSS,1,0,Robust unsupervised nonparametric change detection of SAR images.,5,2.996315445108949e-07
-573696b86e3b12023e5ba398,"['642266', '479193', '1585640', '1123133', '1669026', '1005850']",2012,IGARSS,1,0,Relating tropical forest biomass to P-band SAR tomography.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3a0,"['1071797', '553918', '116540', '557706', '1293511', '502625', '134110', '58581', '373820', '1376070', '391240', '352418', '1290687']",2012,IGARSS,1,0,COSMO/SkyMed AO projects - advanced 2D and 3D Focusing of COSMO/SkyMed SAR data.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3b0,"['1796366', '1679038', '1827966', '493157', '1671240', '858703']",2012,IGARSS,1,0,Quantitative analysis of sea level rise caused by continental input.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3b2,"['624982', '1664929', '889867', '1145842', '558990', '1062266', '1705553', '1435895', '688468', '841592', '702504']",2012,IGARSS,1,0,Algorithm for retrieval of snow mass from Ku- and X-band radar backscatter measurements.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3b9,"['1047459', '1461740', '909825', '1220343']",2012,IGARSS,1,0,Analysis of fisheye photography for monitoring canopy structure during larch sawfly outbreak.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3c5,"['1518938', '414668']",2012,IGARSS,1,0,Surface observation of thwaites ice tongue in west antarctica using dual-polarized TerraSAR-X data.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3c6,"['1473599', '59916', '350450', '34556']",2012,IGARSS,1,0,Introduction to the new metasensing ground-based SAR: Technical description and data analysis.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3cc,"['172014', '1659811']",2012,IGARSS,1,0,"Thermal remote sensing for land surface temperature monitoring: Maraqeh County, Iran.",5,2.996315445108949e-07
-573696b86e3b12023e5ba3e6,"['932792', '564411', '255412', '1632995']",2012,IGARSS,1,0,Estimation of flight altitude in high frequency surface wave radar.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3e8,"['1885675', '1894450', '1450599', '197673']",2012,IGARSS,1,0,"Spatial variability of soil microelements in the middle and lower reaches of Heihe River Basin, Northwest China.",5,2.996315445108949e-07
-573696b86e3b12023e5ba3eb,"['844616', '1769378', '1718307', '71852']",2012,IGARSS,1,0,Gaussian localized active contours for multitemporal analysis of urban tree crowns.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3ed,['917777'],2012,IGARSS,1,0,Sentinel-5 Precursor mission and potential application examples.,5,2.996315445108949e-07
-573696b86e3b12023e5ba3fe,"['865834', '1645282']",2012,IGARSS,1,0,Assessment of hyperspectral classification methods for benthic cover type mapping.,5,2.996315445108949e-07
-573696b86e3b12023e5ba400,"['1670340', '825648', '854665']",2012,IGARSS,1,0,Time series image fusion: Application and improvement of STARFM for land cover map and production.,5,2.996315445108949e-07
-573696b86e3b12023e5ba402,"['1794127', '1614102']",2012,IGARSS,1,0,Sea surface wind field retrieval from TerraSAR-X and its applications to coastal areas.,5,2.996315445108949e-07
-573696b86e3b12023e5ba40e,"['715964', '849592', '1098390']",2012,IGARSS,1,0,Moisture retrievals of boreal forest soil using HUT-2D synthetic aperture radiometer.,5,2.996315445108949e-07
-573696b86e3b12023e5ba416,"['1335754', '1005850', '311240', '1238978']",2012,IGARSS,1,0,Forest microwave backscatter modelling at P Band: Temperate pine forest.,5,2.996315445108949e-07
-573696b86e3b12023e5ba418,"['95220', '961086', '200774', '1316463', '1686745', '200561', '347827', '1435863', '802422', '579681']",2012,IGARSS,1,0,Low frequency bistatic SAR measurements.,5,2.996315445108949e-07
-573696b86e3b12023e5ba42e,"['1440313', '1355840', '903180', '575016', '645049', '774502', '790410']",2012,IGARSS,1,0,Calibration of staggered Y-shaped array by 120 degree rotation.,5,2.996315445108949e-07
-573696b86e3b12023e5ba430,"['1867260', '1425879', '1868333', '1859328', '1450354', '533628']",2012,IGARSS,1,0,An N2.5 back-projection algorithm for SAR imaging.,5,2.996315445108949e-07
-573696b86e3b12023e5ba43e,"['1454937', '46037']",2012,IGARSS,1,0,Improvement of ALOS interferogram quality by use of the local co-registration method using singular-point and amplitude information.,5,2.996315445108949e-07
-573696b86e3b12023e5ba441,"['100880', '1563868', '1145431', '1326907', '939111', '177465', '733296', '930468', '1141990']",2012,IGARSS,1,0,Operational status of apex and characteristics of the apex open science data set.,5,2.996315445108949e-07
-573696b86e3b12023e5ba44c,"['1135687', '304564', '777614', '1539369', '1532599', '1168050', '660644', '1867197', '202290', '1831499']",2012,IGARSS,1,0,Research on urban heat island effect during Beijing urbanization process by remote sensing and its impact on environmental health.,5,2.996315445108949e-07
-573696b86e3b12023e5ba450,"['698269', '857819', '931229']",2012,IGARSS,1,0,A new technique for visualization of forest fire smoke plumes using MODIS data.,5,2.996315445108949e-07
-573696b86e3b12023e5ba453,"['553193', '1068368', '576323']",2012,IGARSS,1,0,Thickness estimation of marine oil slicks with near-infrared MERIS and MODIS imagery: The Lebanon oil spill case study.,5,2.996315445108949e-07
-573696b86e3b12023e5ba45e,"['1877448', '584539', '1304829']",2012,IGARSS,1,0,Automatic threshold selection for morphological attribute profiles.,5,2.996315445108949e-07
-573696b86e3b12023e5ba462,"['1142118', '868129', '286108', '1041052', '27258']",2012,IGARSS,1,0,TerraSAR-X contributions to GEO Supersites and selected results.,5,2.996315445108949e-07
-573696b86e3b12023e5ba469,"['462858', '1263974', '688468', '102235', '965692']",2012,IGARSS,1,0,Glacier surface velocity measure based on polarimetric tracking.,5,2.996315445108949e-07
-573696b86e3b12023e5ba46c,"['1546694', '1652985']",2012,IGARSS,1,0,Experimental study on accurate 3-dimensional imaging method based on extended RPM for rotating target.,5,2.996315445108949e-07
-573696b86e3b12023e5ba470,"['519349', '659606']",2012,IGARSS,1,0,Tibetan Plateau permafrost evolution monitoring using C- and L-band spaceborne SAR Interferometry.,5,2.996315445108949e-07
-573696b86e3b12023e5ba472,"['1018171', '48294', '306845']",2012,IGARSS,1,0,The pléiades system and data distribution.,5,2.996315445108949e-07
-573696b86e3b12023e5ba473,"['1779710', '1441676', '1560209', '868978', '1331378', '606272']",2012,IGARSS,1,0,Quality assessment of TerraSAR-X derived ground control points.,5,2.996315445108949e-07
-573696b86e3b12023e5ba474,"['1262905', '1853007', '716005', '1098390', '1701685']",2012,IGARSS,1,0,Peatland delineation under forest canopy with polsar data using model based decomposition technique.,5,2.996315445108949e-07
-573696b86e3b12023e5ba47c,"['1828118', '1443990']",2012,IGARSS,1,0,Accurate aerosol remote sensing over bright land surfaces using AATSR.,5,2.996315445108949e-07
-573696bb6e3b12023e5bc3d1,[],2012,IGARSS,0,1862,"2012 IEEE International Geoscience and Remote Sensing Symposium, Munich, Germany, July 22-27, 2012",5,0.0004743099553115
-573696cd6e3b12023e5cd27a,[],2001,FSE,0,21,"Fast Software Encryption, 7th International Workshop, FSE 2000, New York, NY, USA, April 10-12, 2000, Proceedings",8,5.476381990571518e-06
-573696cd6e3b12023e5cd40b,"['59728', '31138', '372768']",2000,FSE,2,0,Real Time Cryptanalysis of A5/1 on a PC.,8,4.991363928593248e-07
-573696ed6e3b12023e5eb25a,[],1997,DCC,0,42,"Proceedings of the 7th Data Compression Conference (DCC '97), Snowbird, Utah, March 25-27, 1997.",1,1.0757527474093526e-05
-573697096e3b12023e602a2a,[],1985,IJCAI,0,263,"Proceedings of the 9th International Joint Conference on Artificial Intelligence. Los Angeles, CA, August 1985",0,5.494122400865832e-05
-573697096e3b12023e602b4f,[],1987,IJCAI,0,244,"Proceedings of the 10th International Joint Conference on Artificial Intelligence. Milan, Italy, August 1987",0,5.112715315474296e-05
-573697096e3b12023e6037e9,[],1983,IJCAI,0,271,"Proceedings of the 8th International Joint Conference on Artificial Intelligence. Karlsruhe, FRG, August 1983",0,5.596992239026033e-05
-5736970e6e3b12023e607412,[],1995,ILPS,0,58,"Logic Programming, Proceedings of the 1995 International Symposium, Portland, Oregon, USA, December 4-7, 1995",1,1.4315780797136242e-05
-5736970f6e3b12023e608812,[],1976,ICSE,0,103,"Proceedings of the 2nd International Conference on Software Engineering, San Francisco, California, USA, October 13-15, 1976.",0,2.1172602018381957e-05
-573697106e3b12023e6095f8,[],1996,ICSE,0,61,"18th International Conference on Software Engineering, Berlin, Germany, March 25-29, 1996, Proceedings.",1,1.5420849008134752e-05
-573697106e3b12023e6096e2,[],1998,ICSE,0,64,"Forging New Links, Proceedings of the 1998 International Conference on Software Engineering, ICSE 98, Kyoto, Japan, April 19-25, 1998.",1,1.638423018101044e-05
-573697126e3b12023e609a89,[],1993,ICSE,0,48,"Proceedings of the 15th International Conference on Software Engineering, Baltimore, Maryland, USA, May 17-21, 1993.",1,1.1112308907240395e-05
-573697246e3b12023e6169c3,"['1836992', '299168', '610005', '1882778']",2004,SMC (6),2,0,Security analysis of mandatory access control model.,7,4.997084059497079e-07
-573697256e3b12023e617be6,[],2004,SMC,0,1094,"Proceedings of the IEEE International Conference on Systems, Man & Cybernetics: The Hague, Netherlands, 10-13 October 2004",7,0.0002786473307348
-5736972b6e3b12023e61d0c7,[],1995,OOPSLA,0,40,"OOPSLA'95, Proceedings of the Tenth Annual Conference on Object-Oriented Programming Systems, Languages, and Applications, Austin, Texas, USA, October 15-19, 1995.",1,9.08026440652982e-06
-5736972c6e3b12023e61da2e,[],2000,,0,96,"VLDB 2000, Proceedings of 26th International Conference on Very Large Data Bases, September 10-14, 2000, Cairo, Egypt",0,1.5168932388727218e-05
-5736973a6e3b12023e629ab1,"['658048', '866183', '1410791']",1988,STOC,2,0,Small Sets Supporting Fáry Embeddings of Planar Graphs,8,3.543087809015904e-07
-5736973a6e3b12023e629b5f,[],2000,STOC,0,85,"Proceedings of the Thirty-Second Annual ACM Symposium on Theory of Computing, May 21-23, 2000, Portland, OR, USA",8,2.1401903424665827e-05
-5736973a6e3b12023e629bec,"['104004', '1195650', '50168', '1147603']",1998,STOC,2,0,Min-Wise Independent Permutations (Extended Abstract).,8,3.470724664037939e-07
-5736973a6e3b12023e629cd5,[],1988,STOC,0,54,"Proceedings of the 20th Annual ACM Symposium on Theory of Computing, May 2-4, 1988, Chicago, Illinois, USA",8,1.1068983516454796e-05
-5736973a6e3b12023e629d32,"['1613852', '1226928', '1585133']",1998,STOC,2,0,Minimizing Stall Time in Single and Parallel Disk Systems.,8,3.321321481636296e-07
-5736973a6e3b12023e629d86,"['1689111', '1380078', '1414133', '281965', '761914']",2000,STOC,2,0,Computing the median with uncertainty.,8,3.472161737182075e-07
-5736973a6e3b12023e629e02,[],1993,STOC,0,86,"Proceedings of the Twenty-Fifth Annual ACM Symposium on Theory of Computing, May 16-18, 1993, San Diego, CA, USA",1,1.9308697472908143e-05
-5736973a6e3b12023e629e31,"['88443', '1191986', '55016', '754108', '50725']",1988,STOC,2,0,Storing and Searching a Multikey Table (Extended Abstract),8,3.301954987635619e-07
-5736973a6e3b12023e629eee,"['88443', '1191986', '754108', '50725']",1988,STOC,2,0,Non-Oblivious Hashing (Extended Abstract),8,3.301954987635619e-07
-5736973a6e3b12023e629f2d,[],1984,STOC,0,66,"Proceedings of the 16th Annual ACM Symposium on Theory of Computing, April 30 - May 2, 1984, Washington, DC, USA",0,1.4002706726166144e-05
-5736973a6e3b12023e629f97,"['1386655', '1260680', '1522357', '1559199']",2000,STOC,2,0,Resettable zero-knowledge (extended abstract).,8,4.912623187370537e-07
-5736973a6e3b12023e62a080,"['322858', '1191986', '87463']",1998,STOC,2,0,Concurrent Zero-Knowledge.,8,4.764314863430049e-07
-5736973a6e3b12023e62a0c2,[],1985,STOC,0,53,"Proceedings of the 17th Annual ACM Symposium on Theory of Computing, May 6-8, 1985, Providence, Rhode Island, USA",1,1.1321569944568974e-05
-5736973a6e3b12023e62a1cc,"['297828', '1161391']",1988,STOC,2,0,"Optimization, Approximation, and Complexity Classes (Extended Abstract)",8,3.18021628206997e-07
-5736973a6e3b12023e62a1d0,[],1998,STOC,0,76,"Proceedings of the Thirtieth Annual ACM Symposium on the Theory of Computing, Dallas, Texas, USA, May 23-26, 1998",8,1.7809768636201608e-05
-5736973a6e3b12023e62a248,"['718376', '938721', '1165271']",1998,STOC,2,0,"Poly-Logarithmic Deterministic Fully-Dynamic Algorithms for Connectivity, Minimum Spanning Tree, 2-Edge, and Biconnectivity.",8,3.587526364354196e-07
-5736973a6e3b12023e62a3f2,"['28719', '598455', '125709', '756392']",1998,STOC,2,0,"Linear-Time Pointer-Machine Algorithms for Least Common Ancestors, MST Verification, and Dominators.",8,4.084560905093749e-07
-5736973a6e3b12023e62a4ea,"['1052354', '1301575', '1559199']",1988,STOC,2,0,Non-Interactive Zero-Knowledge and Its Applications (Extended Abstract),8,4.514772842863594e-07
-5736973c6e3b12023e62b89d,[],1999,KDD,0,64,"Proceedings of the Fifth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Diego, CA, USA, August 15-18, 1999",0,1.222342503579026e-05
-573697466e3b12023e633460,"['355766', '1585582', '1401212', '1405604', '319864']",2015,EMBC,1,0,Geometry-independent assessment of renal volume in polycystic kidney disease from magnetic resonance imaging.,3,2.9962192026479257e-07
-573697466e3b12023e633461,"['1600613', '1257557', '160235', '1665718', '1892854']",2015,EMBC,1,0,Investigation of automatically detected high frequency oscillations (HFOs) as an early predictor of seizure onset zone.,3,2.996219202643734e-07
-573697466e3b12023e633462,"['1717844', '53545', '503410', '1489364', '962427', '1062549']",2015,EMBC,1,0,Dependence of gait parameters on height in typically developing children.,3,2.996219202643734e-07
-573697466e3b12023e633463,"['9276', '1360616', '996909', '557629', '116499', '1414194', '465808']",2015,EMBC,1,0,A bio-inspired force control for cyclic manipulation of prosthetic hands.,3,2.996219202643734e-07
-573697466e3b12023e633464,"['252695', '1372950', '1076314']",2015,EMBC,1,0,Distribution Entropy (DistEn): A complexity measure to detect arrhythmia from short length RR interval time series.,3,2.996219202643734e-07
-573697466e3b12023e633465,"['758631', '1311085', '546615', '140838', '72275']",2015,EMBC,1,0,Automatic Gunn and Salus sign quantification in retinal images.,3,2.996219202643734e-07
-573697466e3b12023e633466,"['1237655', '123346', '1123323', '1427221', '1442070', '1001924', '97526', '1734993']",2015,EMBC,1,0,Moddicom: a complete and easily accessible library for prognostic evaluations relying on image features.,3,2.996219202643734e-07
-573697466e3b12023e633467,"['523744', '92206', '1511226', '502357', '559422']",2015,EMBC,1,0,Analysis of EEG variables to measure the affective dimensions of arousal and valence related to the vision of emotional pictures.,3,2.996219202643734e-07
-573697466e3b12023e633468,"['959259', '1777934', '238674', '400843', '885974', '576954', '1419096']",2015,EMBC,1,0,Correlation of clinical parameters with cardiorespiratory behavior in successfully extubated extremely preterm infants.,3,2.996219202643734e-07
-573697466e3b12023e633469,"['508068', '1267062', '999922', '1520579', '285248', '1336236']",2015,EMBC,1,0,From molecular model to sparse representation of chromatographic signals with an unknown number of peaks.,3,2.996219202643734e-07
-573697466e3b12023e63346a,"['1650347', '1096394', '682774', '1411804', '1406636']",2015,EMBC,1,0,Influences of gender and anthropometric features on inspiratory inhaler acoustics and peak inspiratory flow rate.,3,2.996219202643734e-07
-573697466e3b12023e63346b,"['1108445', '479567', '1473341']",2015,EMBC,1,0,Development of a phantom mimicking the functional and structural behaviors of the thigh muscles characterized with magnetic resonance elastography technique.,3,2.996219202643734e-07
-573697466e3b12023e63346c,"['1781448', '950318', '645254']",2015,EMBC,1,0,Detection of fiducial points in ECG waves using iteration based adaptive thresholds.,3,2.996219202643734e-07
-573697466e3b12023e63346d,"['544110', '1697439', '888410', '1384915']",2015,EMBC,1,0,Leveraging the crowd for annotation of retinal images.,3,2.996219202643734e-07
-573697466e3b12023e63346e,"['43982', '89870', '109458', '106863', '1495802', '1224303', '440578', '1442543']",2015,EMBC,1,0,Prediction of Happy-Sad mood from daily behaviors and previous sleep history.,3,2.996219202643734e-07
-573697466e3b12023e63346f,"['1288415', '1346842', '723902', '86949', '1282196', '1543686', '152771']",2015,EMBC,1,0,A reconfigurable medically cohesive biomedical front-end with ΣΔ ADC in 0.18µm CMOS.,3,2.996219202643734e-07
-573697466e3b12023e633470,"['1570502', '1380626']",2015,EMBC,1,0,Sensors on instrumented socks for detection of lower leg edema - An in vitro study.,3,2.996219202643734e-07
-573697466e3b12023e633471,"['357081', '1434080']",2015,EMBC,1,0,Computational studies on bladder small dorsal root ganglion neurons: Modelling BK channels.,3,2.996219202643734e-07
-573697466e3b12023e633472,"['230794', '420256', '1030']",2015,EMBC,1,0,Alterations of diaphragm and rib cage morphometry in severe COPD patients by CT analysis.,3,2.996219202643734e-07
-573697466e3b12023e633473,"['252695', '629787', '40947', '1165549', '1675322', '136258', '621479', '1076314']",2015,EMBC,1,0,Multi-lag HRV analysis discriminates disease progression of post-infarct people with no diabetes versus diabetes.,3,2.996219202643734e-07
-573697466e3b12023e633474,['969380'],2015,EMBC,1,0,Reconstruction of signal in plastic scintillator of PET using Tikhonov regularization.,3,2.996219202643734e-07
-573697466e3b12023e633475,"['1208625', '1302047', '113707', '1230210']",2015,EMBC,1,0,Surface texture detection with artificial fingers.,3,2.996219202643734e-07
-573697466e3b12023e633476,"['1307549', '589075', '1003223', '1374928', '576776', '1388098', '1058906']",2015,EMBC,1,0,Classification of vertebral compression fractures in magnetic resonance images using spectral and fractal analysis.,3,2.996219202643734e-07
-573697466e3b12023e633477,"['1209400', '1204297', '1623177', '231594', '1712481', '871519', '873318', '527835', '1469455', '587211']",2015,EMBC,1,0,Differentiating tremor patients using spiral analyses.,3,2.996219202643734e-07
-573697466e3b12023e633478,"['980091', '776343', '195456', '1793957', '1901769']",2015,EMBC,1,0,Low-energy defibrillation with multi-electrodes stimulation: A simulation study.,3,2.996219202643734e-07
-573697466e3b12023e633479,"['561174', '1102731']",2015,EMBC,1,0,Use of an holistic approach for effective adoption of User-Centred-Design techniques in diabetes disease management: Experiences in user need elicitation.,3,2.996219202643734e-07
-573697466e3b12023e63347a,"['1569668', '1158199']",2015,EMBC,1,0,Improvement of emotional healthcare system with stress detection from ECG signal.,3,2.996219202643734e-07
-573697466e3b12023e63347b,"['1571285', '1255071', '1386507', '1028067', '1689030']",2015,EMBC,1,0,Automated clustering of independent components for discontinuous sounds thoracic imaging.,3,2.996219202643734e-07
-573697466e3b12023e63347c,"['1429594', '1646528', '92587', '946063', '1312246']",2015,EMBC,1,0,The effect of light-emitting diode irradiation at different wavelengths on calcification of osteoblast-like cells in 3D culture.,3,2.996219202643734e-07
-573697466e3b12023e63347d,"['935374', '1694809']",2015,EMBC,1,0,Modulation of ERD/S by having a conscious target during lower-extremity motor imagery.,3,2.996219202643734e-07
-573697466e3b12023e63347e,"['144606', '1609620', '1656316', '1729624', '1497572', '562318', '1081382']",2015,EMBC,1,0,Effect of fibre orientation on diastolic mechanics of human ventricle.,3,2.996219202643734e-07
-573697466e3b12023e63347f,"['142424', '1494098', '376780', '612550']",2015,EMBC,1,0,Contactless vision-based pulse rate detection of Infants Under Neurological Examinations.,3,2.996219202643734e-07
-573697466e3b12023e633480,"['1785534', '1377125', '1561982', '1564904', '1345893']",2015,EMBC,1,0,Automatic segmentation of the left ventricle into 17 anatomical regions in cardiac MR imaging.,3,2.996219202643734e-07
-573697466e3b12023e633481,"['336377', '1545778', '1685572']",2015,EMBC,1,0,Chromatic and high-frequency cVEP-based BCI paradigm.,3,2.996219202643734e-07
-573697466e3b12023e633482,"['142391', '1194248', '561612']",2015,EMBC,1,0,Annotation and prediction of stress and workload from physiological and inertial signals.,3,2.996219202643734e-07
-573697466e3b12023e633483,"['954410', '1043418', '716061', '634610']",2015,EMBC,1,0,Effect of negative and positive emotions on EEG spectral asymmetry.,3,2.996219202643734e-07
-573697466e3b12023e633484,"['1054171', '740513', '1654982', '127695', '94891', '922273']",2015,EMBC,1,0,A semi-mechanistic pharmacokinetic model of saquinavir combined with itraconazole in HIV-1-positive patients.,3,2.996219202643734e-07
-573697466e3b12023e633485,"['1632873', '1224939', '997788', '52818']",2015,EMBC,1,0,The effect of lymph drainage on the myoelectric manifestation of vastus lateralis fatigue: Preliminary results.,3,2.996219202643734e-07
-573697466e3b12023e633486,"['1890361', '1815658', '610420', '748667', '495456', '598859']",2015,EMBC,1,0,Early mastitis diagnosis through topological analysis of biosignals from low-voltage alternate current electrokinetics.,3,2.996219202643734e-07
-573697466e3b12023e633487,"['37477', '60835']",2015,EMBC,1,0,Estimating in-home walking speed distributions for unobtrusive detection of mild cognitive impairment in older adults.,3,2.996219202643734e-07
-573697466e3b12023e633488,"['1884015', '192410']",2015,EMBC,1,0,A Two-stage model for inference of target identity during 2D cursor control from natural gaze trajectories.,3,2.996219202643734e-07
-573697466e3b12023e633489,"['602929', '1196462']",2015,EMBC,1,0,Ventricular ectopic beats classification using Sparse Representation and Gini Index.,3,2.996219202643734e-07
-573697466e3b12023e63348a,"['75446', '77098', '1275350', '487244', '612393']",2015,EMBC,1,0,A computer vision based candidate for functional balance test.,3,2.996219202643734e-07
-573697466e3b12023e63348b,"['308353', '1018669']",2015,EMBC,1,0,Automatic preprocessing of EEG signals in long time scale.,3,2.996219202643734e-07
-573697466e3b12023e63348c,"['1474792', '1140407', '1522589', '694145']",2015,EMBC,1,0,Modeling of neonatal hemodynamics during PDA closure.,3,2.996219202643734e-07
-573697466e3b12023e63348d,"['855906', '1121933', '1902605']",2015,EMBC,1,0,Automatic segmentation of nerve structures in ultrasound images using Graph Cuts and Gaussian processes.,3,2.996219202643734e-07
-573697466e3b12023e63348e,"['716810', '772651', '1613129', '1506004', '377972']",2015,EMBC,1,0,Development and experimental validation of a mechanistic model of in vitro DNA recombination.,3,2.996219202643734e-07
-573697466e3b12023e63348f,"['1881162', '1532475', '138377', '1831493', '1890672']",2015,EMBC,1,0,L0-regularized time-varying sparse inverse covariance estimation for tracking dynamic fMRI brain networks.,3,2.996219202643734e-07
-573697466e3b12023e633490,"['1426582', '38018', '1310375', '445250']",2015,EMBC,1,0,Combining efficient hand-crafted features with learned filters for fast and accurate corneal nerve fibre centreline detection.,3,2.996219202643734e-07
-573697476e3b12023e6336d8,[],2015,EMBC,0,2003,"37th Annual International Conference of the IEEE Engineering in Medicine and Biology Society, EMBC 2015, Milan, Italy, August 25-29, 2015",3,0.0005102044101602
-573697506e3b12023e63b62f,[],1994,DEXA,0,82,"Database and Expert Systems Applications, 5th International Conference, DEXA '94, Athens, Greece, September 7 - 9, 1994, Proceedings",0,1.3881428689867982e-05
-573697516e3b12023e63bb00,[],1996,DEXA,0,78,"Database and Expert Systems Applications, 7th International Conference, DEXA '96, Zurich, Switzerland, September 9-13, 1996, Proceedings",0,1.4819340708399636e-05
-573697516e3b12023e63bb5b,[],1998,DEXA,0,82,"Database and Expert Systems Applications, 9th International Conference, DEXA '98, Vienna, Austria, August 24-28, 1998, Proceedings",0,1.7552503580868842e-05
-573697516e3b12023e63bca0,[],1997,DEXA,0,63,"Database and Expert Systems Applications, 8th  International Conference, DEXA '97, Toulouse, France, September 1-5, 1997, Proceedings",0,1.2448340503351062e-05
-573697516e3b12023e63bcaf,[],1993,DEXA,0,79,"Database and Expert Systems Applications, 4th International Conference, DEXA'93, Prague, Czech Republic, September 6-8, 1993, Proceedings",0,1.516483100280408e-05
-573697556e3b12023e63f7dc,"['1050795', '520581']",2009,CIS (2),1,0,Batch Verification for Certificateless Signature Schemes.,7,3.004409753850812e-07
-573697556e3b12023e63f7dd,"['979522', '1866738']",2009,CIS (2),1,0,A New Algorithm of Counting Human Based on Segmentation of Human Faces in Color Image.,7,3.004409753850812e-07
-573697556e3b12023e63f7ea,"['647920', '1892877']",2009,CIS (2),1,0,Research and Application of Digital Watermark for Video Copyright Protection.,7,3.004409753850812e-07
-573697556e3b12023e63f7fd,"['1886608', '990533', '1761865', '942229']",2009,CIS (2),1,0,Research on Job-Shop Scheduling Problem Based on Genetic Ant Colony Algorithms.,7,3.004409753850812e-07
-573697556e3b12023e63f802,[],2009,CIS (2),0,131,"2009 International Conference on Computational Intelligence and Security, CIS 2009, Beijing, China, 11-14 December 2009, Volume 2 - Workshop Papers",7,3.349456720892428e-05
-573697556e3b12023e63f812,"['1865894', '1790660']",2009,CIS (2),1,0,A Study on the Security Technology of Enterprise Mobile Information System.,7,3.004409753850812e-07
-573697556e3b12023e63f82f,"['660999', '1761918']",2009,CIS (2),1,0,A Hard Disk Encryption System Realized by the Digital Signal Processor.,7,3.004409753850812e-07
-573697556e3b12023e63f832,"['1805955', '1217356']",2009,CIS (2),1,0,Research of Security Mobile Payment Protocol in Communication Restrictions Scenarios.,7,3.004409753850812e-07
-573697556e3b12023e63f85e,"['996062', '1767091']",2009,CIS (2),1,0,Research and Application of Animal Disease Intelligent Diagnosis Based on Support Vector Machine.,7,3.004409753850812e-07
-573697556e3b12023e63f863,"['1800038', '1842719']",2009,CIS (2),1,0,One Application of CNN in Word-Processing.,7,3.004409753850812e-07
-573697556e3b12023e63f871,"['1792449', '1803507']",2009,CIS (2),1,0,A Novel Graph-based Image Annotation with Two Level Bag Generators.,7,3.004409753850812e-07
-573697556e3b12023e63f87f,"['1806388', '1858344', '1895772', '1440383']",2009,CIS (2),1,0,Data Encryption Based on Multi-granularity Reversible Cellular Automata.,7,3.004409753850812e-07
-573697556e3b12023e63f889,"['1670995', '648379']",2009,CIS (2),1,0,The Computer Realization of the QR Decomposition on Matrices with Full Column Rank.,7,3.004409753850812e-07
-573697556e3b12023e63f8c0,"['1865392', '1355450', '1353380', '598284', '776401']",2009,CIS (2),1,0,A New Hybrid Routing Protocol in Heterogeneous Wireless Networks.,7,3.004409753850812e-07
-573697556e3b12023e63f8c3,"['1880866', '1549350', '599464', '1830048']",2009,CIS (2),1,0,Study of Spectrum Analysis Based on EMD Adaptive Filter.,7,3.004409753850812e-07
-573697556e3b12023e63f900,"['790499', '1803549']",2009,CIS (2),1,0,SNS Based Information Authorization Delegation Mechanism and Implementation.,7,3.004409753850812e-07
-573697556e3b12023e63f936,"['792882', '1761106', '263879']",2009,CIS (2),1,0,A New Population Diversity Model in Intelligence Optimization Algorithms.,7,3.004409753850812e-07
-573697556e3b12023e63f93e,"['574143', '988978', '1534245', '861855']",2009,CIS (2),1,0,Secret Sharing System and Secret Sharing Matrix.,7,3.004409753850812e-07
-573697556e3b12023e63f949,"['450126', '581572', '564505']",2009,CIS (2),1,0,Network Security Protection Solutions of Electric Power Enterprise Based on VPN Technology.,7,3.004409753850812e-07
-573697556e3b12023e63f959,"['1172001', '904196', '1756650', '1601805']",2009,CIS (2),1,0,Implementation and Evaluation of a Novel Audio Watermarking Scheme.,7,3.004409753850812e-07
-573697556e3b12023e63f95c,"['386648', '202298']",2009,CIS (2),1,0,A New Password Authentication Scheme Using Fuzzy Extractor with Smart Card.,7,3.004409753850812e-07
-573697556e3b12023e63f96f,['1803565'],2009,CIS (2),1,0,Providing Efficient Secure DHTs Routing.,7,3.004409753850812e-07
-573697556e3b12023e63f991,"['645911', '776590', '1896550']",2009,CIS (2),1,0,An Adaptive Dynamic Ant System Based on Acceleration for TSP.,7,3.004409753850812e-07
-573697556e3b12023e63f9b2,"['481142', '1222560']",2009,CIS (2),1,0,Reinforcement Learning for Soccer Multi-agents System.,7,3.004409753850812e-07
-573697556e3b12023e63f9d7,"['533694', '539960', '975663']",2009,CIS (2),1,0,An Extended Method for Obtaining S-Boxes Based on Discrete Chaos Map System.,7,3.004409753850812e-07
-573697556e3b12023e63f9fd,"['1314798', '582281']",2009,CIS (2),1,0,A Reputation-Based Trust Model for P2P Systems.,7,3.004409753850812e-07
-573697556e3b12023e63fa4d,"['1050795', '520581']",2009,CIS (2),1,0,Provably Secure Certificateless Two-Party Authenticated Key Agreement Protocol without Pairing.,7,3.004409753850812e-07
-573697556e3b12023e63fa70,"['414724', '322205', '1804230']",2009,CIS (2),1,0,Immune Controller Design for Vertical-Joint Industry Robot.,7,3.004409753850812e-07
-573697556e3b12023e63fa75,"['204820', '1527510']",2009,CIS (2),1,0,Efficiency Measurement of Logistics Public Companies Basing on the Modified DEA Model.,7,3.004409753850812e-07
-573697556e3b12023e63fa77,"['975663', '1791324', '1852846', '1868029', '1813749', '596660']",2009,CIS (2),1,0,Nonlinear Regression Based Analysis on Cyanobacteria Blooms and Water Quality in a Beijing Shallow Lake.,7,3.004409753850812e-07
-573697556e3b12023e63fa85,"['1815658', '1869590', '1834391']",2009,CIS (2),1,0,Automatic Vulnerability Locating in Binary Patches.,7,3.004409753850812e-07
-573697556e3b12023e63fa86,"['1832941', '1247532', '1138069', '267304', '856457']",2009,CIS (2),1,0,Association Analysis and Content-Based Information Hiding Approach with High Hiding Capacity.,7,3.004409753850812e-07
-573697556e3b12023e63fa89,"['1856948', '1762099', '1532726']",2009,CIS (2),1,0,Exploring the Relationship Between Parental Information Literacy and Regulating Rules in Family by Data Mining.,7,3.004409753850812e-07
-573697556e3b12023e63fa8c,"['1815765', '1893679']",2009,CIS (2),1,0,Economic Control Based on Four-Element Connection Numbers Control.,7,3.004409753850812e-07
-573697556e3b12023e63fa8d,"['659761', '300454']",2009,CIS (2),1,0,Accuracy Analysis of a Parallel Robot with Particle Swarm Optimization.,7,3.004409753850812e-07
-573697556e3b12023e63fa8f,"['483195', '598294', '1169624']",2009,CIS (2),1,0,Evolutionary Algorithm for the Radio Planning and Coverage Optimization of 3G Cellular Networks.,7,3.004409753850812e-07
-573697556e3b12023e63fab4,"['1828235', '303534', '958291', '1813877', '197674']",2009,CIS (2),1,0,Support Vector Regression for Prediction of Housing Values.,7,3.004409753850812e-07
-573697556e3b12023e63fad9,"['1794119', '1884754', '1833008']",2009,CIS (2),1,0,Identity Based Proxy Re-Signature Schemes without Random Oracle.,7,3.004409753850812e-07
-573697556e3b12023e63fade,"['1212334', '1785893', '988509']",2009,CIS (2),1,0,An Adaptive Multi-objective Image Watermarking Scheme for QIM Using NSGA-II.,7,3.004409753850812e-07
-573697556e3b12023e63fae0,"['1168543', '197531', '1796436']",2009,CIS (2),1,0,A New Self-Updating Hash Chain Structure Scheme.,7,3.004409753850812e-07
-573697556e3b12023e63faf6,"['1865392', '1355450', '1353380', '598284', '776401']",2009,CIS (2),1,0,A Routing Algorithm Based on Ant-Colony in Wireless Sensor Networks.,7,3.004409753850812e-07
-573697556e3b12023e63fafb,"['660400', '580621', '1889069', '266293']",2009,CIS (2),1,0,The Necessary Condition of Families of Odd-Periodic Perfect Complementary Sequence Pairs.,7,3.004409753850812e-07
-573697556e3b12023e63fb16,"['790755', '790225']",2009,CIS (2),1,0,Early Forecast and Recognition of the Driver Emergency Braking Behavior.,7,3.004409753850812e-07
-573697556e3b12023e63fb34,"['1868614', '599553', '1544180', '1827904']",2009,CIS (2),1,0,Research on Temporal and Spatial Data Models Based on GIS for Urban Traffic Planning Information Support System.,7,3.004409753850812e-07
-573697556e3b12023e63fd78,"['1571169', '622791']",2009,CIS (2),2,0,Role-Based Access Control for Distributed Cooperation Environment.,7,5.005402700400851e-07
-573697636e3b12023e64a67e,[],1991,SC,0,93,"Proceedings Supercomputing '91, Albuquerque, NM, USA, November 18-22, 1991",1,2.374658714384116e-05
-573697636e3b12023e64a80f,[],1995,SC,0,99,"Proceedings Supercomputing '95, San Diego, CA, USA, December 4-8, 1995",1,2.5274070642392e-05
-573697636e3b12023e64aac6,[],1992,SC,0,90,"Proceedings Supercomputing '92, Minneapolis, MN, USA, November 16-20, 1992",1,2.29828424426857e-05
-573697636e3b12023e64ad69,[],1993,SC,0,96,"Proceedings Supercomputing '93, Portland, Oregon, USA, November 15-19, 1993",1,2.4391797477954865e-05
-573697646e3b12023e64bb77,[],1985,ICDCS,0,63,"Proceedings of the 5th International Conference on Distributed Computing Systems, Denver, Colorado, USA, May 13-17, 1985",0,1.2233003973739137e-05
-573697646e3b12023e64bbd8,[],1987,ICDCS,0,67,"Proceedings of the 7th International Conference on Distributed Computing Systems, Berlin, Germany, September 1987",0,1.397096023528235e-05
-573697646e3b12023e64bcd2,[],1986,ICDCS,0,74,"Proceedings of the 6th International Conference on Distributed Computing Systems, Cambridge, Massachusetts, USA, May 19-13, 1986",0,1.3128970430190264e-05
-573697646e3b12023e64bdf2,[],1984,ICDCS,0,60,"Proceedings of the 4th International Conference on Distributed Computing Systems, San Francisco, California, USA, May 14-18, 1984",0,1.2518814609544092e-05
-573697646e3b12023e64be2e,[],1992,ICDCS,0,85,"Proceedings of the 12th International Conference on Distributed Computing Systems, Yokohama, Japan, June 9-12, 1992",0,1.6663110239889252e-05
-573697646e3b12023e64bef9,[],1988,ICDCS,0,66,"Proceedings of the 8th International Conference on Distributed Computing Systems, San Jose, California, USA, June 13-17, 1988",0,1.2541128951528132e-05
-573697646e3b12023e64bff7,[],1993,ICDCS,0,63,"Proceedings of the 13th International Conference on Distributed Computing Systems, Pittsburgh, Pennsylvania, USA, May 25-28, 1993",0,1.3011127719125113e-05
-573697666e3b12023e64d21f,[],1995,IPPS,0,122,"Proceedings of IPPS '95, The 9th International Parallel Processing Symposium, April 25-28, 1995, Santa Barbara, California, USA",1,3.112937005938264e-05
-573697666e3b12023e64d871,['1247788'],2008,IPDPS,2,0,How to make Discretionary Access Control secure against trojan horses.,7,4.998515269173914e-07
-573697666e3b12023e64dca1,[],2008,IPDPS,0,485,"22nd IEEE International Symposium on Parallel and Distributed Processing, IPDPS 2008, Miami, Florida USA, April 14-18, 2008",7,0.0001236136150658
-573697666e3b12023e64dcff,[],1999,IPPS/SPDP,0,113,"13th International Parallel Processing Symposium / 10th Symposium on Parallel and Distributed Processing (IPPS / SPDP '99), 12-16 April 1999, San Juan, Puerto Rico, Proceedings",1,2.883817435477876e-05
-573697666e3b12023e64de0a,[],1997,IPPS,0,115,"11th International Parallel Processing Symposium (IPPS '97), 1-5 April 1997, Geneva, Switzerland, Proceedings",1,2.934732976188374e-05
-573697786e3b12023e65ff35,[],1983,ISCA,0,54,"Proceedings of the 10th Annual Symposium on Computer Architecture, 1983",1,1.23854179300268e-05
-573697786e3b12023e660055,[],1991,ISCA,0,38,"Proceedings of the 18th Annual International Symposium on Computer Architecture. Toronto, Canada, May, 27-30 1991",1,9.055648031888197e-06
-573697796e3b12023e6602c7,[],1992,ISCA,0,64,"Proceedings of the 19th Annual International Symposium on Computer Architecture. Gold Coast, Australia, May 1992",1,1.4708182145306144e-05
-573697866e3b12023e66bfa2,"['85098', '778645', '429817']",2013,ICASSP,1,0,Performance of linear discriminant analysis in stochastic settings.,6,2.996377624960801e-07
-573697866e3b12023e66bfaa,"['1823256', '336179', '1688036', '1104202', '637008', '1688307', '943939']",2013,ICASSP,1,0,Bayesian semi-supervised audio event transcription based on Markov indian buffet process.,6,2.996377624955998e-07
-573697866e3b12023e66bfad,"['1174440', '1502094']",2013,ICASSP,1,0,Sparsity promoting dimensionality reduction for classification of high dimensional hyperspectral images.,6,2.996377624955998e-07
-573697866e3b12023e66bfaf,"['1004700', '1120175', '1267435']",2013,ICASSP,1,0,Random projections: A remedy for overfitting issues in time series prediction with echo state networks.,6,2.996377624955998e-07
-573697866e3b12023e66bfb1,"['65966', '520426', '1701167', '1400649', '1390124', '4790']",2013,ICASSP,1,0,A multiplication-free framework for signal processing and applications in biomedical image analysis.,6,2.996377624955998e-07
-573697866e3b12023e66bfc1,"['273455', '277844', '633163', '197597']",2013,ICASSP,1,0,Speaker clustering using vector representation with long-term feature for lecture speech recognition.,6,2.996377624955998e-07
-573697866e3b12023e66bfca,"['417079', '1029400', '908406', '1191849']",2013,ICASSP,1,0,Intra prediction mode coding for scalable HEVC.,6,2.996377624955998e-07
-573697866e3b12023e66bfd0,"['1863588', '161082']",2013,ICASSP,1,0,Sound source separation based on non-negative tensor factorization incorporating spatial cue as prior knowledge.,6,2.996377624955998e-07
-573697866e3b12023e66bfd6,"['1888052', '1804364']",2013,ICASSP,1,0,A vote of confidence based interest point detector.,6,2.996377624955998e-07
-573697866e3b12023e66bfe7,"['669569', '277313']",2013,ICASSP,1,0,Depth-based posture recognition by radar and vision fusion for real-time applications.,6,2.996377624955998e-07
-573697866e3b12023e66bffe,"['75161', '1511108']",2013,ICASSP,1,0,Subspace analysis for characterizing dynamic functional brain networks.,6,2.996377624955998e-07
-573697866e3b12023e66c00e,"['1555427', '744702', '1761475']",2013,ICASSP,1,0,Unifying PLDA and polynomial kernel SVMS.,6,2.996377624955998e-07
-573697866e3b12023e66c01f,"['1512055', '1564957', '129849', '1777517']",2013,ICASSP,1,0,Multi-group multicast beamforming in cognitive radio networks via rank-two transmit beamformed Alamouti space-time coding.,6,2.996377624955998e-07
-573697866e3b12023e66c020,"['1562867', '1405372', '1427923']",2013,ICASSP,1,0,A saliency-based rate control for people detection in video.,6,2.996377624955998e-07
-573697866e3b12023e66c023,"['302293', '533624', '1287298', '1801766']",2013,ICASSP,1,0,Hyperparameter-free DOA estimation under power constraints.,6,2.996377624955998e-07
-573697866e3b12023e66c028,"['1478303', '1183444']",2013,ICASSP,1,0,A waveform covariancematrix for high SINR and lowside-lobe levels.,6,2.996377624955998e-07
-573697866e3b12023e66c042,"['1242552', '1803365', '1610309', '1888206']",2013,ICASSP,1,0,Recognizing human actions by BP-AdaBoost algorithm under a hierarchical recognition framework.,6,2.996377624955998e-07
-573697866e3b12023e66c045,"['802395', '541455']",2013,ICASSP,1,0,Evaluating automatically estimated chord sequences.,6,2.996377624955998e-07
-573697866e3b12023e66c046,"['962809', '1508138', '1152005']",2013,ICASSP,1,0,Human speaker identification of known voices transmitted through different user interfaces and transmission channels.,6,2.996377624955998e-07
-573697866e3b12023e66c048,"['887775', '629722']",2013,ICASSP,1,0,On the eigenspace estimation for supervised multichannel system identification.,6,2.996377624955998e-07
-573697866e3b12023e66c05b,"['1700450', '54070', '138906']",2013,ICASSP,1,0,Enhancing the readability of the Wigner distribution by exploiting its cross-terms geometry.,6,2.996377624955998e-07
-573697866e3b12023e66c06d,"['1385833', '220979', '341406']",2013,ICASSP,1,0,Time invariant multi electrode averaging for biomedical signals.,6,2.996377624955998e-07
-573697866e3b12023e66c075,"['1832317', '1180074', '209243']",2013,ICASSP,1,0,Sparsity-based DOA estimation using co-prime arrays.,6,2.996377624955998e-07
-573697866e3b12023e66c09b,"['26203', '618112']",2013,ICASSP,1,0,Tensor video coding.,6,2.996377624955998e-07
-573697866e3b12023e66c0b9,"['763455', '1093781']",2013,ICASSP,1,0,Optimalwidely-linear distributed beamforming for relay networks.,6,2.996377624955998e-07
-573697866e3b12023e66c0c5,"['1535303', '708322', '584031']",2013,ICASSP,1,0,Finite-precision error modeling using affine arithmetic.,6,2.996377624955998e-07
-573697866e3b12023e66c0da,"['659760', '1350939', '1654669']",2013,ICASSP,1,0,An effective fuzzy clustering algorithm for image segmentation.,6,2.996377624955998e-07
-573697866e3b12023e66c0e0,"['39538', '1586550', '410412', '1742305', '1397994']",2013,ICASSP,1,0,GMM-based significance decoding.,6,2.996377624955998e-07
-573697866e3b12023e66c0e7,"['781331', '324268', '112026', '1302311']",2013,ICASSP,1,0,Nonlinear unmixing of hyperspectral data with partially linear least-squares support vector regression.,6,2.996377624955998e-07
-573697866e3b12023e66c0eb,"['626213', '1560934']",2013,ICASSP,1,0,Factorized context modelling for Text-to-Speech synthesis.,6,2.996377624955998e-07
-573697866e3b12023e66c0f9,"['1312536', '1668988']",2013,ICASSP,1,0,Single target detection and tracking using direction-of-arrival spectrum.,6,2.996377624955998e-07
-573697866e3b12023e66c108,"['649218', '1220665', '1733611', '1754774']",2013,ICASSP,1,0,Reduced-complexity binary-weight-coded associative memories.,6,2.996377624955998e-07
-573697866e3b12023e66c10e,"['1858537', '1792312', '1698100']",2013,ICASSP,1,0,Subframe video synchronization by matching trajectories.,6,2.996377624955998e-07
-573697866e3b12023e66c112,"['505527', '1058915', '1583799']",2013,ICASSP,1,0,Distributed cooperative spectrum sensingwith double-topology.,6,2.996377624955998e-07
-573697866e3b12023e66c11e,"['1837701', '1238870', '754002', '837796']",2013,ICASSP,1,0,A robust test for nonlinear mixture detection in hyperspectral images.,6,2.996377624955998e-07
-573697866e3b12023e66c123,"['1620615', '548898', '1235201', '1517749']",2013,ICASSP,1,0,A greedy sparsity-promoting LMS for distributed adaptive learning in diffusion networks.,6,2.996377624955998e-07
-573697866e3b12023e66c12f,"['902983', '1106758']",2013,ICASSP,1,0,Infinite kernel linear prediction for joint estimation of spectral envelope and fundamental frequency.,6,2.996377624955998e-07
-573697866e3b12023e66c143,"['1203905', '74382']",2013,ICASSP,1,0,A novel method to derive explicit KLT kernel for AR(1) process.,6,2.996377624955998e-07
-573697866e3b12023e66c151,"['1397647', '624639']",2013,ICASSP,1,0,Subspace clustering via thresholding and spectral clustering.,6,2.996377624955998e-07
-573697866e3b12023e66c15f,"['891720', '748351', '102669', '1345782']",2013,ICASSP,1,0,Boosted dictionaries for image restoration based on sparse representations.,6,2.996377624955998e-07
-573697866e3b12023e66c174,"['1051460', '1243483', '1659537', '516072']",2013,ICASSP,1,0,MEMS-based inertial navigation based on a magnetic field map.,6,2.996377624955998e-07
-573697866e3b12023e66c177,"['1644210', '1724837']",2013,ICASSP,1,0,Data-efficient quickest change detection in distributed and multi-channel systems.,6,2.996377624955998e-07
-573697866e3b12023e66c19e,"['736103', '1308455']",2013,ICASSP,1,0,Efficient algorithm for rational kernel evaluation in large lattice sets.,6,2.996377624955998e-07
-573697866e3b12023e66c1c7,['1871721'],2013,ICASSP,1,0,Tying rotations of covariance matrices via riemannian subspace clustering.,6,2.996377624955998e-07
-573697866e3b12023e66c1d5,"['1866133', '1884992', '1321222']",2013,ICASSP,1,0,Lasso screening with a small regularization parameter.,6,2.996377624955998e-07
-573697866e3b12023e66c1ee,"['452896', '1521122', '1660842']",2013,ICASSP,1,0,A new phase-based feature representation for robust speech recognition.,6,2.996377624955998e-07
-573697866e3b12023e66c230,"['1784646', '825819', '1373687']",2013,ICASSP,1,0,Benchmarking methods for audio-visual recognition using tiny training sets.,6,2.996377624955998e-07
-573697866e3b12023e66c233,['1815658'],2013,ICASSP,1,0,Blind calibration and remedy for mis-oriented velocity-sensor triads.,6,2.996377624955998e-07
-573697866e3b12023e66c249,"['1749113', '1094840', '119460']",2013,ICASSP,1,0,Optimization of the per tone noise protection in xDSL systems employing virtual noise.,6,2.996377624955998e-07
-5736978a6e3b12023e670335,[],2013,ICASSP,0,1781,"IEEE International Conference on Acoustics, Speech and Signal Processing, ICASSP 2013, Vancouver, BC, Canada, May 26-31, 2013",6,0.000453689736568
-573697966e3b12023e67c2f7,[],1988,ICLP/SPL,0,104,"Logic Programming, Proceedings of the Fifth International Conference and Symposium, Seattle, Washington, August 15-19, 1988 (2 Volumes)",0,1.7494164811994715e-05
-5736979b6e3b12023e680992,[],2000,EUROCRYPT,0,41,"Advances in Cryptology - EUROCRYPT 2000, International Conference on the Theory and Application of Cryptographic Techniques, Bruges, Belgium, May 14-18, 2000, Proceeding",8,1.0571274409134502e-05
-5736979b6e3b12023e680d73,['695373'],2000,EUROCRYPT,2,0,Efficient Concurrent Zero-Knowledge in the Auxiliary String Model.,8,4.964038515090376e-07
-5736979e6e3b12023e683ec3,"['434458', '437527']",2005,Selected Areas in Cryptography,2,0,Conditional Estimators: An Effective Attack on A5/1.,8,4.98333699703966e-07
-5736979e6e3b12023e683f5a,[],2004,Selected Areas in Cryptography,0,24,"Selected Areas in Cryptography, 11th International Workshop, SAC 2004, Waterloo, Canada, August 9-10, 2004, Revised Selected Papers",8,6.241052248824126e-06
-5736979f6e3b12023e683fce,[],2006,Selected Areas in Cryptography,0,25,"Selected Areas in Cryptography, 12th International Workshop, SAC 2005, Kingston, ON, Canada, August 11-12, 2005, Revised Selected Papers",8,6.495893747511565e-06
-5736979f6e3b12023e683ffd,"['64563', '1663180', '1593511']",2004,Selected Areas in Cryptography,2,0,An Improved Correlation Attack on A5/1.,8,4.985105794344272e-07
-5736979f6e3b12023e68489c,[],2001,HPCN,0,82,"High-Performance Computing and Networking, 9th International Conference, HPCN Europe 2001, Amsterdam, The Netherlands, June 25-27, 2001, Proceedings",1,2.0932948016968417e-05
-573697b76e3b12023e698b7b,"['489103', '277924', '276749']",2005,ISCAS (2),1,0,I/sup 2/CRA: contention resolution algorithm for intra- and inter-coefficient common subexpression elimination.,9,2.996558443292686e-07
-573697b76e3b12023e698b7f,"['692351', '640570', '1847088', '1872220']",2005,ISCAS (6),1,0,DWT domain multi-matcher on-line signature verification system.,9,2.996558443288305e-07
-573697b76e3b12023e698b94,"['1546814', '790215', '1690077']",2005,ISCAS (3),1,0,Novel and robust constant-g/sub m/ technique for rail-to-rail CMOS amplifier input stages.,9,2.996558443288305e-07
-573697b76e3b12023e698bac,"['273553', '1762110', '944424', '301247']",2005,ISCAS (4),1,0,Rate-distortion optimized video streaming with smooth quality constraint.,9,2.996558443288305e-07
-573697b76e3b12023e698bb6,"['581908', '423638']",2005,ISCAS (4),1,0,A Fourier series-based RLC interconnect model for periodic signals.,9,2.996558443288305e-07
-573697b76e3b12023e698bc0,"['1713053', '1210391']",2005,ISCAS (4),1,0,Low voltage analog synthesizer of orthogonal signals: a current-mode approach.,9,2.996558443288305e-07
-573697b76e3b12023e698bc4,"['1402906', '1186756', '1269616']",2005,ISCAS (5),1,0,Power consumption issues in high-speed high-resolution pipelined A/D converters.,9,2.996558443288305e-07
-573697b76e3b12023e698bf7,"['271779', '1889046', '1856864', '302447']",2005,ISCAS (4),1,0,Compressed-domain fall incident detection for intelligent home surveillance.,9,2.996558443288305e-07
-573697b76e3b12023e698c00,"['35260', '1006304', '747188']",2005,ISCAS (6),1,0,Adaptive processing applied to the design of highly digital analog interfaces.,9,2.996558443288305e-07
-573697b76e3b12023e698c07,"['1459614', '1875630', '877182']",2005,ISCAS (5),1,0,A new robust Kalman filter algorithm under outliers and system uncertainties.,9,2.996558443288305e-07
-573697b76e3b12023e698c15,"['138747', '694723']",2005,ISCAS (2),1,0,Cascaded double-stage configuration for high-performance broadband amplification in CMOS.,9,2.996558443288305e-07
-573697b76e3b12023e698c25,['1616057'],2005,ISCAS (2),1,0,Jittered uniform sampling - examples.,9,2.996558443288305e-07
-573697b76e3b12023e698c53,"['1441175', '504713']",2005,ISCAS (5),1,0,Performance analysis for MIMO systems using zero forcing detector over Rice fading channel.,9,2.996558443288305e-07
-573697b76e3b12023e698c59,"['785933', '794410', '1854767']",2005,ISCAS (1),1,0,A design methodology for hybrid carry-lookahead/carry-select adders with reconfigurability.,9,2.996558443288305e-07
-573697b76e3b12023e698c6d,"['942106', '271821', '1855682']",2005,ISCAS (3),1,0,An embedded processor based SOC test platform.,9,2.996558443288305e-07
-573697b76e3b12023e698c74,"['182184', '1071859', '1493612']",2005,ISCAS (1),1,0,High linear digitally programmable gain amplifier.,9,2.996558443288305e-07
-573697b76e3b12023e698c8a,"['1170131', '859470', '277512']",2005,ISCAS (4),1,0,New curvature-compensation technique for CMOS bandgap reference with sub-1-V operation.,9,2.996558443288305e-07
-573697b76e3b12023e698c9a,"['1730015', '1474614']",2005,ISCAS (1),1,0,Designing optimized pipelined global interconnects: algorithms and methodology impact.,9,2.996558443288305e-07
-573697b76e3b12023e698cac,"['1174323', '519861']",2005,ISCAS (2),1,0,"A 16, 000-gate-count optically reconfigurable gate array in a standard 0.35µm CMOS technology.",9,2.996558443288305e-07
-573697b76e3b12023e698cbd,"['1833920', '265694', '800536']",2005,ISCAS (4),1,0,Recognition of power quality events using wavelet-based dynamic structural neural networks.,9,2.996558443288305e-07
-573697b76e3b12023e698ccd,"['1178596', '1106239', '637769']",2005,ISCAS (6),1,0,Design of UWB pulses based on B-splines.,9,2.996558443288305e-07
-573697b76e3b12023e698cd6,"['1759257', '1868448', '1890493']",2005,ISCAS (3),1,0,Efficient frame-level pipelined array architecture for full-search block-matching motion estimation.,9,2.996558443288305e-07
-573697b76e3b12023e698cd7,"['562540', '1640655', '1131106']",2005,ISCAS (1),1,0,Stability of a shift-variant 2-D state-space digital filter.,9,2.996558443288305e-07
-573697b76e3b12023e698ce0,"['1819061', '1356431', '968208', '1835678', '1833401']",2005,ISCAS (6),1,0,DOA-matrix decoder for STBC-MC-CDMA systems over frequency-selective channel.,9,2.996558443288305e-07
-573697b76e3b12023e698d01,"['1902387', '1350616', '1350729', '1620972', '321457', '1641806']",2005,ISCAS (6),1,0,"Various implementations of topographic, sensory, cellular wave computers.",9,2.996558443288305e-07
-573697b76e3b12023e698d0b,"['394363', '315735']",2005,ISCAS (3),1,0,Emotional speech classification using Gaussian mixture models.,9,2.996558443288305e-07
-573697b76e3b12023e698d13,"['453044', '1301276']",2005,ISCAS (3),1,0,Programmable floating-gate CMOS resistors.,9,2.996558443288305e-07
-573697b76e3b12023e698d2b,"['405909', '812680', '1302550', '188869', '1590912']",2005,ISCAS (4),1,0,Convergence analysis of a background interstage gain calibration technique for pipelined ADCs.,9,2.996558443288305e-07
-573697b76e3b12023e698d37,"['1061574', '1378038', '1156461', '59005']",2005,ISCAS (4),1,0,A countermeasure against differential power analysis based on random delay insertion.,9,2.996558443288305e-07
-573697b76e3b12023e698d48,"['537034', '1347388', '1344780']",2005,ISCAS (1),1,0,Single amplifier bi-quadratic filter topologies in transimpedance configuration.,9,2.996558443288305e-07
-573697b76e3b12023e698d4b,"['626379', '1828443', '262794', '197719', '740888']",2005,ISCAS (2),1,0,Combined 2-D transform and quantization architectures for H.264 video coders.,9,2.996558443288305e-07
-573697b76e3b12023e698d53,"['1492959', '364834']",2005,ISCAS (6),1,0,Architectural issues in base-station frequency synthesizers.,9,2.996558443288305e-07
-573697b76e3b12023e698d62,"['903188', '1356431', '646429']",2005,ISCAS (6),1,0,Uplink channel estimation for space-time block coded multiple-input multiple-output MC-CDMA systems.,9,2.996558443288305e-07
-573697b76e3b12023e698d63,"['1160999', '1599748', '556274', '69445']",2005,ISCAS (4),1,0,A complete receiver solution for a chaotic direct-sequence spread spectrum communication system.,9,2.996558443288305e-07
-573697b76e3b12023e698d66,"['776617', '1756093', '867349', '1577545']",2005,ISCAS (2),1,0,"A methodology for design, modeling, and analysis of networks-on-chip.",9,2.996558443288305e-07
-573697b76e3b12023e698d6c,"['578664', '202069', '800068', '1686928']",2005,ISCAS (3),1,0,A unified procedure for locating the stabilizable regions of two-dimensional switched systems.,9,2.996558443288305e-07
-573697b76e3b12023e698d72,"['1791147', '70755', '1314822', '783286']",2005,ISCAS (2),1,0,Fast mode decision and motion estimation for H.264 with a focus on MPEG-2/H.264 transcoding.,9,2.996558443288305e-07
-573697b76e3b12023e698d8f,['590464'],2005,ISCAS (3),1,0,Three-layer symmetrical and asymmetrical associative memories for image applications.,9,2.996558443288305e-07
-573697b76e3b12023e698dc8,"['861144', '743138', '1803365']",2005,ISCAS (1),1,0,Lower-bound estimation for multi-bitwidth scheduling.,9,2.996558443288305e-07
-573697b76e3b12023e698dcd,['384092'],2005,ISCAS (5),1,0,A low-complexity iterative interference suppressor for coded aperiodic spreading CDMA systems.,9,2.996558443288305e-07
-573697b76e3b12023e698dd8,"['372493', '1300978', '1407845', '1391535', '1301276']",2005,ISCAS (3),1,0,"A low-power, programmable bandpass filter section for higher-order filter-bank applications.",9,2.996558443288305e-07
-573697b76e3b12023e698ddd,"['856624', '904883', '1636664', '1104227']",2005,ISCAS (3),1,0,Retinal prosthesis device based on pulse-frequency-modulation vision chip.,9,2.996558443288305e-07
-573697b76e3b12023e698de2,"['678091', '1127296', '38866']",2005,ISCAS (3),1,0,A new CMOS wideband RF front-end for multistandard low-IF wireless receivers.,9,2.996558443288305e-07
-573697b76e3b12023e698dec,"['860487', '202229', '1885771', '777861', '1352366']",2005,ISCAS (2),1,0,Joint carrier recovery and adaptive equalization for high-order QAM.,9,2.996558443288305e-07
-573697b76e3b12023e698df9,"['1856556', '1602612', '690180', '178869']",2005,ISCAS (1),1,0,Battery-aware dynamic voltage scaling in multiprocessor embedded system.,9,2.996558443288305e-07
-573697b76e3b12023e698e00,"['1694607', '1635358', '1501050', '1693963']",2005,ISCAS (1),1,0,Minimum augmentation to bi-connect specified vertices of a graph with upper bounds on vertex-degree.,9,2.996558443288305e-07
-573697b76e3b12023e698e04,"['1537716', '1862309', '1822708']",2005,ISCAS (6),1,0,The realization of a mismatch-free and 1.5-bit over-sampling pipelined ADC.,9,2.996558443288305e-07
-573697b76e3b12023e698e07,"['1204833', '1753189', '922266']",2005,ISCAS (3),1,0,A low-power static dual edge-triggered flip-flop using an output-controlled discharge configuration.,9,2.996558443288305e-07
-573697b76e3b12023e698e18,"['659761', '883382', '1763990']",2005,ISCAS (2),1,0,Diversity gain's influence on MIMO's detection.,9,2.996558443288305e-07
-573697ba6e3b12023e69bfd0,[],2005,,0,1581,"International Symposium on Circuits and Systems (ISCAS 2005), 23-26 May 2005, Kobe, Japan",9,0.0004027756162153
-573697d16e3b12023e6b01bd,['31138'],2000,CHES,1,0,Protecting Smart Cards from Passive Power Analysis with Detached Power Supplies.,8,3.048951214447854e-07
-573697d16e3b12023e6b01d6,[],2000,CHES,0,27,"Cryptographic Hardware and Embedded Systems - CHES 2000, Second International Workshop, Worcester, MA, USA, August 17-18, 2000, Proceedings",8,7.0449450566457805e-06
-573697d16e3b12023e6b01db,"['100021', '1731762', '837965']",2000,CHES,1,0,A Comparative Study of Performance of AES Final Candidates Using FPGAs.,8,3.048951214447854e-07
-573697d16e3b12023e6b01e7,"['629985', '1779881', '1705336', '888987', '1397785', '804772']",2000,CHES,1,0,A 155 Mbps Triple-DES Network Encryptor.,8,3.048951214447854e-07
-573697d16e3b12023e6b01ef,"['548782', '290582']",2000,CHES,1,0,A High Performance Reconfigurable Elliptic Curve Processor for GF(2m).,8,3.048951214447854e-07
-573697d16e3b12023e6b0210,"['753819', '999256']",2000,CHES,1,0,On Boolean and Arithmetic Masking against Differential Power Analysis.,8,3.048951214447854e-07
-573697d16e3b12023e6b0217,['1594073'],2000,CHES,2,0,Physical Security Devices for Computer Subsystems: A Survey of Attacks and Defences.,8,5.262424911541645e-07
-573697d16e3b12023e6b021e,"['1056271', '1292858', '1514995']",2000,CHES,1,0,Efficient Generation of Prime Numbers.,8,3.048951214447854e-07
-573697d16e3b12023e6b0228,['1768300'],2000,CHES,1,0,A Timing Attack against RSA with the Chinese Remainder Theorem.,8,3.048951214447854e-07
-573697d16e3b12023e6b0232,['1666213'],2000,CHES,1,0,Using Second-Order Power Analysis to Attack DPA Resistant Software.,8,3.048951214447854e-07
-573697d16e3b12023e6b0253,"['1665550', '720050']",2000,CHES,1,0,Software-Hardware Trade-Offs: Application to A5/1 Cryptanalysis.,8,3.048951214447854e-07
-573697d16e3b12023e6b027c,['1017260'],2000,CHES,1,0,Power Analysis Attacks and Algorithmic Approaches to their Countermeasures for Koblitz Curve Cryptosystems.,8,3.048951214447854e-07
-573697d16e3b12023e6b02b7,"['1637627', '1500265', '856134', '1226429']",2000,CHES,1,0,A Design for Modular Exponentiation Coprocessor in Mobile Telecommunication Terminals.,8,3.048951214447854e-07
-573697d16e3b12023e6b02cd,"['1574793', '1220704', '935978', '1103872']",2000,CHES,1,0,Implementation of Elliptic Curve Cryptographic Coprocessor over GF(2m) on an FPGA.,8,3.048951214447854e-07
-573697d16e3b12023e6b02e5,"['356406', '855466', '71744']",2000,CHES,1,0,Software Implementation of Elliptic Curve Cryptography over Binary Fields.,8,3.048951214447854e-07
-573697d16e3b12023e6b02eb,['657292'],2000,CHES,1,0,Montgomery Multiplier and Squarer in GF(2m).,8,3.048951214447854e-07
-573697d16e3b12023e6b02f2,"['292726', '753819', '1252882']",2000,CHES,1,0,Differential Power Analysis in the Presence of Hardware Countermeasures.,8,3.048951214447854e-07
-573697d16e3b12023e6b02ff,['313258'],2000,CHES,1,0,Data Integrity in Hardware for Modular Arithmetic.,8,3.048951214447854e-07
-573697d16e3b12023e6b0327,"['728137', '93377']",2000,CHES,1,0,An Energy Efficient Reconfigurable Public-Key Cryptograhpy Processor Architecture.,8,3.048951214447854e-07
-573697d56e3b12023e6b4452,[],1994,KR,0,60,"Proceedings of the 4th International Conference on Principles of Knowledge Representation and Reasoning (KR'94). Bonn, Germany, May 24-27, 1994.",0,1.2162665663001186e-05
-573697d66e3b12023e6b4664,[],1992,KR,0,69,"Proceedings of the 3rd International Conference on Principles of Knowledge Representation and Reasoning (KR'92). Cambridge, MA, October 25-29, 1992.",0,1.391794849057371e-05
-573697e66e3b12023e6c312e,[],2000,ASE,0,45,"The Fifteenth IEEE International Conference on Automated Software Engineering, ASE 2000, Grenoble, France, September 11-15, 2000",1,1.156847727899243e-05
-573697e66e3b12023e6c3523,[],1999,ASE,0,52,"The 14th IEEE International Conference on Automated Software Engineering, ASE 1999, Cocoa Beach, Florida, USA, 12-15 October 1999",1,1.3350900038265218e-05
-573697f16e3b12023e6cc54e,[],2000,HiPC,0,51,"High Performance Computing - HiPC 2000, 7th International Conference, Bangalore, India, December 17-20, 2000, Proceedings",1,1.3052202708890404e-05
-573698176e3b12023e6eb920,[],1997,ESEC,0,39,"Software Engineering - ESEC/FSE '97, 6th European Software Engineering Conference Held Jointly with the 5th ACM SIGSOFT Symposium on Foundations of Software Engineering, Zurich, Switzerland, September 22-25, 1997, Proceedings",1,9.084069946476826e-06
-5736981a6e3b12023e6eda10,[],1995,ICS,0,51,"Proceedings of the 9th international conference on Supercomputing, ICS 1995, Barcelona, Spain, July 3-7, 1995",1,1.2161455606674976e-05
-5736981a6e3b12023e6edbd1,[],1988,ICS,0,67,"Proceedings of the 2nd international conference on Supercomputing, ICS 1988, Saint Malo, France, July 4-8, 1988",1,1.700960840655286e-05
-5736981a6e3b12023e6edc2d,[],1999,ICS,0,57,"Proceedings of the 13th international conference on Supercomputing, ICS 1999, Rhodes, Greece, June 20-25, 1999",1,1.4573389603658144e-05
-5736981a6e3b12023e6edc64,[],2001,ICS,0,45,"Proceedings of the 15th international conference on Supercomputing, ICS 2001, Sorrento, Napoli, Italy, June 16-21, 2001",1,1.1521370945264596e-05
-5736981d6e3b12023e6f077e,"['434458', '437527', '1225429']",2003,CRYPTO,2,0,Instant Ciphertext-Only Cryptanalysis of GSM Encrypted Communication.,8,4.970139475021319e-07
-5736981d6e3b12023e6f08b2,[],2003,CRYPTO,0,36,"Advances in Cryptology - CRYPTO 2003, 23rd Annual International Cryptology Conference, Santa Barbara, California, USA, August 17-21, 2003, Proceedings",8,9.298191609044855e-06
-573698266e3b12023e6f823a,[],1998,IEEE PACT,0,50,"Proceedings of the 1998 International Conference on Parallel Architectures and Compilation Techniques, Paris, France, October 12-18, 1998",1,1.254044755468656e-05
-573698276e3b12023e6f8e91,[],1991,FOCS,0,86,"32nd Annual Symposium on Foundations of Computer Science, San Juan, Puerto Rico, 1-4 October 1991",1,2.040798429250008e-05
-573698276e3b12023e6f9127,[],1995,FOCS,0,73,"36th Annual Symposium on Foundations of Computer Science, Milwaukee, Wisconsin, 23-25 October 1995",1,1.691370201999661e-05
-573698276e3b12023e6f9358,[],1990,FOCS,0,44,"31st Annual Symposium on Foundations of Computer Science, St. Louis, Missouri, USA, October 22-24, 1990, Volume II",1,9.63089784746772e-06
-573698276e3b12023e6f9430,[],1985,FOCS,0,61,"26th Annual Symposium on Foundations of Computer Science, Portland, Oregon, USA, 21-23 October 1985",0,1.278854853957632e-05
-573698276e3b12023e6f961c,[],1997,FOCS,0,63,"38th Annual Symposium on Foundations of Computer Science, FOCS '97, Miami Beach, Florida, USA, October 19-22, 1997",1,1.6042896205888692e-05
-573698276e3b12023e6f9794,[],1992,FOCS,0,77,"33rd Annual Symposium on Foundations of Computer Science, Pittsburgh, Pennsylvania, USA, 24-27 October 1992",1,1.7375762857844493e-05
-5736982b6e3b12023e6fd143,[],1995,MICRO,0,37,"Proceedings of the 28th Annual International Symposium on Microarchitecture, Ann Arbor, Michigan, USA, November 29 - December 1, 1995",1,9.23424459104346e-06
-5736982b6e3b12023e6fd23f,[],1992,MICRO,0,42,"Proceedings of the 25th Annual International Symposium on Microarchitecture, Portland, Oregon, November 1992",1,1.025553865264593e-05
-5736982c6e3b12023e6fddea,[],1998,SODA,0,79,"Proceedings of the Ninth Annual ACM-SIAM Symposium on Discrete Algorithms, 25-27 January 1998, San Francisco, California.",1,1.8172133943400535e-05
-5736982e6e3b12023e6ff852,[],2000,INDOCRYPT,0,25,"Progress in Cryptology - INDOCRYPT 2000, First International Conference in Cryptology in India, Calcutta, India, December 10-13, 2000, Proceedings",8,6.495893747432061e-06
-5736982e6e3b12023e6ff893,"['437527', '1271563']",2000,INDOCRYPT,2,0,Cryptanalysis of the A5/1 GSM Stream Cipher.,8,4.983336997012629e-07
-573698406e3b12023e70a218,[],1994,ICSM,0,48,"Proceedings of the International Conference on Software Maintenance, ICSM 1994, Victoria, BC, Canada, September 1994",1,1.21126149366979e-05
-573698406e3b12023e70a425,[],1995,ICSM,0,37,"Proceedings of the International Conference on Software Maintenance, ICSM 1995, Opio (Nice), France, October 17-20, 1995",1,9.531230890880934e-06
-573698476e3b12023e71053f,[],1996,LCPC,0,38,"Languages and Compilers for Parallel Computing, 8th International Workshop, LCPC'95, Columbus, Ohio, USA, August 10-12, 1995, Proceedings",1,9.743803018802688e-06
-573698476e3b12023e7105d3,[],1997,LCPC,0,44,"Languages and Compilers for Parallel Computing, 9th International Workshop, LCPC'96, San Jose, California, USA, August 8-10, 1996, Proceedings",1,1.0944050123981075e-05
-573698476e3b12023e710658,[],1994,LCPC,0,36,"Languages and Compilers for Parallel Computing, 6th International Workshop, Portland, Oregon, USA, August 12-14, 1993, Proceedings",1,8.979563562752088e-06
-573698476e3b12023e7107ee,[],1993,,0,84,"CIKM 93, Proceedings of the Second International Conference on Information and Knowledge Management, Washington, DC, USA, November 1-5, 1993",0,1.4345677504447876e-05
-5736985a6e3b12023e7204e9,"['1294671', '1195562', '404076', '1393078', '1661716']",1979,SIGMOD Conference,374,7,Access Path Selection in a Relational Database Management System.,0,1.3875459632970116e-05
-573698636e3b12023e729045,[],1986,AAAI,0,79,"Proceedings of the 5th National Conference on Artificial Intelligence. Philadelphia, PA, August 11-15, 1986. Volume 2: Engineering.",0,1.5899153690545806e-05
-573698636e3b12023e729326,[],1980,AAAI,0,95,"Proceedings of the 1st Annual National Conference on Artificial Intelligence. Stanford University, August 18-21, 1980.",0,1.984927411153532e-05
-573698636e3b12023e72982b,[],1986,AAAI,0,120,"Proceedings of the 5th National Conference on Artificial Intelligence. Philadelphia, PA, August 11-15, 1986. Volume 1: Science.",0,2.239585662064342e-05
-573698636e3b12023e729a42,[],1984,AAAI,0,69,"Proceedings of the National Conference on Artificial Intelligence. Austin, TX, August 6-10, 1984.",0,1.4007793453409897e-05
-573698636e3b12023e729aa3,[],1990,AAAI,0,174,"Proceedings of the 8th National Conference on Artificial Intelligence. Boston, Massachusetts, July 29 - August 3, 1990, 2 Volumes.",0,3.476011663658912e-05
-573698636e3b12023e729d69,[],1988,AAAI,0,150,"Proceedings of the 7th National Conference on Artificial Intelligence. St. Paul, MN, August 21-26, 1988.",0,3.0244518803600063e-05
-573698636e3b12023e72a157,[],1983,AAAI,0,92,"Proceedings of the National Conference on Artificial Intelligence. Washington, D.C., August 22-26, 1983.",0,1.9329826515921443e-05
-573698646e3b12023e72a64e,[],1982,AAAI,0,104,"Proceedings of the National Conference on Artificial Intelligence. Pittsburgh, PA, August 18-20, 1982.",0,1.910067200979308e-05
-573698776e3b12023e737b4d,[],1994,POPL,0,39,"Conference Record of POPL'94: 21st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, Portland, Oregon, USA, January 17-21, 1994",1,9.057246639534278e-06
-5736988a6e3b12023e748678,"['579840', '100794']",1999,,0,313,Datenbanken: Implementierungstechniken,0,1.722088605871313e-05
-5736988a6e3b12023e74870b,"['906215', '987231']",2004,,0,251,Engineering a Compiler,1,3.725373730869965e-05
-5736988a6e3b12023e748883,"['80291', '1042763']",2002,The Compiler Design Handbook,0,54,Compilation for Distributed Memory Architectures.,1,9.611690818686804e-06
-5736988a6e3b12023e748887,['871671'],2002,The Compiler Design Handbook,0,65,Register Allocation.,1,1.0144422151012357e-05
-5736988a6e3b12023e7489b0,[],1997,,0,113,The Computer Science and Engineering Handbook,1,2.738172470673916e-05
-5736988d6e3b12023e74b9d2,"['109400', '763246']",2002,,0,112,"Modern Compiler Implementation in Java, 2nd edition.",1,1.4130451046753407e-05
-5736988d6e3b12023e74ba10,"['1514596', '1408753', '1729062']",1995,,120,617,Foundations of Databases.,0,3.238926457597554e-05
-5736988d6e3b12023e74ba30,"['1329094', '1723118', '1225292']",1987,,317,297,Concurrency Control and Recovery in Database Systems.,0,2.720502708529109e-05
-5736988e6e3b12023e74c3ad,[],1995,,0,38,Computer Science Today: Recent Trends and Developments,1,9.735854073471376e-06
-5736988e6e3b12023e74c546,['756969'],1982,,354,0,"Principles of Database Systems, 2nd Edition",0,1.3434954610258484e-05
-5736988e6e3b12023e74c547,['756969'],1988,,366,0,"Principles of Database  and Knowledge-Base Systems, Volume I",0,1.5651613280648738e-05
-5736988e6e3b12023e74c54a,['756969'],1989,,246,538,"Principles of Database  and Knowledge-Base Systems, Volume II",0,3.198908257734298e-05
-5736988e6e3b12023e74c54f,['367794'],1983,,256,192,The Theory of Relational Databases.,0,1.6983836089420303e-05
-58437748ac44360f10838a7b,"['958302', '462117', '1881127', '970823', '1801353']",2016,IGARSS,1,0,Forest above ground biomass estimation from P-band tomography data.,4,2.996284584676502e-07
-58437748ac44360f10838a7c,"['1028804', '1208660', '15851', '1023443']",2016,IGARSS,1,0,Evaluation of empirical radar rainfall model during the massive flood in Malaysia.,4,2.996284584672154e-07
-58437748ac44360f10838a7d,"['647411', '1868110', '1817513']",2016,IGARSS,1,0,The effects of environmental factors on the coupling coefficient between SST and ENWF.,4,2.996284584672154e-07
-58437748ac44360f10838a7e,"['1092150', '569566']",2016,IGARSS,1,0,Uncertainty estimation for spaceborne hyperspectral data products and the relevance to the desis and EnMAP mission.,4,2.996284584672154e-07
-58437748ac44360f10838a7f,"['988583', '781493', '1339980', '970764', '792363']",2016,IGARSS,1,0,Unsupervised classification of the weak backscattering scatterers by the use of PolSAR imagery.,4,2.996284584672154e-07
-58437748ac44360f10838a80,"['1815378', '993841', '1856814', '879053']",2016,IGARSS,1,0,Spatio-temporal distribution of atmosphere pollutants during winter heating period over su-lu-yu-wan provinces.,4,2.996284584672154e-07
-58437748ac44360f10838a81,"['1550966', '1766640', '1837426', '1315096', '982179']",2016,IGARSS,1,0,Classification of PolSAR image with non-negative tensor factorization approach.,4,2.996284584672154e-07
-58437748ac44360f10838a82,"['625577', '512131']",2016,IGARSS,1,0,Ionospheric effect correction of ice motion mapping using interferometric synthetic aperture radar.,4,2.996284584672154e-07
-58437748ac44360f10838a83,"['263781', '1696664', '1303508']",2016,IGARSS,1,0,Effect of size and number of calibration plots on the estimation of stem diameter distributions using airborne laser scanning.,4,2.996284584672154e-07
-58437748ac44360f10838a84,"['1756458', '648635', '981242']",2016,IGARSS,1,0,Hyperspectral unmixing using total variation regularized reweighted sparse non-negative matrix factorization.,4,2.996284584672154e-07
-58437748ac44360f10838a85,"['932801', '864486', '989118']",2016,IGARSS,1,0,Canopy vertical parameters estimation using unmanned aerial vehicle (UAV) imagery.,4,2.996284584672154e-07
-58437748ac44360f10838a86,"['993841', '1815378', '1858552', '774143', '1812167', '879053']",2016,IGARSS,1,0,Estimate PM2.5 concentration in 500m resolution from satellite data and ground observation.,4,2.996284584672154e-07
-58437748ac44360f10838a87,"['197519', '202073', '198121']",2016,IGARSS,1,0,Constucting a unified framework for multi-source remotely sensed data fusion.,4,2.996284584672154e-07
-58437748ac44360f10838a88,"['1792123', '1792075', '1761474', '1898149']",2016,IGARSS,1,0,"SAR observation and WRF model simulation of land breeze in Hainan Island, China.",4,2.996284584672154e-07
-58437748ac44360f10838a89,"['942986', '1888829', '1866093', '995980', '492536']",2016,IGARSS,1,0,Rice phenology retrieval automatically using polarimetric SAR.,4,2.996284584672154e-07
-58437748ac44360f10838a8a,"['861176', '1890679', '202326', '1881127', '1356237', '1788349', '197641']",2016,IGARSS,1,0,Vegetation fraction inversion and influence analysis of annual ephemeral plants on sandy land evaluation.,4,2.996284584672154e-07
-58437748ac44360f10838a8b,"['603434', '648635', '981242', '1339980']",2016,IGARSS,1,0,Squaring weighted low-rank subspace clustering for hyperspectral image band selection.,4,2.996284584672154e-07
-58437748ac44360f10838a8c,"['1820553', '466808', '1675745']",2016,IGARSS,1,0,Continuous annual land use and land cover mapping using AVHRR GIMMS NDVI3g and MODIS MCD12Q1 datasets over China from 1982 to 2012.,4,2.996284584672154e-07
-58437748ac44360f10838a8d,"['1396547', '738663', '602630']",2016,IGARSS,1,0,Equipping undergraduate STEM majors with Geoscience and remote sensing tools: A pathway to replenishing the Geoscience workforce.,4,2.996284584672154e-07
-58437748ac44360f10838a8e,"['195477', '1792075', '1774900', '1272527']",2016,IGARSS,1,0,Marine oil slick and platform detection by compact polrimetric synthetic aperture radar.,4,2.996284584672154e-07
-58437748ac44360f10838a8f,"['1706571', '615123', '1586471', '1796168']",2016,IGARSS,1,0,Automated extraction of 3-D Ground Control Points from SAR images - an upcoming novel data product.,4,2.996284584672154e-07
-58437748ac44360f10838a90,"['413876', '380528', '380469']",2016,IGARSS,1,0,Classification of groundwater potential in Chaoyang area based on QUEST algorithm.,4,2.996284584672154e-07
-58437748ac44360f10838a91,"['229669', '476655', '1623387', '329851', '418386', '1744792', '1460722']",2016,IGARSS,1,0,Analysis of OMPS in-flight CCD dark current degradation.,4,2.996284584672154e-07
-58437748ac44360f10838a92,"['657682', '1538953', '1355811']",2016,IGARSS,1,0,Simulation of non-point source pollution load in the Xiangtan Stream basin through swat model.,4,2.996284584672154e-07
-58437748ac44360f10838a93,"['1756448', '880401', '1339918', '1761889']",2016,IGARSS,1,0,Automatic extraction of linear arranged targets from polarimetric SAR imagery.,4,2.996284584672154e-07
-58437748ac44360f10838a94,"['1356801', '1643732', '174573', '1554825']",2016,IGARSS,1,0,Study on the satellite-based precipitation downscaling algorithm in Tianshan mountain.,4,2.996284584672154e-07
-58437748ac44360f10838a95,"['1313618', '1853728', '264963', '820372', '1169463', '1011823', '1819536']",2016,IGARSS,1,0,Road network extraction via deep learning and line integral convolution.,4,2.996284584672154e-07
-58437748ac44360f10838a96,"['793682', '943050', '1351723']",2016,IGARSS,1,0,Tri_training for remote sensing classification based on multi-scale homogeneity.,4,2.996284584672154e-07
-58437748ac44360f10838a97,"['738248', '343777', '1453235', '36230', '18542', '864427', '1043042']",2016,IGARSS,1,0,Method for upscaling in-situ soil moisture measurements for calibration and validation of smap soil moisture products.,4,2.996284584672154e-07
-58437748ac44360f10838a98,"['883891', '1818939', '1786680', '1842935', '1865150']",2016,IGARSS,1,0,New results about quantum scattering characteristics of typical targets.,4,2.996284584672154e-07
-58437748ac44360f10838a99,"['787628', '1795007', '981809']",2016,IGARSS,1,0,Unsupervised nonlinear hyperspectral unmixing based on the generalized bilinear model.,4,2.996284584672154e-07
-58437748ac44360f10838a9a,"['1354970', '1518195', '781452']",2016,IGARSS,1,0,Decomposing LiDAR waveforms with nonparametric classification methods.,4,2.996284584672154e-07
-58437748ac44360f10838a9b,"['1204902', '1223792', '110628', '204353', '1640963', '64002']",2016,IGARSS,1,0,Validation methods for regional retrospective high resolution land cover for Ukraine.,4,2.996284584672154e-07
-58437748ac44360f10838a9c,"['1794566', '1832057', '777761']",2016,IGARSS,1,0,Intercomparison of integrated water vapor production retrievals from HY-2 and AMSR2.,4,2.996284584672154e-07
-58437748ac44360f10838a9d,"['819049', '1550341']",2016,IGARSS,1,0,"Subsidence and sea level rise measurements for Houston and Galveston, Texas.",4,2.996284584672154e-07
-58437748ac44360f10838a9e,"['491800', '1351810']",2016,IGARSS,1,0,A new formulation for POLSAR incoherent target decomposition.,4,2.996284584672154e-07
-58437748ac44360f10838a9f,"['996514', '989370', '1789507', '1856583', '1862693', '860503']",2016,IGARSS,1,0,Denoising of hyperspectral imagery using an intrinsic spectral representation model with spatial smoothness constraint.,4,2.996284584672154e-07
-58437748ac44360f10838aa0,"['1532307', '1092269', '1383019', '535403', '1691037', '760479']",2016,IGARSS,1,0,A wide-swath frequent revisit Canadian Hyperspectral Mission - concept study outcomes.,4,2.996284584672154e-07
-58437748ac44360f10838aa1,"['774732', '512324', '390797', '1263686', '32977', '1667045']",2016,IGARSS,1,0,"Monitoring ozone in different spectral regimes from space and balloon (Sentinel-4/-5P, TELIS).",4,2.996284584672154e-07
-58437748ac44360f10838aa2,"['401405', '493414', '239142', '1122618', '1614102']",2016,IGARSS,1,0,Investigation of the experimental TanDEM-X pursuit monostatic mode for oil and ship detection.,4,2.996284584672154e-07
-58437748ac44360f10838aa3,"['647363', '1817513', '1868110']",2016,IGARSS,1,0,Polarimetric features analysis of oil spills in C-band and L-band SAR images.,4,2.996284584672154e-07
-58437748ac44360f10838aa4,"['1834687', '1868333', '1425879', '1763953', '661363', '783077']",2016,IGARSS,1,0,Modified statistically homogeneous pixel selection for coherence estimation with multi-temporal insar images.,4,2.996284584672154e-07
-58437748ac44360f10838aa5,"['1888608', '1858344', '483025', '1767017', '1895731', '1842467']",2016,IGARSS,1,0,Object detection capability evaluation for SAR image.,4,2.996284584672154e-07
-58437748ac44360f10838aa6,"['1539551', '1825328', '1575196']",2016,IGARSS,1,0,GPS derived PWV for rainfall monitoring.,4,2.996284584672154e-07
-58437748ac44360f10838aa7,"['1270427', '1511035']",2016,IGARSS,1,0,Object detection using optical and LiDAR data fusion.,4,2.996284584672154e-07
-58437748ac44360f10838aa8,"['220745', '1844263', '823974', '1519549', '947173']",2016,IGARSS,1,0,DEM generation of intertidal zone in Korea using Unmanned Aerial Vehicle.,4,2.996284584672154e-07
-58437748ac44360f10838aa9,"['1789289', '1868114', '1766646']",2016,IGARSS,1,0,A sparse optimization method for masking effect removal in noise synthetic aperture radar.,4,2.996284584672154e-07
-58437748ac44360f10838aaa,"['1553874', '294837', '1358385']",2016,IGARSS,1,0,The MIRS GPM precipitation retrieval.,4,2.996284584672154e-07
-58437748ac44360f10838aab,"['1835519', '1553738', '1842622', '1802800']",2016,IGARSS,1,0,An overview of the scientific payloads in Chinese Chang'e-3 lunar mission.,4,2.996284584672154e-07
-58437748ac44360f10838bc8,[],2016,IGARSS,0,1905,"2016 IEEE International Geoscience and Remote Sensing Symposium, IGARSS 2016, Beijing, China, July 10-15, 2016",4,0.0004852564911871
+5550372b7cea80f9541783e5,[],1993,ICPP (2),0,50,"Proceedings of the 1993 International Conference on Parallel Processing, Syracuse University, NY, USA, August 16-20, 1993. Volume II: Software.",1,1.2799212131861036e-05
+5550372b7cea80f9541783fe,[],1989,ICPP (2),0,40,"Proceedings of the International Conference on Parallel Processing, ICPP '89, The Pennsylvania State University, University Park, PA, USA, August 1989. Volume 2: Software.",1,1.0253060544880338e-05
+5550373b7cea80f95417ae9b,[],1991,DEXA,0,96," Proceedings of the International Conference on Database and Expert Systems Applications, Berlin, Germany, 1991.",0,1.923967105967788e-05
+5550373b7cea80f95417aeb4,[],1990,DEXA,0,89,"Proceedings of the International Conference on Database and Expert Systems Applications, Vienna, Austria, August 29-31, 1990.",0,1.7638850928819513e-05
+5550373b7cea80f95417aeb6,[],1992,DEXA,0,98,"Proceedings of the International Conference on Database and Expert Systems Applications, Valencia, Spain, 1992.",0,2.030932785509044e-05
+555037787cea80f954189493,[],1994,ICMCS,0,63,"Proceedings of the International Conference on Multimedia Computing and Systems, ICMCS 1994, Boston, Massachusetts, USA, May 14-19, 1994",0,1.299090658149865e-05
+555037847cea80f95418b811,[],1990,ACM Conference on Computer Science,0,132,"Proceedings of the ACM 18th Annual Computer Science Conference on Cooperation, CSC '90, Sheraton Washington Hotel, Washington, DC, USA, February 20-22, 1990",3,3.346921513639335e-05
+573695406e3b12023e46f1ff,['1391686'],2009,Encyclopedia of Database Systems,1,0,Web Page Quality Metrics.,2,2.981074618517368e-07
+573695406e3b12023e46f200,"['1596987', '453764', '1270561']",2009,Encyclopedia of Database Systems,1,0,MAP.,2,2.981074618517368e-07
+573695406e3b12023e46f201,[],2009,Encyclopedia of Database Systems,1,0,Web 2.0 Applications.,2,2.981074618517368e-07
+573695406e3b12023e46f202,['89940'],2009,Encyclopedia of Database Systems,1,0,Top-K Selection Queries on Multimedia Datasets.,2,2.981074618517368e-07
+573695406e3b12023e46f203,['1163843'],2009,Encyclopedia of Database Systems,1,0,Visual Clustering.,2,2.981074618517368e-07
+573695406e3b12023e46f204,['80477'],2009,Encyclopedia of Database Systems,1,0,XML Information Integration.,2,2.981074618517368e-07
+573695406e3b12023e46f205,['1236197'],2009,Encyclopedia of Database Systems,1,0,Success at n.,2,2.981074618517368e-07
+573695406e3b12023e46f206,[],2009,Encyclopedia of Database Systems,1,0,Image Compression.,2,2.981074618517368e-07
+573695406e3b12023e46f207,['1151798'],2009,Encyclopedia of Database Systems,1,0,Copyright Issues in Databases.,2,2.981074618517368e-07
+573695406e3b12023e46f208,['1384797'],2009,Encyclopedia of Database Systems,1,0,Multimedia Data.,2,2.981074618517368e-07
+573695406e3b12023e46f209,[],2009,Encyclopedia of Database Systems,1,0,Relational Database.,2,2.981074618517368e-07
+573695406e3b12023e46f20a,[],2009,Encyclopedia of Database Systems,1,0,Bi-clustering.,2,2.981074618517368e-07
+573695406e3b12023e46f20b,[],2009,Encyclopedia of Database Systems,1,0,Java Annotations.,2,2.981074618517368e-07
+573695406e3b12023e46f20c,['553401'],2009,Encyclopedia of Database Systems,1,0,Divergence from Randomness Models.,2,2.981074618517368e-07
+573695406e3b12023e46f20d,[],2009,Encyclopedia of Database Systems,1,0,Meta Data Registry.,2,2.981074618517368e-07
+573695406e3b12023e46f20e,[],2009,Encyclopedia of Database Systems,1,0,Query Reformulation.,2,2.981074618517368e-07
+573695406e3b12023e46f20f,[],2009,Encyclopedia of Database Systems,1,0,Page Representations.,2,2.981074618517368e-07
+573695406e3b12023e46f210,[],2009,Encyclopedia of Database Systems,1,0,Motion Graphics.,2,2.981074618517368e-07
+573695406e3b12023e46f211,[],2009,Encyclopedia of Database Systems,1,0,Relational Query Processor.,2,2.981074618517368e-07
+573695406e3b12023e46f212,[],2009,Encyclopedia of Database Systems,1,0,Time Series Database Querying.,2,2.981074618517368e-07
+573695406e3b12023e46f218,[],2009,Encyclopedia of Database Systems,1,1,Ad hoc Retrieval models.,2,5.184477597421214e-07
+573695406e3b12023e46f252,[],2009,Encyclopedia of Database Systems,1,1,Active Databases.,2,5.184477597421214e-07
+573695406e3b12023e46f253,[],2009,Encyclopedia of Database Systems,1,1,Accountability.,2,5.184477597421214e-07
+573695406e3b12023e46f2cf,[],2009,Encyclopedia of Database Systems,1,1,Data Anomalies.,2,5.184477597421214e-07
+573695406e3b12023e46f45e,[],2009,Encyclopedia of Database Systems,1,1,Data Acquisition.,2,5.184477597421214e-07
+573695406e3b12023e46f510,"['1514596', '1268645', '1695158']",2009,Encyclopedia of Database Systems,2,0,Active XML.,2,5.184477597421214e-07
+573695406e3b12023e46f575,['901893'],2009,Encyclopedia of Database Systems,2,0,Direct Attached Storage.,2,5.184477597421214e-07
+573695406e3b12023e46f5be,[],2009,Encyclopedia of Database Systems,1,1,Active Document.,2,5.184477597420814e-07
+573695406e3b12023e46f72a,[],2009,Encyclopedia of Database Systems,1,1,Data Analysis.,2,5.184477597421214e-07
+573695406e3b12023e46f744,[],2009,Encyclopedia of Database Systems,1,1,ACID Transaction.,2,5.184477597421214e-07
+573695406e3b12023e46f749,['901893'],2009,Encyclopedia of Database Systems,2,0,Active Storage.,2,5.184477597421214e-07
+573695406e3b12023e46f7be,['1317395'],2009,Encyclopedia of Database Systems,2,0,Processor Cache.,2,5.184477597421214e-07
+573695406e3b12023e46f7d6,['553401'],2009,Encyclopedia of Database Systems,2,0,Information Retrieval Models.,2,5.184477597420814e-07
+573695416e3b12023e46f7f8,['191644'],2009,Encyclopedia of Database Systems,1,3,Abstraction.,2,7.411803458265111e-07
+573695416e3b12023e46f82a,[],2009,Encyclopedia of Database Systems,1,1,Data Cache.,2,5.184477597420814e-07
+573695416e3b12023e46f873,[],2009,Encyclopedia of Database Systems,1,1,DAS.,2,5.184477597420814e-07
+573695416e3b12023e46f88b,[],2009,Encyclopedia of Database Systems,1,1,Access Methods.,2,5.184477597420814e-07
+573695416e3b12023e46f8bf,[],2009,Encyclopedia of Database Systems,0,3067,Encyclopedia of Database Systems,2,0.0007757621007489
+573695416e3b12023e46f8d6,"['1701999', '151291']",2009,Encyclopedia of Database Systems,2,0,Data Acquisition and Dissemination in Sensor Networks.,2,5.184477597420814e-07
+573695416e3b12023e46f91a,['532550'],2009,Encyclopedia of Database Systems,2,0,Discretionary Access Control.,2,5.184477597421214e-07
+573695416e3b12023e46f9bf,['1485748'],2009,Encyclopedia of Database Systems,2,0,Database Languages for Sensor Networks.,2,5.184477597421214e-07
+573695416e3b12023e46f9f1,[],2009,Encyclopedia of Database Systems,1,1,Acquisitional Query Languages.,2,5.184477597420814e-07
+573695416e3b12023e46fa15,['644736'],2009,Encyclopedia of Database Systems,2,0,Data Conflicts.,2,5.184477597420814e-07
+573695416e3b12023e46faf9,['468284'],2009,Encyclopedia of Database Systems,2,0,Access Path.,2,5.184477597421214e-07
+573695416e3b12023e46fb21,[],2009,Encyclopedia of Database Systems,1,1,DAC.,2,5.184477597420814e-07
+573695416e3b12023e46fb45,['566364'],2009,Encyclopedia of Database Systems,2,0,Transaction.,2,5.184477597420814e-07
+573695416e3b12023e46fbc0,"['214192', '550939']",2009,Encyclopedia of Database Systems,2,0,Auditing and Forensic Analysis.,2,5.184477597420814e-07
+573695416e3b12023e46fbdb,['873753'],2009,Encyclopedia of Database Systems,2,0,Event Driven Architecture.,2,5.184477597420814e-07
+573695416e3b12023e46fd11,[],2009,Encyclopedia of Database Systems,1,1,Active Disks.,2,5.184477597420814e-07
+573695416e3b12023e46fdb3,['780472'],2009,Encyclopedia of Database Systems,2,0,Data Mining.,2,5.184477597420814e-07
+573695426e3b12023e470c0b,[],2011,,0,1171,"Encyclopedia of Cryptography and Security, 2nd Ed.",9,0.0002971233841947
+573695426e3b12023e470c15,['1506809'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,2,Zeroization.,9,7.812260106895254e-07
+573695426e3b12023e470db3,['600605'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,4,Access Control from an OS Security Perspective.,8,1.1770546744412428e-06
+573695426e3b12023e470f35,['124737'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,7,A5/1.,9,1.8293035123117543e-06
+573695436e3b12023e470f70,['191891'],2011,Encyclopedia of Cryptography and Security (2nd Ed.),1,8,Zero-Knowledge.,9,2.055530862895406e-06
+5736955d6e3b12023e484bf2,"['812076', '388948']",1977,ACM Trans. Database Syst.,317,2,Database Abstractions: Aggregation and Generalization.,0,1.2773060259667642e-05
+5736955d6e3b12023e484bf4,['1323417'],1976,ACM Trans. Database Syst.,609,16,The Entity-Relationship Model - Toward a Unified View of Data.,0,2.75961818402651e-05
+5736965d6e3b12023e56a892,"['1856770', '253341', '276618']",1994,IEEE Trans. Knowl. Data Eng.,1,21,Document Processing for Automatic Knowledge Acquisition.,3,3.691073081765968e-06
+5736965d6e3b12023e56a95e,['186807'],1992,IEEE Trans. Knowl. Data Eng.,1,19,Population-Based Learning: A Method for Learning from Examples Under Resource Constraints.,3,3.366222268988323e-06
+5736965d6e3b12023e56aaad,['1558157'],1997,IEEE Trans. Knowl. Data Eng.,0,9,Strategic Reasoning Under Trade-Offs Between Action Costs and Advantages.,3,1.4824789276290364e-06
+5736965d6e3b12023e56aaf0,"['1419960', '820001', '1590528']",1990,IEEE Trans. Knowl. Data Eng.,1,8,PM: A System to Support the Automatic Acquisition of Programming Knowledge.,3,1.4400165982649452e-06
+5736965e6e3b12023e56ab97,"['214480', '1166424']",1993,IEEE Trans. Knowl. Data Eng.,1,16,Eliciting Knowledge and Transferring It Effectively to a Knowledge-Based System.,3,2.608248878159896e-06
+5736965e6e3b12023e56abeb,"['216637', '915922']",1993,IEEE Trans. Knowl. Data Eng.,0,4,Towards and Art and Science of Knowledge Engineering.,3,8.38335349681909e-07
+5736965e6e3b12023e56ac34,"['1856770', '644859', '392682', '1792184', '276618']",1997,IEEE Trans. Knowl. Data Eng.,0,3,Modified Fractal Signature (MFS): A New Approach to Document Analysis for Automatic Knowledge Acquisition.,3,5.022612093498891e-07
+5736965e6e3b12023e56ac59,"['186807', '147644', '995862', '45370']",1995,IEEE Trans. Knowl. Data Eng.,1,7,Genetics-Based Learning of New Heuristics: Rational Scheduling of Experiments and Generalization.,3,1.3240434496759612e-06
+5736965e6e3b12023e56ad7a,['1558157'],1993,IEEE Trans. Knowl. Data Eng.,3,5,A Method for Putting Common Sense into an Expert Systems.,3,1.0877768021705991e-06
+5736965e6e3b12023e56af13,"['1602512', '1281480', '1604585']",1998,IEEE Trans. Knowl. Data Eng.,0,13,A Framework for Learning in Search-Based Systems.,3,2.437758442810488e-06
+5736965e6e3b12023e56af5c,"['231631', '186807']",1989,IEEE Trans. Knowl. Data Eng.,2,5,Knowledge and Data Engineering.,3,9.893088805323069e-07
+5736965e6e3b12023e56b026,['1558157'],1995,IEEE Trans. Knowl. Data Eng.,0,17,Causal Knowledge Elicitation Based on Elicitation Failures.,3,2.691472324847856e-06
+5736965e6e3b12023e56b07d,"['60695', '1183024']",1998,IEEE Trans. Knowl. Data Eng.,0,7,Reorganizing Knowledge to Improve Performance.,3,1.3020498953611975e-06
+5736965e6e3b12023e56b14b,"['1424356', '1771090']",1997,IEEE Trans. Knowl. Data Eng.,0,5,Elecitation of Knowledge from Multiple Experts Using Network Inference.,3,9.591049034620344e-07
+5736965e6e3b12023e56b1b6,"['384228', '1183024']",1995,IEEE Trans. Knowl. Data Eng.,0,5,Automating Knowledge Acquisition: A Propositional Approach to Representing Expertise as an Alternative to Repertory Grid Technique.,3,8.235350572121508e-07
+5736965e6e3b12023e56b244,"['912437', '515178', '717388', '1302471']",1991,IEEE Trans. Knowl. Data Eng.,1,7,An Approach to Knowledge Acquisition Based on the Structure of Personal Construct Systems.,3,1.3792787622189874e-06
+5736965e6e3b12023e56b274,"['656400', '1447565']",1997,IEEE Trans. Knowl. Data Eng.,0,8,Feature Selection via Discretization.,3,1.2587734023360802e-06
+573696856e3b12023e59187a,['563799'],1993,ACM Comput. Surv.,97,314,Query Evaluation Techniques for Large Databases.,0,1.6081693161639822e-05
+573696866e3b12023e5918f8,"['1118827', '869057']",1984,ACM Comput. Surv.,115,201,Query Optimization in Database Systems.,0,1.2834080379427463e-05
+573696896e3b12023e593e6e,['1665703'],1988,International Journal of Man-Machine Studies,3,0,Acquiring Strategic Knowledge from Experts.,3,4.813076398523285e-07
+573696896e3b12023e594070,"['809155', '757695']",1987,International Journal of Man-Machine Studies,5,0,Expertise Transfer and Complex Problems: Using AQUINAS as a Knowledge-Acquisition Workbench for Knowledge-Based Systems.,3,7.772548442634213e-07
+573696896e3b12023e5941d5,"['1166424', '214480']",1987,International Journal of Man-Machine Studies,3,0,KITTEN: Knowledge Initiation and Transfer Tools for Experts and Novices.,3,5.000715862255865e-07
+573696926e3b12023e59c426,['418654'],1970,Commun. ACM,584,0,A Relational Model of Data for Large Shared Data Banks.,0,2.288226489791864e-05
+573696936e3b12023e59caca,"['885231', '783896', '1393078', '690447']",1976,Commun. ACM,330,0,The Notions of Consistency and Predicate Locks in a Database System.,0,1.2826538966254162e-05
+573696b86e3b12023e5ba327,"['1057116', '933331', '1125083', '271813', '1311281']",2012,IGARSS,1,0,Helicopter UAV systems for in situ measurements and sensor placement.,6,2.996315445111007e-07
+573696b86e3b12023e5ba32c,"['1352057', '776138', '792369', '1533846']",2012,IGARSS,1,0,Soil moisture retrieval by remote sensing and multi-year trend analysis of the soil moisture in Tibetan Plateau.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba32e,"['1493981', '205664', '1572093']",2012,IGARSS,1,0,Radiative impact of biomass burning events: the October 2010 smoke episode in South-East Asia.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba336,"['597107', '1774900', '1756375', '1643725', '1797976', '195477']",2012,IGARSS,1,0,Thermal front retreivals from SAR imagery.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba349,"['781365', '1352121', '1797530']",2012,IGARSS,1,0,Observation of the Penglai 19-3 oil leak and its impact on the sea area ecosystem.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba34b,"['143918', '688468']",2012,IGARSS,1,0,Icebergs detection with TerraSAR-X data using a polarimetric notch filter.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba34c,"['343526', '1728010', '1848026', '234873']",2012,IGARSS,1,0,Residual information to estimate uncertainty and improve the spectral linear mixing model solution.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba354,"['684221', '1335969']",2012,IGARSS,1,0,The vegetation phenology detection in Amazon tropical evergreen forests using SPOT-VEGETATION 11-y time series.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba355,"['1498984', '201129', '1558978', '798848']",2012,IGARSS,1,0,Unsupervised river detection in RapidEye data.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba368,"['1132348', '990448', '540445', '74077', '304180', '181533', '375043']",2012,IGARSS,1,0,Building an on-demand web service system for Global Agricultural Drought Monitoring and Forecasting.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba36a,"['903180', '1756448', '645049', '1440313', '575016', '488997', '790410']",2012,IGARSS,1,0,Error model and calibration of synthetic aperture interferometric radiometer based on visibility function.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba377,"['1761400', '1356923', '1886857', '1813057']",2012,IGARSS,1,0,A semi-analytic method to speed up the convergence of successive order of scattering model.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba37a,"['1344973', '520011']",2012,IGARSS,1,0,Use of high-resolution SAR intensity images for damage detection from the 2010 Haiti earthquake.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba381,"['1061564', '558990', '1372586']",2012,IGARSS,1,0,Characterization of the spatial and temporal stability of the Eastan-Tarctic plateau in the low-microwave bands.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba383,"['97840', '309203', '217951', '1584627', '1004333']",2012,IGARSS,1,0,Robust unsupervised nonparametric change detection of SAR images.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba398,"['642266', '479193', '1585640', '1123133', '1669026', '1005850']",2012,IGARSS,1,0,Relating tropical forest biomass to P-band SAR tomography.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3a0,"['1071797', '553918', '116540', '557706', '1293511', '502625', '134110', '58581', '373820', '1376070', '391240', '352418', '1290687']",2012,IGARSS,1,0,COSMO/SkyMed AO projects - advanced 2D and 3D Focusing of COSMO/SkyMed SAR data.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3b0,"['1796366', '1679038', '1827966', '493157', '1671240', '858703']",2012,IGARSS,1,0,Quantitative analysis of sea level rise caused by continental input.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3b2,"['624982', '1664929', '889867', '1145842', '558990', '1062266', '1705553', '1435895', '688468', '841592', '702504']",2012,IGARSS,1,0,Algorithm for retrieval of snow mass from Ku- and X-band radar backscatter measurements.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3b9,"['1047459', '1461740', '909825', '1220343']",2012,IGARSS,1,0,Analysis of fisheye photography for monitoring canopy structure during larch sawfly outbreak.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3c5,"['1518938', '414668']",2012,IGARSS,1,0,Surface observation of thwaites ice tongue in west antarctica using dual-polarized TerraSAR-X data.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3c6,"['1473599', '59916', '350450', '34556']",2012,IGARSS,1,0,Introduction to the new metasensing ground-based SAR: Technical description and data analysis.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3cc,"['172014', '1659811']",2012,IGARSS,1,0,"Thermal remote sensing for land surface temperature monitoring: Maraqeh County, Iran.",6,2.9963154451066386e-07
+573696b86e3b12023e5ba3e6,"['932792', '564411', '255412', '1632995']",2012,IGARSS,1,0,Estimation of flight altitude in high frequency surface wave radar.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3e8,"['1885675', '1894450', '1450599', '197673']",2012,IGARSS,1,0,"Spatial variability of soil microelements in the middle and lower reaches of Heihe River Basin, Northwest China.",6,2.9963154451066386e-07
+573696b86e3b12023e5ba3eb,"['844616', '1769378', '1718307', '71852']",2012,IGARSS,1,0,Gaussian localized active contours for multitemporal analysis of urban tree crowns.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3ed,['917777'],2012,IGARSS,1,0,Sentinel-5 Precursor mission and potential application examples.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba3fe,"['865834', '1645282']",2012,IGARSS,1,0,Assessment of hyperspectral classification methods for benthic cover type mapping.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba400,"['1670340', '825648', '854665']",2012,IGARSS,1,0,Time series image fusion: Application and improvement of STARFM for land cover map and production.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba402,"['1794127', '1614102']",2012,IGARSS,1,0,Sea surface wind field retrieval from TerraSAR-X and its applications to coastal areas.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba40e,"['715964', '849592', '1098390']",2012,IGARSS,1,0,Moisture retrievals of boreal forest soil using HUT-2D synthetic aperture radiometer.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba416,"['1335754', '1005850', '311240', '1238978']",2012,IGARSS,1,0,Forest microwave backscatter modelling at P Band: Temperate pine forest.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba418,"['95220', '961086', '200774', '1316463', '1686745', '200561', '347827', '1435863', '802422', '579681']",2012,IGARSS,1,0,Low frequency bistatic SAR measurements.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba42e,"['1440313', '1355840', '903180', '575016', '645049', '774502', '790410']",2012,IGARSS,1,0,Calibration of staggered Y-shaped array by 120 degree rotation.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba430,"['1867260', '1425879', '1868333', '1859328', '1450354', '533628']",2012,IGARSS,1,0,An N2.5 back-projection algorithm for SAR imaging.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba43e,"['1454937', '46037']",2012,IGARSS,1,0,Improvement of ALOS interferogram quality by use of the local co-registration method using singular-point and amplitude information.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba441,"['100880', '1563868', '1145431', '1326907', '939111', '177465', '733296', '930468', '1141990']",2012,IGARSS,1,0,Operational status of apex and characteristics of the apex open science data set.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba44c,"['1135687', '304564', '777614', '1539369', '1532599', '1168050', '660644', '1867197', '202290', '1831499']",2012,IGARSS,1,0,Research on urban heat island effect during Beijing urbanization process by remote sensing and its impact on environmental health.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba450,"['698269', '857819', '931229']",2012,IGARSS,1,0,A new technique for visualization of forest fire smoke plumes using MODIS data.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba453,"['553193', '1068368', '576323']",2012,IGARSS,1,0,Thickness estimation of marine oil slicks with near-infrared MERIS and MODIS imagery: The Lebanon oil spill case study.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba45e,"['1877448', '584539', '1304829']",2012,IGARSS,1,0,Automatic threshold selection for morphological attribute profiles.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba462,"['1142118', '868129', '286108', '1041052', '27258']",2012,IGARSS,1,0,TerraSAR-X contributions to GEO Supersites and selected results.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba469,"['462858', '1263974', '688468', '102235', '965692']",2012,IGARSS,1,0,Glacier surface velocity measure based on polarimetric tracking.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba46c,"['1546694', '1652985']",2012,IGARSS,1,0,Experimental study on accurate 3-dimensional imaging method based on extended RPM for rotating target.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba470,"['519349', '659606']",2012,IGARSS,1,0,Tibetan Plateau permafrost evolution monitoring using C- and L-band spaceborne SAR Interferometry.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba472,"['1018171', '48294', '306845']",2012,IGARSS,1,0,The pléiades system and data distribution.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba473,"['1779710', '1441676', '1560209', '868978', '1331378', '606272']",2012,IGARSS,1,0,Quality assessment of TerraSAR-X derived ground control points.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba474,"['1262905', '1853007', '716005', '1098390', '1701685']",2012,IGARSS,1,0,Peatland delineation under forest canopy with polsar data using model based decomposition technique.,6,2.9963154451066386e-07
+573696b86e3b12023e5ba47c,"['1828118', '1443990']",2012,IGARSS,1,0,Accurate aerosol remote sensing over bright land surfaces using AATSR.,6,2.9963154451066386e-07
+573696bb6e3b12023e5bc3d1,[],2012,IGARSS,0,1862,"2012 IEEE International Geoscience and Remote Sensing Symposium, Munich, Germany, July 22-27, 2012",6,0.000474309955311
+573696cd6e3b12023e5cd27a,[],2001,FSE,0,21,"Fast Software Encryption, 7th International Workshop, FSE 2000, New York, NY, USA, April 10-12, 2000, Proceedings",9,5.476381990574572e-06
+573696cd6e3b12023e5cd40b,"['59728', '31138', '372768']",2000,FSE,2,0,Real Time Cryptanalysis of A5/1 on a PC.,9,4.991363928597322e-07
+573696cd6e3b12023e5ce530,"['1755841', '732344', '1293740']",1988,ML,3,0,Trading Off Simplicity and Coverage in Incremental concept Learning.,3,5.284937386920396e-07
+573696ce6e3b12023e5ce91b,[],1996,ICML,0,66,"Machine Learning, Proceedings of the Thirteenth International Conference (ICML '96), Bari, Italy, July 3-6, 1996",3,1.6562484709670043e-05
+573696ce6e3b12023e5cea1a,[],1988,ICML,0,49,"Machine Learning, Proceedings of the Fifth International Conference on Machine Learning, Ann Arbor, Michigan, USA, June 12-14, 1988",3,1.1028621646303688e-05
+573696ce6e3b12023e5ceb85,[],1993,ICML,0,44,"Machine Learning, Proceedings of the Tenth International Conference, University of Massachusetts, Amherst, MA, USA, June 27-29, 1993",3,1.033037750337064e-05
+573696ed6e3b12023e5eb25a,[],1997,DCC,0,42,"Proceedings of the 7th Data Compression Conference (DCC '97), Snowbird, Utah, March 25-27, 1997.",1,1.0757527473785469e-05
+573696f76e3b12023e5f32e9,['783896'],1978,Advanced Course: Operating Systems,303,0,Notes on Data Base Operating Systems.,0,1.2067342588534637e-05
+573697086e3b12023e60227e,[],1981,IJCAI,0,218,"Proceedings of the 7th International Joint Conference on Artificial Intelligence (IJCAI '81), Vancouver, BC, Canada, August 1981",3,5.420231329929592e-05
+573697096e3b12023e602822,[],1991,IJCAI,0,192,"Proceedings of the 12th International Joint Conference on Artificial Intelligence. Sydney, Australia, August 24-30, 1991",3,4.431024024473476e-05
+573697096e3b12023e602a2a,[],1985,IJCAI,0,263,"Proceedings of the 9th International Joint Conference on Artificial Intelligence. Los Angeles, CA, August 1985",0,5.494122400866773e-05
+573697096e3b12023e602b4f,[],1987,IJCAI,0,244,"Proceedings of the 10th International Joint Conference on Artificial Intelligence. Milan, Italy, August 1987",3,5.1127153154754273e-05
+573697096e3b12023e602c70,[],1977,IJCAI,0,235,"Proceedings of the 5th International Joint Conference on Artificial Intelligence. Cambridge, MA, August 1977",3,5.719051051332481e-05
+573697096e3b12023e602e5e,['428373'],1977,IJCAI,2,0,The Art of Artificial Intelligence: Themes and Case Studies of Knowledge Engineering.,3,4.6811536925935653e-07
+573697096e3b12023e602ef7,"['121692', '629285']",1993,IJCAI,2,0,The Statistical Learning of Accurate Heuristics.,3,4.437057168250674e-07
+573697096e3b12023e603711,[],1993,IJCAI,0,240,"Proceedings of the 13th International Joint Conference on Artificial Intelligence. Chambéry, France, August 28 - September 3, 1993",3,5.6810542457075854e-05
+573697096e3b12023e6037e9,[],1983,IJCAI,0,271,"Proceedings of the 8th International Joint Conference on Artificial Intelligence. Karlsruhe, FRG, August 1983",3,5.596992239027035e-05
+573697096e3b12023e603902,['898217'],1981,IJCAI,1,1,Recognition of 3-D Objects Using the Extended Gaussian Image.,3,5.715733089161295e-07
+5736970e6e3b12023e607412,[],1995,ILPS,0,58,"Logic Programming, Proceedings of the 1995 International Symposium, Portland, Oregon, USA, December 4-7, 1995",1,1.431578079714322e-05
+5736970f6e3b12023e608812,[],1976,ICSE,0,103,"Proceedings of the 2nd International Conference on Software Engineering, San Francisco, California, USA, October 13-15, 1976.",0,2.11726020183854e-05
+573697106e3b12023e6095f8,[],1996,ICSE,0,61,"18th International Conference on Software Engineering, Berlin, Germany, March 25-29, 1996, Proceedings.",1,1.5420849008143704e-05
+573697106e3b12023e6096e2,[],1998,ICSE,0,64,"Forging New Links, Proceedings of the 1998 International Conference on Software Engineering, ICSE 98, Kyoto, Japan, April 19-25, 1998.",1,1.6384230180906475e-05
+573697126e3b12023e609a89,[],1993,ICSE,0,48,"Proceedings of the 15th International Conference on Software Engineering, Baltimore, Maryland, USA, May 17-21, 1993.",1,1.111230890724248e-05
+573697246e3b12023e6169c3,"['1836992', '299168', '610005', '1882778']",2004,SMC (6),2,0,Security analysis of mandatory access control model.,8,4.99708405949992e-07
+573697256e3b12023e617be6,[],2004,SMC,0,1094,"Proceedings of the IEEE International Conference on Systems, Man & Cybernetics: The Hague, Netherlands, 10-13 October 2004",8,0.0002786473307351
+5736972c6e3b12023e61da2e,[],2000,,0,96,"VLDB 2000, Proceedings of 26th International Conference on Very Large Data Bases, September 10-14, 2000, Cairo, Egypt",0,1.5168932388731525e-05
+5736973a6e3b12023e629b5f,[],2000,STOC,0,85,"Proceedings of the Thirty-Second Annual ACM Symposium on Theory of Computing, May 21-23, 2000, Portland, OR, USA",9,2.1401903424675276e-05
+5736973a6e3b12023e629bec,"['104004', '1195650', '50168', '1147603']",1998,STOC,2,0,Min-Wise Independent Permutations (Extended Abstract).,9,3.470724664038811e-07
+5736973a6e3b12023e629cd5,[],1988,STOC,0,54,"Proceedings of the 20th Annual ACM Symposium on Theory of Computing, May 2-4, 1988, Chicago, Illinois, USA",9,1.1068983516455828e-05
+5736973a6e3b12023e629d32,"['1613852', '1226928', '1585133']",1998,STOC,2,0,Minimizing Stall Time in Single and Parallel Disk Systems.,9,3.321321481637073e-07
+5736973a6e3b12023e629d86,"['1689111', '1380078', '1414133', '281965', '761914']",2000,STOC,2,0,Computing the median with uncertainty.,9,3.47216173718406e-07
+5736973a6e3b12023e629f2d,[],1984,STOC,0,66,"Proceedings of the 16th Annual ACM Symposium on Theory of Computing, April 30 - May 2, 1984, Washington, DC, USA",0,1.4002706726168636e-05
+5736973a6e3b12023e629f97,"['1386655', '1260680', '1522357', '1559199']",2000,STOC,2,0,Resettable zero-knowledge (extended abstract).,9,4.912623187367172e-07
+5736973a6e3b12023e62a080,"['322858', '1191986', '87463']",1998,STOC,2,0,Concurrent Zero-Knowledge.,9,4.764314863427642e-07
+5736973a6e3b12023e62a0c2,[],1985,STOC,0,53,"Proceedings of the 17th Annual ACM Symposium on Theory of Computing, May 6-8, 1985, Providence, Rhode Island, USA",1,1.1321569944572244e-05
+5736973a6e3b12023e62a1d0,[],1998,STOC,0,76,"Proceedings of the Thirtieth Annual ACM Symposium on the Theory of Computing, Dallas, Texas, USA, May 23-26, 1998",9,1.780976863620262e-05
+5736973a6e3b12023e62a248,"['718376', '938721', '1165271']",1998,STOC,2,0,"Poly-Logarithmic Deterministic Fully-Dynamic Algorithms for Connectivity, Minimum Spanning Tree, 2-Edge, and Biconnectivity.",9,3.587526364355315e-07
+5736973a6e3b12023e62a3f2,"['28719', '598455', '125709', '756392']",1998,STOC,2,0,"Linear-Time Pointer-Machine Algorithms for Least Common Ancestors, MST Verification, and Dominators.",9,4.084560905094765e-07
+5736973a6e3b12023e62a4ea,"['1052354', '1301575', '1559199']",1988,STOC,2,0,Non-Interactive Zero-Knowledge and Its Applications (Extended Abstract),9,4.514772842860392e-07
+5736973c6e3b12023e62b89d,[],1999,KDD,0,64,"Proceedings of the Fifth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Diego, CA, USA, August 15-18, 1999",0,1.2223425035793416e-05
+573697466e3b12023e633460,"['355766', '1585582', '1401212', '1405604', '319864']",2015,EMBC,1,0,Geometry-independent assessment of renal volume in polycystic kidney disease from magnetic resonance imaging.,4,2.996219202647881e-07
+573697466e3b12023e633461,"['1600613', '1257557', '160235', '1665718', '1892854']",2015,EMBC,1,0,Investigation of automatically detected high frequency oscillations (HFOs) as an early predictor of seizure onset zone.,4,2.9962192026437254e-07
+573697466e3b12023e633462,"['1717844', '53545', '503410', '1489364', '962427', '1062549']",2015,EMBC,1,0,Dependence of gait parameters on height in typically developing children.,4,2.9962192026437254e-07
+573697466e3b12023e633463,"['9276', '1360616', '996909', '557629', '116499', '1414194', '465808']",2015,EMBC,1,0,A bio-inspired force control for cyclic manipulation of prosthetic hands.,4,2.9962192026437254e-07
+573697466e3b12023e633464,"['252695', '1372950', '1076314']",2015,EMBC,1,0,Distribution Entropy (DistEn): A complexity measure to detect arrhythmia from short length RR interval time series.,4,2.9962192026437254e-07
+573697466e3b12023e633465,"['758631', '1311085', '546615', '140838', '72275']",2015,EMBC,1,0,Automatic Gunn and Salus sign quantification in retinal images.,4,2.9962192026437254e-07
+573697466e3b12023e633466,"['1237655', '123346', '1123323', '1427221', '1442070', '1001924', '97526', '1734993']",2015,EMBC,1,0,Moddicom: a complete and easily accessible library for prognostic evaluations relying on image features.,4,2.9962192026437254e-07
+573697466e3b12023e633467,"['523744', '92206', '1511226', '502357', '559422']",2015,EMBC,1,0,Analysis of EEG variables to measure the affective dimensions of arousal and valence related to the vision of emotional pictures.,4,2.9962192026437254e-07
+573697466e3b12023e633468,"['959259', '1777934', '238674', '400843', '885974', '576954', '1419096']",2015,EMBC,1,0,Correlation of clinical parameters with cardiorespiratory behavior in successfully extubated extremely preterm infants.,4,2.9962192026437254e-07
+573697466e3b12023e633469,"['508068', '1267062', '999922', '1520579', '285248', '1336236']",2015,EMBC,1,0,From molecular model to sparse representation of chromatographic signals with an unknown number of peaks.,4,2.9962192026437254e-07
+573697466e3b12023e63346a,"['1650347', '1096394', '682774', '1411804', '1406636']",2015,EMBC,1,0,Influences of gender and anthropometric features on inspiratory inhaler acoustics and peak inspiratory flow rate.,4,2.9962192026437254e-07
+573697466e3b12023e63346b,"['1108445', '479567', '1473341']",2015,EMBC,1,0,Development of a phantom mimicking the functional and structural behaviors of the thigh muscles characterized with magnetic resonance elastography technique.,4,2.9962192026437254e-07
+573697466e3b12023e63346c,"['1781448', '950318', '645254']",2015,EMBC,1,0,Detection of fiducial points in ECG waves using iteration based adaptive thresholds.,4,2.9962192026437254e-07
+573697466e3b12023e63346d,"['544110', '1697439', '888410', '1384915']",2015,EMBC,1,0,Leveraging the crowd for annotation of retinal images.,4,2.9962192026437254e-07
+573697466e3b12023e63346e,"['43982', '89870', '109458', '106863', '1495802', '1224303', '440578', '1442543']",2015,EMBC,1,0,Prediction of Happy-Sad mood from daily behaviors and previous sleep history.,4,2.9962192026437254e-07
+573697466e3b12023e63346f,"['1288415', '1346842', '723902', '86949', '1282196', '1543686', '152771']",2015,EMBC,1,0,A reconfigurable medically cohesive biomedical front-end with ΣΔ ADC in 0.18µm CMOS.,4,2.9962192026437254e-07
+573697466e3b12023e633470,"['1570502', '1380626']",2015,EMBC,1,0,Sensors on instrumented socks for detection of lower leg edema - An in vitro study.,4,2.9962192026437254e-07
+573697466e3b12023e633471,"['357081', '1434080']",2015,EMBC,1,0,Computational studies on bladder small dorsal root ganglion neurons: Modelling BK channels.,4,2.9962192026437254e-07
+573697466e3b12023e633472,"['230794', '420256', '1030']",2015,EMBC,1,0,Alterations of diaphragm and rib cage morphometry in severe COPD patients by CT analysis.,4,2.9962192026437254e-07
+573697466e3b12023e633473,"['252695', '629787', '40947', '1165549', '1675322', '136258', '621479', '1076314']",2015,EMBC,1,0,Multi-lag HRV analysis discriminates disease progression of post-infarct people with no diabetes versus diabetes.,4,2.9962192026437254e-07
+573697466e3b12023e633474,['969380'],2015,EMBC,1,0,Reconstruction of signal in plastic scintillator of PET using Tikhonov regularization.,4,2.9962192026437254e-07
+573697466e3b12023e633475,"['1208625', '1302047', '113707', '1230210']",2015,EMBC,1,0,Surface texture detection with artificial fingers.,4,2.9962192026437254e-07
+573697466e3b12023e633476,"['1307549', '589075', '1003223', '1374928', '576776', '1388098', '1058906']",2015,EMBC,1,0,Classification of vertebral compression fractures in magnetic resonance images using spectral and fractal analysis.,4,2.9962192026437254e-07
+573697466e3b12023e633477,"['1209400', '1204297', '1623177', '231594', '1712481', '871519', '873318', '527835', '1469455', '587211']",2015,EMBC,1,0,Differentiating tremor patients using spiral analyses.,4,2.9962192026437254e-07
+573697466e3b12023e633478,"['980091', '776343', '195456', '1793957', '1901769']",2015,EMBC,1,0,Low-energy defibrillation with multi-electrodes stimulation: A simulation study.,4,2.9962192026437254e-07
+573697466e3b12023e633479,"['561174', '1102731']",2015,EMBC,1,0,Use of an holistic approach for effective adoption of User-Centred-Design techniques in diabetes disease management: Experiences in user need elicitation.,4,2.9962192026437254e-07
+573697466e3b12023e63347a,"['1569668', '1158199']",2015,EMBC,1,0,Improvement of emotional healthcare system with stress detection from ECG signal.,4,2.9962192026437254e-07
+573697466e3b12023e63347b,"['1571285', '1255071', '1386507', '1028067', '1689030']",2015,EMBC,1,0,Automated clustering of independent components for discontinuous sounds thoracic imaging.,4,2.9962192026437254e-07
+573697466e3b12023e63347c,"['1429594', '1646528', '92587', '946063', '1312246']",2015,EMBC,1,0,The effect of light-emitting diode irradiation at different wavelengths on calcification of osteoblast-like cells in 3D culture.,4,2.9962192026437254e-07
+573697466e3b12023e63347d,"['935374', '1694809']",2015,EMBC,1,0,Modulation of ERD/S by having a conscious target during lower-extremity motor imagery.,4,2.9962192026437254e-07
+573697466e3b12023e63347e,"['144606', '1609620', '1656316', '1729624', '1497572', '562318', '1081382']",2015,EMBC,1,0,Effect of fibre orientation on diastolic mechanics of human ventricle.,4,2.9962192026437254e-07
+573697466e3b12023e63347f,"['142424', '1494098', '376780', '612550']",2015,EMBC,1,0,Contactless vision-based pulse rate detection of Infants Under Neurological Examinations.,4,2.9962192026437254e-07
+573697466e3b12023e633480,"['1785534', '1377125', '1561982', '1564904', '1345893']",2015,EMBC,1,0,Automatic segmentation of the left ventricle into 17 anatomical regions in cardiac MR imaging.,4,2.9962192026437254e-07
+573697466e3b12023e633481,"['336377', '1545778', '1685572']",2015,EMBC,1,0,Chromatic and high-frequency cVEP-based BCI paradigm.,4,2.9962192026437254e-07
+573697466e3b12023e633482,"['142391', '1194248', '561612']",2015,EMBC,1,0,Annotation and prediction of stress and workload from physiological and inertial signals.,4,2.9962192026437254e-07
+573697466e3b12023e633483,"['954410', '1043418', '716061', '634610']",2015,EMBC,1,0,Effect of negative and positive emotions on EEG spectral asymmetry.,4,2.9962192026437254e-07
+573697466e3b12023e633484,"['1054171', '740513', '1654982', '127695', '94891', '922273']",2015,EMBC,1,0,A semi-mechanistic pharmacokinetic model of saquinavir combined with itraconazole in HIV-1-positive patients.,4,2.9962192026437254e-07
+573697466e3b12023e633485,"['1632873', '1224939', '997788', '52818']",2015,EMBC,1,0,The effect of lymph drainage on the myoelectric manifestation of vastus lateralis fatigue: Preliminary results.,4,2.9962192026437254e-07
+573697466e3b12023e633486,"['1890361', '1815658', '610420', '748667', '495456', '598859']",2015,EMBC,1,0,Early mastitis diagnosis through topological analysis of biosignals from low-voltage alternate current electrokinetics.,4,2.9962192026437254e-07
+573697466e3b12023e633487,"['37477', '60835']",2015,EMBC,1,0,Estimating in-home walking speed distributions for unobtrusive detection of mild cognitive impairment in older adults.,4,2.9962192026437254e-07
+573697466e3b12023e633488,"['1884015', '192410']",2015,EMBC,1,0,A Two-stage model for inference of target identity during 2D cursor control from natural gaze trajectories.,4,2.9962192026437254e-07
+573697466e3b12023e633489,"['602929', '1196462']",2015,EMBC,1,0,Ventricular ectopic beats classification using Sparse Representation and Gini Index.,4,2.9962192026437254e-07
+573697466e3b12023e63348a,"['75446', '77098', '1275350', '487244', '612393']",2015,EMBC,1,0,A computer vision based candidate for functional balance test.,4,2.9962192026437254e-07
+573697466e3b12023e63348b,"['308353', '1018669']",2015,EMBC,1,0,Automatic preprocessing of EEG signals in long time scale.,4,2.9962192026437254e-07
+573697466e3b12023e63348c,"['1474792', '1140407', '1522589', '694145']",2015,EMBC,1,0,Modeling of neonatal hemodynamics during PDA closure.,4,2.9962192026437254e-07
+573697466e3b12023e63348d,"['855906', '1121933', '1902605']",2015,EMBC,1,0,Automatic segmentation of nerve structures in ultrasound images using Graph Cuts and Gaussian processes.,4,2.9962192026437254e-07
+573697466e3b12023e63348e,"['716810', '772651', '1613129', '1506004', '377972']",2015,EMBC,1,0,Development and experimental validation of a mechanistic model of in vitro DNA recombination.,4,2.9962192026437254e-07
+573697466e3b12023e63348f,"['1881162', '1532475', '138377', '1831493', '1890672']",2015,EMBC,1,0,L0-regularized time-varying sparse inverse covariance estimation for tracking dynamic fMRI brain networks.,4,2.9962192026437254e-07
+573697466e3b12023e633490,"['1426582', '38018', '1310375', '445250']",2015,EMBC,1,0,Combining efficient hand-crafted features with learned filters for fast and accurate corneal nerve fibre centreline detection.,4,2.9962192026437254e-07
+573697476e3b12023e6336d8,[],2015,EMBC,0,2003,"37th Annual International Conference of the IEEE Engineering in Medicine and Biology Society, EMBC 2015, Milan, Italy, August 25-29, 2015",4,0.0005102044101602
+573697506e3b12023e63b62f,[],1994,DEXA,0,82,"Database and Expert Systems Applications, 5th International Conference, DEXA '94, Athens, Greece, September 7 - 9, 1994, Proceedings",0,1.3881428689869566e-05
+573697506e3b12023e63b73c,[],1995,,0,62,"Database and Expert Systems Applications, 6th International Conference, DEXA'95, London, United Kingdom, September 4-8, 1995, Proceedings",0,1.1952670620883654e-05
+573697516e3b12023e63bb00,[],1996,DEXA,0,78,"Database and Expert Systems Applications, 7th International Conference, DEXA '96, Zurich, Switzerland, September 9-13, 1996, Proceedings",0,1.4819340708402942e-05
+573697516e3b12023e63bb5b,[],1998,DEXA,0,82,"Database and Expert Systems Applications, 9th International Conference, DEXA '98, Vienna, Austria, August 24-28, 1998, Proceedings",0,1.755250358087205e-05
+573697516e3b12023e63bca0,[],1997,DEXA,0,63,"Database and Expert Systems Applications, 8th  International Conference, DEXA '97, Toulouse, France, September 1-5, 1997, Proceedings",0,1.2448340503353806e-05
+573697516e3b12023e63bcaf,[],1993,DEXA,0,79,"Database and Expert Systems Applications, 4th International Conference, DEXA'93, Prague, Czech Republic, September 6-8, 1993, Proceedings",0,1.5164831002807297e-05
+573697556e3b12023e63f7dc,"['1050795', '520581']",2009,CIS (2),1,0,Batch Verification for Certificateless Signature Schemes.,8,3.00440975385239e-07
+573697556e3b12023e63f7dd,"['979522', '1866738']",2009,CIS (2),1,0,A New Algorithm of Counting Human Based on Segmentation of Human Faces in Color Image.,8,3.00440975385239e-07
+573697556e3b12023e63f7ea,"['647920', '1892877']",2009,CIS (2),1,0,Research and Application of Digital Watermark for Video Copyright Protection.,8,3.00440975385239e-07
+573697556e3b12023e63f7fd,"['1886608', '990533', '1761865', '942229']",2009,CIS (2),1,0,Research on Job-Shop Scheduling Problem Based on Genetic Ant Colony Algorithms.,8,3.00440975385239e-07
+573697556e3b12023e63f802,[],2009,CIS (2),0,131,"2009 International Conference on Computational Intelligence and Security, CIS 2009, Beijing, China, 11-14 December 2009, Volume 2 - Workshop Papers",8,3.349456720894177e-05
+573697556e3b12023e63f812,"['1865894', '1790660']",2009,CIS (2),1,0,A Study on the Security Technology of Enterprise Mobile Information System.,8,3.00440975385239e-07
+573697556e3b12023e63f82f,"['660999', '1761918']",2009,CIS (2),1,0,A Hard Disk Encryption System Realized by the Digital Signal Processor.,8,3.00440975385239e-07
+573697556e3b12023e63f832,"['1805955', '1217356']",2009,CIS (2),1,0,Research of Security Mobile Payment Protocol in Communication Restrictions Scenarios.,8,3.00440975385239e-07
+573697556e3b12023e63f85e,"['996062', '1767091']",2009,CIS (2),1,0,Research and Application of Animal Disease Intelligent Diagnosis Based on Support Vector Machine.,8,3.00440975385239e-07
+573697556e3b12023e63f863,"['1800038', '1842719']",2009,CIS (2),1,0,One Application of CNN in Word-Processing.,8,3.00440975385239e-07
+573697556e3b12023e63f871,"['1792449', '1803507']",2009,CIS (2),1,0,A Novel Graph-based Image Annotation with Two Level Bag Generators.,8,3.00440975385239e-07
+573697556e3b12023e63f87f,"['1806388', '1858344', '1895772', '1440383']",2009,CIS (2),1,0,Data Encryption Based on Multi-granularity Reversible Cellular Automata.,8,3.00440975385239e-07
+573697556e3b12023e63f889,"['1670995', '648379']",2009,CIS (2),1,0,The Computer Realization of the QR Decomposition on Matrices with Full Column Rank.,8,3.00440975385239e-07
+573697556e3b12023e63f8c0,"['1865392', '1355450', '1353380', '598284', '776401']",2009,CIS (2),1,0,A New Hybrid Routing Protocol in Heterogeneous Wireless Networks.,8,3.00440975385239e-07
+573697556e3b12023e63f8c3,"['1880866', '1549350', '599464', '1830048']",2009,CIS (2),1,0,Study of Spectrum Analysis Based on EMD Adaptive Filter.,8,3.00440975385239e-07
+573697556e3b12023e63f900,"['790499', '1803549']",2009,CIS (2),1,0,SNS Based Information Authorization Delegation Mechanism and Implementation.,8,3.00440975385239e-07
+573697556e3b12023e63f936,"['792882', '1761106', '263879']",2009,CIS (2),1,0,A New Population Diversity Model in Intelligence Optimization Algorithms.,8,3.00440975385239e-07
+573697556e3b12023e63f93e,"['574143', '988978', '1534245', '861855']",2009,CIS (2),1,0,Secret Sharing System and Secret Sharing Matrix.,8,3.00440975385239e-07
+573697556e3b12023e63f949,"['450126', '581572', '564505']",2009,CIS (2),1,0,Network Security Protection Solutions of Electric Power Enterprise Based on VPN Technology.,8,3.00440975385239e-07
+573697556e3b12023e63f959,"['1172001', '904196', '1756650', '1601805']",2009,CIS (2),1,0,Implementation and Evaluation of a Novel Audio Watermarking Scheme.,8,3.00440975385239e-07
+573697556e3b12023e63f95c,"['386648', '202298']",2009,CIS (2),1,0,A New Password Authentication Scheme Using Fuzzy Extractor with Smart Card.,8,3.00440975385239e-07
+573697556e3b12023e63f96f,['1803565'],2009,CIS (2),1,0,Providing Efficient Secure DHTs Routing.,8,3.00440975385239e-07
+573697556e3b12023e63f991,"['645911', '776590', '1896550']",2009,CIS (2),1,0,An Adaptive Dynamic Ant System Based on Acceleration for TSP.,8,3.00440975385239e-07
+573697556e3b12023e63f9b2,"['481142', '1222560']",2009,CIS (2),1,0,Reinforcement Learning for Soccer Multi-agents System.,8,3.00440975385239e-07
+573697556e3b12023e63f9d7,"['533694', '539960', '975663']",2009,CIS (2),1,0,An Extended Method for Obtaining S-Boxes Based on Discrete Chaos Map System.,8,3.00440975385239e-07
+573697556e3b12023e63f9fd,"['1314798', '582281']",2009,CIS (2),1,0,A Reputation-Based Trust Model for P2P Systems.,8,3.00440975385239e-07
+573697556e3b12023e63fa4d,"['1050795', '520581']",2009,CIS (2),1,0,Provably Secure Certificateless Two-Party Authenticated Key Agreement Protocol without Pairing.,8,3.00440975385239e-07
+573697556e3b12023e63fa70,"['414724', '322205', '1804230']",2009,CIS (2),1,0,Immune Controller Design for Vertical-Joint Industry Robot.,8,3.00440975385239e-07
+573697556e3b12023e63fa75,"['204820', '1527510']",2009,CIS (2),1,0,Efficiency Measurement of Logistics Public Companies Basing on the Modified DEA Model.,8,3.00440975385239e-07
+573697556e3b12023e63fa77,"['975663', '1791324', '1852846', '1868029', '1813749', '596660']",2009,CIS (2),1,0,Nonlinear Regression Based Analysis on Cyanobacteria Blooms and Water Quality in a Beijing Shallow Lake.,8,3.00440975385239e-07
+573697556e3b12023e63fa85,"['1815658', '1869590', '1834391']",2009,CIS (2),1,0,Automatic Vulnerability Locating in Binary Patches.,8,3.00440975385239e-07
+573697556e3b12023e63fa86,"['1832941', '1247532', '1138069', '267304', '856457']",2009,CIS (2),1,0,Association Analysis and Content-Based Information Hiding Approach with High Hiding Capacity.,8,3.00440975385239e-07
+573697556e3b12023e63fa89,"['1856948', '1762099', '1532726']",2009,CIS (2),1,0,Exploring the Relationship Between Parental Information Literacy and Regulating Rules in Family by Data Mining.,8,3.00440975385239e-07
+573697556e3b12023e63fa8c,"['1815765', '1893679']",2009,CIS (2),1,0,Economic Control Based on Four-Element Connection Numbers Control.,8,3.00440975385239e-07
+573697556e3b12023e63fa8d,"['659761', '300454']",2009,CIS (2),1,0,Accuracy Analysis of a Parallel Robot with Particle Swarm Optimization.,8,3.00440975385239e-07
+573697556e3b12023e63fa8f,"['483195', '598294', '1169624']",2009,CIS (2),1,0,Evolutionary Algorithm for the Radio Planning and Coverage Optimization of 3G Cellular Networks.,8,3.00440975385239e-07
+573697556e3b12023e63fab4,"['1828235', '303534', '958291', '1813877', '197674']",2009,CIS (2),1,0,Support Vector Regression for Prediction of Housing Values.,8,3.00440975385239e-07
+573697556e3b12023e63fd78,"['1571169', '622791']",2009,CIS (2),2,0,Role-Based Access Control for Distributed Cooperation Environment.,8,5.005402700402495e-07
+573697566e3b12023e640072,"['533698', '1898382', '645081']",2009,CIS (2),1,0,Touching String Segmentation Using MRF.,8,3.004409753853252e-07
+573697566e3b12023e64008f,['41305'],2009,CIS (2),1,0,Research of an Improved Access Control Model in Active Networks.,8,3.004409753853252e-07
+573697566e3b12023e640098,"['775620', '489228']",2009,CIS (2),1,0,Quick Similarity Measurement of Source Code Based on Suffix Array.,8,3.004409753853252e-07
+573697566e3b12023e6400c1,"['375323', '968510']",2009,CIS (2),1,0,The Design for Warp Knitting Machine Traversing Control System Based on DSP.,8,3.004409753853252e-07
+573697566e3b12023e640117,"['1878704', '786755']",2009,CIS (2),1,0,Hybrid Memetic Algorithm for Uniting Classes of University Timetabling Problem.,8,3.004409753853252e-07
+573697566e3b12023e64011a,"['256281', '1820546', '1352113', '1355849']",2009,CIS (2),1,0,A Novel Trust Model Based on Temporal Historical Data for Access Control.,8,3.004409753853252e-07
+573697566e3b12023e64011b,"['1247636', '1891262', '1869377']",2009,CIS (2),1,0,Applying Dynamic Labels of the Biba Model in Forensic Evidence Analysis.,8,3.004409753853252e-07
+5736975c6e3b12023e64442c,[],1992,IFIP Congress (2),0,97,"Education and Society - Information Processing '92, Volume 2, Proceedings of the IFIP 12th World Computer Congress, Madrid, Spain, 7-11 September 1992",3,2.4746092449151223e-05
+573697636e3b12023e64a67e,[],1991,SC,0,93,"Proceedings Supercomputing '91, Albuquerque, NM, USA, November 18-22, 1991",1,2.3746587143878028e-05
+573697636e3b12023e64a80f,[],1995,SC,0,99,"Proceedings Supercomputing '95, San Diego, CA, USA, December 4-8, 1995",1,2.5274070642404102e-05
+573697636e3b12023e64aac6,[],1992,SC,0,90,"Proceedings Supercomputing '92, Minneapolis, MN, USA, November 16-20, 1992",1,2.298284244276421e-05
+573697636e3b12023e64ad69,[],1993,SC,0,96,"Proceedings Supercomputing '93, Portland, Oregon, USA, November 15-19, 1993",1,2.4391797477988604e-05
+573697646e3b12023e64bb77,[],1985,ICDCS,0,63,"Proceedings of the 5th International Conference on Distributed Computing Systems, Denver, Colorado, USA, May 13-17, 1985",0,1.223300397374197e-05
+573697646e3b12023e64bbd8,[],1987,ICDCS,0,67,"Proceedings of the 7th International Conference on Distributed Computing Systems, Berlin, Germany, September 1987",0,1.3970960235297524e-05
+573697646e3b12023e64bcd2,[],1986,ICDCS,0,74,"Proceedings of the 6th International Conference on Distributed Computing Systems, Cambridge, Massachusetts, USA, May 19-13, 1986",0,1.312897043019342e-05
+573697646e3b12023e64bdf2,[],1984,ICDCS,0,60,"Proceedings of the 4th International Conference on Distributed Computing Systems, San Francisco, California, USA, May 14-18, 1984",0,1.251881460954658e-05
+573697646e3b12023e64be2e,[],1992,ICDCS,0,85,"Proceedings of the 12th International Conference on Distributed Computing Systems, Yokohama, Japan, June 9-12, 1992",0,1.666311023989096e-05
+573697646e3b12023e64bef9,[],1988,ICDCS,0,66,"Proceedings of the 8th International Conference on Distributed Computing Systems, San Jose, California, USA, June 13-17, 1988",0,1.2541128951531643e-05
+573697646e3b12023e64bff7,[],1993,ICDCS,0,63,"Proceedings of the 13th International Conference on Distributed Computing Systems, Pittsburgh, Pennsylvania, USA, May 25-28, 1993",0,1.3011127719129614e-05
+573697666e3b12023e64d21f,[],1995,IPPS,0,122,"Proceedings of IPPS '95, The 9th International Parallel Processing Symposium, April 25-28, 1995, Santa Barbara, California, USA",1,3.112937005943718e-05
+573697666e3b12023e64d871,['1247788'],2008,IPDPS,2,0,How to make Discretionary Access Control secure against trojan horses.,8,4.998515269174998e-07
+573697666e3b12023e64dca1,[],2008,IPDPS,0,485,"22nd IEEE International Symposium on Parallel and Distributed Processing, IPDPS 2008, Miami, Florida USA, April 14-18, 2008",8,0.0001236136150658
+573697666e3b12023e64dcff,[],1999,IPPS/SPDP,0,113,"13th International Parallel Processing Symposium / 10th Symposium on Parallel and Distributed Processing (IPPS / SPDP '99), 12-16 April 1999, San Juan, Puerto Rico, Proceedings",1,2.8838174354793618e-05
+573697666e3b12023e64de0a,[],1997,IPPS,0,115,"11th International Parallel Processing Symposium (IPPS '97), 1-5 April 1997, Geneva, Switzerland, Proceedings",1,2.9347329761937136e-05
+573697766e3b12023e65d6ef,[],1992,EKAW,0,27,"Current Developments in Knowledge Acquisition - EKAW'92, 6th European Knowledge Acquisition Workshop, Heidelberg and Kaiserslautern, Germany, May 18-22, 1992",3,6.65305735026056e-06
+573697766e3b12023e65d799,"['1443017', '48285', '1305958', '1266731']",1992,EKAW,2,0,"Knowledge Acquisition for Explainable, Multi-Expert, Knowledge-Based Design Systems.",3,4.5560574946186475e-07
+573697786e3b12023e65ff35,[],1983,ISCA,0,54,"Proceedings of the 10th Annual Symposium on Computer Architecture, 1983",1,1.238541793002828e-05
+573697786e3b12023e660055,[],1991,ISCA,0,38,"Proceedings of the 18th Annual International Symposium on Computer Architecture. Toronto, Canada, May, 27-30 1991",1,9.055648031896416e-06
+5736977c6e3b12023e663198,['1771220'],1987,ICDE,1,3,Automatic Probabilistic Knowledge Acquisition from Data.,3,5.804294858981325e-07
+573697866e3b12023e66bfa2,"['85098', '778645', '429817']",2013,ICASSP,1,0,Performance of linear discriminant analysis in stochastic settings.,7,2.996377624961989e-07
+573697866e3b12023e66bfaa,"['1823256', '336179', '1688036', '1104202', '637008', '1688307', '943939']",2013,ICASSP,1,0,Bayesian semi-supervised audio event transcription based on Markov indian buffet process.,7,2.996377624957709e-07
+573697866e3b12023e66bfad,"['1174440', '1502094']",2013,ICASSP,1,0,Sparsity promoting dimensionality reduction for classification of high dimensional hyperspectral images.,7,2.996377624957709e-07
+573697866e3b12023e66bfaf,"['1004700', '1120175', '1267435']",2013,ICASSP,1,0,Random projections: A remedy for overfitting issues in time series prediction with echo state networks.,7,2.996377624957709e-07
+573697866e3b12023e66bfb1,"['65966', '520426', '1701167', '1400649', '1390124', '4790']",2013,ICASSP,1,0,A multiplication-free framework for signal processing and applications in biomedical image analysis.,7,2.996377624957709e-07
+573697866e3b12023e66bfc1,"['273455', '277844', '633163', '197597']",2013,ICASSP,1,0,Speaker clustering using vector representation with long-term feature for lecture speech recognition.,7,2.996377624957709e-07
+573697866e3b12023e66bfca,"['417079', '1029400', '908406', '1191849']",2013,ICASSP,1,0,Intra prediction mode coding for scalable HEVC.,7,2.996377624957709e-07
+573697866e3b12023e66bfd0,"['1863588', '161082']",2013,ICASSP,1,0,Sound source separation based on non-negative tensor factorization incorporating spatial cue as prior knowledge.,7,2.996377624957709e-07
+573697866e3b12023e66bfd6,"['1888052', '1804364']",2013,ICASSP,1,0,A vote of confidence based interest point detector.,7,2.996377624957709e-07
+573697866e3b12023e66bfe7,"['669569', '277313']",2013,ICASSP,1,0,Depth-based posture recognition by radar and vision fusion for real-time applications.,7,2.996377624957709e-07
+573697866e3b12023e66bffe,"['75161', '1511108']",2013,ICASSP,1,0,Subspace analysis for characterizing dynamic functional brain networks.,7,2.996377624957709e-07
+573697866e3b12023e66c00e,"['1555427', '744702', '1761475']",2013,ICASSP,1,0,Unifying PLDA and polynomial kernel SVMS.,7,2.996377624957709e-07
+573697866e3b12023e66c01f,"['1512055', '1564957', '129849', '1777517']",2013,ICASSP,1,0,Multi-group multicast beamforming in cognitive radio networks via rank-two transmit beamformed Alamouti space-time coding.,7,2.996377624957709e-07
+573697866e3b12023e66c020,"['1562867', '1405372', '1427923']",2013,ICASSP,1,0,A saliency-based rate control for people detection in video.,7,2.996377624957709e-07
+573697866e3b12023e66c023,"['302293', '533624', '1287298', '1801766']",2013,ICASSP,1,0,Hyperparameter-free DOA estimation under power constraints.,7,2.996377624957709e-07
+573697866e3b12023e66c028,"['1478303', '1183444']",2013,ICASSP,1,0,A waveform covariancematrix for high SINR and lowside-lobe levels.,7,2.996377624957709e-07
+573697866e3b12023e66c042,"['1242552', '1803365', '1610309', '1888206']",2013,ICASSP,1,0,Recognizing human actions by BP-AdaBoost algorithm under a hierarchical recognition framework.,7,2.996377624957709e-07
+573697866e3b12023e66c045,"['802395', '541455']",2013,ICASSP,1,0,Evaluating automatically estimated chord sequences.,7,2.996377624957709e-07
+573697866e3b12023e66c046,"['962809', '1508138', '1152005']",2013,ICASSP,1,0,Human speaker identification of known voices transmitted through different user interfaces and transmission channels.,7,2.996377624957709e-07
+573697866e3b12023e66c048,"['887775', '629722']",2013,ICASSP,1,0,On the eigenspace estimation for supervised multichannel system identification.,7,2.996377624957709e-07
+573697866e3b12023e66c05b,"['1700450', '54070', '138906']",2013,ICASSP,1,0,Enhancing the readability of the Wigner distribution by exploiting its cross-terms geometry.,7,2.996377624957709e-07
+573697866e3b12023e66c06d,"['1385833', '220979', '341406']",2013,ICASSP,1,0,Time invariant multi electrode averaging for biomedical signals.,7,2.996377624957709e-07
+573697866e3b12023e66c075,"['1832317', '1180074', '209243']",2013,ICASSP,1,0,Sparsity-based DOA estimation using co-prime arrays.,7,2.996377624957709e-07
+573697866e3b12023e66c09b,"['26203', '618112']",2013,ICASSP,1,0,Tensor video coding.,7,2.996377624957709e-07
+573697866e3b12023e66c0b9,"['763455', '1093781']",2013,ICASSP,1,0,Optimalwidely-linear distributed beamforming for relay networks.,7,2.996377624957709e-07
+573697866e3b12023e66c0c5,"['1535303', '708322', '584031']",2013,ICASSP,1,0,Finite-precision error modeling using affine arithmetic.,7,2.996377624957709e-07
+573697866e3b12023e66c0da,"['659760', '1350939', '1654669']",2013,ICASSP,1,0,An effective fuzzy clustering algorithm for image segmentation.,7,2.996377624957709e-07
+573697866e3b12023e66c0e0,"['39538', '1586550', '410412', '1742305', '1397994']",2013,ICASSP,1,0,GMM-based significance decoding.,7,2.996377624957709e-07
+573697866e3b12023e66c0e7,"['781331', '324268', '112026', '1302311']",2013,ICASSP,1,0,Nonlinear unmixing of hyperspectral data with partially linear least-squares support vector regression.,7,2.996377624957709e-07
+573697866e3b12023e66c0eb,"['626213', '1560934']",2013,ICASSP,1,0,Factorized context modelling for Text-to-Speech synthesis.,7,2.996377624957709e-07
+573697866e3b12023e66c0f9,"['1312536', '1668988']",2013,ICASSP,1,0,Single target detection and tracking using direction-of-arrival spectrum.,7,2.996377624957709e-07
+573697866e3b12023e66c108,"['649218', '1220665', '1733611', '1754774']",2013,ICASSP,1,0,Reduced-complexity binary-weight-coded associative memories.,7,2.996377624957709e-07
+573697866e3b12023e66c10e,"['1858537', '1792312', '1698100']",2013,ICASSP,1,0,Subframe video synchronization by matching trajectories.,7,2.996377624957709e-07
+573697866e3b12023e66c112,"['505527', '1058915', '1583799']",2013,ICASSP,1,0,Distributed cooperative spectrum sensingwith double-topology.,7,2.996377624957709e-07
+573697866e3b12023e66c11e,"['1837701', '1238870', '754002', '837796']",2013,ICASSP,1,0,A robust test for nonlinear mixture detection in hyperspectral images.,7,2.996377624957709e-07
+573697866e3b12023e66c123,"['1620615', '548898', '1235201', '1517749']",2013,ICASSP,1,0,A greedy sparsity-promoting LMS for distributed adaptive learning in diffusion networks.,7,2.996377624957709e-07
+573697866e3b12023e66c12f,"['902983', '1106758']",2013,ICASSP,1,0,Infinite kernel linear prediction for joint estimation of spectral envelope and fundamental frequency.,7,2.996377624957709e-07
+573697866e3b12023e66c143,"['1203905', '74382']",2013,ICASSP,1,0,A novel method to derive explicit KLT kernel for AR(1) process.,7,2.996377624957709e-07
+573697866e3b12023e66c151,"['1397647', '624639']",2013,ICASSP,1,0,Subspace clustering via thresholding and spectral clustering.,7,2.996377624957709e-07
+573697866e3b12023e66c15f,"['891720', '748351', '102669', '1345782']",2013,ICASSP,1,0,Boosted dictionaries for image restoration based on sparse representations.,7,2.996377624957709e-07
+573697866e3b12023e66c174,"['1051460', '1243483', '1659537', '516072']",2013,ICASSP,1,0,MEMS-based inertial navigation based on a magnetic field map.,7,2.996377624957709e-07
+573697866e3b12023e66c177,"['1644210', '1724837']",2013,ICASSP,1,0,Data-efficient quickest change detection in distributed and multi-channel systems.,7,2.996377624957709e-07
+573697866e3b12023e66c19e,"['736103', '1308455']",2013,ICASSP,1,0,Efficient algorithm for rational kernel evaluation in large lattice sets.,7,2.996377624957709e-07
+573697866e3b12023e66c1c7,['1871721'],2013,ICASSP,1,0,Tying rotations of covariance matrices via riemannian subspace clustering.,7,2.996377624957709e-07
+573697866e3b12023e66c1d5,"['1866133', '1884992', '1321222']",2013,ICASSP,1,0,Lasso screening with a small regularization parameter.,7,2.996377624957709e-07
+573697866e3b12023e66c1ee,"['452896', '1521122', '1660842']",2013,ICASSP,1,0,A new phase-based feature representation for robust speech recognition.,7,2.996377624957709e-07
+573697866e3b12023e66c230,"['1784646', '825819', '1373687']",2013,ICASSP,1,0,Benchmarking methods for audio-visual recognition using tiny training sets.,7,2.996377624957709e-07
+573697866e3b12023e66c233,['1815658'],2013,ICASSP,1,0,Blind calibration and remedy for mis-oriented velocity-sensor triads.,7,2.996377624957709e-07
+573697866e3b12023e66c249,"['1749113', '1094840', '119460']",2013,ICASSP,1,0,Optimization of the per tone noise protection in xDSL systems employing virtual noise.,7,2.996377624957709e-07
+5736978a6e3b12023e670335,[],2013,ICASSP,0,1781,"IEEE International Conference on Acoustics, Speech and Signal Processing, ICASSP 2013, Vancouver, BC, Canada, May 26-31, 2013",7,0.0004536897365683
+573697966e3b12023e67c2f7,[],1988,ICLP/SPL,0,104,"Logic Programming, Proceedings of the Fifth International Conference and Symposium, Seattle, Washington, August 15-19, 1988 (2 Volumes)",0,1.749416481199943e-05
+5736979b6e3b12023e680992,[],2000,EUROCRYPT,0,41,"Advances in Cryptology - EUROCRYPT 2000, International Conference on the Theory and Application of Cryptographic Techniques, Bruges, Belgium, May 14-18, 2000, Proceeding",9,1.0571274409043242e-05
+5736979b6e3b12023e680d73,['695373'],2000,EUROCRYPT,2,0,Efficient Concurrent Zero-Knowledge in the Auxiliary String Model.,9,4.964038515067992e-07
+5736979e6e3b12023e683ec3,"['434458', '437527']",2005,Selected Areas in Cryptography,2,0,Conditional Estimators: An Effective Attack on A5/1.,9,4.983336997043616e-07
+5736979e6e3b12023e683f5a,[],2004,Selected Areas in Cryptography,0,24,"Selected Areas in Cryptography, 11th International Workshop, SAC 2004, Waterloo, Canada, August 9-10, 2004, Revised Selected Papers",9,6.2410522488509325e-06
+5736979f6e3b12023e683fce,[],2006,Selected Areas in Cryptography,0,25,"Selected Areas in Cryptography, 12th International Workshop, SAC 2005, Kingston, ON, Canada, August 11-12, 2005, Revised Selected Papers",9,6.4958937475148506e-06
+5736979f6e3b12023e683ffd,"['64563', '1663180', '1593511']",2004,Selected Areas in Cryptography,2,0,An Improved Correlation Attack on A5/1.,9,4.985105794356605e-07
+5736979f6e3b12023e6846d8,[],1995,HPCN,0,154,"High-Performance Computing and Networking, International Conference and Exhibition, HPCN Europe 1995, Milan, Italy, May 3-5, 1995, Proceedings",1,3.92757870846164e-05
+573697d16e3b12023e6b01bd,['31138'],2000,CHES,1,0,Protecting Smart Cards from Passive Power Analysis with Detached Power Supplies.,9,3.048951213799481e-07
+573697d16e3b12023e6b01d6,[],2000,CHES,0,27,"Cryptographic Hardware and Embedded Systems - CHES 2000, Second International Workshop, Worcester, MA, USA, August 17-18, 2000, Proceedings",9,7.044945054586393e-06
+573697d16e3b12023e6b01db,"['100021', '1731762', '837965']",2000,CHES,1,0,A Comparative Study of Performance of AES Final Candidates Using FPGAs.,9,3.048951213799481e-07
+573697d16e3b12023e6b01e7,"['629985', '1779881', '1705336', '888987', '1397785', '804772']",2000,CHES,1,0,A 155 Mbps Triple-DES Network Encryptor.,9,3.048951213799481e-07
+573697d16e3b12023e6b01ef,"['548782', '290582']",2000,CHES,1,0,A High Performance Reconfigurable Elliptic Curve Processor for GF(2m).,9,3.048951213799481e-07
+573697d16e3b12023e6b0210,"['753819', '999256']",2000,CHES,1,0,On Boolean and Arithmetic Masking against Differential Power Analysis.,9,3.048951213799481e-07
+573697d16e3b12023e6b0217,['1594073'],2000,CHES,2,0,Physical Security Devices for Computer Subsystems: A Survey of Attacks and Defences.,9,5.262424910743435e-07
+573697d16e3b12023e6b021e,"['1056271', '1292858', '1514995']",2000,CHES,1,0,Efficient Generation of Prime Numbers.,9,3.048951213799481e-07
+573697d16e3b12023e6b0228,['1768300'],2000,CHES,1,0,A Timing Attack against RSA with the Chinese Remainder Theorem.,9,3.048951213799481e-07
+573697d16e3b12023e6b0232,['1666213'],2000,CHES,1,0,Using Second-Order Power Analysis to Attack DPA Resistant Software.,9,3.048951213799481e-07
+573697d16e3b12023e6b0253,"['1665550', '720050']",2000,CHES,1,0,Software-Hardware Trade-Offs: Application to A5/1 Cryptanalysis.,9,3.048951213799481e-07
+573697d16e3b12023e6b027c,['1017260'],2000,CHES,1,0,Power Analysis Attacks and Algorithmic Approaches to their Countermeasures for Koblitz Curve Cryptosystems.,9,3.048951213799481e-07
+573697d16e3b12023e6b02b7,"['1637627', '1500265', '856134', '1226429']",2000,CHES,1,0,A Design for Modular Exponentiation Coprocessor in Mobile Telecommunication Terminals.,9,3.048951213799481e-07
+573697d16e3b12023e6b02cd,"['1574793', '1220704', '935978', '1103872']",2000,CHES,1,0,Implementation of Elliptic Curve Cryptographic Coprocessor over GF(2m) on an FPGA.,9,3.048951213799481e-07
+573697d16e3b12023e6b02e5,"['356406', '855466', '71744']",2000,CHES,1,0,Software Implementation of Elliptic Curve Cryptography over Binary Fields.,9,3.048951213799481e-07
+573697d16e3b12023e6b02eb,['657292'],2000,CHES,1,0,Montgomery Multiplier and Squarer in GF(2m).,9,3.048951213799481e-07
+573697d16e3b12023e6b02f2,"['292726', '753819', '1252882']",2000,CHES,1,0,Differential Power Analysis in the Presence of Hardware Countermeasures.,9,3.048951213799481e-07
+573697d16e3b12023e6b02ff,['313258'],2000,CHES,1,0,Data Integrity in Hardware for Modular Arithmetic.,9,3.048951213799481e-07
+573697d16e3b12023e6b0327,"['728137', '93377']",2000,CHES,1,0,An Energy Efficient Reconfigurable Public-Key Cryptograhpy Processor Architecture.,9,3.048951213799481e-07
+573697d16e3b12023e6b033b,"['538108', '751707']",2000,CHES,1,0,Montgomery Exponentiation with no Final Subtractions: Improved Results.,9,3.048951213799481e-07
+573697d16e3b12023e6b034d,"['368585', '1151539']",2000,CHES,1,0,How to Explain Side-Channel Leakage to Your Kids.,9,3.048951213799481e-07
+573697d16e3b12023e6b0358,"['757293', '832554']",2000,CHES,1,0,MiniPASS: Authentication and Digital Signatures in a Constrained Environment.,9,3.048951213799481e-07
+573697d16e3b12023e6b037b,"['1597902', '1393685', '87511']",2000,CHES,1,0,A 12 Gbps DES Encryptor/Decryptor Core in an FPGA.,9,3.048951213799481e-07
+573697d56e3b12023e6b4452,[],1994,KR,0,60,"Proceedings of the 4th International Conference on Principles of Knowledge Representation and Reasoning (KR'94). Bonn, Germany, May 24-27, 1994.",0,1.2162665663004066e-05
+573697d66e3b12023e6b4664,[],1992,KR,0,69,"Proceedings of the 3rd International Conference on Principles of Knowledge Representation and Reasoning (KR'92). Cambridge, MA, October 25-29, 1992.",0,1.3917948490577624e-05
+573697e66e3b12023e6c312e,[],2000,ASE,0,45,"The Fifteenth IEEE International Conference on Automated Software Engineering, ASE 2000, Grenoble, France, September 11-15, 2000",1,1.1568477278994011e-05
+573697e66e3b12023e6c3523,[],1999,ASE,0,52,"The 14th IEEE International Conference on Automated Software Engineering, ASE 1999, Cocoa Beach, Florida, USA, 12-15 October 1999",1,1.33509000382675e-05
+573697ea6e3b12023e6c63fc,"['915922', '216637']",1990,ACM Conference on Computer Science,2,0,Consensus in a Multi-Expert System.,3,4.767775370188311e-07
+573697f16e3b12023e6cc54e,[],2000,HiPC,0,51,"High Performance Computing - HiPC 2000, 7th International Conference, Bangalore, India, December 17-20, 2000, Proceedings",1,1.30522027088931e-05
+573698176e3b12023e6eb920,[],1997,ESEC,0,39,"Software Engineering - ESEC/FSE '97, 6th European Software Engineering Conference Held Jointly with the 5th ACM SIGSOFT Symposium on Foundations of Software Engineering, Zurich, Switzerland, September 22-25, 1997, Proceedings",1,9.084069946478088e-06
+5736981a6e3b12023e6eda10,[],1995,ICS,0,51,"Proceedings of the 9th international conference on Supercomputing, ICS 1995, Barcelona, Spain, July 3-7, 1995",1,1.2161455606673685e-05
+5736981a6e3b12023e6edbd1,[],1988,ICS,0,67,"Proceedings of the 2nd international conference on Supercomputing, ICS 1988, Saint Malo, France, July 4-8, 1988",1,1.700960840656795e-05
+5736981a6e3b12023e6edc2d,[],1999,ICS,0,57,"Proceedings of the 13th international conference on Supercomputing, ICS 1999, Rhodes, Greece, June 20-25, 1999",1,1.4573389605065043e-05
+5736981a6e3b12023e6edc64,[],2001,ICS,0,45,"Proceedings of the 15th international conference on Supercomputing, ICS 2001, Sorrento, Napoli, Italy, June 16-21, 2001",1,1.1521370945265007e-05
+5736981d6e3b12023e6f077e,"['434458', '437527', '1225429']",2003,CRYPTO,2,0,Instant Ciphertext-Only Cryptanalysis of GSM Encrypted Communication.,9,4.970139475025062e-07
+5736981d6e3b12023e6f08b2,[],2003,CRYPTO,0,36,"Advances in Cryptology - CRYPTO 2003, 23rd Annual International Cryptology Conference, Santa Barbara, California, USA, August 17-21, 2003, Proceedings",9,9.298191609048684e-06
+573698266e3b12023e6f823a,[],1998,IEEE PACT,0,50,"Proceedings of the 1998 International Conference on Parallel Architectures and Compilation Techniques, Paris, France, October 12-18, 1998",1,1.2540447554686444e-05
+573698276e3b12023e6f8e91,[],1991,FOCS,0,86,"32nd Annual Symposium on Foundations of Computer Science, San Juan, Puerto Rico, 1-4 October 1991",1,2.0407984292556514e-05
+573698276e3b12023e6f9127,[],1995,FOCS,0,73,"36th Annual Symposium on Foundations of Computer Science, Milwaukee, Wisconsin, 23-25 October 1995",1,1.691370202000194e-05
+573698276e3b12023e6f9358,[],1990,FOCS,0,44,"31st Annual Symposium on Foundations of Computer Science, St. Louis, Missouri, USA, October 22-24, 1990, Volume II",1,9.63089784751802e-06
+573698276e3b12023e6f961c,[],1997,FOCS,0,63,"38th Annual Symposium on Foundations of Computer Science, FOCS '97, Miami Beach, Florida, USA, October 19-22, 1997",1,1.604289620587954e-05
+573698276e3b12023e6f9794,[],1992,FOCS,0,77,"33rd Annual Symposium on Foundations of Computer Science, Pittsburgh, Pennsylvania, USA, 24-27 October 1992",1,1.737576285784669e-05
+5736982b6e3b12023e6fd143,[],1995,MICRO,0,37,"Proceedings of the 28th Annual International Symposium on Microarchitecture, Ann Arbor, Michigan, USA, November 29 - December 1, 1995",1,9.234244591036086e-06
+5736982b6e3b12023e6fd23f,[],1992,MICRO,0,42,"Proceedings of the 25th Annual International Symposium on Microarchitecture, Portland, Oregon, November 1992",1,1.0255538652680832e-05
+5736982c6e3b12023e6fddea,[],1998,SODA,0,79,"Proceedings of the Ninth Annual ACM-SIAM Symposium on Discrete Algorithms, 25-27 January 1998, San Francisco, California.",1,1.8172133943419495e-05
+5736982e6e3b12023e6ff852,[],2000,INDOCRYPT,0,25,"Progress in Cryptology - INDOCRYPT 2000, First International Conference in Cryptology in India, Calcutta, India, December 10-13, 2000, Proceedings",9,6.495893747456639e-06
+5736982e6e3b12023e6ff893,"['437527', '1271563']",2000,INDOCRYPT,2,0,Cryptanalysis of the A5/1 GSM Stream Cipher.,9,4.983336997023825e-07
+573698406e3b12023e70a218,[],1994,ICSM,0,48,"Proceedings of the International Conference on Software Maintenance, ICSM 1994, Victoria, BC, Canada, September 1994",1,1.2112614936717868e-05
+573698406e3b12023e70a425,[],1995,ICSM,0,37,"Proceedings of the International Conference on Software Maintenance, ICSM 1995, Opio (Nice), France, October 17-20, 1995",1,9.531230890882649e-06
+573698426e3b12023e70bd85,[],2000,HPCA,0,35,"Proceedings of the Sixth International Symposium on High-Performance Computer Architecture, Toulouse, France, January 8-12, 2000",1,8.94277506427162e-06
+573698476e3b12023e71053f,[],1996,LCPC,0,38,"Languages and Compilers for Parallel Computing, 8th International Workshop, LCPC'95, Columbus, Ohio, USA, August 10-12, 1995, Proceedings",1,9.743803018804516e-06
+573698476e3b12023e7105cb,[],1993,LCPC,0,35,"Languages and Compilers for Parallel Computing, 5th International Workshop, New Haven, Connecticut, USA, August 3-5, 1992, Proceedings",1,8.978295657920556e-06
+573698476e3b12023e7105d3,[],1997,LCPC,0,44,"Languages and Compilers for Parallel Computing, 9th International Workshop, LCPC'96, San Jose, California, USA, August 8-10, 1996, Proceedings",1,1.094405012420474e-05
+573698476e3b12023e710658,[],1994,LCPC,0,36,"Languages and Compilers for Parallel Computing, 6th International Workshop, Portland, Oregon, USA, August 12-14, 1993, Proceedings",1,8.979563562767543e-06
+573698476e3b12023e7107ee,[],1993,,0,84,"CIKM 93, Proceedings of the Second International Conference on Information and Knowledge Management, Washington, DC, USA, November 1-5, 1993",0,1.43456775044518e-05
+573698576e3b12023e71e169,[],1991,EWSL,0,44,"Machine Learning - EWSL-91, European Working Session on Learning, Porto, Portugal, March 6-8, 1991, Proceedings",3,1.0457176338436342e-05
+5736985a6e3b12023e720474,"['385698', '1033567', '392208']",1993,SIGMOD Conference,1,2,"NAUDA - A Cooperative, Natural Language Interface to Relational Databases.",3,4.900351498630336e-07
+5736985a6e3b12023e7204e9,"['1294671', '1195562', '404076', '1393078', '1661716']",1979,SIGMOD Conference,374,7,Access Path Selection in a Relational Database Management System.,0,1.387545963299702e-05
+573698636e3b12023e728f4b,['809155'],1984,AAAI,6,0,Personal Construct Theory and the Transfer of Human Expertise.,3,8.710761949657937e-07
+573698636e3b12023e729045,[],1986,AAAI,0,79,"Proceedings of the 5th National Conference on Artificial Intelligence. Philadelphia, PA, August 11-15, 1986. Volume 2: Engineering.",0,1.589915369054944e-05
+573698636e3b12023e729227,['1387813'],1992,AAAI,3,0,ChiMerge: Discretization of Numeric Attributes.,3,4.98449462819706e-07
+573698636e3b12023e7294b5,[],1987,AAAI,0,149,"Proceedings of the 6th National Conference on Artificial Intelligence. Seattle, WA, July 1987.",3,3.096481272085907e-05
+573698636e3b12023e7294c4,[],1991,AAAI,0,80,"Proceedings of the 9th National Conference on Artificial Intelligence, Anaheim, CA, USA, July 14-19, 1991, Volume 1.",0,1.7460107365577487e-05
+573698636e3b12023e7296bb,"['1304302', '1143359', '756111']",1987,AAAI,3,0,MU: A Development Environment for Prospective Reasoning Systems.,3,5.153429028402619e-07
+573698636e3b12023e72982b,[],1986,AAAI,0,120,"Proceedings of the 5th National Conference on Artificial Intelligence. Philadelphia, PA, August 11-15, 1986. Volume 1: Science.",0,2.2395856620648928e-05
+573698636e3b12023e729873,"['910874', '959634']",1992,AAAI,4,0,The Feature Selection Problem: Traditional Methods and a New Algorithm.,3,5.528568458342304e-07
+573698636e3b12023e729a42,[],1984,AAAI,0,69,"Proceedings of the National Conference on Artificial Intelligence. Austin, TX, August 6-10, 1984.",0,1.4007793453412595e-05
+573698636e3b12023e729aa3,[],1990,AAAI,0,174,"Proceedings of the 8th National Conference on Artificial Intelligence. Boston, Massachusetts, July 29 - August 3, 1990, 2 Volumes.",0,3.4760116636596105e-05
+573698636e3b12023e729b01,[],1992,AAAI,0,134,"Proceedings of the 10th National Conference on Artificial Intelligence. San Jose, CA, July 12-16, 1992.",3,3.011676653416348e-05
+573698636e3b12023e729d04,"['1709843', '907342']",1992,AAAI,3,0,The Attribute Selection Problem in Decision Tree Generation.,3,4.984494628195041e-07
+573698636e3b12023e729d69,[],1988,AAAI,0,150,"Proceedings of the 7th National Conference on Artificial Intelligence. St. Paul, MN, August 21-26, 1988.",0,3.0244518803604664e-05
+573698636e3b12023e729f56,[],1994,AAAI,0,173,"Proceedings of the 12th National Conference on Artificial Intelligence, Seattle, WA, USA, July 31 - August 4, 1994, Volume 2.",3,4.349599997688581e-05
+573698636e3b12023e72a157,[],1983,AAAI,0,92,"Proceedings of the National Conference on Artificial Intelligence. Washington, D.C., August 22-26, 1983.",0,1.932982651593498e-05
+573698646e3b12023e72a3ce,[],1994,AAAI,0,129,"Proceedings of the 12th National Conference on Artificial Intelligence, Seattle, WA, USA, July 31 - August 4, 1994, Volume 1.",3,2.9966780596509375e-05
+573698646e3b12023e72a5b7,[],1991,AAAI,0,64,"Proceedings of the 9th National Conference on Artificial Intelligence, Anaheim, CA, USA, July 14-19, 1991, Volume 2.",0,1.4350912792456756e-05
+573698646e3b12023e72a64e,[],1982,AAAI,0,104,"Proceedings of the National Conference on Artificial Intelligence. Pittsburgh, PA, August 18-20, 1982.",0,1.9100672009797483e-05
+573698776e3b12023e737b4d,[],1994,POPL,0,39,"Conference Record of POPL'94: 21st ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, Portland, Oregon, USA, January 17-21, 1994",1,9.057246639535069e-06
+573698776e3b12023e737fea,[],1997,POPL,0,37,"Conference Record of POPL'97: The 24th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, Papers Presented at the Symposium, Paris, France, 15-17 January 1997",1,8.703154198029116e-06
+5736988a6e3b12023e748678,"['579840', '100794']",1999,,0,313,Datenbanken: Implementierungstechniken,0,1.7220886058731054e-05
+5736988a6e3b12023e74870b,"['906215', '987231']",2004,,0,251,Engineering a Compiler,1,3.725373730871852e-05
+5736988a6e3b12023e748883,"['80291', '1042763']",2002,The Compiler Design Handbook,0,54,Compilation for Distributed Memory Architectures.,1,9.611690818690707e-06
+5736988a6e3b12023e748887,['871671'],2002,The Compiler Design Handbook,0,65,Register Allocation.,1,1.0144422151021996e-05
+5736988a6e3b12023e7489b0,[],1997,,0,113,The Computer Science and Engineering Handbook,1,2.738172470688766e-05
+5736988d6e3b12023e74b9d2,"['109400', '763246']",2002,,0,112,"Modern Compiler Implementation in Java, 2nd edition.",1,1.4130451046760971e-05
+5736988d6e3b12023e74ba10,"['1514596', '1408753', '1729062']",1995,,120,617,Foundations of Databases.,0,3.238926457601773e-05
+5736988d6e3b12023e74ba30,"['1329094', '1723118', '1225292']",1987,,317,297,Concurrency Control and Recovery in Database Systems.,0,2.720502708532493e-05
+5736988e6e3b12023e74c3ad,[],1995,,0,38,Computer Science Today: Recent Trends and Developments,1,9.735854073450166e-06
+5736988e6e3b12023e74c546,['756969'],1982,,354,0,"Principles of Database Systems, 2nd Edition",0,1.343495461028026e-05
+5736988e6e3b12023e74c547,['756969'],1988,,366,0,"Principles of Database  and Knowledge-Base Systems, Volume I",0,1.5651613280672834e-05
+5736988e6e3b12023e74c54a,['756969'],1989,,246,538,"Principles of Database  and Knowledge-Base Systems, Volume II",0,3.198908257738733e-05
+5736988e6e3b12023e74c54f,['367794'],1983,,256,192,The Theory of Relational Databases.,0,1.698383608944479e-05
+58437748ac44360f10838a7b,"['958302', '462117', '1881127', '970823', '1801353']",2016,IGARSS,1,0,Forest above ground biomass estimation from P-band tomography data.,5,2.996284584675774e-07
+58437748ac44360f10838a7c,"['1028804', '1208660', '15851', '1023443']",2016,IGARSS,1,0,Evaluation of empirical radar rainfall model during the massive flood in Malaysia.,5,2.996284584671187e-07
+58437748ac44360f10838a7d,"['647411', '1868110', '1817513']",2016,IGARSS,1,0,The effects of environmental factors on the coupling coefficient between SST and ENWF.,5,2.996284584671187e-07
+58437748ac44360f10838a7e,"['1092150', '569566']",2016,IGARSS,1,0,Uncertainty estimation for spaceborne hyperspectral data products and the relevance to the desis and EnMAP mission.,5,2.996284584671187e-07
+58437748ac44360f10838a7f,"['988583', '781493', '1339980', '970764', '792363']",2016,IGARSS,1,0,Unsupervised classification of the weak backscattering scatterers by the use of PolSAR imagery.,5,2.996284584671187e-07
+58437748ac44360f10838a80,"['1815378', '993841', '1856814', '879053']",2016,IGARSS,1,0,Spatio-temporal distribution of atmosphere pollutants during winter heating period over su-lu-yu-wan provinces.,5,2.996284584671187e-07
+58437748ac44360f10838a81,"['1550966', '1766640', '1837426', '1315096', '982179']",2016,IGARSS,1,0,Classification of PolSAR image with non-negative tensor factorization approach.,5,2.996284584671187e-07
+58437748ac44360f10838a82,"['625577', '512131']",2016,IGARSS,1,0,Ionospheric effect correction of ice motion mapping using interferometric synthetic aperture radar.,5,2.996284584671187e-07
+58437748ac44360f10838a83,"['263781', '1696664', '1303508']",2016,IGARSS,1,0,Effect of size and number of calibration plots on the estimation of stem diameter distributions using airborne laser scanning.,5,2.996284584671187e-07
+58437748ac44360f10838a84,"['1756458', '648635', '981242']",2016,IGARSS,1,0,Hyperspectral unmixing using total variation regularized reweighted sparse non-negative matrix factorization.,5,2.996284584671187e-07
+58437748ac44360f10838a85,"['932801', '864486', '989118']",2016,IGARSS,1,0,Canopy vertical parameters estimation using unmanned aerial vehicle (UAV) imagery.,5,2.996284584671187e-07
+58437748ac44360f10838a86,"['993841', '1815378', '1858552', '774143', '1812167', '879053']",2016,IGARSS,1,0,Estimate PM2.5 concentration in 500m resolution from satellite data and ground observation.,5,2.996284584671187e-07
+58437748ac44360f10838a87,"['197519', '202073', '198121']",2016,IGARSS,1,0,Constucting a unified framework for multi-source remotely sensed data fusion.,5,2.996284584671187e-07
+58437748ac44360f10838a88,"['1792123', '1792075', '1761474', '1898149']",2016,IGARSS,1,0,"SAR observation and WRF model simulation of land breeze in Hainan Island, China.",5,2.996284584671187e-07
+58437748ac44360f10838a89,"['942986', '1888829', '1866093', '995980', '492536']",2016,IGARSS,1,0,Rice phenology retrieval automatically using polarimetric SAR.,5,2.996284584671187e-07
+58437748ac44360f10838a8a,"['861176', '1890679', '202326', '1881127', '1356237', '1788349', '197641']",2016,IGARSS,1,0,Vegetation fraction inversion and influence analysis of annual ephemeral plants on sandy land evaluation.,5,2.996284584671187e-07
+58437748ac44360f10838a8b,"['603434', '648635', '981242', '1339980']",2016,IGARSS,1,0,Squaring weighted low-rank subspace clustering for hyperspectral image band selection.,5,2.996284584671187e-07
+58437748ac44360f10838a8c,"['1820553', '466808', '1675745']",2016,IGARSS,1,0,Continuous annual land use and land cover mapping using AVHRR GIMMS NDVI3g and MODIS MCD12Q1 datasets over China from 1982 to 2012.,5,2.996284584671187e-07
+58437748ac44360f10838a8d,"['1396547', '738663', '602630']",2016,IGARSS,1,0,Equipping undergraduate STEM majors with Geoscience and remote sensing tools: A pathway to replenishing the Geoscience workforce.,5,2.996284584671187e-07
+58437748ac44360f10838a8e,"['195477', '1792075', '1774900', '1272527']",2016,IGARSS,1,0,Marine oil slick and platform detection by compact polrimetric synthetic aperture radar.,5,2.996284584671187e-07
+58437748ac44360f10838a8f,"['1706571', '615123', '1586471', '1796168']",2016,IGARSS,1,0,Automated extraction of 3-D Ground Control Points from SAR images - an upcoming novel data product.,5,2.996284584671187e-07
+58437748ac44360f10838a90,"['413876', '380528', '380469']",2016,IGARSS,1,0,Classification of groundwater potential in Chaoyang area based on QUEST algorithm.,5,2.996284584671187e-07
+58437748ac44360f10838a91,"['229669', '476655', '1623387', '329851', '418386', '1744792', '1460722']",2016,IGARSS,1,0,Analysis of OMPS in-flight CCD dark current degradation.,5,2.996284584671187e-07
+58437748ac44360f10838a92,"['657682', '1538953', '1355811']",2016,IGARSS,1,0,Simulation of non-point source pollution load in the Xiangtan Stream basin through swat model.,5,2.996284584671187e-07
+58437748ac44360f10838a93,"['1756448', '880401', '1339918', '1761889']",2016,IGARSS,1,0,Automatic extraction of linear arranged targets from polarimetric SAR imagery.,5,2.996284584671187e-07
+58437748ac44360f10838a94,"['1356801', '1643732', '174573', '1554825']",2016,IGARSS,1,0,Study on the satellite-based precipitation downscaling algorithm in Tianshan mountain.,5,2.996284584671187e-07
+58437748ac44360f10838a95,"['1313618', '1853728', '264963', '820372', '1169463', '1011823', '1819536']",2016,IGARSS,1,0,Road network extraction via deep learning and line integral convolution.,5,2.996284584671187e-07
+58437748ac44360f10838a96,"['793682', '943050', '1351723']",2016,IGARSS,1,0,Tri_training for remote sensing classification based on multi-scale homogeneity.,5,2.996284584671187e-07
+58437748ac44360f10838a97,"['738248', '343777', '1453235', '36230', '18542', '864427', '1043042']",2016,IGARSS,1,0,Method for upscaling in-situ soil moisture measurements for calibration and validation of smap soil moisture products.,5,2.996284584671187e-07
+58437748ac44360f10838a98,"['883891', '1818939', '1786680', '1842935', '1865150']",2016,IGARSS,1,0,New results about quantum scattering characteristics of typical targets.,5,2.996284584671187e-07
+58437748ac44360f10838a99,"['787628', '1795007', '981809']",2016,IGARSS,1,0,Unsupervised nonlinear hyperspectral unmixing based on the generalized bilinear model.,5,2.996284584671187e-07
+58437748ac44360f10838a9a,"['1354970', '1518195', '781452']",2016,IGARSS,1,0,Decomposing LiDAR waveforms with nonparametric classification methods.,5,2.996284584671187e-07
+58437748ac44360f10838a9b,"['1204902', '1223792', '110628', '204353', '1640963', '64002']",2016,IGARSS,1,0,Validation methods for regional retrospective high resolution land cover for Ukraine.,5,2.996284584671187e-07
+58437748ac44360f10838a9c,"['1794566', '1832057', '777761']",2016,IGARSS,1,0,Intercomparison of integrated water vapor production retrievals from HY-2 and AMSR2.,5,2.996284584671187e-07
+58437748ac44360f10838a9d,"['819049', '1550341']",2016,IGARSS,1,0,"Subsidence and sea level rise measurements for Houston and Galveston, Texas.",5,2.996284584671187e-07
+58437748ac44360f10838a9e,"['491800', '1351810']",2016,IGARSS,1,0,A new formulation for POLSAR incoherent target decomposition.,5,2.996284584671187e-07
+58437748ac44360f10838a9f,"['996514', '989370', '1789507', '1856583', '1862693', '860503']",2016,IGARSS,1,0,Denoising of hyperspectral imagery using an intrinsic spectral representation model with spatial smoothness constraint.,5,2.996284584671187e-07
+58437748ac44360f10838aa0,"['1532307', '1092269', '1383019', '535403', '1691037', '760479']",2016,IGARSS,1,0,A wide-swath frequent revisit Canadian Hyperspectral Mission - concept study outcomes.,5,2.996284584671187e-07
+58437748ac44360f10838aa1,"['774732', '512324', '390797', '1263686', '32977', '1667045']",2016,IGARSS,1,0,"Monitoring ozone in different spectral regimes from space and balloon (Sentinel-4/-5P, TELIS).",5,2.996284584671187e-07
+58437748ac44360f10838aa2,"['401405', '493414', '239142', '1122618', '1614102']",2016,IGARSS,1,0,Investigation of the experimental TanDEM-X pursuit monostatic mode for oil and ship detection.,5,2.996284584671187e-07
+58437748ac44360f10838aa3,"['647363', '1817513', '1868110']",2016,IGARSS,1,0,Polarimetric features analysis of oil spills in C-band and L-band SAR images.,5,2.996284584671187e-07
+58437748ac44360f10838aa4,"['1834687', '1868333', '1425879', '1763953', '661363', '783077']",2016,IGARSS,1,0,Modified statistically homogeneous pixel selection for coherence estimation with multi-temporal insar images.,5,2.996284584671187e-07
+58437748ac44360f10838aa5,"['1888608', '1858344', '483025', '1767017', '1895731', '1842467']",2016,IGARSS,1,0,Object detection capability evaluation for SAR image.,5,2.996284584671187e-07
+58437748ac44360f10838aa6,"['1539551', '1825328', '1575196']",2016,IGARSS,1,0,GPS derived PWV for rainfall monitoring.,5,2.996284584671187e-07
+58437748ac44360f10838aa7,"['1270427', '1511035']",2016,IGARSS,1,0,Object detection using optical and LiDAR data fusion.,5,2.996284584671187e-07
+58437748ac44360f10838aa8,"['220745', '1844263', '823974', '1519549', '947173']",2016,IGARSS,1,0,DEM generation of intertidal zone in Korea using Unmanned Aerial Vehicle.,5,2.996284584671187e-07
+58437748ac44360f10838aa9,"['1789289', '1868114', '1766646']",2016,IGARSS,1,0,A sparse optimization method for masking effect removal in noise synthetic aperture radar.,5,2.996284584671187e-07
+58437748ac44360f10838aaa,"['1553874', '294837', '1358385']",2016,IGARSS,1,0,The MIRS GPM precipitation retrieval.,5,2.996284584671187e-07
+58437748ac44360f10838aab,"['1835519', '1553738', '1842622', '1802800']",2016,IGARSS,1,0,An overview of the scientific payloads in Chinese Chang'e-3 lunar mission.,5,2.996284584671187e-07
+58437748ac44360f10838bc8,[],2016,IGARSS,0,1905,"2016 IEEE International Geoscience and Remote Sensing Symposium, IGARSS 2016, Beijing, China, July 10-15, 2016",5,0.0004852564911869

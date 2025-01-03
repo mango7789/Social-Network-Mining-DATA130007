@@ -25,7 +25,7 @@ for community in largest_communities:
     # Append the selected node IDs to the list
     selected_ids.extend(top_nodes["id"].tolist())
 # Save the result as a JSON file
-with open("./results/id.json", "w") as json_file:
+with open("./results/paper_id.json", "w") as json_file:
     json.dump(selected_ids, json_file)
 
 # Output the result

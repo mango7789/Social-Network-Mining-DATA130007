@@ -1,14 +1,12 @@
 import pandas as pd
 from pathlib import Path
 import igraph as ig
-import numpy as np
-from tqdm import tqdm  # Import tqdm for progress bar
+from tqdm import tqdm
 
 
 def calculate_centrality_and_statistics(
     node_data: pd.DataFrame,
     edge_data: pd.DataFrame,
-    community_file: Path,
     output_path: Path,
 ):
     """
@@ -18,7 +16,6 @@ def calculate_centrality_and_statistics(
     Parameters:
         - node_data (pd.DataFrame): Node data (including 'id' column)
         - edge_data (pd.DataFrame): Edge data (including 'src', 'dst' columns)
-        - community_file (Path): Path to the community division result file
         - output_path (Path): Path to save the results
     """
     # Step 1: Build the graph
@@ -63,9 +60,6 @@ if __name__ == "__main__":
     node_data = load_paper_node("./data/paper/node.csv", skip_isolate=True)
     edge_data = load_paper_edge("./data/paper/edge.csv")
 
-    community_file_path = Path("./CommunityMining/results/louvain.csv")
     output_path = Path("./CentralityMeasure/results")
     # Calculate centrality measures and statistics
-    calculate_centrality_and_statistics(
-        node_data, edge_data, community_file_path, output_path
-    )
+    calculate_centrality_and_statistics(node_data, edge_data, output_path)

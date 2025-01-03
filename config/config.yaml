@@ -10,11 +10,4 @@ data:
   venue:
     map: ./venue/map.json
   citation: ./author/citation.json
-
-community:
-  louvain: ./results/louvain.csv
-  girvan_newman:
-  label_propagation:
-
-centrality:
   

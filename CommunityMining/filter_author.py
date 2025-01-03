@@ -1,8 +1,8 @@
-import pandas as pd
 import json
+import pandas as pd
 
 # Load the data
-community_df = pd.read_csv("./results/author_community_label_propagation.csv")
+community_df = pd.read_csv("./results/author/community_label_propagation.csv")
 author_node_df = pd.read_csv("../data/author/node.csv")
 
 # Get the top 10 communities with the most nodes
@@ -27,6 +27,6 @@ for community in top_communities:
     # Save the top 50 authors for this community
     ids.extend(top_50_authors["id"].tolist())
 
-# Step 3: Save the result to a JSON file
+# Save the result to a JSON file
 with open("./results/author_id.json", "w") as f:
     json.dump(ids, f)

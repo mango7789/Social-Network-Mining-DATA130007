@@ -1,6 +1,8 @@
+import os
 import yaml
 import argparse
 import warnings
+import subprocess
 from pathlib import Path
 from typing import Final
 
@@ -14,10 +16,9 @@ from utils import (
     load_map_dict,
 )
 from utils.logger import logger
-from CommunityMining import louvain
 
 
-PREPROCESS: Final = True
+PREPROCESS: Final = False
 SEPERATOR: Final = "=" * 85
 warnings.filterwarnings("ignore")
 
@@ -53,22 +54,15 @@ if __name__ == "__main__":
     PAPER_NODE: Final = base_path / config["data"]["paper"]["node"]
     PAPER_EDGE: Final = base_path / config["data"]["paper"]["edge"]
 
-    community_path = (
-        Path("CommunityMining") if not args.test else Path("test/CommunityMining")
-    )
-    COMM_LOUVAIN: Final = community_path / config["community"]["louvain"]
-    # COMM_G_N: Final = community_path / config["community"]["girvan_newman"]
-    # COMM_L_P: Final = community_path / config["community"]["label_propagation"]
-
     centrality_path = Path("CentralityMeasure")
 
     logger.info("Successfully parse the configuration file!")
     logger.info(SEPERATOR)
 
-    ############################################################
-    #            Preprocess and load the dataset               #
-    ############################################################
     if PREPROCESS:
+        ############################################################
+        #                   Preprocess the dataset                 #
+        ############################################################
         logger.info("Start preprocessing the original dataset...")
         save_records_to_csv(
             DATA_PATH,
@@ -83,6 +77,9 @@ if __name__ == "__main__":
         logger.info("Successfully preprocess the dblp-v9 dataset!")
         logger.info(SEPERATOR)
 
+    ############################################################
+    #                     Load the dataset                     #
+    ############################################################
     logger.info("Start loading dataframes and mappings...")
     df_author_node = load_author_node(AUTHOR_NODE)
     df_author_edge = load_author_edge(AUTHOR_EDGE)
@@ -95,21 +92,36 @@ if __name__ == "__main__":
     logger.info(SEPERATOR)
 
     ############################################################
-    #                    Community Mining                      #
+    #           Conducting tasks on the dataset                #
     ############################################################
-    logger.info("Start mining the community of nodes...")
-    louvain(df_paper_node, df_paper_edge, COMM_LOUVAIN)
-    logger.info("Succesfully conduct community mining on the dataset!")
-    logger.info(SEPERATOR)
+    if not args.test:
+        # Community Mining
+        logger.info("Start conducting community mining...")
+        subprocess.run(["python", "-m", "CommunityMining.author_community"])
+        subprocess.run(["python", "-m", "CommunityMining.louvain"])
+        logger.info("Successfully mine the community of each node!")
+        logger.info(SEPERATOR)
 
-    ############################################################
-    #                 Centrality Measurement                   #
-    ############################################################
-    logger.info("Start commputing the centrality measurement of nodes...")
-    logger.info("Successfully commpute the centrality on the dataset!")
-    logger.info(SEPERATOR)
+        # Centrality Measure and diameter
+        logger.info("Start calculating centrality and diameter...")
+        subprocess.run(["python", "-m", "CentralityMeasure.centrality"])
+        subprocess.run(["python", "-m", "CentralityMeasure.diameter"])
+        logger.info("Successfully calculate centrality and diameter!")
+        logger.info(SEPERATOR)
 
-    ############################################################
-    #                     Link Prediction                      #
-    ############################################################
-    logger.info("Start training model for link prediction...")
+        # Filter ids for visualization
+        logger.info("Start filtering ids for visualization...")
+        os.chdir("CommunityMining")
+        subprocess.run(["python", "filter_author.py"], check=True)
+        subprocess.run(["python", "filter_paper.py"], check=True)
+        os.chdir("..")
+        logger.info("Successfully filter out ids for visualization!")
+        logger.info(SEPERATOR)
+
+        # Generate data for visualization
+        logger.info("Start generating data for visualization...")
+        subprocess.run(["python", "combine_author.py"])
+        subprocess.run(["python", "combine_paper.py"])
+        logger.info("Successfully generate data for visualization!")
+        logger.info(SEPERATOR)
+        logger.info("Now you can use `liveserver` to open the visualization page!!!")

@@ -1,7 +1,6 @@
 import igraph as ig
 import pandas as pd
 from enum import Enum
-from typing import Dict
 from pathlib import Path
 
 from utils.logger import logger
@@ -27,7 +26,7 @@ def community_detection(
     edge: pd.DataFrame,
     path: Path,
     algorithm: Algorithm,
-    **kwargs: Dict,
+    type: str = "paper",
 ) -> None:
     """
     Perform community detection on the given node and edge data using the specified algorithm.
@@ -41,7 +40,7 @@ def community_detection(
         - edge (pd.DataFrame): DataFrame containing edge information, including "src" and "dst" columns.
         - path (Path): Output path to save the results.
         - algorithm (str): Name of the community detection algorithm to use.
-        - kwargs (Dict): Additional parameters for fine - tuning.
+        - type (str): The type of the provided node and edge, should be in ["author", "paper"]
     """
     # Convert edge data to igraph-compatible format, remove self-loop
     edges = [(src, dst) for src, dst in zip(edge["src"], edge["dst"]) if src != dst]
@@ -92,6 +91,7 @@ def community_detection(
     node["community"] = node["id"].map(vertex_to_community)
 
     # Save results
+    path = path / type
     path.parent.mkdir(parents=True, exist_ok=True)
     result_df = node[["id", "community"]]
     result_df.to_csv(path, index=False)
