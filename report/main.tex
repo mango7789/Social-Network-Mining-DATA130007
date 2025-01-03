@@ -62,7 +62,7 @@
 %
 % and set <dim> to something 5cm or larger.
 
-\title{Community Detection and Analysis on DBLP v9 Dataset: Centrality, Network Metrics, and Predictive Modeling}
+\title{Community Detection and Analysis on the DBLP v9 Dataset: Exploring Centrality, Network Metrics, and Predictive Modeling}
 
 % Author information can be set in various styles:
 % For several authors from the same institution:
@@ -74,23 +74,23 @@
 %         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
 % For authors from different institutions:
 \author{
-  Xiang Zheng \\ 21307110169 \And  
-  Qin Ma      \\ 21307110024 
-  \vspace{0.2cm} \\ % Add some space before the school name
-  \hfill School of Data Science, Fudan University \hfill
-  \And
-  Author n \\ Address line
+    Xiang Zheng \\ 21307110169 \And  
+    Qin Ma      \\ 21307110024 
+    \vspace{0.2cm} \\ % Add some space before the school name
+    \hfill School of Data Science, Fudan University \hfill
+    \And
+    Author n \\ Address line
 }
 
 \begin{document}
 \maketitle
 \begin{abstract}
-	abstract
+	This study applies network analysis techniques to the DBLP dataset, a comprehensive resource for computer science publications, to explore collaboration patterns and network properties. Key methods include data preprocessing, community detection with Louvain and Label Propagation, centrality analysis using degree centrality and PageRank, and link prediction with the GLACE model. Results highlight the evolution of citation trends and identify influential nodes. An interactive visualization system, built with Python and D3.js, helps present the findings. The experimental results demonstrate the GLACE model's effectiveness in predicting future links, providing valuable insights into academic networks.
 \end{abstract}
 
 \section{Introduction}
 
-Network analysis is a critical methodology for studying complex systems across various domains. The \href{https://www.aminer.cn/citation}{DBLP dataset}, a comprehensive bibliographic resource for computer science, forms the foundation for investigating collaboration patterns and scholarly relationships. This study applies advanced graph analysis techniques to explore the structural and functional properties of the DBLP v9 dataset.
+Network analysis is a cornerstone methodology for understanding complex systems across diverse domains. The \href{https://www.aminer.cn/citation}{DBLP dataset}, a comprehensive bibliographic resource for computer science, serves as a foundation for analyzing collaboration patterns and scholarly relationships. This study leverages advanced graph analysis techniques to investigate the structural and functional properties of the DBLP v9 dataset.
 
 \begin{figure}[ht]
 	\centering
@@ -99,30 +99,27 @@ Network analysis is a critical methodology for studying complex systems across v
 	\label{fig:visualize}
 \end{figure}
 
-The subsequent sections of this report follow the analytical framework outlined below:
-\\
+This report is structured as follows:
 
 \textbf{Preprocessing}: Transforming the raw DBLP data into a structured network through cleaning, filtering, and attribute assignment.
 
 \textbf{Community Detection}: Identifying cohesive subgroups using algorithms like Louvain and Label Propagation to uncover collaboration dynamics and research specializations.
 
 \textbf{Centrality Analysis}: Analyzing metrics such as degree centrality and PageRank to identify influential nodes and assess network topology.
+
 \textbf{Link Prediction}: Employing the GLACE model on the Cora-ML dataset to predict future connections based on structural features, providing insights into evolving citation trends.
 
 \textbf{Visualization}: Presenting findings through an interactive system developed with \textbf{Python} and \textbf{D3.js}, highlighting key network characteristics and community structures.
-\\
 
 This structured approach provides a comprehensive examination of the DBLP co-authorship and publication network, delivering insights into collaboration patterns, influential figures, and the evolution of academic networks.
 
-
-
 \section{Preprocessing}
 
-The preprocessing phase is a critical step in transforming the raw DBLP V9 dataset into a structured format suitable for detailed analysis. This stage encompasses data cleaning, network construction, feature engineering, and dataset filtering. The DBLP V9 dataset was specifically chosen for its balance between computational feasibility and data comprehensiveness, enabling robust analysis of academic collaboration and citation patterns within computer science.
+The preprocessing phase is a critical step in transforming the raw DBLP v9 dataset into a structured format suitable for detailed analysis. This stage encompasses data cleaning, network construction, feature engineering, and dataset filtering. The DBLP v9 dataset was specifically chosen for its balance between computational feasibility and data comprehensiveness, enabling robust analysis of academic collaboration and citation patterns within computer science.
 
 \subsection{Dataset Selection}
 
-The DBLP-Citation-network V9 dataset was selected due to its optimal balance between data richness and computational manageability, as summarized in Table \ref{tab:dblp_citation_networks}. Other versions of the DBLP dataset, while valuable, either lacked the depth of information or exceeded practical computational limits for this project. DBLP V9 captures key trends up to July 3, 2017, offering a comprehensive yet tractable dataset with \textbf{3,680,007 papers} and \textbf{1,876,067 citation relationships}.
+The DBLP-Citation-network v9 dataset was selected due to its optimal balance between data richness and computational manageability, as summarized in Table \ref{tab:dblp_citation_networks}. Other versions of the DBLP dataset, while valuable, either lacked the depth of information or exceeded practical computational limits for this project. DBLP v9 captures key trends up to July 3, 2017, offering a comprehensive yet tractable dataset with \textbf{3,680,007 papers} and \textbf{1,876,067 citation relationships}.
 
 \begin{table*}[h!]
 	\centering
@@ -161,33 +158,29 @@ These steps ensured the dataset was standardized and ready for subsequent analys
 \subsection{Network Construction}
 
 The dataset was represented as two interconnected networks:
-
 \begin{enumerate}
-	\item \textbf{Co-authorship Network:} In this network, authors are represented as nodes, with weighted edges denoting co-authorship relationships. The weight of each edge corresponds to the frequency of collaborations between authors. This network contains a total of 3,680,007 nodes (authors) and 1,876,067 edges (co-authorship relationships).
-
-	\item \textbf{Citation Network:} The citation network is constructed by representing papers as nodes, with directed edges indicating citation relationships between them. Each edge direction signifies the citing paper and the cited paper. This network also comprises 3,680,007 nodes (papers) and 1,876,067 edges (citation relationships).
+	\item \textbf{Author Network:} Authors are represented as nodes, with weighted edges denoting co-authorship relationships. The weight of each edge corresponds to the frequency of collaborations between authors. This network contains a total of 3,680,007 nodes (authors) and 1,876,067 edges (co-authorship relationships).
+	\item \textbf{Paper Network:} Papers are represented as nodes, with directed edges indicating citation relationships. Each edge direction signifies the citing paper and the cited paper. This network also comprises 3,680,007 nodes (papers) and 1,876,067 edges (citation relationships).
 \end{enumerate}
 
-
-This dual representation allows for a comprehensive study of collaboration and citation dynamics.
+This dual representation enables a comprehensive study of collaboration and citation dynamics.
 
 \subsection{Feature Engineering}
 
 Key features were engineered to enhance the dataset’s analytical capabilities:
 \begin{itemize}
 	\item \textbf{Co-authorship Features:} Unique author identifiers were assigned, and collaboration frequencies were calculated.
-	\item \textbf{Citation Metrics:} In-degree (citations received) and out-degree (references) were computed for each paper.
+	\item \textbf{Citation Metrics:} In-degree (citations received) and out-degree (references made) were computed for each paper.
 	\item \textbf{Venue Indexing:} Publication venues were standardized and indexed for uniform representation.
 \end{itemize}
 
 \subsection{Dataset Filtering}
 
-Papers with no citations and references were flagged as "isolate" and excluded to improve computational efficiency. Additionally, thresholds were applied to focus on significant collaborations and impactful papers.
+Papers with no citations or references were flagged as "isolates" and excluded to improve computational efficiency. Thresholds were also applied to focus on significant collaborations and impactful papers.
 
 \subsection{Exploratory Analysis}
 
-Exploratory analyses were conducted using Python libraries such as \texttt{pandas} and \texttt{matplotlib}. The key findings are visualized in Figures \ref{fig:num_authors_per_paper}--\ref{fig:num_coauthors_per_author}:
-
+Exploratory analyses were conducted using Python libraries such as \texttt{pandas} and \texttt{matplotlib}. Key findings are visualized in Figures \ref{fig:num_authors_per_paper}--\ref{fig:num_coauthors_per_author}:
 \begin{itemize}
 	\item \textbf{Authors per Paper:} Most papers have few authors, with fewer multi-author publications.
 	\item \textbf{Citation Distribution:} Citations are highly skewed, with a small number of papers receiving the majority of citations.
@@ -219,188 +212,133 @@ Exploratory analyses were conducted using Python libraries such as \texttt{panda
 	\end{minipage}
 \end{figure*}
 
-These analyses offer critical insights into academic collaboration and citation patterns, laying the groundwork for deeper exploration of academic network structures.
+These analyses provide valuable insights into academic collaboration and citation patterns, establishing a solid foundation for deeper exploration of academic network structures.
+
 
 
 
 \section{Community Mining}
-In academic networks, community mining aims to identify cohesive subgroups reflecting collaborative dynamics, research specializations, and the structural foundation of scholarly interactions. Three common algorithms - Louvain, Label Propagation, and Multi - level - are used to discover potential communities based on node relationships.
 
-After detection, community proportions and modularity are calculated to assess the quality of community division. They provide insights into the network's structure, indicating whether detected communities have strong internal and weak external connections, characteristic of well - formed community structures. 
+Community mining in academic networks is essential for identifying cohesive subgroups that reflect underlying collaborative dynamics, research specializations, and the structural foundation of scholarly interactions. In this study, three widely used algorithms—Louvain, Label Propagation, and Multi-level—were employed to detect communities in both paper and author networks. These algorithms were chosen due to their computational efficiency, scalability, and ability to capture different aspects of community structure in large networks.
+
+The effectiveness of community detection is assessed using modularity, a key metric that quantifies the strength of division between communities by comparing the actual number of edges within communities to the expected number of edges in a random graph. A higher modularity value indicates a more significant and well-defined community structure, which is desirable in network analysis.
 
 \subsection{Overview of Community Mining}
-Community detections operate by grouping nodes in a graph based on their connectivity. In the context of academic networks, nodes represent entities such as papers or authors, and edges represent relationships between these entities, such as co-authorship or citations. Below are the specifics of Paper Networks and Author Networks.
+
+Community detection aims to partition the graph into subsets (communities) where the internal connectivity is higher than expected by random chance, while the external connectivity is relatively sparse. In academic networks, nodes typically represent entities such as papers or authors, and edges signify relationships like co-authorships or citations. The following outlines the network structures in the context of academic collaboration:
+
 \begin{itemize}
-    \item {Paper Network:}In a paper network, nodes represent individual papers, and edges represent relationships such as citations or co-authorships. Edges are weighted by the number of citations or co-authors shared. Community detection aims to identify research areas or subfields where papers are closely linked by citations or co-authors, revealing thematic connections or shared academic topics.
-    \item {Author Network:}In an author network, nodes represent authors, and edges represent co-authorships. The edge weight reflects the number of joint papers between authors, with higher weights indicating stronger collaboration. Community detection in this network uncovers collaborative groups or research teams, offering insights into research partnerships and collaboration patterns.
+    \item \textbf{Paper Network:} In a paper network, nodes represent individual research papers, and edges represent citations. The goal is to identify thematic subfields or areas of active research, where papers share common references or citations, uncovering latent academic associations.
+    \item \textbf{Author Network:} In an author network, nodes represent academic authors, and edges denote co-authorships, with edge weights indicating the strength of collaboration. Community detection in this context reveals research teams, collaborative clusters, and patterns of academic interaction.
 \end{itemize}
 
-The goal of community detection is to find subsets of nodes (communities) where the internal connectivity is higher than expected by random chance, and the external connectivity is relatively lower. Mathematically, this is often expressed in terms of modularity.
-
+The modularity measure, \( Q \), is a crucial tool for evaluating community quality, and is given by the formula:
+\[
+Q = \frac{1}{2m} \sum_{i,j} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j),
+\]
+where \( m \) is the total number of edges, \( A_{ij} \) is the weight of the edge between nodes \( i \) and \( j \), \( k_i \) and \( k_j \) are the degrees of nodes \( i \) and \( j \), and \( \delta(c_i, c_j) \) is the Kronecker delta, which is 1 if nodes \( i \) and \( j \) are in the same community and 0 otherwise.
 
 \subsection{Community Detection Algorithms}
 
+Several algorithms have been developed to identify communities in networks. Here, we discuss three prominent ones: Louvain, Label Propagation, and Multi-level, each offering unique advantages depending on the network characteristics.
+
 \subsubsection{Louvain Algorithm}
-The Louvain algorithm is a method for detecting communities by optimizing modularity. 
-The modularity \( Q \) for a community division is calculated as:
 
-\[
-Q = \frac{1}{2m} \sum_{i,j} \left( A_{ij} - \frac{k_i k_j}{2m} \right) \delta(c_i, c_j)
-\]
-Where: 
-\( m \) is the total number of edges in the network.
-\( A_{ij} \) is the weight of the edge between nodes \( i \) and \( j \).
-\( k_i \) and \( k_j \) are the degrees of nodes \( i \) and \( j \).
-\( \delta(c_i, c_j) \) is 1 if nodes \( i \) and \( j \) are in the same community and 0 otherwise. 
-\( c_i \) and \( c_j \) are the community labels of nodes \( i \) and \( j \).
+The Louvain algorithm is a modularity optimization method that efficiently detects communities by iteratively optimizing modularity. It operates in two phases:
 
-The Louvain algorithm works in two phases:
+\begin{enumerate}
+    \item \textbf{Local optimization:} Each node is initially assigned to its own community. Nodes are then moved to the community of their neighboring node if it results in a higher modularity.
+    \item \textbf{Community aggregation:} After the first phase, communities are treated as super-nodes, and the process repeats on the new, aggregated graph.
+\end{enumerate}
 
-1. Local optimization: Each node is assigned to the community of its neighbor that maximizes modularity.
-
-2. Community aggregation: Communities are treated as super-nodes, and the algorithm repeats the process of modularity optimization on this new, aggregated graph.
-
-The algorithm is computationally efficient and is well-suited for large-scale networks, making it a popular choice in detecting academic collaboration communities.
+The algorithm’s efficiency makes it particularly suited for large networks, allowing for the identification of well-defined, cohesive communities that often correspond to real-world academic fields or research themes.
 
 \subsubsection{Label Propagation Algorithm}
-Label Propagation (LP) is a simple and efficient algorithm where each node is initially assigned a unique label. At each iteration, each node updates its label to the most frequent label among its neighbors. This process continues until the labels stabilize.
 
-Mathematically, Label Propagation is expressed as:
-
+Label Propagation is a simple yet effective community detection algorithm. It works by assigning a unique label to each node initially and then iteratively updating the node's label to the most frequent label among its neighbors. The process continues until the labels converge. The update rule is expressed mathematically as:
 \[
-l_i^{(t+1)} = \arg\max_{l_j \in N(i)} \sum_{k \in N(i), l_k = l_j} \frac{1}{d_k}
+l_i^{(t+1)} = \arg\max_{l_j \in N(i)} \sum_{k \in N(i), l_k = l_j} \frac{1}{d_k},
 \]
-Where: 
-\( l_i^{(t+1)} \) is the new label for node 
-\( i \) after iteration \( t \). \( N(i) \) is the set of neighbors of node \( i \).
-\( d_k \) is the degree of neighbor \( k \).
+where \( l_i^{(t+1)} \) is the new label for node \( i \) after iteration \( t \), \( N(i) \) is the set of neighbors of node \( i \), and \( d_k \) is the degree of neighbor \( k \).
 
-The algorithm is highly parallelizable and does not require predefined parameters like the number of communities. It is particularly efficient for large networks with many nodes and edges.
+Label Propagation is highly scalable and does not require predefining the number of communities, making it well-suited for large networks with an unknown structure.
 
 \subsubsection{Multi-level Algorithm}
-The Multi-level algorithm is based on a hierarchical approach, where the graph is coarsened into a smaller graph by iteratively merging nodes that are highly connected. The algorithm detects communities at multiple levels by optimizing modularity at each level. After the graph is coarsened, the community detection process is applied to the smaller graph, and the solution is refined by uncoarsing the graph back to its original size.
 
-The Multi-level algorithm follows these general steps:
+The Multi-level algorithm follows a hierarchical approach for community detection. The process involves three main steps:
 
-1. Coarsing: Repeatedly reduce the graph by merging highly connected nodes, creating a smaller graph at each level.
+\begin{enumerate}
+    \item \textbf{Coarsing:} The graph is iteratively reduced by merging nodes that are strongly connected, creating a smaller, coarser graph.
+    \item \textbf{Community Detection:} Community detection is applied to the coarser graph, typically using modularity maximization.
+    \item \textbf{Uncoarsing:} The community structure is refined by gradually returning to the original graph and adjusting the community assignments accordingly.
+\end{enumerate}
 
-2. Community Detection: Perform community detection on the coarsed graph (typically using modularity maximization).
+This method is particularly useful for large-scale networks and allows for community detection across multiple levels of granularity.
 
-3. Uncoarsing: Refine the community structure by uncoarsing the graph and applying the community structure from the coarser level to the finer levels.
+\subsection{Community Proportions and Modularity}
 
-This method can efficiently handle large-scale networks and is suitable for discovering communities at different scales.
-
-\subsubsection{Reasons for Choosing These Algorithms}
-These three algorithms represent different approaches to community detection:
-\begin{itemize}
-    \item Louvain emphasizes modularity optimization and is efficient for large networks.
-    \item Label Propagation uses local information propagation and is highly scalable and efficient.
-    \item Multi-level works at multiple scales, ensuring that communities are detected at both coarse and fine levels.
-\end{itemize}
-
-Each algorithm brings unique strengths, making them well-suited for the diverse and complex academic networks that we are analyzing.
-
-
-\subsection{Community Proportions}
-The community proportions represent the distribution of nodes across different communities. By calculating the size of each community (i.e., the number of nodes within it) and dividing by the total number of nodes, we can get the proportion of each community in the overall network.
-
-Let \( N_c \) be the number of nodes in community \( c \), and \( N_{\text{total}} \) be the total number of nodes in the network. The proportion of community \( c \) is given by:
-
+The proportion of nodes in community \( c \) relative to the total network is given by:
 \[
-\text{Proportion of community } c = \frac{N_c}{N_{\text{total}}}
+\text{Proportion of community } c = \frac{N_c}{N_{\text{total}}},
 \]
+where \( N_c \) is the number of nodes in community \( c \), and \( N_{\text{total}} \) is the total number of nodes in the network. This metric helps to assess the relative significance of different communities in the overall network.
 
-This helps to understand the size and importance of each community within the entire network. Larger communities may represent more significant areas of academic collaboration, while smaller ones could represent more specialized or niche research areas.
+Modularity \( Q \) serves as a key measure for evaluating the strength of community structure, with values greater than 0.7 indicating a significant division of the network into distinct communities. Table~\ref{tab:modularity_values} presents the modularity values for the three algorithms employed in the paper network analysis.
 
-\subsection{Modularity}
-
-Modularity is a key measure used to evaluate the quality of community detection. It quantifies the strength of division of a network into communities by comparing the number of edges within communities to the number of edges expected by random chance.
-
-The modularity \( Q \) is calculated using the formula mentioned earlier. A modularity value greater than 0 indicates that the community division is better than a random distribution of edges, with higher values indicating stronger community structures.
-
-The following presents the modularity values obtained from community detection in the paper network using the Louvain, Label Propagation, and Multi-level algorithms in this study. 
-
-
-\begin{table}
+\begin{table}[h!]
     \centering
     \begin{tabular}{|c|c|}
     \hline
-    \textbf{Algorithm} & \textbf{Modularity} \\
-    \hline
-    Louvain  & 0.9939834022020653 \\
-    Label Propagation  & 0.9909479458016406 \\
-    Multi-level   &  0.9938523610510882 \\
-    \hline
+    \textbf{Algorithm} & \textbf{Modularity} \\ \hline
+    Louvain            & 0.9939             \\ \hline
+    Label Propagation  & 0.9909             \\ \hline
+    Multi-level        & 0.9938             \\ \hline
     \end{tabular}
-    \caption{Modularity values for community detection in the paper network using different algorithms}
-    \label{tab:my_label}
+    \caption{Modularity values for community detection in the paper network.}
+    \label{tab:modularity_values}
 \end{table}
 
-The results indicate that the modularity for all three algorithms exceeds 99\%, suggesting that the community partitions identified by these methods exhibit strong internal cohesion and weak external connections. This high modularity score reflects the algorithms' effectiveness in detecting well-structured communities with clear, well-defined boundaries, underscoring their suitability for analyzing academic collaboration networks. 
-
-
 \subsection{Community Detection Results}
-The results of community detection in paper network are as follows: using the Louvain algorithm, a total of 29,898 communities were detected; the Label Propagation algorithm identified 30,549 communities; and the Multi-level algorithm found 29,589 communities. The following figures illustrate the community partitioning of the paper network using the Louvain algorithm.
 
-\begin{figure}
+The results of community detection in the paper network revealed that the Louvain algorithm identified 29,898 communities, Label Propagation detected 30,549 communities, and Multi-level found 29,589 communities. Figure~\ref{fig:community_partitioning} illustrates the community partitioning of the paper network using the Louvain algorithm.
+
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=1\linewidth]{img/community.jpg}
-    \caption{Community partitioning of the paper network using the Louvain algorithm}
-    \label{fig:community}
+    \includegraphics[width=\linewidth]{img/community.jpg}
+    \caption{Community partitioning of the paper network using the Louvain algorithm.}
+    \label{fig:community_partitioning}
 \end{figure}
-
-In these visualizations, nodes represent individual papers, and edges represent relationships such as citations or co-authorships. Different colors indicate distinct communities within the network. These visualizations offer a clear representation of how papers are grouped into cohesive subgroups, reflecting collaborative research themes or areas of study.
-
-
 
 \section{Centrality Measurement}
 
-After detecting communities within the academic network, it is essential to assess the importance and influence of individual nodes within each community. In this analysis, centrality measures such as Degree Centrality and PageRank Centrality were calculated to identify influential nodes, revealing key hubs and authoritative figures within the network. Additionally, structural characteristics of the network, including community diameters and average citations per author, were analyzed to understand the overall network topology and functional properties. The following sections describe the methodology and results of these calculations:
+Centrality measures are critical for identifying influential nodes within a network. In academic networks, these measures help pinpoint key authors, influential papers, and collaborative hubs. In this study, we employ Degree Centrality and PageRank Centrality as two complementary metrics that capture local and global node influence, respectively.
 
-\subsection{Centrality Calculation}
+\subsection{Centrality Measures}
 
 \subsubsection{Degree Centrality}
 
-This measure counts the number of direct connections (edges) a node has, reflecting its immediate popularity or connectivity within the network. A higher degree centrality indicates a node that is well-connected, potentially influencing many other nodes within the community. Degree centrality is particularly useful for identifying the most central or influential nodes based on direct relationships.
-
- The degree centrality \( C_d(i) \) for a node \( i \) is calculated as:
-  
-  \[
-  C_d(i) = \text{deg}(i)
-  \]
-  Where \( \text{deg}(i) \) is the number of edges connected to node \( i \).
+Degree centrality counts the number of direct connections (edges) a node has, serving as an indicator of a node's connectivity within the network. In academic networks, a higher degree centrality often correlates with more collaborative activity or greater visibility. It is calculated as:
+\[
+C_d(i) = \text{deg}(i),
+\]
+where \( \text{deg}(i) \) is the degree of node \( i \). Nodes with high degree centrality are typically influential because they are well-connected to many other nodes.
 
 \subsubsection{PageRank Centrality}
 
-PageRank, developed by Google to rank web pages, measures the influence of a node by considering both the number and quality (weight) of its incoming edges. In the context of academic networks, PageRank helps identify authoritative nodes, where a high PageRank centrality indicates that a node is not only well-connected but also highly regarded by other influential nodes.
+PageRank centrality assesses node influence by considering both the quantity and quality of its incoming edges. It accounts for the fact that links from highly connected or authoritative nodes are more significant than those from less connected ones. PageRank is calculated iteratively as follows:
+\[
+PR(i) = \frac{1 - d}{N} + d \sum_{j \in \mathcal{N}(i)} \frac{PR(j)}{|\mathcal{N}(j)|},
+\]
+where \( d \) is the damping factor (set to 0.85 by default), \( N \) is the total number of nodes, \( \mathcal{N}(i) \) is the set of neighbors of node \( i \), and \( |\mathcal{N}(j)| \) is the number of outgoing edges from node \( j \).
 
-PageRank centrality \( PR(i) \) for node \( i \) is computed iteratively based on the network structure:
-  
-  \[
-  PR(i) = \frac{1 - d}{N} + d \sum_{j \in \mathcal{N}(i)} \frac{PR(j)}{|\mathcal{N}(j)|}
-  \]
-  Where: 
-  \( d \) is the damping factor (usually set to 0.85),
-  \( N \) is the total number of nodes in the network,
-  \( \mathcal{N}(i) \) is the set of neighbors of node \( i \),
-  \( |\mathcal{N}(j)| \) is the number of outgoing edges from node \( j \).
-
-\subsubsection{Why Degree Centrality and PageRank Centrality?}
-
-The selection of Degree Centrality and PageRank Centrality as centrality measures is based on their ability to capture different yet complementary aspects of node influence and importance within a network.
-
-\begin{itemize}
-    \item Degree Centrality measures the number of direct connections a node has. In academic networks, it identifies the most connected authors or papers, making it useful for spotting collaboration hubs and active contributors.
-    \item PageRank Centrality considers both the number and quality of connections, giving more importance to nodes linked to influential ones. This helps identify authoritative figures and key players in the network.
-    \item 
-\end{itemize}
-
-Together, these measures provide a well-rounded view of node influence, capturing both direct connectivity (Degree) and overall importance (PageRank).
-
+PageRank centrality is particularly useful for identifying authoritative nodes, where a higher score indicates not just popularity but also the quality of influence, reflecting the academic importance of the paper or author.
 
 \subsection{Community Diameters}
 
-The diameter of a community refers to the longest shortest path between any two nodes within that community. A smaller diameter indicates that nodes within the community are relatively close to one another, suggesting a more cohesive community. In contrast, a larger diameter may indicate the presence of disconnected subgroups or more sparse relationships between community members.
+The diameter of a community, defined as the longest shortest path between any two nodes within the community, serves as an indicator of cohesion. A smaller diameter implies that nodes are more closely connected, suggesting a tighter-knit community. Conversely, a larger diameter may suggest the presence of subgroups or weak connections within the community, potentially highlighting fragmented or less cohesive research areas.
+
+These centrality measures and structural analyses provide essential insights into the organization of academic networks, enabling the identification of key players and community structures that are critical for understanding collaborative patterns and research dynamics.
+
 
 \section{Link Prediction}
 Traditional link prediction methods for graph data mainly rely on structural features and similarity metrics of the graph. By calculating the similarity between nodes, utilizing path information, or applying statistical models, these methods predict potential links. They are simple and efficient, suitable for various types of graph data. Although they may face challenges in computational efficiency and accuracy when dealing with large and complex graphs, they lay the foundation for more advanced machine learning and deep learning-based approaches.
@@ -512,7 +450,6 @@ The experimental results on the Cora\_ML dataset demonstrate the effectiveness o
     \label{fig:enter-label}
 \end{figure}
 Overall, the GLACE model exhibits robust performance in link prediction on the Cora\_ML dataset, achieving high accuracy and precision. The incorporation of Gaussian embeddings allows the model to capture nuanced relationships between nodes, resulting in superior predictive capabilities compared to traditional methods.
-
 \section{Visualization System}
 
 This study introduces a comprehensive visualization system designed to represent a paper citation network, where nodes correspond to academic papers and edges represent citations. The system is organized into five main sections: community network, bibliometric data, degree distribution, node distribution, and additional metrics. An overview of the system is shown in Figure \ref{fig:visualize}.
@@ -546,7 +483,10 @@ The visualization system integrates these components into a cohesive interface t
 
 \section{Conclusion}
 
-\section*{Acknowledgements}
+This report presents a structured approach to analyzing academic collaboration networks using the DBLP-V9 dataset. By applying community detection, centrality analysis, and link prediction, we uncover key patterns in scholarly communication. The GLACE model shows promise in predicting future links, outperforming traditional methods. An interactive visualization system further aids in interpreting the results. This work offers valuable insights into academic networks, with potential applications in other domains for understanding complex systems.
+
+
+% \section*{Acknowledgements}
 
 
 % % Entries for the entire Anthology, followed by custom entries
