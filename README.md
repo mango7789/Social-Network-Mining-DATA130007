@@ -60,3 +60,9 @@
     ``` 
   - 按住 `Ctrl + Shift + P`，输入 live server，点击 Open with Live Server
   - 使用浏览器打开 http://127.0.0.1:5500/static/ 进入主页
+
+### 链接预测
+  - 训练GLACE model
+    ```bash
+      python ./LinkPrediction/train.py cora_ml glace --proximity first-order --embedding_dim 128 --batch_size 32 --K 5 --learning_rate 0.001 --num_batches 100000
+    ```
