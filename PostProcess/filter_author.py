@@ -22,7 +22,7 @@ def extract_top_authors_by_community(
         str: Path to the output JSON file.
     """
     # Load the data
-    community_df = pd.read_csv(community_file)
+    community_df = pd.read_csv(community_file, dtype={"id": str})
 
     # Get the top N communities with the most nodes
     top_communities = (
