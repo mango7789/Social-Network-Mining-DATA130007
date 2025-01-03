@@ -36,7 +36,7 @@
 ```txt
 ├─.github/workflows   # Github CI 工作流，在测试模式下运行代码，检查代码是否 format
 ├─.ipynb              # 对预处理后 author 与 paper 数据进行探索性分析的 notebook
-|  ├─author.ipynb
+│  ├─author.ipynb
 │  └─paper.ipynb
 ├─CentralityMeasure   # 中心性度量代码
 │  ├─centrality.py        # 计算度中心度和 PageRank 中心度
